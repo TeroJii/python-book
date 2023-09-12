@@ -1,0 +1,25 @@
+project:
+  type: book
+
+book:
+  title: "Python Book"
+  author: "Tero"
+  date: "09/12/2023"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - pandas.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    code-fold: true
+  pdf:
+    documentclass: scrreprt
+
+
+

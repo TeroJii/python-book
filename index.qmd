@@ -1,0 +1,11 @@
+---
+jupyter: python3
+---
+
+# Preface {.unnumbered}
+
+```{python}
+print('Hello World!')
+```
+
+This book is meant as a reference for myself as I'm learning to use python more efficiently. I do not yet know what it will contain, if anything. Let's find out where this journey leads.
