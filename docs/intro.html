@@ -211,6 +211,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#basic-data-types" id="toc-basic-data-types" class="nav-link active" data-scroll-target="#basic-data-types"><span class="header-section-number">1.1</span> Basic Data Types</a>
   <ul class="collapse">
   <li><a href="#working-with-numbers" id="toc-working-with-numbers" class="nav-link" data-scroll-target="#working-with-numbers"><span class="header-section-number">1.1.1</span> Working with numbers</a></li>
+  <li><a href="#strings" id="toc-strings" class="nav-link" data-scroll-target="#strings"><span class="header-section-number">1.1.2</span> Strings</a></li>
+  <li><a href="#booleans" id="toc-booleans" class="nav-link" data-scroll-target="#booleans"><span class="header-section-number">1.1.3</span> Booleans</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -237,7 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Python is an object-oriented, easy-to-use, high-level, general-purpose programming language. I’ve heard people say:</p>
+<p>Python is an object-oriented, easy-to-use, high-level, general-purpose programming language. There is a popular saying in the programming community along the lines of:</p>
 <blockquote class="blockquote">
 <p>Python is the second best language for everything.</p>
 </blockquote>
@@ -247,17 +249,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Numbers, strings and booleans are some of the most basic data types found in Python.</p>
 <section id="working-with-numbers" class="level3" data-number="1.1.1">
 <h3 data-number="1.1.1" class="anchored" data-anchor-id="working-with-numbers"><span class="header-section-number">1.1.1</span> Working with numbers</h3>
-<p>Numbers can be categorized to integers and floats, depending on the use of a decimal point. Both can be used for performing basic arithmetics as shown below:</p>
-<div id="15163caa" class="cell" data-execution_count="1">
+<p>Numbers can be categorized into integers and floats, depending on the use of a decimal point. Both can be used for performing basic arithmetics as shown below:</p>
+<div id="f265f282" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>2</code></pre>
 </div>
 </div>
-<div id="80ba4207" class="cell" data-execution_count="2">
+<div id="ff983e00" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.0</span> <span class="op">+</span> <span class="fl">2.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>3.5</code></pre>
+</div>
+</div>
+</section>
+<section id="strings" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="strings"><span class="header-section-number">1.1.2</span> Strings</h3>
+<p>Some basic operations on strings include concatenation and repetition:</p>
+<div id="60b1ea9a" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">"Hello"</span> <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="st">"World"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>'Hello World'</code></pre>
+</div>
+</div>
+</section>
+<section id="booleans" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="booleans"><span class="header-section-number">1.1.3</span> Booleans</h3>
+<p>Booleans are used to represent truth values, namely <code>True</code> and <code>False</code>. They can be used in conjunction with logical operators such as <code>and</code>, <code>or</code> and <code>not</code>:</p>
+<div id="8287986f" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="va">True</span> <span class="kw">and</span> <span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>False</code></pre>
 </div>
 </div>
 
