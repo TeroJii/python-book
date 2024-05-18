@@ -4,7 +4,7 @@ jupyter: python3
 
 # Introduction
 
-Python is an object-oriented, easy-to-use, high-level, general-purpose programming language. I've heard people say:
+Python is an object-oriented, easy-to-use, high-level, general-purpose programming language. There is a popular saying in the programming community along the lines of:
 
 > Python is the second best language for everything.
 
@@ -26,4 +26,22 @@ Numbers can be categorized into integers and floats, depending on the use of a d
 ```{python}	
 #| code-fold: false
 1.0 + 2.5
+```
+
+### Strings
+
+Some basic operations on strings include concatenation and repetition:
+
+```{python}
+#| code-fold: false
+"Hello" + " " + "World"
+```
+
+### Booleans
+
+Booleans are used to represent truth values, namely `True` and `False`. They can be used in conjunction with logical operators such as `and`, `or` and `not`:
+
+```{python}
+#| code-fold: false
+True and False
 ```
