@@ -88,6 +88,16 @@ string_disguised_as_number = '123'
 int(string_disguised_as_number)
 ```
 
+In case of floats, we can use the `float()` function:
+
+```{python}
+#| code-fold: false
+
+# converting a string to a float
+float('3.14')
+```
+
+
 ### Booleans
 
 Booleans are used to represent truth values, namely `True` and `False`. They can be used in conjunction with logical operators such as `and`, `or` and `not`:
