@@ -37,6 +37,15 @@ my_iq = 259
 print(my_iq)
 ```
 
+When we input large numbers, we can use underscores to make them more readable:
+
+```{python}
+#| code-fold: false
+
+number_of_people_reading_this_book = 1_000_000
+
+number_of_people_reading_this_book
+```
 
 
 ### Strings
