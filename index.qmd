@@ -9,3 +9,7 @@ print('Hello World!')
 ```
 
 This book is meant as a reference for myself as I'm learning to use python more efficiently. I do not yet know what it will contain, if anything. Let's find out where this journey leads.
+
+::: {.callout-note}
+Note if you are looking to **really** learn Python. Then I recommend reading a book like Wes McKinney's Python for data analysis @McKinneyBook.
+::: 
