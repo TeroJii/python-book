@@ -71,6 +71,10 @@ instance/
 # Sphinx documentation
 docs/_build/
 
+# pdf version
+docs/Python-Book.pdf
+cover.png
+
 # PyBuilder
 .pybuilder/
 target/
