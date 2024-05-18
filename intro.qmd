@@ -28,14 +28,49 @@ Numbers can be categorized into integers and floats, depending on the use of a d
 1.0 + 2.5
 ```
 
+This as such is not super useful. However, we can assing numbers (as well as other data types) into variables, which will help us store and manipulate data:
+
+```{python}
+#| code-fold: false
+my_iq = 259
+
+print(my_iq)
+```
+
+
+
 ### Strings
 
+Strings are used to represent text data. They can be enclosed in either single `'` or double `"` quotes.
 Some basic operations on strings include concatenation and repetition:
 
 ```{python}
 #| code-fold: false
 "Hello" + " " + "World"
 ```
+
+```{python}
+#| code-fold: false
+"Hello" * 3
+```
+
+Strings can also be indexed and sliced:
+
+```{python}
+#| code-fold: false
+my_string = "Hello World"
+
+# indexing
+print(my_string[0])
+```
+
+```{python}
+#| code-fold: false
+# slicing
+print(my_string[0:5])
+```
+
+
 
 ### Booleans
 
