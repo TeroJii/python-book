@@ -14,7 +14,7 @@
     "href": "intro.html",
     "title": "1  Introduction",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\nCode\n1 + 1\n\n\n2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "1.1 Basic Data Types\nNumbers, strings and booleans are some of the most basic data types found in Python.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
@@ -59,6 +59,16 @@
     "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.\n\n\nMcKinney, Wes. 2022. Python for Data Analysis. O’Reilly Media.\nhttps://wesmckinney.com/book/.",
     "crumbs": [
       "References"
+    ]
+  },
+  {
+    "objectID": "intro.html#basic-data-types",
+    "href": "intro.html#basic-data-types",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "1.1.1 Working with numbers\nNumbers can be categorized to integers and floats, depending on the use of a decimal point. Both can be used for performing basic arithmetics as shown below:\n\n1 + 1\n\n2\n\n\n\n1.0 + 2.5\n\n3.5",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   }
 ]
