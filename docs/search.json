@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Python Book",
     "section": "",
-    "text": "Preface\n\n\nCode\nprint('Hello World!')\n\n\nHello World!\n\n\nThis book is meant as a reference for myself as I’m learning to use python more efficiently. I do not yet know what it will contain, if anything. Let’s find out where this journey leads.\n\n\n\n\n\n\nNote\n\n\n\nNote if you are looking to really learn Python. Then I recommend reading a book like Wes McKinney’s Python for data analysis McKinney (2022).\n\n\n\n\n\n\nMcKinney, Wes. 2022. Python for Data Analysis. O’Reilly Media. https://wesmckinney.com/book/.",
+    "text": "Preface\n\n\nCode\nprint('Hello World!')\n\n\nHello World!\n\n\nI’m Tero and I work as a data scientist. I’ve been mainly programming with R for the past 7 years or so. However, I’ve started recently to use Python more as well. This book is meant as a reference for myself as I’m learning to use Python more efficiently. Hence, it will be a living document for the time being. Let’s find out where this journey leads.\n\n\n\n\n\n\nNote\n\n\n\nNote if you are looking to really learn Python. Then I recommend reading a book like Wes McKinney’s Python for data analysis McKinney (2022). That being said, I do hope that this book will become a useful reference to some core concepts in Python.\n\n\n\n\n\n\nMcKinney, Wes. 2022. Python for Data Analysis. O’Reilly Media. https://wesmckinney.com/book/.",
     "crumbs": [
       "Preface"
     ]
