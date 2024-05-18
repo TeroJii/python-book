@@ -12,7 +12,7 @@ which really is a testament on how versatile the language really is. Let's take 
 
 ## Basic Data Types
 
-Numbers, strings and booleans are some of the most basic data types found in Python.
+Numbers, strings and booleans are some of the most basic data types found in Python. Let's quickly go through some basic operations that can be performed on these data types.
 
 ### Working with numbers
 
@@ -70,7 +70,23 @@ print(my_string[0])
 print(my_string[0:5])
 ```
 
+Sometimes we might have to convert numbers to strings and vice versa. This can be done using the `str()` and `int()` functions:
 
+```{python}
+#| code-fold: false
+
+# converting a number to a string
+str(123)
+```
+
+```{python}	
+#| code-fold: false
+
+string_disguised_as_number = '123'
+
+# converting a string to a number
+int(string_disguised_as_number)
+```
 
 ### Booleans
 
