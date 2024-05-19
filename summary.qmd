@@ -4,8 +4,8 @@ jupyter: python3
 
 # Summary
 
-In summary, this book has no content whatsoever.
+In summary, this book is a work in progress.
 
 ```{python}
-1 + 1
+print("Thanks for reading!")
 ```
