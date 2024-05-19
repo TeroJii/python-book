@@ -171,6 +171,35 @@ In case of floats, we can use the `float()` function:
 float('3.14')
 ```
 
+If you need to create a string which spans multiple lines, you can use triple quotes to do so:
+```{python}	
+#| code-fold: false
+multiline_string ="""
+This is a string
+that spans multiple
+lines
+"""
+print(multiline_string)
+```
+
+The three quotation marks is basically just a shorthand for creating a string with newline characters in it, as we can see if we print the string:
+
+```{python}
+#| code-fold: false
+multiline_string
+```
+
+Sometimes it is useful to format strings in a certain way. This can be done using the `format()` method:
+
+```{python}
+#| code-fold: false
+
+name = "John"
+age = 25
+formatted_string = "My name is {} and I am {} years old".format(name, age)
+
+print(formatted_string)
+```	
 
 ### Booleans
 
