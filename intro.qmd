@@ -47,6 +47,59 @@ number_of_people_reading_this_book = 1_000_000
 number_of_people_reading_this_book
 ```
 
+Basic arithmetic operations can be performed on numbers using the following syntax:
+
+```{python}
+#| code-fold: false
+
+a = 10
+b = 3
+
+# addition
+a + b
+```
+
+```{python}
+#| code-fold: false
+
+# subtraction
+a - b
+```
+
+```{python}
+#| code-fold: false
+
+# multiplication
+a * b
+```
+
+```{python}
+#| code-fold: false
+
+# division
+a / b
+```
+
+```{python}
+#| code-fold: false
+
+# floor division
+a // b
+```
+
+```{python}
+#| code-fold: false
+
+# modulo
+a % b
+```
+
+```{python}
+#| code-fold: false
+
+# exponentiation
+a ** b
+```
 
 ### Strings
 
