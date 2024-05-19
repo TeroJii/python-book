@@ -265,3 +265,41 @@ nested_list[1][2]
 ```
 
 This can be tricky at times. Consider yourself warned.
+
+Adding new elements to a list can be done using the `append()` method:
+
+```{python}
+#| code-fold: false
+
+my_list.append('New element')
+
+print(my_list)
+```
+
+We can return the last element from a list using the `pop()` method:
+
+```{python}
+#| code-fold: false
+
+my_list.pop()
+```
+
+This will also remove it from the list as we can see by inspecting the list again:
+
+```{python}
+#| code-fold: false
+
+print(my_list)
+```
+
+If we want to remove a specific element from our list, we can do so by using the `remove()` method:
+
+```{python}
+#| code-fold: false
+
+my_list.remove('two')
+
+print(my_list)
+```
+
+### Tuples
