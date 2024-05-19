@@ -5,7 +5,7 @@ project:
 book:
   title: "Python Book"
   author: "Tero"
-  date: "09/12/2023"
+  date: today
   chapters:
     - index.qmd
     - intro.qmd
