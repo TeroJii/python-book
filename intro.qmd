@@ -101,6 +101,18 @@ a % b
 a ** b
 ```
 
+:::{.callout-caution}
+When working with floating point numbers, we might encounter some precision issues stemming from the way computers store numbers. For example, you would expect the following code to return `0.0`, but it doesn't due to the aforementioned limitations:
+
+```{python}
+#| code-fold: false
+1 - 0.7 - 0.3
+```
+
+This is usually not a problem, but it's good to keep in mind nevertheless.
+:::
+
+
 ### Strings
 
 Strings are used to represent text data. They can be enclosed in either single `'` or double `"` quotes.
