@@ -8,7 +8,7 @@ jupyter: python3
 print('Hello World!')
 ```
 
-I'm Tero and I work as a data scientist. I've been mainly programming with R for the past 7 years or so. However, I've started recently to use Python more as well. This book is meant as a reference for myself as I'm learning to use Python more efficiently. Hence, it will be a living document for the time being. Let's find out where this journey leads.
+I'm Tero and I work as a data scientist. I've been mainly programming with R for the past 7 years or so. However, I've started recently to use Python more as well. This book is meant as a reference for myself as I'm learning to use Python more efficiently. Hence, it will be a living document for the time being. The focus will be on using Python for analysing data. Let's find out where this journey leads.
 
 ::: {.callout-note}
 Note if you are looking to **really** learn Python. Then I recommend reading a book like Wes McKinney's Python for data analysis @McKinneyBook. That being said, I do hope that this book will become a useful reference to some core concepts in Python.
