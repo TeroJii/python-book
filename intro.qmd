@@ -182,7 +182,7 @@ lines
 print(multiline_string)
 ```
 
-The three quotation marks is basically just a shorthand for creating a string with newline characters in it, as we can see if we print the string:
+The three quotation marks are basically just a shorthand for creating a string with newline characters in it, as we can see if we print the string:
 
 ```{python}
 #| code-fold: false
@@ -209,3 +209,59 @@ Booleans are used to represent truth values, namely `True` and `False`. They can
 #| code-fold: false
 True and False
 ```
+
+Booleans are most commonly used in conditional statements, which we will cover in a later section.
+
+## Other data types
+
+Python has a number of built-in data structures that can be used to store collections of data. Some of the most commonly used ones are lists, tuples, sets and dictionaries.
+
+### Lists
+
+Lists are used to store collections of items. They are ordered, mutable and can contain items of different types. Lists are defined using square brackets `[]`:
+
+```{python}
+#| code-fold: false
+
+my_list = [1, 'two', True, False, 5]
+
+print(my_list)
+```
+
+You can access elements in a list using their index. Just remember that Python uses zero-based indexing:
+
+```{python}
+#| code-fold: false
+
+# get second element
+my_list[1]
+```
+
+You can also slice lists, i.e. get a subset of the list using the following syntax:
+
+```{python}
+#| code-fold: false
+
+# get first three elements
+my_list[:3]
+```
+
+A list can also contain nested lists:
+
+```{python}
+#| code-fold: false
+
+nested_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+print(nested_list)
+```
+
+Accessing the elements of a nested list is done by chaining the index operators:
+
+```{python}
+#| code-fold: false
+
+nested_list[1][2]
+```
+
+This can be tricky at times. Consider yourself warned.
