@@ -391,3 +391,5 @@ You can access the value of a key in a dictionary using the key itself:
 
 my_dict['name']
 ```
+
+That's it. We have covered the basics of Python data types. Phew! Pat yourself on the back for making it this far, and treat yourself to a cup of coffee or a slice of pizza. You deserve it! Next up, we will cover control flow statements in Python. Exciting... I know!
