@@ -8,7 +8,7 @@ Python is an object-oriented, easy-to-use, high-level, general-purpose programmi
 
 > Python is the second best language for everything.
 
-which really is a testament on how versatile the language really is. Let's take a look at some of the basics of the language before diving in deeper.
+which is a testament on how versatile the language really is. Let's take a look at some of the basics of the language before diving in deeper.
 
 ## Basic Data Types
 
@@ -28,7 +28,7 @@ Numbers can be categorized into integers and floats, depending on the use of a d
 1.0 + 2.5
 ```
 
-This as such is not super useful. However, we can assing numbers (as well as other data types) into variables, which will help us store and manipulate data:
+This as such is not super useful. However, we can assign numbers (as well as other data types) into variables, which will help us store and manipulate data:
 
 ```{python}
 #| code-fold: false
@@ -182,7 +182,7 @@ lines
 print(multiline_string)
 ```
 
-The three quotation marks are basically just a shorthand for creating a string with newline characters in it, as we can see if we print the string:
+The three quotation marks are basically just a shorthand for creating a string with newline characters in it, as we can see if we print out the string variable:
 
 ```{python}
 #| code-fold: false
