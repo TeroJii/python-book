@@ -201,6 +201,8 @@ formatted_string = "My name is {} and I am {} years old".format(name, age)
 print(formatted_string)
 ```	
 
+There are other intricacies related to working with strings, such as the `split()` and `join()` methods, which we will cover in a later section... maybe.
+
 ### Booleans
 
 Booleans are used to represent truth values, namely `True` and `False`. They can be used in conjunction with logical operators such as `and`, `or` and `not`:
