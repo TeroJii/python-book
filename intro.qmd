@@ -305,3 +305,72 @@ print(my_list)
 ```
 
 ### Tuples
+
+Tuples are kind of like lists, but they are immutable, which is a fancy way of saying that once they are created, their size and contents cannot be changed. Tuples are defined using parentheses `()`:
+
+```{python}
+#| code-fold: false
+
+# creating a tuple
+my_tuple = (1, 'two', True, False, 5)
+
+my_tuple
+```
+
+You can access elements in a tuple using their index, just like with lists:
+
+```{python}
+#| code-fold: false
+
+# get second element
+my_tuple[1]
+```
+
+Why would you then create a tuple instead of a list? Well, tuples are faster than lists, and I guess sometimes you want to make sure that the data you are working with doesn't change to name a few reasons.
+
+### Sets
+
+Sets are kind of like lists or tuples, but they are unordered and do not allow duplicate elements. Sets are defined using curly braces `{}`:
+
+```{python}
+#| code-fold: false
+my_set = {1, 2, 3}
+
+my_set
+```
+
+Sets are mutable, so you can add and remove elements from them. They are also useful for performing set operations such as union, intersection, difference and symmetric difference:
+
+```{python}
+#| code-fold: false
+
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+
+# union
+set1 | set2
+```
+
+```{python}
+#| code-fold: false
+
+# intersection
+set1 & set2
+```
+
+```{python}
+#| code-fold: false
+
+# difference
+
+set1 - set2
+```
+
+```{python}
+#| code-fold: false
+
+# symmetric difference
+set1 ^ set2
+```
+
+### Dictionaries
