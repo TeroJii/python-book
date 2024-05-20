@@ -339,6 +339,7 @@ my_set = {1, 2, 3}
 my_set
 ```
 
+There is also a `set()` function can be used to create a set, but we won't go into that here.
 Sets are mutable, so you can add and remove elements from them. They are also useful for performing set operations such as union, intersection, difference and symmetric difference:
 
 ```{python}
@@ -374,3 +375,19 @@ set1 ^ set2
 ```
 
 ### Dictionaries
+
+Last but not least we have dictionaries, which are used to store key-value pairs. Dictionaries are unordered, mutable and can contain items of different types. Dictionaries are defined using curly braces `{}`:
+
+```{python}
+#| code-fold: false
+
+my_dict = {'name': 'Tero', 'likes': 'Pizza', 'is_student': False, 'age': 25}
+```	
+
+You can access the value of a key in a dictionary using the key itself:
+
+```{python}
+#| code-fold: false
+
+my_dict['name']
+```
