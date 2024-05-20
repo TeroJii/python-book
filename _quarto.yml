@@ -3,12 +3,14 @@ project:
   output-dir: docs
 
 book:
-  title: "Python Book"
+  title: "Python Bytes: A Poor Man's Guide to Wrestling with Data"
   author: "Tero"
   date: today
   chapters:
     - index.qmd
+    - part: "The Very Basics"
     - intro.qmd
+    - control_flow.qmd
     - part: "Basic Data Manipulation"
       chapters:
         - pandas.qmd
