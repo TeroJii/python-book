@@ -31,7 +31,7 @@ if name == 'Tero':
     print('Hello Tero!')
 ```
 
-You should note that unlike some other programming languages, Python does not use curly braces to define code blocks. Instead, Python uses indentation to define code blocks. The code block should be indented with 4 spaces. Most (all?) modern code editors should handle this automatically, so you needn't worry about it too much.
+You should note that unlike some other programming languages, Python does not use curly braces to define code blocks. Instead, Python uses indentation. The code block should be indented with 4 spaces. Most (all?) modern code editors should handle this automatically, so you needn't worry about it too much.
 
 ### Extending the `if` statement with `elif` and `else`
 
@@ -63,5 +63,35 @@ else:
     print('Hello stranger!')
 ```
 
+That is the basic idea behind the if-else statement. You can have as many `elif` statements as you want, but only one (or none) `else` statement which is located at the end. Conditions can also be nested.
+
+```{python}
+#| code-fold: false
+
+name = 'Tero'
+age = 30
+
+if name == 'Tero':
+    if age < 18:
+        print('Hello young Tero!')
+    else:
+        print('Hello adult Tero!')
+else:
+    print('Hello stranger!')
+```
+
 ## The `for` loop
 
+The idea behind a loop structure is to repeat a block of code multiple times. The `for` loop is used when we know how many times we want to repeat the code block.
+
+```{python}
+#| code-fold: false
+
+seasons = ['Spring', 'Summer', 'Autumn', 'Winter']
+
+for season in seasons:
+    print('It is now {}'.format(season))
+
+```
+
+The `for` loop iterates over the elements of the `seasons` list. In each iteration, the variable `season` is assigned the value of the current element. The loop continues until all elements have been iterated over.
