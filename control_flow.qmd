@@ -31,3 +31,37 @@ if name == 'Tero':
     print('Hello Tero!')
 ```
 
+You should note that unlike some other programming languages, Python does not use curly braces to define code blocks. Instead, Python uses indentation to define code blocks. The code block should be indented with 4 spaces. Most (all?) modern code editors should handle this automatically, so you needn't worry about it too much.
+
+### Extending the `if` statement with `elif` and `else`
+
+What if we want to execute some code also if the condition is `False`? We can use the `else` statement for that.
+
+```{python}
+#| code-fold: false
+
+name = 'Antero'
+
+if name == 'Tero':
+    print('Hello Tero!')
+else:
+    print('Hello stranger!')
+```
+
+And in the case of multiple conditions, we can use the `elif` statement to check for additional conditions in case the previous conditions were `False`.
+
+```{python}
+#| code-fold: false
+
+name = 'Antero'
+
+if name == 'Tero':
+    print('Hello Tero!')
+elif name == 'Antero':
+    print("Oh, it's you again!")
+else:
+    print('Hello stranger!')
+```
+
+## The `for` loop
+
