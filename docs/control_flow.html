@@ -252,7 +252,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="the-if-statement" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="the-if-statement"><span class="header-section-number">2.1</span> The <code>if</code> statement</h2>
 <p>The <code>if</code> statement evaluates a condition and based on it’s value (<code>True</code> or <code>False</code>) it will execute or skip a block of code.</p>
-<div id="32bf59ab" class="cell" data-execution_count="1">
+<div id="99712e66" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">True</span>:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'This will be printed'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -263,7 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>We are not limited to using boolean values in the condition. We can use any expression that evaluates to a boolean value.</p>
-<div id="e2ac2b72" class="cell" data-execution_count="2">
+<div id="ba3979f1" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'Tero'</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> name <span class="op">==</span> <span class="st">'Tero'</span>:</span>
@@ -273,11 +273,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Hello Tero!</code></pre>
 </div>
 </div>
-<p>You should note that unlike some other programming languages, Python does not use curly braces to define code blocks. Instead, Python uses indentation to define code blocks. The code block should be indented with 4 spaces. Most (all?) modern code editors should handle this automatically, so you needn’t worry about it too much.</p>
+<p>You should note that unlike some other programming languages, Python does not use curly braces to define code blocks. Instead, Python uses indentation. The code block should be indented with 4 spaces. Most (all?) modern code editors should handle this automatically, so you needn’t worry about it too much.</p>
 <section id="extending-the-if-statement-with-elif-and-else" class="level3" data-number="2.1.1">
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="extending-the-if-statement-with-elif-and-else"><span class="header-section-number">2.1.1</span> Extending the <code>if</code> statement with <code>elif</code> and <code>else</code></h3>
 <p>What if we want to execute some code also if the condition is <code>False</code>? We can use the <code>else</code> statement for that.</p>
-<div id="ea6a7003" class="cell" data-execution_count="3">
+<div id="bdaaec9f" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'Antero'</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> name <span class="op">==</span> <span class="st">'Tero'</span>:</span>
@@ -289,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>And in the case of multiple conditions, we can use the <code>elif</code> statement to check for additional conditions in case the previous conditions were <code>False</code>.</p>
-<div id="5723da6c" class="cell" data-execution_count="4">
+<div id="f520e13a" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'Antero'</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> name <span class="op">==</span> <span class="st">'Tero'</span>:</span>
@@ -302,10 +302,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Oh, it's you again!</code></pre>
 </div>
 </div>
+<p>That is the basic idea behind the if-else statement. You can have as many <code>elif</code> statements as you want, but only one (or none) <code>else</code> statement which is located at the end. Conditions can also be nested.</p>
+<div id="5be3637a" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'Tero'</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> name <span class="op">==</span> <span class="st">'Tero'</span>:</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> age <span class="op">&lt;</span> <span class="dv">18</span>:</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'Hello young Tero!'</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'Hello adult Tero!'</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Hello stranger!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello adult Tero!</code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="the-for-loop" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="the-for-loop"><span class="header-section-number">2.2</span> The <code>for</code> loop</h2>
+<p>The idea behind a loop structure is to repeat a block of code multiple times. The <code>for</code> loop is used when we know how many times we want to repeat the code block.</p>
+<div id="9001351e" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>seasons <span class="op">=</span> [<span class="st">'Spring'</span>, <span class="st">'Summer'</span>, <span class="st">'Autumn'</span>, <span class="st">'Winter'</span>]</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> season <span class="kw">in</span> seasons:</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'It is now </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(season))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>It is now Spring
+It is now Summer
+It is now Autumn
+It is now Winter</code></pre>
+</div>
+</div>
+<p>The <code>for</code> loop iterates over the elements of the <code>seasons</code> list. In each iteration, the variable <code>season</code> is assigned the value of the current element. The loop continues until all elements have been iterated over.</p>
 
 
 </section>
