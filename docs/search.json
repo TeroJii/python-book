@@ -22,12 +22,12 @@
   {
     "objectID": "pandas.html",
     "href": "pandas.html",
-    "title": "3  Pandas",
+    "title": "4  Pandas",
     "section": "",
     "text": "Pandas in used for data frames in Python.\n\n\nCode\n# test code-folding\n1+1\n\n\n2",
     "crumbs": [
       "Basic Data Manipulation",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Pandas</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Pandas</span>"
     ]
   },
   {
@@ -119,6 +119,56 @@
     "text": "2.3 The while loop\nThe while loop is the for loop’s liberal cousin. It is less restrictive and repeats a block of code as long as a condition is True. Depending on the condition we might not know how many times the loop will be executed beforehand.\n\ncount = 0\n\nwhile count &lt; 5:\n    print('Count is {}'.format(count))\n    count += 1\n\nCount is 0\nCount is 1\nCount is 2\nCount is 3\nCount is 4\n\n\nThe example above could have been implemented with a for loop as well. As a rule of thumb a forloop can always be written as a while loop, but not the other way around. We’ll come back to more complicated while loops later, when we learn about random number generation and the break and continue statements.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Control Flow Statements</span>"
+    ]
+  },
+  {
+    "objectID": "functions.html",
+    "href": "functions.html",
+    "title": "3  Functions",
+    "section": "",
+    "text": "3.1 Built-in functions\nPython has a number of built-in functions that are always available. Here are a few examples (some of which we’ve already encountered):",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
+    ]
+  },
+  {
+    "objectID": "functions.html#built-in-functions",
+    "href": "functions.html#built-in-functions",
+    "title": "3  Functions",
+    "section": "",
+    "text": "print(): prints the given argument(s) to the console\ntype(): returns the type of the given argument\nlen(): returns the length of the given argument",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
+    ]
+  },
+  {
+    "objectID": "functions.html#user-defined-functions",
+    "href": "functions.html#user-defined-functions",
+    "title": "3  Functions",
+    "section": "3.2 User-defined functions",
+    "text": "3.2 User-defined functions\nCustom-made functions are a way to encapsulate code that you want to reuse. They are defined using the def keyword, followed by the function name, a list of parameters in parentheses, and a colon. The function body is then indented.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
+    ]
+  },
+  {
+    "objectID": "functions.html#lambda-expressions",
+    "href": "functions.html#lambda-expressions",
+    "title": "3  Functions",
+    "section": "3.3 Lambda expressions",
+    "text": "3.3 Lambda expressions",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
+    ]
+  },
+  {
+    "objectID": "functions.html#methods",
+    "href": "functions.html#methods",
+    "title": "3  Functions",
+    "section": "3.4 Methods",
+    "text": "3.4 Methods",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
     ]
   }
 ]
