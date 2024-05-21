@@ -218,7 +218,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-if-statement" id="toc-the-if-statement" class="nav-link active" data-scroll-target="#the-if-statement"><span class="header-section-number">2.1</span> The <code>if</code> statement</a></li>
+  <li><a href="#the-if-statement" id="toc-the-if-statement" class="nav-link active" data-scroll-target="#the-if-statement"><span class="header-section-number">2.1</span> The <code>if</code> statement</a>
+  <ul class="collapse">
+  <li><a href="#extending-the-if-statement-with-elif-and-else" id="toc-extending-the-if-statement-with-elif-and-else" class="nav-link" data-scroll-target="#extending-the-if-statement-with-elif-and-else"><span class="header-section-number">2.1.1</span> Extending the <code>if</code> statement with <code>elif</code> and <code>else</code></a></li>
+  </ul></li>
+  <li><a href="#the-for-loop" id="toc-the-for-loop" class="nav-link" data-scroll-target="#the-for-loop"><span class="header-section-number">2.2</span> The <code>for</code> loop</a></li>
   </ul>
 </nav>
     </div>
@@ -248,7 +252,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="the-if-statement" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="the-if-statement"><span class="header-section-number">2.1</span> The <code>if</code> statement</h2>
 <p>The <code>if</code> statement evaluates a condition and based on it’s value (<code>True</code> or <code>False</code>) it will execute or skip a block of code.</p>
-<div id="c4a81685" class="cell" data-execution_count="1">
+<div id="32bf59ab" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">True</span>:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'This will be printed'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -259,7 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>We are not limited to using boolean values in the condition. We can use any expression that evaluates to a boolean value.</p>
-<div id="2500d64d" class="cell" data-execution_count="2">
+<div id="e2ac2b72" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'Tero'</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> name <span class="op">==</span> <span class="st">'Tero'</span>:</span>
@@ -269,6 +273,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Hello Tero!</code></pre>
 </div>
 </div>
+<p>You should note that unlike some other programming languages, Python does not use curly braces to define code blocks. Instead, Python uses indentation to define code blocks. The code block should be indented with 4 spaces. Most (all?) modern code editors should handle this automatically, so you needn’t worry about it too much.</p>
+<section id="extending-the-if-statement-with-elif-and-else" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="extending-the-if-statement-with-elif-and-else"><span class="header-section-number">2.1.1</span> Extending the <code>if</code> statement with <code>elif</code> and <code>else</code></h3>
+<p>What if we want to execute some code also if the condition is <code>False</code>? We can use the <code>else</code> statement for that.</p>
+<div id="ea6a7003" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'Antero'</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> name <span class="op">==</span> <span class="st">'Tero'</span>:</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Hello Tero!'</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Hello stranger!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello stranger!</code></pre>
+</div>
+</div>
+<p>And in the case of multiple conditions, we can use the <code>elif</code> statement to check for additional conditions in case the previous conditions were <code>False</code>.</p>
+<div id="5723da6c" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'Antero'</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> name <span class="op">==</span> <span class="st">'Tero'</span>:</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Hello Tero!'</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> name <span class="op">==</span> <span class="st">'Antero'</span>:</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Oh, it's you again!"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Hello stranger!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Oh, it's you again!</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="the-for-loop" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="the-for-loop"><span class="header-section-number">2.2</span> The <code>for</code> loop</h2>
 
 
 </section>
