@@ -1,0 +1,23 @@
+---
+jupyter: python3
+---
+
+# Functions
+
+You might have noticed, but we have been using built-in functions in the previous chapters already. Python comes with a number of functions that are ready to be used. And in case you want to build your own, that is also possible. 
+
+## Built-in functions
+
+Python has a number of built-in functions that are always available. Here are a few examples (some of which we've already encountered):
+
+- `print()`: prints the given argument(s) to the console
+- `type()`: returns the type of the given argument
+- `len()`: returns the length of the given argument
+
+## User-defined functions
+
+Custom-made functions are a way to encapsulate code that you want to reuse. They are defined using the `def` keyword, followed by the function name, a list of parameters in parentheses, and a colon. The function body is then indented.
+
+## Lambda expressions
+
+## Methods

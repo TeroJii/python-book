@@ -11,6 +11,7 @@ book:
     - part: "The Very Basics"
     - intro.qmd
     - control_flow.qmd
+    - functions.qmd
     - part: "Basic Data Manipulation"
       chapters:
         - pandas.qmd
