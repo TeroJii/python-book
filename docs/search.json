@@ -106,7 +106,17 @@
     "href": "control_flow.html#the-for-loop",
     "title": "2  Control Flow Statements",
     "section": "2.2 The for loop",
-    "text": "2.2 The for loop\nThe idea behind a loop structure is to repeat a block of code multiple times. The for loop is used when we know how many times we want to repeat the code block.\n\nseasons = ['Spring', 'Summer', 'Autumn', 'Winter']\n\nfor season in seasons:\n    print('It is now {}'.format(season))\n\nIt is now Spring\nIt is now Summer\nIt is now Autumn\nIt is now Winter\n\n\nThe for loop iterates over the elements of the seasons list. In each iteration, the variable season is assigned the value of the current element. The loop continues until all elements have been iterated over.",
+    "text": "2.2 The for loop\nThe idea behind a loop structure is to repeat a block of code multiple times. The for loop is used when we know how many times we want to repeat the code block.\n\nseasons = ['Spring', 'Summer', 'Autumn', 'Winter']\n\nfor season in seasons:\n    print('It is now {}'.format(season))\n\nIt is now Spring\nIt is now Summer\nIt is now Autumn\nIt is now Winter\n\n\nThe for loop iterates over the elements of the seasons list. In each iteration, the variable season is assigned the value of the current element. The loop continues until all elements have been iterated over. This is useful for example when we need to repeat a calculation several times.\n\nsquared_numbers = []\n\nfor i in range(1, 6):\n    squared_numbers.append(i**2)\n\nprint(squared_numbers)\n\n[1, 4, 9, 16, 25]",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Control Flow Statements</span>"
+    ]
+  },
+  {
+    "objectID": "control_flow.html#the-while-loop",
+    "href": "control_flow.html#the-while-loop",
+    "title": "2  Control Flow Statements",
+    "section": "2.3 The while loop",
+    "text": "2.3 The while loop\nThe while loop is the for loop’s liberal cousin. It is less restrictive and repeats a block of code as long as a condition is True. Depending on the condition we might not know how many times the loop will be executed beforehand.\n\ncount = 0\n\nwhile count &lt; 5:\n    print('Count is {}'.format(count))\n    count += 1\n\nCount is 0\nCount is 1\nCount is 2\nCount is 3\nCount is 4\n\n\nThe example above could have been implemented with a for loop as well. As a rule of thumb a forloop can always be written as a while loop, but not the other way around. We’ll come back to more complicated while loops later, when we learn about random number generation and the break and continue statements.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Control Flow Statements</span>"
     ]
