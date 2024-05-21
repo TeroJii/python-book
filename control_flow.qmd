@@ -1,0 +1,33 @@
+---
+jupyter: python3
+---
+
+# Control Flow Statements
+
+What does the title of this chapter even mean? Well, it's a fancy way of saying that we can control which parts of our program code will get executed. We can make decisions based on variable values, we can repeat actions, and we can do all sorts of things that make our programs more interesting and useful. Let's start with the most basic control flow statement: the `if` statement.
+
+## The `if` statement
+
+The `if` statement evaluates a condition and based on it's value (`True` or `False`) it will execute or skip a block of code.
+
+```{python}
+#| code-fold: false
+
+if True:
+    print('This will be printed')
+
+if False:
+    print('This will not be printed')
+```
+We are not limited to using boolean values in the condition. We can use any expression that evaluates to a boolean value.
+
+```{python}
+#| code-fold: false
+
+name = 'Tero'
+
+if name == 'Tero':
+    # code block to be executed if the condition is True
+    print('Hello Tero!')
+```
+
