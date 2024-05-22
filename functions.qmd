@@ -54,7 +54,33 @@ That's the basics of using built-in functions. There are loads of other function
 
 ## User-defined functions
 
-Custom-made functions are a way to encapsulate code that you want to reuse. They are defined using the `def` keyword, followed by the function name, a list of parameters in parentheses, and a colon. The function body is then indented.
+Custom-made functions are a way to encapsulate code that you want to reuse. They are defined using the `def` keyword, followed by the function name, and a colon. 
+
+```{python}	
+#| code-fold: false
+
+# creating a custom function
+def my_function():
+    # enter the code you wish to run below
+    # note that the indentation is important here as well
+    print("Hello I'm a custom-made function!")
+
+# calling the function
+my_function()
+```
+
+Although the function above isn't particulrly useful, it is still a valid function. We can make our functions more useful by adding some parameters when defining them.
+
+```{python}
+#| code-fold: false
+
+# creating a custom function with parameters
+def my_function_with_args(name):
+    print(f"Hello {name}, I'm a custom-made function with arguments!")
+
+# we can now pass an argument to the function when calling it
+my_function_with_args("John")
+```
 
 ## Lambda expressions
 
