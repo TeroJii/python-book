@@ -48,7 +48,7 @@ else:
     print('Hello stranger!')
 ```
 
-And in the case of multiple conditions, we can use the `elif` statement to check for additional conditions in case the previous conditions were `False`.
+And in the case of multiple conditions, we can use the `elif` statement to check for additional conditions if the previous conditions were `False`.
 
 ```{python}
 #| code-fold: false
@@ -109,7 +109,7 @@ print(squared_numbers)
 
 ## The `while` loop
 
-The `while` loop is the `for` loop's liberal cousin. It is less restrictive and repeats a block of code as long as a condition is `True`. Depending on the condition we might not know how many times the loop will be executed beforehand.
+The `while` loop is the `for` loop's liberal cousin. It is less restrictive and repeats a block of code as long as a condition is `True`. Depending on the condition we might not know how many times the loop will be executed beforehand. The price for this freedom is that we might accidentally create an infinite loop if we're not careful. Let's look at a simple example.
 
 ```{python}
 #| code-fold: false
