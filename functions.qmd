@@ -4,7 +4,7 @@ jupyter: python3
 
 # Functions
 
-You might have noticed, but we have been using built-in functions in the previous chapters already. Python ships with a number of functions that are readily at your disposal. If you want or need to build your own, that is also possible. 
+You have probably noticed, but if not, we have been using built-in functions in the previous chapters already. Python ships with a number of useful functions that are readily at your disposal. If you want or need to build your own, that is also possible. 
 
 ## Built-in functions
 
@@ -14,7 +14,7 @@ Let's take a look at a few built-in functions and how they can be used. Here are
 - `type()`: returns the type of the given argument
 - `len()`: returns the length of the given argument
 
-Using basic functions is dead simple. Usually the function has some parameters which need values as input. Let's try the functions above to get a feel for how they work:
+Using basic functions is dead simple. Usually the function has some arguments which the user passes on to the function as input. Let's try the functions above to get a feel for how they work:
 
 ```{python}
 #| code-fold: false
