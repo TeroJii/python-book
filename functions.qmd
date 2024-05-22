@@ -4,15 +4,53 @@ jupyter: python3
 
 # Functions
 
-You might have noticed, but we have been using built-in functions in the previous chapters already. Python comes with a number of functions that are ready to be used. And in case you want to build your own, that is also possible. 
+You might have noticed, but we have been using built-in functions in the previous chapters already. Python ships with a number of functions that are readily at your disposal. If you want or need to build your own, that is also possible. 
 
 ## Built-in functions
 
-Python has a number of built-in functions that are always available. Here are a few examples (some of which we've already encountered):
+Let's take a look at a few built-in functions and how they can be used. Here are a few examples (some of which we've already encountered):
 
 - `print()`: prints the given argument(s) to the console
 - `type()`: returns the type of the given argument
 - `len()`: returns the length of the given argument
+
+Using basic functions is dead simple. Usually the function has some parameters which need values as input. Let's try the functions above to get a feel for how they work:
+
+```{python}
+#| code-fold: false
+
+my_list = ["Hello", "I'm", 1, "list", True]
+
+print(my_list)
+```
+
+So, we see that the `print()` function can be used to print out the contents of the input parameter into the console. Makes sense, right?
+
+If we inspect the type of the `my_list` variable, we can (rather unsurprisingly) see that it is a list:
+
+```{python}
+#| code-fold: false
+
+type(my_list)
+```
+
+We can also confirm that the third element of the list is an integer:
+
+```{python}
+#| code-fold: false
+
+type(my_list[2])
+```
+
+And finally, our list contains 5 elements in total, as we can see when we pass `my_list` to the `len()` function:
+
+```{python}
+#| code-fold: false
+
+len(my_list)
+```
+
+That's the basics of using built-in functions. There are loads of other functions, but we won't cover them here. They are best learned when needed. Next we'll see how to build our own functions.
 
 ## User-defined functions
 
