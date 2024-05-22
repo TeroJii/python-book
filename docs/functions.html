@@ -225,7 +225,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#built-in-functions" id="toc-built-in-functions" class="nav-link active" data-scroll-target="#built-in-functions"><span class="header-section-number">3.1</span> Built-in functions</a></li>
-  <li><a href="#user-defined-functions" id="toc-user-defined-functions" class="nav-link" data-scroll-target="#user-defined-functions"><span class="header-section-number">3.2</span> User-defined functions</a></li>
+  <li><a href="#user-defined-functions" id="toc-user-defined-functions" class="nav-link" data-scroll-target="#user-defined-functions"><span class="header-section-number">3.2</span> User-defined functions</a>
+  <ul class="collapse">
+  <li><a href="#documenting-your-function" id="toc-documenting-your-function" class="nav-link" data-scroll-target="#documenting-your-function"><span class="header-section-number">3.2.1</span> Documenting your function</a></li>
+  </ul></li>
   <li><a href="#lambda-expressions" id="toc-lambda-expressions" class="nav-link" data-scroll-target="#lambda-expressions"><span class="header-section-number">3.3</span> Lambda expressions</a></li>
   <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">3.4</span> Methods</a></li>
   </ul>
@@ -263,7 +266,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>len()</code>: returns the length of the given argument</li>
 </ul>
 <p>Using basic functions is dead simple. Usually the function has some arguments which the user passes on to the function as input. Let’s try the functions above to get a feel for how they work:</p>
-<div id="8f37dc61" class="cell" data-execution_count="1">
+<div id="ada8c4d2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="st">"Hello"</span>, <span class="st">"I'm"</span>, <span class="dv">1</span>, <span class="st">"list"</span>, <span class="va">True</span>]</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -273,23 +276,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>So, we see that the <code>print()</code> function can be used to print out the contents of the input parameter into the console. Makes sense, right?</p>
 <p>If we inspect the type of the <code>my_list</code> variable, we can (rather unsurprisingly) see that it is a list:</p>
-<div id="09e2fc24" class="cell" data-execution_count="2">
+<div id="c8aeb699" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(my_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>list</code></pre>
 </div>
 </div>
 <p>We can also confirm that the third element of the list is an integer:</p>
-<div id="920561c5" class="cell" data-execution_count="3">
+<div id="46bbd94d" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(my_list[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>int</code></pre>
 </div>
 </div>
 <p>And finally, our list contains 5 elements in total, as we can see when we pass <code>my_list</code> to the <code>len()</code> function:</p>
-<div id="58273c54" class="cell" data-execution_count="4">
+<div id="05386154" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(my_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>5</code></pre>
 </div>
 </div>
@@ -298,7 +301,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="user-defined-functions" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="user-defined-functions"><span class="header-section-number">3.2</span> User-defined functions</h2>
 <p>Custom-made functions are a way to encapsulate code that you want to reuse. They are defined using the <code>def</code> keyword, followed by the function name, and a colon.</p>
-<div id="15bd019a" class="cell" data-execution_count="5">
+<div id="53789562" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a custom function</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_function():</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># enter the code you wish to run below</span></span>
@@ -312,7 +315,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Although the function above isn’t particulrly useful, it is still a valid function. We can make our functions more useful by adding some parameters when defining them.</p>
-<div id="584fade2" class="cell" data-execution_count="6">
+<div id="d6d452bc" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a custom function with parameters</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_function_with_args(name):</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Hello </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">, I'm a custom-made function with arguments!"</span>)</span>
@@ -324,16 +327,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>We can also return values from functions. This is done using the <code>return</code> keyword.</p>
-<div id="a1b733a5" class="cell" data-execution_count="7">
+<div id="7c184b73" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> num_squared(num <span class="op">=</span> <span class="dv">2</span>):</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> num <span class="op">**</span> <span class="dv">2</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>num_squared()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    returned_value <span class="op">=</span> num <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> returned_value</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>num_squared()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>4</code></pre>
 </div>
 </div>
 <p>As we saw above, we can also set default values for the parameters of the function. The default value will be used if the user doesn’t pass any arguments to the function.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Variables defined inside a function are not accessible outside of it. This is called the scope of the variable.</p>
+</div>
+</div>
+<section id="documenting-your-function" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="documenting-your-function"><span class="header-section-number">3.2.1</span> Documenting your function</h3>
+<p>It is a good practice to document your functions. This is done by adding something called a docstring to the function. A docstring is a string that is placed at the beginning of the function and is enclosed in triple quotes.</p>
+<div id="dc35ea40" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_function_with_args(name):</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">    This function takes a name as an argument and prints a greeting.</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Hello </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">, I'm a custom-made function with arguments!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The docstring can be accessed by using the <code>__doc__</code> attribute of the function.</p>
+<div id="8ee7b3cc" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_function_with_args.__doc__)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    This function takes a name as an argument and prints a greeting.
+    </code></pre>
+</div>
+</div>
+</section>
 </section>
 <section id="lambda-expressions" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="lambda-expressions"><span class="header-section-number">3.3</span> Lambda expressions</h2>
