@@ -97,12 +97,13 @@ num_squared()
 As we saw above, we can also set default values for the parameters of the function. The default value will be used if the user doesn't pass any arguments to the function.
 
 :::{.callout-note}
-Variables defined inside a function are not accessible outside of it. This is called the scope of the variable.
+Variables defined inside a function are not accessible outside of it. For example, we can't directly call the `returned_value` variable outside of the `num_squared` function.
+This is called the scope of the variable.
 :::
 
 ### Documenting your function
 
-It is a good practice to document your functions. This is done by adding something called a docstring to the function. A docstring is a string that is placed at the beginning of the function and is enclosed in triple quotes.
+It is a good practice to document your functions. This is done by adding something called a docstring to the function. A docstring is a string that is placed at the beginning of the function and is enclosed in triple quotes. You can include text that describes what the function does and how it is used, i.e., what arguments it takes, and what it returns. This is especially useful with more complex functions.
 
 ```{python}
 #| code-fold: false
