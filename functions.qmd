@@ -198,3 +198,11 @@ methods_for_my_string = dir(my_string)
 # printing the last 5 methods
 methods_for_my_string[-5:]
 ```
+
+In most cases, you can also use the `help()` function to get more information about a method. This will return a description of the method, as well as the arguments it takes.
+
+```{python}
+#| code-fold: false
+
+help(my_string.upper)
+```
