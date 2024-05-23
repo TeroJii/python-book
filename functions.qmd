@@ -145,6 +145,14 @@ However, we can also accomplish the same by using a lambda expression:
 lambda a, b: a + b
 ```
 
+We can use the following syntax to pass arguments to the lambda expression for evaluation:
+
+```{python}
+#| code-fold: false
+
+(lambda a, b: a + b)(2, 3)
+```
+
 Now, why would we want to do this you might ask?
 
 Let's say we want to raise a bunch of numbers to the second power. We could do this by first defining a function and the passing it on to the `map()` function, which applies the function to each element of a list.
@@ -166,6 +174,16 @@ This works, and is perfectly fine. However, the `squared()` function is quite si
 list(map(lambda x: x ** 2, [1, 2, 3, 4, 5]))
 ```	
 
-We get the same result, but with less code. Lambda expressions are especially useful when you need to pass a simple function as an argument to another function. Will work with them more once we familiarize ourselves with Pandas DataFrames.
+We get the same result, but with less code. Lambda expressions are especially useful when you need to pass a simple function as an argument to another function. We will work more with them once we familiarize ourselves with Pandas DataFrames.
 
 ## Methods
+
+What are methods and how do they differ from functions? In Python, methods are functions that are associated with an object. They are called using the dot notation, i.e., `object.method()`. A common methods associated with strings is the `upper()` method, which converts all characters in a string to uppercase. Let's take a look shall we?
+
+```{python}
+#| code-fold: false
+
+my_string = "hello, I'm a string"
+
+my_string.upper()
+```
