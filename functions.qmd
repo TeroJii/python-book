@@ -199,10 +199,34 @@ methods_for_my_string = dir(my_string)
 methods_for_my_string[-5:]
 ```
 
-In most cases, you can also use the `help()` function to get more information about a method. This will return a description of the method, as well as the arguments it takes.
+You can also use the `help()` function to get more information about a method. This will return a description of the method, as well as the arguments it takes.
 
 ```{python}
 #| code-fold: false
 
 help(my_string.upper)
 ```
+
+What makes methods so powerful is that they can be chained together. This means that you can call multiple methods on the same object in a single line of code. Let's see an example of this:
+
+```{python}
+#| code-fold: false
+
+my_string.upper().split()
+```
+
+## Using `help()` for functions and classes
+
+Help is a great way to get more information about a method, especially when you are not sure how to use it. It also works for functions and classes.
+
+```{python}
+#| code-fold: false
+help(help)
+```
+
+```{python}
+#| code-fold: false
+help(list)
+```
+
+That's it for functions and methods. We will use them extensively in the upcoming chapters, so make sure you understand how they work.
