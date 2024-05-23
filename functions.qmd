@@ -187,3 +187,14 @@ my_string = "hello, I'm a string"
 
 my_string.upper()
 ```
+
+You can browse methods associated with an object by using the `dir()` function. This will return a list of all the methods associated with the object.
+
+```{python}
+#| code-fold: false
+# storing the methods associated with the my_string object in a variable
+methods_for_my_string = dir(my_string)
+
+# printing the last 5 methods
+methods_for_my_string[-5:]
+```
