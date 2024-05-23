@@ -145,6 +145,27 @@ However, we can also accomplish the same by using a lambda expression:
 lambda a, b: a + b
 ```
 
+Now, why would we want to do this you might ask?
 
+Let's say we want to raise a bunch of numbers to the second power. We could do this by first defining a function and the passing it on to the `map()` function, which applies the function to each element of a list.
+
+```{python}
+#| code-fold: false
+
+def squared(x):
+    return x ** 2
+
+list(map(squared, [1, 2, 3, 4, 5]))
+```
+
+This works, and is perfectly fine. However, the `squared()` function is quite simple, so it seems a bit useless to write a separate function for this. Here is where the lambda expression comes in handy. It allows us to accomplish the same thing in a more concise way:
+
+```{python}
+#| code-fold: false
+# same with a lambda expression
+list(map(lambda x: x ** 2, [1, 2, 3, 4, 5]))
+```	
+
+We get the same result, but with less code. Lambda expressions are especially useful when you need to pass a simple function as an argument to another function. Will work with them more once we familiarize ourselves with Pandas DataFrames.
 
 ## Methods
