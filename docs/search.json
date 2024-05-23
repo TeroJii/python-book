@@ -104,7 +104,7 @@
     "href": "functions.html#lambda-expressions",
     "title": "3  Functions",
     "section": "3.3 Lambda expressions",
-    "text": "3.3 Lambda expressions",
+    "text": "3.3 Lambda expressions\nLamdas are a way to create small, anonymous functions. They are defined using the lambda keyword, followed by the arguments, a colon, and the expression to evaluate.\nLet’s say we have a simple function, which can be described in one line of code. We can naturally define a proper function like this:\n\ndef add(a, b):\n    return a + b\n\nHowever, we can also accomplish the same by using a lambda expression:\n\nlambda a, b: a + b\n\n&lt;function __main__.&lt;lambda&gt;(a, b)&gt;",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
     ]

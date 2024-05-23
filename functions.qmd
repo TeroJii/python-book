@@ -126,4 +126,25 @@ print(my_function_with_args.__doc__)
 
 ## Lambda expressions
 
+Lamdas are a way to create small, anonymous functions. They are defined using the `lambda` keyword, followed by the arguments, a colon, and the expression to evaluate.
+
+Let's say we have a simple function, which can be described in one line of code. We can naturally define a proper function like this:
+
+```{python}
+#| code-fold: false
+
+def add(a, b):
+    return a + b
+```
+
+However, we can also accomplish the same by using a lambda expression:
+
+```{python}	
+#| code-fold: false
+
+lambda a, b: a + b
+```
+
+
+
 ## Methods
