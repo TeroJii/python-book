@@ -1,87 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Python Bytes: A Poor Man’s Guide to Wrestling with Data",
-    "section": "",
-    "text": "Preface\n\n\nCode\nprint('Hello World!')\n\n\nHello World!\n\n\nHi, I’m Tero and I work as a data scientist. I’ve been mainly programming with R for the past 7 years or so. However, I’ve started recently to use Python more as well. This book is meant as a reference for myself as I’m learning to use Python more efficiently. Hence, it will be a living document for the time being. The focus will be on using Python for analysing data. Let’s find out where this journey leads.\n\n\n\n\n\n\nNote\n\n\n\nNote if you are looking to really learn Python. Then I recommend reading a book like Wes McKinney’s Python for data analysis McKinney (2022). That being said, I do hope that this book will become a useful reference to some core concepts in Python.\n\n\n\n\n\n\nMcKinney, Wes. 2022. Python for Data Analysis. O’Reilly Media. https://wesmckinney.com/book/.",
-    "crumbs": [
-      "Preface"
-    ]
-  },
-  {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "1  Introduction",
-    "section": "",
-    "text": "1.1 Basic Data Types\nNumbers, strings and booleans are some of the most basic data types found in Python. Let’s quickly go through some basic operations that can be performed on these data types.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
-    ]
-  },
-  {
-    "objectID": "pandas.html",
-    "href": "pandas.html",
-    "title": "4  Pandas",
-    "section": "",
-    "text": "Pandas in used for data frames in Python.\n\n\nCode\n# test code-folding\n1+1\n\n\n2",
-    "crumbs": [
-      "Basic Data Manipulation",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Pandas</span>"
-    ]
-  },
-  {
-    "objectID": "linear_regression.html",
-    "href": "linear_regression.html",
-    "title": "3  Linear regression",
-    "section": "",
-    "text": "Code\nimport seaborn as sns\n\niris = sns.load_dataset('iris')\niris.head()\n\n\n\n\n\n\n\n\n\n\nsepal_length\nsepal_width\npetal_length\npetal_width\nspecies\n\n\n\n\n0\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n1\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n2\n4.7\n3.2\n1.3\n0.2\nsetosa\n\n\n3\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n4\n5.0\n3.6\n1.4\n0.2\nsetosa",
-    "crumbs": [
-      "Modelling",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Linear regression</span>"
-    ]
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "4  Summary",
-    "section": "",
-    "text": "In summary, this book is a work in progress.\n\n\nCode\nprint(\"Thanks for reading!\")\n\n\nThanks for reading!",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Summary</span>"
-    ]
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "McKinney, Wes. 2022. Python for Data Analysis. O’Reilly Media.\nhttps://wesmckinney.com/book/.",
-    "crumbs": [
-      "References"
-    ]
-  },
-  {
-    "objectID": "intro.html#basic-data-types",
-    "href": "intro.html#basic-data-types",
-    "title": "1  Introduction",
-    "section": "",
-    "text": "1.1.1 Working with numbers\nNumbers can be categorized into integers and floats, depending on the use of a decimal point. Both can be used for performing basic arithmetics as shown below:\n\n1 + 1\n\n2\n\n\n\n1.0 + 2.5\n\n3.5\n\n\nThis as such is not super useful. However, we can assign numbers (as well as other data types) into variables, which will help us store and manipulate data:\n\nmy_iq = 259\n\nprint(my_iq)\n\n259\n\n\nWhen we input large numbers, we can use underscores to make them more readable:\n\nnumber_of_people_reading_this_book = 1_000_000\n\nnumber_of_people_reading_this_book\n\n1000000\n\n\nBasic arithmetic operations can be performed on numbers using the following syntax:\n\na = 10\nb = 3\n\n# addition\na + b\n\n13\n\n\n\n# subtraction\na - b\n\n7\n\n\n\n# multiplication\na * b\n\n30\n\n\n\n# division\na / b\n\n3.3333333333333335\n\n\n\n# floor division\na // b\n\n3\n\n\n\n# modulo\na % b\n\n1\n\n\n\n# exponentiation\na ** b\n\n1000\n\n\n\n\n\n\n\n\nCaution\n\n\n\nWhen working with floating point numbers, we might encounter some precision issues stemming from the way computers store numbers. For example, you would expect the following code to return 0.0, but it doesn’t due to the aforementioned limitations:\n\n1 - 0.7 - 0.3\n\n5.551115123125783e-17\n\n\nThis is usually not a problem, but it’s good to keep in mind nevertheless.\n\n\n\n\n1.1.2 Strings\nStrings are used to represent text data. They can be enclosed in either single ' or double \" quotes. Some basic operations on strings include concatenation and repetition:\n\n\"Hello\" + \" \" + \"World\"\n\n'Hello World'\n\n\n\n\"Hello\" * 3\n\n'HelloHelloHello'\n\n\nStrings can also be indexed and sliced:\n\nmy_string = \"Hello World\"\n\n# indexing\nprint(my_string[0])\n\nH\n\n\n\n# slicing\nprint(my_string[0:5])\n\nHello\n\n\nSometimes we might have to convert numbers to strings and vice versa. This can be done using the str() and int() functions:\n\n# converting a number to a string\nstr(123)\n\n'123'\n\n\n\nstring_disguised_as_number = '123'\n\n# converting a string to a number\nint(string_disguised_as_number)\n\n123\n\n\nIn case of floats, we can use the float() function:\n\n# converting a string to a float\nfloat('3.14')\n\n3.14\n\n\nIf you need to create a string which spans multiple lines, you can use triple quotes to do so:\n\nmultiline_string =\"\"\"\nThis is a string\nthat spans multiple\nlines\n\"\"\"\nprint(multiline_string)\n\n\nThis is a string\nthat spans multiple\nlines\n\n\n\nThe three quotation marks are basically just a shorthand for creating a string with newline characters in it, as we can see if we print out the string variable:\n\nmultiline_string\n\n'\\nThis is a string\\nthat spans multiple\\nlines\\n'\n\n\nSometimes it is useful to format strings in a certain way. This can be done using the format() method:\n\nname = \"John\"\nage = 25\nformatted_string = \"My name is {} and I am {} years old\".format(name, age)\n\nprint(formatted_string)\n\nMy name is John and I am 25 years old\n\n\nThere are other intricacies related to working with strings, such as the split() and join() methods, which we will cover in a later section… maybe.\n\n\n1.1.3 Booleans\nBooleans are used to represent truth values, namely True and False. They can be used in conjunction with logical operators such as and, or and not:\n\nTrue and False\n\nFalse\n\n\nBooleans are most commonly used in conditional statements, which we will cover in a later section.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
-    ]
-  },
-  {
-    "objectID": "intro.html#other-data-types",
-    "href": "intro.html#other-data-types",
-    "title": "1  Introduction",
-    "section": "1.2 Other data types",
-    "text": "1.2 Other data types\nPython has a number of built-in data structures that can be used to store collections of data. Some of the most commonly used ones are lists, tuples, sets and dictionaries.\n\n1.2.1 Lists\nLists are used to store collections of items. They are ordered, mutable and can contain items of different types. Lists are defined using square brackets []:\n\nmy_list = [1, 'two', True, False, 5]\n\nprint(my_list)\n\n[1, 'two', True, False, 5]\n\n\nYou can access elements in a list using their index. Just remember that Python uses zero-based indexing:\n\n# get second element\nmy_list[1]\n\n'two'\n\n\nYou can also slice lists, i.e. get a subset of the list using the following syntax:\n\n# get first three elements\nmy_list[:3]\n\n[1, 'two', True]\n\n\nA list can also contain nested lists:\n\nnested_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n\nprint(nested_list)\n\n[[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n\n\nAccessing the elements of a nested list is done by chaining the index operators:\n\nnested_list[1][2]\n\n6\n\n\nThis can be tricky at times. Consider yourself warned.\nAdding new elements to a list can be done using the append() method:\n\nmy_list.append('New element')\n\nprint(my_list)\n\n[1, 'two', True, False, 5, 'New element']\n\n\nWe can return the last element from a list using the pop() method:\n\nmy_list.pop()\n\n'New element'\n\n\nThis will also remove it from the list as we can see by inspecting the list again:\n\nprint(my_list)\n\n[1, 'two', True, False, 5]\n\n\nIf we want to remove a specific element from our list, we can do so by using the remove() method:\n\nmy_list.remove('two')\n\nprint(my_list)\n\n[1, True, False, 5]\n\n\n\n\n1.2.2 Tuples\nTuples are kind of like lists, but they are immutable, which is a fancy way of saying that once they are created, their size and contents cannot be changed. Tuples are defined using parentheses ():\n\n# creating a tuple\nmy_tuple = (1, 'two', True, False, 5)\n\nmy_tuple\n\n(1, 'two', True, False, 5)\n\n\nYou can access elements in a tuple using their index, just like with lists:\n\n# get second element\nmy_tuple[1]\n\n'two'\n\n\nWhy would you then create a tuple instead of a list? Well, tuples are faster than lists, and I guess sometimes you want to make sure that the data you are working with doesn’t change to name a few reasons.\n\n\n1.2.3 Sets\nSets are kind of like lists or tuples, but they are unordered and do not allow duplicate elements. Sets are defined using curly braces {}:\n\nmy_set = {1, 2, 3}\n\nmy_set\n\n{1, 2, 3}\n\n\nThere is also a set() function can be used to create a set, but we won’t go into that here. Sets are mutable, so you can add and remove elements from them. They are also useful for performing set operations such as union, intersection, difference and symmetric difference:\n\nset1 = {1, 2, 3}\nset2 = {3, 4, 5}\n\n# union\nset1 | set2\n\n{1, 2, 3, 4, 5}\n\n\n\n# intersection\nset1 & set2\n\n{3}\n\n\n\n# difference\n\nset1 - set2\n\n{1, 2}\n\n\n\n# symmetric difference\nset1 ^ set2\n\n{1, 2, 4, 5}\n\n\n\n\n1.2.4 Dictionaries\nLast but not least we have dictionaries, which are used to store key-value pairs. Dictionaries are unordered, mutable and can contain items of different types. Dictionaries are defined using curly braces {}:\n\nmy_dict = {'name': 'Tero', 'likes': 'Pizza', 'is_student': False, 'age': 25}\n\nYou can access the value of a key in a dictionary using the key itself:\n\nmy_dict['name']\n\n'Tero'\n\n\nThat’s it. We have covered the basics of Python data types. Phew! Pat yourself on the back for making it this far, and treat yourself to a cup of coffee or a slice of pizza. You deserve it! Next up, we will cover control flow statements in Python. Exciting… I know!",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
-    ]
-  },
-  {
     "objectID": "control_flow.html",
     "href": "control_flow.html",
     "title": "2  Control Flow Statements",
@@ -122,6 +40,36 @@
     ]
   },
   {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "1.1 Basic Data Types\nNumbers, strings and booleans are some of the most basic data types found in Python. Let’s quickly go through some basic operations that can be performed on these data types.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#basic-data-types",
+    "href": "intro.html#basic-data-types",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "1.1.1 Working with numbers\nNumbers can be categorized into integers and floats, depending on the use of a decimal point. Both can be used for performing basic arithmetics as shown below:\n\n1 + 1\n\n2\n\n\n\n1.0 + 2.5\n\n3.5\n\n\nThis as such is not super useful. However, we can assign numbers (as well as other data types) into variables, which will help us store and manipulate data:\n\nmy_iq = 259\n\nprint(my_iq)\n\n259\n\n\nWhen we input large numbers, we can use underscores to make them more readable:\n\nnumber_of_people_reading_this_book = 1_000_000\n\nnumber_of_people_reading_this_book\n\n1000000\n\n\nBasic arithmetic operations can be performed on numbers using the following syntax:\n\na = 10\nb = 3\n\n# addition\na + b\n\n13\n\n\n\n# subtraction\na - b\n\n7\n\n\n\n# multiplication\na * b\n\n30\n\n\n\n# division\na / b\n\n3.3333333333333335\n\n\n\n# floor division\na // b\n\n3\n\n\n\n# modulo\na % b\n\n1\n\n\n\n# exponentiation\na ** b\n\n1000\n\n\n\n\n\n\n\n\nCaution\n\n\n\nWhen working with floating point numbers, we might encounter some precision issues stemming from the way computers store numbers. For example, you would expect the following code to return 0.0, but it doesn’t due to the aforementioned limitations:\n\n1 - 0.7 - 0.3\n\n5.551115123125783e-17\n\n\nThis is usually not a problem, but it’s good to keep in mind nevertheless.\n\n\n\n\n1.1.2 Strings\nStrings are used to represent text data. They can be enclosed in either single ' or double \" quotes. Some basic operations on strings include concatenation and repetition:\n\n\"Hello\" + \" \" + \"World\"\n\n'Hello World'\n\n\n\n\"Hello\" * 3\n\n'HelloHelloHello'\n\n\nStrings can also be indexed and sliced:\n\nmy_string = \"Hello World\"\n\n# indexing\nprint(my_string[0])\n\nH\n\n\n\n# slicing\nprint(my_string[0:5])\n\nHello\n\n\nSometimes we might have to convert numbers to strings and vice versa. This can be done using the str() and int() functions:\n\n# converting a number to a string\nstr(123)\n\n'123'\n\n\n\nstring_disguised_as_number = '123'\n\n# converting a string to a number\nint(string_disguised_as_number)\n\n123\n\n\nIn case of floats, we can use the float() function:\n\n# converting a string to a float\nfloat('3.14')\n\n3.14\n\n\nIf you need to create a string which spans multiple lines, you can use triple quotes to do so:\n\nmultiline_string =\"\"\"\nThis is a string\nthat spans multiple\nlines\n\"\"\"\nprint(multiline_string)\n\n\nThis is a string\nthat spans multiple\nlines\n\n\n\nThe three quotation marks are basically just a shorthand for creating a string with newline characters in it, as we can see if we print out the string variable:\n\nmultiline_string\n\n'\\nThis is a string\\nthat spans multiple\\nlines\\n'\n\n\nSometimes it is useful to format strings in a certain way. This can be done using the format() method:\n\nname = \"John\"\nage = 25\nformatted_string = \"My name is {} and I am {} years old\".format(name, age)\n\nprint(formatted_string)\n\nMy name is John and I am 25 years old\n\n\nThere are other intricacies related to working with strings, such as the split() and join() methods, which we will cover in a later section… maybe.\n\n\n1.1.3 Booleans\nBooleans are used to represent truth values, namely True and False. They can be used in conjunction with logical operators such as and, or and not:\n\nTrue and False\n\nFalse\n\n\nBooleans are most commonly used in conditional statements, which we will cover in a later section.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#other-data-types",
+    "href": "intro.html#other-data-types",
+    "title": "1  Introduction",
+    "section": "1.2 Other data types",
+    "text": "1.2 Other data types\nPython has a number of built-in data structures that can be used to store collections of data. Some of the most commonly used ones are lists, tuples, sets and dictionaries.\n\n1.2.1 Lists\nLists are used to store collections of items. They are ordered, mutable and can contain items of different types. Lists are defined using square brackets []:\n\nmy_list = [1, 'two', True, False, 5]\n\nprint(my_list)\n\n[1, 'two', True, False, 5]\n\n\nYou can access elements in a list using their index. Just remember that Python uses zero-based indexing:\n\n# get second element\nmy_list[1]\n\n'two'\n\n\nYou can also slice lists, i.e. get a subset of the list using the following syntax:\n\n# get first three elements\nmy_list[:3]\n\n[1, 'two', True]\n\n\nA list can also contain nested lists:\n\nnested_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n\nprint(nested_list)\n\n[[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n\n\nAccessing the elements of a nested list is done by chaining the index operators:\n\nnested_list[1][2]\n\n6\n\n\nThis can be tricky at times. Consider yourself warned.\nAdding new elements to a list can be done using the append() method:\n\nmy_list.append('New element')\n\nprint(my_list)\n\n[1, 'two', True, False, 5, 'New element']\n\n\nWe can return the last element from a list using the pop() method:\n\nmy_list.pop()\n\n'New element'\n\n\nThis will also remove it from the list as we can see by inspecting the list again:\n\nprint(my_list)\n\n[1, 'two', True, False, 5]\n\n\nIf we want to remove a specific element from our list, we can do so by using the remove() method:\n\nmy_list.remove('two')\n\nprint(my_list)\n\n[1, True, False, 5]\n\n\n\n\n1.2.2 Tuples\nTuples are kind of like lists, but they are immutable, which is a fancy way of saying that once they are created, their size and contents cannot be changed. Tuples are defined using parentheses ():\n\n# creating a tuple\nmy_tuple = (1, 'two', True, False, 5)\n\nmy_tuple\n\n(1, 'two', True, False, 5)\n\n\nYou can access elements in a tuple using their index, just like with lists:\n\n# get second element\nmy_tuple[1]\n\n'two'\n\n\nWhy would you then create a tuple instead of a list? Well, tuples are faster than lists, and I guess sometimes you want to make sure that the data you are working with doesn’t change to name a few reasons.\n\n\n1.2.3 Sets\nSets are kind of like lists or tuples, but they are unordered and do not allow duplicate elements. Sets are defined using curly braces {}:\n\nmy_set = {1, 2, 3}\n\nmy_set\n\n{1, 2, 3}\n\n\nThere is also a set() function can be used to create a set, but we won’t go into that here. Sets are mutable, so you can add and remove elements from them. They are also useful for performing set operations such as union, intersection, difference and symmetric difference:\n\nset1 = {1, 2, 3}\nset2 = {3, 4, 5}\n\n# union\nset1 | set2\n\n{1, 2, 3, 4, 5}\n\n\n\n# intersection\nset1 & set2\n\n{3}\n\n\n\n# difference\n\nset1 - set2\n\n{1, 2}\n\n\n\n# symmetric difference\nset1 ^ set2\n\n{1, 2, 4, 5}\n\n\n\n\n1.2.4 Dictionaries\nLast but not least we have dictionaries, which are used to store key-value pairs. Dictionaries are unordered, mutable and can contain items of different types. Dictionaries are defined using curly braces {}:\n\nmy_dict = {'name': 'Tero', 'likes': 'Pizza', 'is_student': False, 'age': 25}\n\nYou can access the value of a key in a dictionary using the key itself:\n\nmy_dict['name']\n\n'Tero'\n\n\nThat’s it. We have covered the basics of Python data types. Phew! Pat yourself on the back for making it this far, and treat yourself to a cup of coffee or a slice of pizza. You deserve it! Next up, we will cover control flow statements in Python. Exciting… I know!",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
     "objectID": "functions.html",
     "href": "functions.html",
     "title": "3  Functions",
@@ -146,7 +94,7 @@
     "href": "functions.html#user-defined-functions",
     "title": "3  Functions",
     "section": "3.2 User-defined functions",
-    "text": "3.2 User-defined functions\nCustom-made functions are a way to encapsulate code that you want to reuse. They are defined using the def keyword, followed by the function name, and a colon.\n\n# creating a custom function\ndef my_function():\n    # enter the code you wish to run below\n    # note that the indentation is important here as well\n    print(\"Hello I'm a custom-made function!\")\n\n# calling the function\nmy_function()\n\nHello I'm a custom-made function!\n\n\nAlthough the function above isn’t particulrly useful, it is still a valid function. We can make our functions more useful by adding some parameters when defining them.\n\n# creating a custom function with parameters\ndef my_function_with_args(name):\n    print(f\"Hello {name}, I'm a custom-made function with arguments!\")\n\n# we can now pass an argument to the function when calling it\nmy_function_with_args(\"John\")\n\nHello John, I'm a custom-made function with arguments!\n\n\nWe can also return values from functions. This is done using the return keyword.\n\ndef num_squared(num = 2):\n    returned_value = num ** 2\n    return returned_value\n\nnum_squared()\n\n4\n\n\nAs we saw above, we can also set default values for the parameters of the function. The default value will be used if the user doesn’t pass any arguments to the function.\n\n\n\n\n\n\nNote\n\n\n\nVariables defined inside a function are not accessible outside of it. This is called the scope of the variable.\n\n\n\n3.2.1 Documenting your function\nIt is a good practice to document your functions. This is done by adding something called a docstring to the function. A docstring is a string that is placed at the beginning of the function and is enclosed in triple quotes.\n\ndef my_function_with_args(name):\n    \"\"\"\n    This function takes a name as an argument and prints a greeting.\n    \"\"\"\n    print(f\"Hello {name}, I'm a custom-made function with arguments!\")\n\nThe docstring can be accessed by using the __doc__ attribute of the function.\n\nprint(my_function_with_args.__doc__)\n\n\n    This function takes a name as an argument and prints a greeting.",
+    "text": "3.2 User-defined functions\nCustom-made functions are a way to encapsulate code that you want to reuse. They are defined using the def keyword, followed by the function name, and a colon.\n\n# creating a custom function\ndef my_function():\n    # enter the code you wish to run below\n    # note that the indentation is important here as well\n    print(\"Hello I'm a custom-made function!\")\n\n# calling the function\nmy_function()\n\nHello I'm a custom-made function!\n\n\nAlthough the function above isn’t particulrly useful, it is still a valid function. We can make our functions more useful by adding some parameters when defining them.\n\n# creating a custom function with parameters\ndef my_function_with_args(name):\n    print(f\"Hello {name}, I'm a custom-made function with arguments!\")\n\n# we can now pass an argument to the function when calling it\nmy_function_with_args(\"John\")\n\nHello John, I'm a custom-made function with arguments!\n\n\nWe can also return values from functions. This is done using the return keyword.\n\ndef num_squared(num = 2):\n    returned_value = num ** 2\n    return returned_value\n\nnum_squared()\n\n4\n\n\nAs we saw above, we can also set default values for the parameters of the function. The default value will be used if the user doesn’t pass any arguments to the function.\n\n\n\n\n\n\nNote\n\n\n\nVariables defined inside a function are not accessible outside of it. For example, we can’t directly call the returned_value variable outside of the num_squared function. This is called the scope of the variable.\n\n\n\n3.2.1 Documenting your function\nIt is a good practice to document your functions. This is done by adding something called a docstring to the function. A docstring is a string that is placed at the beginning of the function and is enclosed in triple quotes. You can include text that describes what the function does and how it is used, i.e., what arguments it takes, and what it returns. This is especially useful with more complex functions.\n\ndef my_function_with_args(name):\n    \"\"\"\n    This function takes a name as an argument and prints a greeting.\n    \"\"\"\n    print(f\"Hello {name}, I'm a custom-made function with arguments!\")\n\nThe docstring can be accessed by using the __doc__ attribute of the function.\n\nprint(my_function_with_args.__doc__)\n\n\n    This function takes a name as an argument and prints a greeting.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
     ]
@@ -169,6 +117,38 @@
     "text": "3.4 Methods",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
+    ]
+  },
+  {
+    "objectID": "pandas.html",
+    "href": "pandas.html",
+    "title": "4  Pandas",
+    "section": "",
+    "text": "Pandas in used for data frames in Python.\n\n\nCode\n# test code-folding\n1+1\n\n\n2",
+    "crumbs": [
+      "Basic Data Manipulation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Pandas</span>"
+    ]
+  },
+  {
+    "objectID": "linear_regression.html",
+    "href": "linear_regression.html",
+    "title": "5  Linear regression",
+    "section": "",
+    "text": "Code\nimport seaborn as sns\n\niris = sns.load_dataset('iris')\niris.head()\n\n\n\n\n\n\n\n\n\n\nsepal_length\nsepal_width\npetal_length\npetal_width\nspecies\n\n\n\n\n0\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n1\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n2\n4.7\n3.2\n1.3\n0.2\nsetosa\n\n\n3\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n4\n5.0\n3.6\n1.4\n0.2\nsetosa",
+    "crumbs": [
+      "Modelling",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Linear regression</span>"
+    ]
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "6  Summary",
+    "section": "",
+    "text": "In summary, this book is a work in progress.\n\n\nCode\nprint(\"Thanks for reading!\")\n\n\nThanks for reading!",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Summary</span>"
     ]
   }
 ]
