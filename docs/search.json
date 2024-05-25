@@ -6,6 +6,7 @@
     "section": "",
     "text": "2.1 The if statement\nThe if statement evaluates a condition and based on it’s value (True or False) it will execute or skip a block of code.\nif True:\n    print('This will be printed')\n\nif False:\n    print('This will not be printed')\n\nThis will be printed\nWe are not limited to using boolean values in the condition. We can use any expression that evaluates to a boolean value.\nname = 'Tero'\n\nif name == 'Tero':\n    # code block to be executed if the condition is True\n    print('Hello Tero!')\n\nHello Tero!\nYou should note that unlike some other programming languages, Python does not use curly braces to define code blocks. Instead, Python uses indentation. The code block should be indented with 4 spaces. Most (all?) modern code editors should handle this automatically, so you needn’t worry about it too much.",
     "crumbs": [
+      "The Very Basics",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Control Flow Statements</span>"
     ]
   },
@@ -16,6 +17,7 @@
     "section": "",
     "text": "2.1.1 Extending the if statement with elif and else\nWhat if we want to execute some code also if the condition is False? We can use the else statement for that.\n\nname = 'Antero'\n\nif name == 'Tero':\n    print('Hello Tero!')\nelse:\n    print('Hello stranger!')\n\nHello stranger!\n\n\nAnd in the case of multiple conditions, we can use the elif statement to check for additional conditions if the previous conditions were False.\n\nname = 'Antero'\n\nif name == 'Tero':\n    print('Hello Tero!')\nelif name == 'Antero':\n    print(\"Oh, it's you again!\")\nelse:\n    print('Hello stranger!')\n\nOh, it's you again!\n\n\nThat is the basic idea behind the if-else statement. You can have as many elif statements as you want, but only one (or none) else statement which is located at the end. Conditions can also be nested.\n\nname = 'Tero'\nage = 30\n\nif name == 'Tero':\n    if age &lt; 18:\n        print('Hello young Tero!')\n    else:\n        print('Hello adult Tero!')\nelse:\n    print('Hello stranger!')\n\nHello adult Tero!",
     "crumbs": [
+      "The Very Basics",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Control Flow Statements</span>"
     ]
   },
@@ -26,6 +28,7 @@
     "section": "2.2 The for loop",
     "text": "2.2 The for loop\nThe idea behind a loop structure is to repeat a block of code multiple times. The for loop is used when we know how many times we want to repeat the code block.\n\nseasons = ['Spring', 'Summer', 'Autumn', 'Winter']\n\nfor season in seasons:\n    print('It is now {}'.format(season))\n\nIt is now Spring\nIt is now Summer\nIt is now Autumn\nIt is now Winter\n\n\nThe for loop iterates over the elements of the seasons list. In each iteration, the variable season is assigned the value of the current element. The loop continues until all elements have been iterated over. This is useful for example when we need to repeat a calculation several times.\n\nsquared_numbers = []\n\nfor i in range(1, 6):\n    squared_numbers.append(i**2)\n\nprint(squared_numbers)\n\n[1, 4, 9, 16, 25]",
     "crumbs": [
+      "The Very Basics",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Control Flow Statements</span>"
     ]
   },
@@ -36,6 +39,7 @@
     "section": "2.3 The while loop",
     "text": "2.3 The while loop\nThe while loop is the for loop’s liberal cousin. It is less restrictive and repeats a block of code as long as a condition is True. Depending on the condition we might not know how many times the loop will be executed beforehand. The price for this freedom is that we might accidentally create an infinite loop if we’re not careful. Let’s look at a simple example.\n\ncount = 0\n\nwhile count &lt; 5:\n    print('Count is {}'.format(count))\n    count += 1\n\nCount is 0\nCount is 1\nCount is 2\nCount is 3\nCount is 4\n\n\nThe example above could have been implemented with a for loop as well. As a rule of thumb a forloop can always be written as a while loop, but not the other way around. We’ll come back to more complicated while loops later, when we learn about random number generation and the break and continue statements.",
     "crumbs": [
+      "The Very Basics",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Control Flow Statements</span>"
     ]
   },
@@ -46,6 +50,7 @@
     "section": "",
     "text": "1.1 Basic Data Types\nNumbers, strings and booleans are some of the most basic data types found in Python. Let’s quickly go through some basic operations that can be performed on these data types.",
     "crumbs": [
+      "The Very Basics",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
@@ -56,6 +61,7 @@
     "section": "",
     "text": "1.1.1 Working with numbers\nNumbers can be categorized into integers and floats, depending on the use of a decimal point. Both can be used for performing basic arithmetics as shown below:\n\n1 + 1\n\n2\n\n\n\n1.0 + 2.5\n\n3.5\n\n\nThis as such is not super useful. However, we can assign numbers (as well as other data types) into variables, which will help us store and manipulate data:\n\nmy_iq = 259\n\nprint(my_iq)\n\n259\n\n\nWhen we input large numbers, we can use underscores to make them more readable:\n\nnumber_of_people_reading_this_book = 1_000_000\n\nnumber_of_people_reading_this_book\n\n1000000\n\n\nBasic arithmetic operations can be performed on numbers using the following syntax:\n\na = 10\nb = 3\n\n# addition\na + b\n\n13\n\n\n\n# subtraction\na - b\n\n7\n\n\n\n# multiplication\na * b\n\n30\n\n\n\n# division\na / b\n\n3.3333333333333335\n\n\n\n# floor division\na // b\n\n3\n\n\n\n# modulo\na % b\n\n1\n\n\n\n# exponentiation\na ** b\n\n1000\n\n\n\n\n\n\n\n\nCaution\n\n\n\nWhen working with floating point numbers, we might encounter some precision issues stemming from the way computers store numbers. For example, you would expect the following code to return 0.0, but it doesn’t due to the aforementioned limitations:\n\n1 - 0.7 - 0.3\n\n5.551115123125783e-17\n\n\nThis is usually not a problem, but it’s good to keep in mind nevertheless.\n\n\n\n\n1.1.2 Strings\nStrings are used to represent text data. They can be enclosed in either single ' or double \" quotes. Some basic operations on strings include concatenation and repetition:\n\n\"Hello\" + \" \" + \"World\"\n\n'Hello World'\n\n\n\n\"Hello\" * 3\n\n'HelloHelloHello'\n\n\nStrings can also be indexed and sliced:\n\nmy_string = \"Hello World\"\n\n# indexing\nprint(my_string[0])\n\nH\n\n\n\n# slicing\nprint(my_string[0:5])\n\nHello\n\n\nSometimes we might have to convert numbers to strings and vice versa. This can be done using the str() and int() functions:\n\n# converting a number to a string\nstr(123)\n\n'123'\n\n\n\nstring_disguised_as_number = '123'\n\n# converting a string to a number\nint(string_disguised_as_number)\n\n123\n\n\nIn case of floats, we can use the float() function:\n\n# converting a string to a float\nfloat('3.14')\n\n3.14\n\n\nIf you need to create a string which spans multiple lines, you can use triple quotes to do so:\n\nmultiline_string =\"\"\"\nThis is a string\nthat spans multiple\nlines\n\"\"\"\nprint(multiline_string)\n\n\nThis is a string\nthat spans multiple\nlines\n\n\n\nThe three quotation marks are basically just a shorthand for creating a string with newline characters in it, as we can see if we print out the string variable:\n\nmultiline_string\n\n'\\nThis is a string\\nthat spans multiple\\nlines\\n'\n\n\nSometimes it is useful to format strings in a certain way. This can be done using the format() method:\n\nname = \"John\"\nage = 25\nformatted_string = \"My name is {} and I am {} years old\".format(name, age)\n\nprint(formatted_string)\n\nMy name is John and I am 25 years old\n\n\nThere are other intricacies related to working with strings, such as the split() and join() methods, which we will cover in a later section… maybe.\n\n\n1.1.3 Booleans\nBooleans are used to represent truth values, namely True and False. They can be used in conjunction with logical operators such as and, or and not:\n\nTrue and False\n\nFalse\n\n\nBooleans are most commonly used in conditional statements, which we will cover in a later section.",
     "crumbs": [
+      "The Very Basics",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
@@ -66,6 +72,7 @@
     "section": "1.2 Other data types",
     "text": "1.2 Other data types\nPython has a number of built-in data structures that can be used to store collections of data. Some of the most commonly used ones are lists, tuples, sets and dictionaries.\n\n1.2.1 Lists\nLists are used to store collections of items. They are ordered, mutable and can contain items of different types. Lists are defined using square brackets []:\n\nmy_list = [1, 'two', True, False, 5]\n\nprint(my_list)\n\n[1, 'two', True, False, 5]\n\n\nYou can access elements in a list using their index. Just remember that Python uses zero-based indexing:\n\n# get second element\nmy_list[1]\n\n'two'\n\n\nYou can also slice lists, i.e. get a subset of the list using the following syntax:\n\n# get first three elements\nmy_list[:3]\n\n[1, 'two', True]\n\n\nA list can also contain nested lists:\n\nnested_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n\nprint(nested_list)\n\n[[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n\n\nAccessing the elements of a nested list is done by chaining the index operators:\n\nnested_list[1][2]\n\n6\n\n\nThis can be tricky at times. Consider yourself warned.\nAdding new elements to a list can be done using the append() method:\n\nmy_list.append('New element')\n\nprint(my_list)\n\n[1, 'two', True, False, 5, 'New element']\n\n\nWe can return the last element from a list using the pop() method:\n\nmy_list.pop()\n\n'New element'\n\n\nThis will also remove it from the list as we can see by inspecting the list again:\n\nprint(my_list)\n\n[1, 'two', True, False, 5]\n\n\nIf we want to remove a specific element from our list, we can do so by using the remove() method:\n\nmy_list.remove('two')\n\nprint(my_list)\n\n[1, True, False, 5]\n\n\n\n\n1.2.2 Tuples\nTuples are kind of like lists, but they are immutable, which is a fancy way of saying that once they are created, their size and contents cannot be changed. Tuples are defined using parentheses ():\n\n# creating a tuple\nmy_tuple = (1, 'two', True, False, 5)\n\nmy_tuple\n\n(1, 'two', True, False, 5)\n\n\nYou can access elements in a tuple using their index, just like with lists:\n\n# get second element\nmy_tuple[1]\n\n'two'\n\n\nWhy would you then create a tuple instead of a list? Well, tuples are faster than lists, and I guess sometimes you want to make sure that the data you are working with doesn’t change to name a few reasons.\n\n\n1.2.3 Sets\nSets are kind of like lists or tuples, but they are unordered and do not allow duplicate elements. Sets are defined using curly braces {}:\n\nmy_set = {1, 2, 3}\n\nmy_set\n\n{1, 2, 3}\n\n\nThere is also a set() function can be used to create a set, but we won’t go into that here. Sets are mutable, so you can add and remove elements from them. They are also useful for performing set operations such as union, intersection, difference and symmetric difference:\n\nset1 = {1, 2, 3}\nset2 = {3, 4, 5}\n\n# union\nset1 | set2\n\n{1, 2, 3, 4, 5}\n\n\n\n# intersection\nset1 & set2\n\n{3}\n\n\n\n# difference\n\nset1 - set2\n\n{1, 2}\n\n\n\n# symmetric difference\nset1 ^ set2\n\n{1, 2, 4, 5}\n\n\n\n\n1.2.4 Dictionaries\nLast but not least we have dictionaries, which are used to store key-value pairs. Dictionaries are unordered, mutable and can contain items of different types. Dictionaries are defined using curly braces {}:\n\nmy_dict = {'name': 'Tero', 'likes': 'Pizza', 'is_student': False, 'age': 25}\n\nYou can access the value of a key in a dictionary using the key itself:\n\nmy_dict['name']\n\n'Tero'\n\n\nThat’s it. We have covered the basics of Python data types. Phew! Pat yourself on the back for making it this far, and treat yourself to a cup of coffee or a slice of pizza. You deserve it! Next up, we will cover control flow statements in Python. Exciting… I know!",
     "crumbs": [
+      "The Very Basics",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
@@ -76,6 +83,7 @@
     "section": "",
     "text": "3.1 Built-in functions\nLet’s take a look at a few built-in functions and how they can be used. Here are a few examples (some of which we’ve already encountered):\nUsing basic functions is dead simple. Usually the function has some arguments which the user passes on to the function as input. Let’s try the functions above to get a feel for how they work:\nmy_list = [\"Hello\", \"I'm\", 1, \"list\", True]\n\nprint(my_list)\n\n['Hello', \"I'm\", 1, 'list', True]\nSo, we see that the print() function can be used to print out the contents of the input parameter into the console. Makes sense, right?\nIf we inspect the type of the my_list variable, we can (rather unsurprisingly) see that it is a list:\ntype(my_list)\n\nlist\nWe can also confirm that the third element of the list is an integer:\ntype(my_list[2])\n\nint\nAnd finally, our list contains 5 elements in total, as we can see when we pass my_list to the len() function:\nlen(my_list)\n\n5\nThat’s the basics of using built-in functions. There are loads of other functions, but we won’t cover them here. They are best learned when needed. Next we’ll see how to build our own functions.",
     "crumbs": [
+      "The Very Basics",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
     ]
   },
@@ -86,6 +94,7 @@
     "section": "",
     "text": "print(): prints the given argument(s) to the console\ntype(): returns the type of the given argument\nlen(): returns the length of the given argument",
     "crumbs": [
+      "The Very Basics",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
     ]
   },
@@ -96,6 +105,7 @@
     "section": "3.2 User-defined functions",
     "text": "3.2 User-defined functions\nCustom-made functions are a way to encapsulate code that you want to reuse. They are defined using the def keyword, followed by the function name, and a colon.\n\n# creating a custom function\ndef my_function():\n    # enter the code you wish to run below\n    # note that the indentation is important here as well\n    print(\"Hello I'm a custom-made function!\")\n\n# calling the function\nmy_function()\n\nHello I'm a custom-made function!\n\n\nAlthough the function above isn’t particulrly useful, it is still a valid function. We can make our functions more useful by adding some parameters when defining them.\n\n# creating a custom function with parameters\ndef my_function_with_args(name):\n    print(f\"Hello {name}, I'm a custom-made function with arguments!\")\n\n# we can now pass an argument to the function when calling it\nmy_function_with_args(\"John\")\n\nHello John, I'm a custom-made function with arguments!\n\n\nWe can also return values from functions. This is done using the return keyword.\n\ndef num_squared(num = 2):\n    returned_value = num ** 2\n    return returned_value\n\nnum_squared()\n\n4\n\n\nAs we saw above, we can also set default values for the parameters of the function. The default value will be used if the user doesn’t pass any arguments to the function.\n\n\n\n\n\n\nNote\n\n\n\nVariables defined inside a function are not accessible outside of it. For example, we can’t directly call the returned_value variable outside of the num_squared function. This is called the scope of the variable.\n\n\n\n3.2.1 Documenting your function\nIt is a good practice to document your functions. This is done by adding something called a docstring to the function. A docstring is a string that is placed at the beginning of the function and is enclosed in triple quotes. You can include text that describes what the function does and how it is used, i.e., what arguments it takes, and what it returns. This is especially useful with more complex functions.\n\ndef my_function_with_args(name):\n    \"\"\"\n    This function takes a name as an argument and prints a greeting.\n    \"\"\"\n    print(f\"Hello {name}, I'm a custom-made function with arguments!\")\n\nThe docstring can be accessed by using the __doc__ attribute of the function.\n\nprint(my_function_with_args.__doc__)\n\n\n    This function takes a name as an argument and prints a greeting.",
     "crumbs": [
+      "The Very Basics",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
     ]
   },
@@ -106,6 +116,7 @@
     "section": "3.3 Lambda expressions",
     "text": "3.3 Lambda expressions\nLamdas are a way to create small, anonymous functions. They are defined using the lambda keyword, followed by the arguments, a colon, and the expression to evaluate.\nLet’s say we have a simple function, which can be described in one line of code. We can naturally define a proper function like this:\n\ndef add(a, b):\n    return a + b\n\nHowever, we can also accomplish the same by using a lambda expression:\n\nlambda a, b: a + b\n\n&lt;function __main__.&lt;lambda&gt;(a, b)&gt;\n\n\nWe can use the following syntax to pass arguments to the lambda expression for evaluation:\n\n(lambda a, b: a + b)(2, 3)\n\n5\n\n\nNow, why would we want to do this you might ask?\nLet’s say we want to raise a bunch of numbers to the second power. We could do this by first defining a function and the passing it on to the map() function, which applies the function to each element of a list.\n\ndef squared(x):\n    return x ** 2\n\nlist(map(squared, [1, 2, 3, 4, 5]))\n\n[1, 4, 9, 16, 25]\n\n\nThis works, and is perfectly fine. However, the squared() function is quite simple, so it seems a bit silly to write a separate function for this. Here is where the lambda expression comes in handy. It allows us to accomplish the same thing in a more concise way:\n\n# same with a lambda expression\nlist(map(lambda x: x ** 2, [1, 2, 3, 4, 5]))\n\n[1, 4, 9, 16, 25]\n\n\nWe get the same result, but with less code. Lambda expressions are especially useful when you need to pass a simple function as an argument to another function. We will work more with them once we familiarize ourselves with Pandas DataFrames.",
     "crumbs": [
+      "The Very Basics",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
     ]
   },
@@ -116,39 +127,40 @@
     "section": "3.4 Methods",
     "text": "3.4 Methods\nWhat are methods and how do they differ from functions? In Python, methods are functions that are associated with an object. They are called using the dot notation, i.e., object.method(). A common methods associated with strings is the upper() method, which converts all characters in a string to uppercase. Let’s take a look shall we?\n\nmy_string = \"hello, I'm a string\"\n\nmy_string.upper()\n\n\"HELLO, I'M A STRING\"\n\n\nYou can browse methods associated with an object by using the dir() function. This will return a list of all the methods associated with the object.\n\n# storing the methods associated with the my_string object in a variable\nmethods_for_my_string = dir(my_string)\n\n# printing the last 5 methods\nmethods_for_my_string[-5:]\n\n['swapcase', 'title', 'translate', 'upper', 'zfill']\n\n\nYou can also use the help() function to get more information about a method. This will return a description of the method, as well as the arguments it takes.\n\nhelp(my_string.upper)\n\nHelp on built-in function upper:\n\nupper() method of builtins.str instance\n    Return a copy of the string converted to uppercase.\n\n\n\nWhat makes methods so powerful is that they can be chained together. This means that you can call multiple methods on the same object in a single line of code. Let’s see an example of this:\n\nmy_string.upper().split()\n\n['HELLO,', \"I'M\", 'A', 'STRING']",
     "crumbs": [
+      "The Very Basics",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
     ]
   },
   {
     "objectID": "pandas.html",
     "href": "pandas.html",
-    "title": "4  Pandas",
+    "title": "5  Pandas",
     "section": "",
     "text": "Pandas in used for data frames in Python.\n\n\nCode\n# test code-folding\n1+1\n\n\n2",
     "crumbs": [
       "Basic Data Manipulation",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Pandas</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Pandas</span>"
     ]
   },
   {
     "objectID": "linear_regression.html",
     "href": "linear_regression.html",
-    "title": "5  Linear regression",
+    "title": "6  Linear regression",
     "section": "",
     "text": "Code\nimport seaborn as sns\n\niris = sns.load_dataset('iris')\niris.head()\n\n\n\n\n\n\n\n\n\n\nsepal_length\nsepal_width\npetal_length\npetal_width\nspecies\n\n\n\n\n0\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n1\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n2\n4.7\n3.2\n1.3\n0.2\nsetosa\n\n\n3\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n4\n5.0\n3.6\n1.4\n0.2\nsetosa",
     "crumbs": [
       "Modelling",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Linear regression</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Linear regression</span>"
     ]
   },
   {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "6  Summary",
+    "title": "7  Summary",
     "section": "",
     "text": "In summary, this book is a work in progress.\n\n\nCode\nprint(\"Thanks for reading!\")\n\n\nThanks for reading!",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Summary</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Summary</span>"
     ]
   },
   {
@@ -168,6 +180,7 @@
     "section": "3.5 Using help() for functions and classes",
     "text": "3.5 Using help() for functions and classes\nHelp is a great way to get more information about a method, especially when you are not sure how to use it. It also works for functions and classes.\n\nhelp(help)\n\nHelp on _Helper in module _sitebuiltins object:\n\nclass _Helper(builtins.object)\n |  Define the builtin 'help'.\n |  \n |  This is a wrapper around pydoc.help that provides a helpful message\n |  when 'help' is typed at the Python interactive prompt.\n |  \n |  Calling help() at the Python prompt starts an interactive help session.\n |  Calling help(thing) prints help for the python object 'thing'.\n |  \n |  Methods defined here:\n |  \n |  __call__(self, *args, **kwds)\n |      Call self as a function.\n |  \n |  __repr__(self)\n |      Return repr(self).\n |  \n |  ----------------------------------------------------------------------\n |  Data descriptors defined here:\n |  \n |  __dict__\n |      dictionary for instance variables\n |  \n |  __weakref__\n |      list of weak references to the object\n\n\n\n\nhelp(list)\n\nHelp on class list in module builtins:\n\nclass list(object)\n |  list(iterable=(), /)\n |  \n |  Built-in mutable sequence.\n |  \n |  If no argument is given, the constructor creates a new empty list.\n |  The argument must be an iterable if specified.\n |  \n |  Methods defined here:\n |  \n |  __add__(self, value, /)\n |      Return self+value.\n |  \n |  __contains__(self, key, /)\n |      Return key in self.\n |  \n |  __delitem__(self, key, /)\n |      Delete self[key].\n |  \n |  __eq__(self, value, /)\n |      Return self==value.\n |  \n |  __ge__(self, value, /)\n |      Return self&gt;=value.\n |  \n |  __getattribute__(self, name, /)\n |      Return getattr(self, name).\n |  \n |  __getitem__(...)\n |      x.__getitem__(y) &lt;==&gt; x[y]\n |  \n |  __gt__(self, value, /)\n |      Return self&gt;value.\n |  \n |  __iadd__(self, value, /)\n |      Implement self+=value.\n |  \n |  __imul__(self, value, /)\n |      Implement self*=value.\n |  \n |  __init__(self, /, *args, **kwargs)\n |      Initialize self.  See help(type(self)) for accurate signature.\n |  \n |  __iter__(self, /)\n |      Implement iter(self).\n |  \n |  __le__(self, value, /)\n |      Return self&lt;=value.\n |  \n |  __len__(self, /)\n |      Return len(self).\n |  \n |  __lt__(self, value, /)\n |      Return self&lt;value.\n |  \n |  __mul__(self, value, /)\n |      Return self*value.\n |  \n |  __ne__(self, value, /)\n |      Return self!=value.\n |  \n |  __repr__(self, /)\n |      Return repr(self).\n |  \n |  __reversed__(self, /)\n |      Return a reverse iterator over the list.\n |  \n |  __rmul__(self, value, /)\n |      Return value*self.\n |  \n |  __setitem__(self, key, value, /)\n |      Set self[key] to value.\n |  \n |  __sizeof__(self, /)\n |      Return the size of the list in memory, in bytes.\n |  \n |  append(self, object, /)\n |      Append object to the end of the list.\n |  \n |  clear(self, /)\n |      Remove all items from list.\n |  \n |  copy(self, /)\n |      Return a shallow copy of the list.\n |  \n |  count(self, value, /)\n |      Return number of occurrences of value.\n |  \n |  extend(self, iterable, /)\n |      Extend list by appending elements from the iterable.\n |  \n |  index(self, value, start=0, stop=9223372036854775807, /)\n |      Return first index of value.\n |      \n |      Raises ValueError if the value is not present.\n |  \n |  insert(self, index, object, /)\n |      Insert object before index.\n |  \n |  pop(self, index=-1, /)\n |      Remove and return item at index (default last).\n |      \n |      Raises IndexError if list is empty or index is out of range.\n |  \n |  remove(self, value, /)\n |      Remove first occurrence of value.\n |      \n |      Raises ValueError if the value is not present.\n |  \n |  reverse(self, /)\n |      Reverse *IN PLACE*.\n |  \n |  sort(self, /, *, key=None, reverse=False)\n |      Sort the list in ascending order and return None.\n |      \n |      The sort is in-place (i.e. the list itself is modified) and stable (i.e. the\n |      order of two equal elements is maintained).\n |      \n |      If a key function is given, apply it once to each list item and sort them,\n |      ascending or descending, according to their function values.\n |      \n |      The reverse flag can be set to sort in descending order.\n |  \n |  ----------------------------------------------------------------------\n |  Class methods defined here:\n |  \n |  __class_getitem__(...) from builtins.type\n |      See PEP 585\n |  \n |  ----------------------------------------------------------------------\n |  Static methods defined here:\n |  \n |  __new__(*args, **kwargs) from builtins.type\n |      Create and return a new object.  See help(type) for accurate signature.\n |  \n |  ----------------------------------------------------------------------\n |  Data and other attributes defined here:\n |  \n |  __hash__ = None\n\n\n\nThat’s it for functions and methods. We will use them extensively in the upcoming chapters, so make sure you understand how they work.",
     "crumbs": [
+      "The Very Basics",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
     ]
   },
@@ -179,6 +192,17 @@
     "text": "McKinney, Wes. 2022. Python for Data Analysis. O’Reilly Media.\nhttps://wesmckinney.com/book/.",
     "crumbs": [
       "References"
+    ]
+  },
+  {
+    "objectID": "numpy.html",
+    "href": "numpy.html",
+    "title": "4  NumPy",
+    "section": "",
+    "text": "Using NumPy to generate random numbers.\n\n\nCode\n# test code-folding\n1+1\n\n\n2",
+    "crumbs": [
+      "Basic Data Manipulation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>NumPy</span>"
     ]
   }
 ]
