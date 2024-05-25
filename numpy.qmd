@@ -1,0 +1,12 @@
+---
+jupyter: python3
+---
+
+# NumPy
+
+Using NumPy to generate random numbers.
+
+```{python}
+# test code-folding
+1+1
+```
