@@ -170,5 +170,15 @@
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
     ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "McKinney, Wes. 2022. Python for Data Analysis. O’Reilly Media.\nhttps://wesmckinney.com/book/.",
+    "crumbs": [
+      "References"
+    ]
   }
 ]
