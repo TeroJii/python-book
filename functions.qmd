@@ -166,7 +166,7 @@ def squared(x):
 list(map(squared, [1, 2, 3, 4, 5]))
 ```
 
-This works, and is perfectly fine. However, the `squared()` function is quite simple, so it seems a bit useless to write a separate function for this. Here is where the lambda expression comes in handy. It allows us to accomplish the same thing in a more concise way:
+This works, and is perfectly fine. However, the `squared()` function is quite simple, so it seems a bit silly to write a separate function for this. Here is where the lambda expression comes in handy. It allows us to accomplish the same thing in a more concise way:
 
 ```{python}
 #| code-fold: false
