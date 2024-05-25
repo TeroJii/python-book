@@ -1,4 +1,6 @@
 # References {.unnumbered}
 
+Here you can find a list of useful references that were used in the creation of this book.
+
 ::: {#refs}
 :::
