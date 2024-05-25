@@ -4,9 +4,18 @@ jupyter: python3
 
 # NumPy
 
+So far we have only used commands that come with the standard Python distribution. However, Python is a very popular language for scientific computing and there are many libraries that can be used to extend its capabilities. One of the most used and important libraries doing data sciency work is NumPy. NumPy  support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays. NumPy is the foundation on which many other libraries are built, including Pandas, SciPy, and Matplotlib.
+
+You can load the NumPy library using the following command:
+
+```{python}
+#| code-fold: false
+import numpy as np
+```
+
 Using NumPy to generate random numbers.
 
 ```{python}
 # test code-folding
-1+1
+np.random.rand(5)
 ```
