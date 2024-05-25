@@ -11,11 +11,13 @@ book:
   chapters:
     - index.qmd
     - part: "The Very Basics"
-    - intro.qmd
-    - control_flow.qmd
-    - functions.qmd
+      chapters:
+        - intro.qmd
+        - control_flow.qmd
+        - functions.qmd
     - part: "Basic Data Manipulation"
       chapters:
+        - numpy.qmd
         - pandas.qmd
     - part: "Modelling"
       chapters:
