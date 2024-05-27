@@ -49,7 +49,7 @@ You can create a 1-D NumPy array from a list using the `np.array()` function. Fo
 ```{python}
 #| code-fold: false
 a = np.array([1, 2, 3, 4, 5])
-print(a)
+a
 ```
 
 You might have noticed that we actually used a list to create the NumPy array. We can naturally create a NumPy array from a list which has been assigned to a variable. For example, below we will cast a list to an array using the variable `my_list`:
@@ -62,7 +62,7 @@ a = np.array(my_list)
 print(a)
 ```
 
-We can also create a NumPy array from a range of numbers using the `np.arange()` function. For example:
+We can also create a NumPy array for a range of numbers conveniently using the `np.arange()` function.
 
 ```{python}
 #| code-fold: false
@@ -70,12 +70,21 @@ a = np.arange(1, 6)
 print(a)
 ```
 
+You can also determine a step size for the range of numbers. For example, the following code will create an array with numbers from 0 to 10 with a step size of 2.
+
+```{python}
+#| code-fold: false
+a_steps = np.arange(0, 11, 2)
+print(a_steps)
+```
+
+
 ### 2-D Matrices
 
-You can create a 2-D NumPy array from a list of lists using the `np.array()` function. For example:
+You can create a 2-D NumPy array from a list of lists by using the `np.array()` function.
 
 ```{python}
 #| code-fold: false
 b = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
-print(b)
+b
 ```
