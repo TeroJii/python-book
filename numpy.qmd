@@ -4,9 +4,21 @@ jupyter: python3
 
 # NumPy
 
-So far we have only used commands that come with the standard Python distribution. However, Python is a very popular language for scientific computing and there are many libraries that can be used to extend its capabilities. One of the most used and important libraries doing data sciency work is NumPy. NumPy  support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays. NumPy is the foundation on which many other libraries are built, including Pandas, SciPy, and Matplotlib.
+So far we have only used commands that come with the standard Python distribution. However, Python is a very popular language for scientific computing and there are many packages that can be used to extend its capabilities. One of the most fundamental packages for extending Pythons capabilities for scientific computing is NumPy. NumPy is the cornerstone for many packages which are important data analysis, including but not limited to Pandas, SciPy, and Matplotlib.
 
-You can load the NumPy library using the following command:
+## Installation and Loading
+
+You can install python packages using the `pip` command. Another popular package manager is `conda`. Either of these package managers will do the trick.
+
+:::{.callout-tip}
+Installing NumPy using pip in rather simple. Just run the following command in your terminal or command prompt:
+
+```bash
+pip install numpy
+```	
+:::
+
+Once you have installed the NumPy package, you can load it using the following command.
 
 ```{python}
 #| code-fold: false
