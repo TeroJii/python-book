@@ -35,7 +35,17 @@ np.random.rand(5)
 ## What can NumPy do?
 
 NumPy provides a high-performance multidimensional array object and tools for working with these arrays. The array is very similar to a list in Python, with a few key differences:
-    - Arrays can be multidimensional
-    - Arrays can only contain elements of the same type, whereas lists can contain elements of different types
-    - Arrays are optimized for numerical operations, whereas lists are not. This makes arrays much faster for numerical operations than lists, and also more memory efficient.
 
+* Arrays can be multidimensional
+* Arrays can only contain elements of the same type, whereas lists can contain elements of different types
+* Arrays are optimized for numerical operations, whereas lists are not. This makes arrays much faster for numerical operations than lists, and also more memory efficient.
+
+### Creating 1-D NumPy Arrays
+
+You can create a 1-D NumPy array from a list using the `np.array()` function. For example:
+
+```{python}
+#| code-fold: false
+a = np.array([1, 2, 3, 4, 5])
+print(a)
+```
