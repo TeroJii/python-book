@@ -291,14 +291,14 @@ Tip
 </div>
 </div>
 <p>Once you have installed the NumPy package, you can load it using the following command.</p>
-<div id="ace021a0" class="cell" data-execution_count="1">
+<div id="d7cef7a2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We have imported the NumPy package and aliased it as <code>np</code>. This is a common convention when working with NumPy. We can now use the functions and classes provided by NumPy by prefixing them with <code>np.</code>. For example, generating a random number using NumPy would look like this:</p>
-<div id="a664d0ad" class="cell" data-execution_count="2">
+<div id="528ec44b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>np.random.rand(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
-<pre><code>array([0.62715629, 0.2646582 , 0.11286943, 0.16853135, 0.30492289])</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>array([0.29642538, 0.33351381, 0.3778146 , 0.29459287, 0.48135669])</code></pre>
 </div>
 </div>
 </section>
@@ -316,15 +316,15 @@ Tip
 <section id="d-vectors" class="level3" data-number="4.3.1">
 <h3 data-number="4.3.1" class="anchored" data-anchor-id="d-vectors"><span class="header-section-number">4.3.1</span> 1-D Vectors</h3>
 <p>You can create a 1-D NumPy array from a list using the <code>np.array()</code> function. For example:</p>
-<div id="7e2a9bf5" class="cell" data-execution_count="3">
+<div id="3d183c94" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1 2 3 4 5]</code></pre>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>array([1, 2, 3, 4, 5])</code></pre>
 </div>
 </div>
 <p>You might have noticed that we actually used a list to create the NumPy array. We can naturally create a NumPy array from a list which has been assigned to a variable. For example, below we will cast a list to an array using the variable <code>my_list</code>:</p>
-<div id="31d08990" class="cell" data-execution_count="4">
+<div id="db949ea7" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array(my_list)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -332,25 +332,33 @@ Tip
 <pre><code>[1 2 3 4 5]</code></pre>
 </div>
 </div>
-<p>We can also create a NumPy array from a range of numbers using the <code>np.arange()</code> function. For example:</p>
-<div id="8c8b1a00" class="cell" data-execution_count="5">
+<p>We can also create a NumPy array for a range of numbers conveniently using the <code>np.arange()</code> function.</p>
+<div id="bc8db93b" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">6</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1 2 3 4 5]</code></pre>
 </div>
 </div>
+<p>You can also determine a step size for the range of numbers. For example, the following code will create an array with numbers from 0 to 10 with a step size of 2.</p>
+<div id="b8a53b6a" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>a_steps <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">11</span>, <span class="dv">2</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a_steps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[ 0  2  4  6  8 10]</code></pre>
+</div>
+</div>
 </section>
 <section id="d-matrices" class="level3" data-number="4.3.2">
 <h3 data-number="4.3.2" class="anchored" data-anchor-id="d-matrices"><span class="header-section-number">4.3.2</span> 2-D Matrices</h3>
-<p>You can create a 2-D NumPy array from a list of lists using the <code>np.array()</code> function. For example:</p>
-<div id="3fd9dd81" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]])</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1 2 3]
- [4 5 6]
- [7 8 9]]</code></pre>
+<p>You can create a 2-D NumPy array from a list of lists by using the <code>np.array()</code> function.</p>
+<div id="7b5ce181" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]])</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])</code></pre>
 </div>
 </div>
 
