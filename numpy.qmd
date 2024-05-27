@@ -4,11 +4,11 @@ jupyter: python3
 
 # NumPy
 
-So far we have only used commands that come with the standard Python distribution. However, Python is a very popular language for scientific computing and there are many packages that can be used to extend its capabilities. One of the most fundamental packages for extending Pythons capabilities for scientific computing is NumPy. NumPy is the cornerstone for many packages which are important data analysis, including but not limited to Pandas, SciPy, and Matplotlib.
+So far we have only used commands that come with the standard Python distribution. However, Python is a very popular language for scientific computing and there are many packages that can be used to extend its capabilities. One of the most fundamental packages for extending Pythons capabilities in this domain is NumPy. NumPy is also the cornerstone for many packages which are important for doing data analysis with Python, including but not limited to Pandas, SciPy, and Matplotlib.
 
 ## Installation and Loading
 
-You can install python packages using the `pip` command. Another popular package manager is `conda`. Either of these package managers will do the trick.
+You can install Python packages using the `pip` command. Another popular package manager is `conda`. Either of these package managers will do the trick.
 
 :::{.callout-tip}
 Installing NumPy using pip in rather simple. Just run the following command in your terminal or command prompt:
@@ -25,9 +25,17 @@ Once you have installed the NumPy package, you can load it using the following c
 import numpy as np
 ```
 
-Using NumPy to generate random numbers.
+We have imported the NumPy package and aliased it as `np`. This is a common convention when working with NumPy. We can now use the functions and classes provided by NumPy by prefixing them with `np.`. For example, generating a random number using NumPy would look like this:
 
 ```{python}
-# test code-folding
+#| code-fold: false
 np.random.rand(5)
 ```
+
+## What can NumPy do?
+
+NumPy provides a high-performance multidimensional array object and tools for working with these arrays. The array is very similar to a list in Python, with a few key differences:
+    - Arrays can be multidimensional
+    - Arrays can only contain elements of the same type, whereas lists can contain elements of different types
+    - Arrays are optimized for numerical operations, whereas lists are not. This makes arrays much faster for numerical operations than lists, and also more memory efficient.
+
