@@ -199,7 +199,29 @@
     "href": "numpy.html",
     "title": "4  NumPy",
     "section": "",
-    "text": "So far we have only used commands that come with the standard Python distribution. However, Python is a very popular language for scientific computing and there are many libraries that can be used to extend its capabilities. One of the most used and important libraries doing data sciency work is NumPy. NumPy support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays. NumPy is the foundation on which many other libraries are built, including Pandas, SciPy, and Matplotlib.\nYou can load the NumPy library using the following command:\n\nimport numpy as np\n\nUsing NumPy to generate random numbers.\n\n\nCode\n# test code-folding\nnp.random.rand(5)\n\n\narray([0.0548249 , 0.74248601, 0.86661131, 0.01695786, 0.32847628])",
+    "text": "4.1 Installation and Loading\nYou can install python packages using the pip command. Another popular package manager is conda. Either of these package managers will do the trick.\nOnce you have installed the NumPy package, you can load it using the following command.\nimport numpy as np\nUsing NumPy to generate random numbers.\nCode\n# test code-folding\nnp.random.rand(5)\n\n\narray([0.51474332, 0.48767921, 0.21556924, 0.32480885, 0.03710733])",
+    "crumbs": [
+      "Basic Data Manipulation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#intallation-and-loading",
+    "href": "numpy.html#intallation-and-loading",
+    "title": "4  NumPy",
+    "section": "",
+    "text": "Tip\n\n\n\nYou can install NumPy using the following command:\npip install numpy",
+    "crumbs": [
+      "Basic Data Manipulation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#installation-and-loading",
+    "href": "numpy.html#installation-and-loading",
+    "title": "4  NumPy",
+    "section": "",
+    "text": "Tip\n\n\n\nInstalling NumPy using pip in rather simple. Just run the following command in your terminal or command prompt:\npip install numpy",
     "crumbs": [
       "Basic Data Manipulation",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>NumPy</span>"
