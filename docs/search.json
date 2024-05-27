@@ -199,7 +199,7 @@
     "href": "numpy.html",
     "title": "4  NumPy",
     "section": "",
-    "text": "4.1 Installation and Loading\nYou can install Python packages using the pip command. Another popular package manager is conda. Either of these package managers will do the trick.\nOnce you have installed the NumPy package, you can load it using the following command.\nimport numpy as np\nWe have imported the NumPy package and aliased it as np. This is a common convention when working with NumPy. We can now use the functions and classes provided by NumPy by prefixing them with np.. For example, generating a random number using NumPy would look like this:\nnp.random.rand(5)\n\narray([0.29642538, 0.33351381, 0.3778146 , 0.29459287, 0.48135669])",
+    "text": "4.1 Installation and Loading\nYou can install Python packages using the pip command. Another popular package manager is conda. Either of these package managers will do the trick.\nOnce you have installed the NumPy package, you can load it using the following command.\nimport numpy as np\nWe have imported the NumPy package and aliased it as np. This is a common convention when working with NumPy. We can now use the functions and classes provided by NumPy by prefixing them with np.. For example, generating a random number using NumPy would look like this:\nnp.random.rand(5)\n\narray([0.20515856, 0.29897358, 0.64693127, 0.06373413, 0.94150071])",
     "crumbs": [
       "Basic Data Manipulation",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>NumPy</span>"
@@ -255,6 +255,17 @@
     "title": "4  NumPy",
     "section": "4.3 NumPy Arrays",
     "text": "4.3 NumPy Arrays\n\n4.3.1 1-D Vectors\nYou can create a 1-D NumPy array from a list using the np.array() function. For example:\n\na = np.array([1, 2, 3, 4, 5])\na\n\narray([1, 2, 3, 4, 5])\n\n\nYou might have noticed that we actually used a list to create the NumPy array. We can naturally create a NumPy array from a list which has been assigned to a variable. For example, below we will cast a list to an array using the variable my_list:\n\nmy_list = [1, 2, 3, 4, 5]\na = np.array(my_list)\nprint(a)\n\n[1 2 3 4 5]\n\n\nWe can also create a NumPy array for a range of numbers conveniently using the np.arange() function.\n\na = np.arange(1, 6)\nprint(a)\n\n[1 2 3 4 5]\n\n\nYou can also determine a step size for the range of numbers. For example, the following code will create an array with numbers from 0 to 10 with a step size of 2.\n\na_steps = np.arange(0, 11, 2)\nprint(a_steps)\n\n[ 0  2  4  6  8 10]\n\n\n\n\n4.3.2 2-D Matrices\nYou can create a 2-D NumPy array from a list of lists by using the np.array() function.\n\nb = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nb\n\narray([[1, 2, 3],\n       [4, 5, 6],\n       [7, 8, 9]])",
+    "crumbs": [
+      "Basic Data Manipulation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#some-convenient-functions",
+    "href": "numpy.html#some-convenient-functions",
+    "title": "4  NumPy",
+    "section": "4.4 Some convenient functions",
+    "text": "4.4 Some convenient functions\nHere are some convenient functions that you can use to create NumPy arrays:\n\nnp.zeros(): Creates an array of zeros\nnp.ones(): Creates an array of ones\nnp.linspace(): Creates an array of evenly spaced numbers over a specified range\nnp.eye(): Creates an identity matrix\n\nLet’s see some examples.\n\n4.4.1 Zeros and Ones\nYou can create an array of zeros using the np.zeros() function. For example, the following code will create an array of zeros with 5 elements.\n\nnp.zeros(5)\n\narray([0., 0., 0., 0., 0.])\n\n\nFor a 2-D array, you can specify the shape of the array as a tuple. For example, the following code will create a 2-D array of zeros with 3 rows and 4 columns.\n\nnp.zeros((3, 4))\n\narray([[0., 0., 0., 0.],\n       [0., 0., 0., 0.],\n       [0., 0., 0., 0.]])\n\n\nUsing ones is similar to using zeros. Let’s create a 5 by 6 matrix of ones.\n\nnp.ones((5, 6))\n\narray([[1., 1., 1., 1., 1., 1.],\n       [1., 1., 1., 1., 1., 1.],\n       [1., 1., 1., 1., 1., 1.],\n       [1., 1., 1., 1., 1., 1.],\n       [1., 1., 1., 1., 1., 1.]])",
     "crumbs": [
       "Basic Data Manipulation",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>NumPy</span>"
