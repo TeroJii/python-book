@@ -199,7 +199,7 @@
     "href": "numpy.html",
     "title": "4  NumPy",
     "section": "",
-    "text": "4.1 Installation and Loading\nYou can install python packages using the pip command. Another popular package manager is conda. Either of these package managers will do the trick.\nOnce you have installed the NumPy package, you can load it using the following command.\nimport numpy as np\nUsing NumPy to generate random numbers.\nCode\n# test code-folding\nnp.random.rand(5)\n\n\narray([0.51474332, 0.48767921, 0.21556924, 0.32480885, 0.03710733])",
+    "text": "4.1 Installation and Loading\nYou can install Python packages using the pip command. Another popular package manager is conda. Either of these package managers will do the trick.\nOnce you have installed the NumPy package, you can load it using the following command.\nimport numpy as np\nWe have imported the NumPy package and aliased it as np. This is a common convention when working with NumPy. We can now use the functions and classes provided by NumPy by prefixing them with np.. For example, generating a random number using NumPy would look like this:\nnp.random.rand(5)\n\narray([0.18705184, 0.00945798, 0.5502715 , 0.71845661, 0.73189633])",
     "crumbs": [
       "Basic Data Manipulation",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>NumPy</span>"
@@ -222,6 +222,17 @@
     "title": "4  NumPy",
     "section": "",
     "text": "Tip\n\n\n\nInstalling NumPy using pip in rather simple. Just run the following command in your terminal or command prompt:\npip install numpy",
+    "crumbs": [
+      "Basic Data Manipulation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#what-can-numpy-do",
+    "href": "numpy.html#what-can-numpy-do",
+    "title": "4  NumPy",
+    "section": "4.2 What can NumPy do?",
+    "text": "4.2 What can NumPy do?\nNumPy provides a high-performance multidimensional array object and tools for working with these arrays. The array is very similar to a list in Python, with a few key differences: - Arrays can be multidimensional - Arrays can only contain elements of the same type, whereas lists can contain elements of different types - Arrays are optimized for numerical operations, whereas lists are not. This makes arrays much faster for numerical operations than lists, and also more memory efficient.",
     "crumbs": [
       "Basic Data Manipulation",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>NumPy</span>"
