@@ -199,7 +199,7 @@
     "href": "numpy.html",
     "title": "4  NumPy",
     "section": "",
-    "text": "4.1 Installation and Loading\nYou can install Python packages using the pip command. Another popular package manager is conda. Either of these package managers will do the trick.\nOnce you have installed the NumPy package, you can load it using the following command.\nimport numpy as np\nWe have imported the NumPy package and aliased it as np. This is a common convention when working with NumPy. We can now use the functions and classes provided by NumPy by prefixing them with np.. For example, generating a random number using NumPy would look like this:\nnp.random.rand(5)\n\narray([0.14340007, 0.85135951, 0.64081479, 0.20200026, 0.98571932])",
+    "text": "4.1 Installation and Loading\nYou can install Python packages using the pip command. Another popular package manager is conda. Either of these package managers will do the trick.\nOnce you have installed the NumPy package, you can load it using the following command.\nimport numpy as np\nWe have imported the NumPy package and aliased it as np. This is a common convention when working with NumPy. We can now use the functions and classes provided by NumPy by prefixing them with np.. For example, generating a random number using NumPy would look like this:\nnp.random.rand(5)\n\narray([0.8315811 , 0.21466459, 0.44891237, 0.76854737, 0.96169828])",
     "crumbs": [
       "Basic Data Manipulation",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>NumPy</span>"
@@ -232,7 +232,29 @@
     "href": "numpy.html#what-can-numpy-do",
     "title": "4  NumPy",
     "section": "4.2 What can NumPy do?",
-    "text": "4.2 What can NumPy do?\nNumPy provides a high-performance multidimensional array object and tools for working with these arrays. The array is very similar to a list in Python, with a few key differences:\n\nArrays can be multidimensional\nArrays can only contain elements of the same type, whereas lists can contain elements of different types\nArrays are optimized for numerical operations, whereas lists are not. This makes arrays much faster for numerical operations than lists, and also more memory efficient.\n\n\n4.2.1 Creating 1-D NumPy Arrays\nYou can create a 1-D NumPy array from a list using the np.array() function. For example:\n\na = np.array([1, 2, 3, 4, 5])\nprint(a)\n\n[1 2 3 4 5]",
+    "text": "4.2 What can NumPy do?\nOne of the key concepts in NumPy are array and matrix data structures. Moreover, Numpy provides tools for working with these structures. The array is in principle quite similar to a list in Python, with a few key differences:\n\nArrays can be multidimensional\nArrays can only contain elements of the same type, whereas lists can contain elements of different types\nArrays are optimized for numerical operations, whereas lists are not. This makes arrays much faster for numerical operations than lists, and also more memory efficient.",
+    "crumbs": [
+      "Basic Data Manipulation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#creating-numpy-arrays",
+    "href": "numpy.html#creating-numpy-arrays",
+    "title": "4  NumPy",
+    "section": "4.3 Creating NumPy Arrays",
+    "text": "4.3 Creating NumPy Arrays\n\n4.3.1 Creating 1-D NumPy Arrays\nYou can create a 1-D NumPy array from a list using the np.array() function. For example:\n\na = np.array([1, 2, 3, 4, 5])\nprint(a)\n\n[1 2 3 4 5]",
+    "crumbs": [
+      "Basic Data Manipulation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#numpy-arrays",
+    "href": "numpy.html#numpy-arrays",
+    "title": "4  NumPy",
+    "section": "4.3 NumPy Arrays",
+    "text": "4.3 NumPy Arrays\n\n4.3.1 1-D NumPy Arrays\nYou can create a 1-D NumPy array from a list using the np.array() function. For example:\n\na = np.array([1, 2, 3, 4, 5])\nprint(a)\n\n[1 2 3 4 5]",
     "crumbs": [
       "Basic Data Manipulation",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>NumPy</span>"

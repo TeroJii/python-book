@@ -241,9 +241,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#installation-and-loading" id="toc-installation-and-loading" class="nav-link active" data-scroll-target="#installation-and-loading"><span class="header-section-number">4.1</span> Installation and Loading</a></li>
-  <li><a href="#what-can-numpy-do" id="toc-what-can-numpy-do" class="nav-link" data-scroll-target="#what-can-numpy-do"><span class="header-section-number">4.2</span> What can NumPy do?</a>
+  <li><a href="#what-can-numpy-do" id="toc-what-can-numpy-do" class="nav-link" data-scroll-target="#what-can-numpy-do"><span class="header-section-number">4.2</span> What can NumPy do?</a></li>
+  <li><a href="#numpy-arrays" id="toc-numpy-arrays" class="nav-link" data-scroll-target="#numpy-arrays"><span class="header-section-number">4.3</span> NumPy Arrays</a>
   <ul class="collapse">
-  <li><a href="#creating-1-d-numpy-arrays" id="toc-creating-1-d-numpy-arrays" class="nav-link" data-scroll-target="#creating-1-d-numpy-arrays"><span class="header-section-number">4.2.1</span> Creating 1-D NumPy Arrays</a></li>
+  <li><a href="#d-numpy-arrays" id="toc-d-numpy-arrays" class="nav-link" data-scroll-target="#d-numpy-arrays"><span class="header-section-number">4.3.1</span> 1-D NumPy Arrays</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TeroJii/python-book/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -289,29 +290,32 @@ Tip
 </div>
 </div>
 <p>Once you have installed the NumPy package, you can load it using the following command.</p>
-<div id="56019e7f" class="cell" data-execution_count="1">
+<div id="c3aaad76" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We have imported the NumPy package and aliased it as <code>np</code>. This is a common convention when working with NumPy. We can now use the functions and classes provided by NumPy by prefixing them with <code>np.</code>. For example, generating a random number using NumPy would look like this:</p>
-<div id="f3c74904" class="cell" data-execution_count="2">
+<div id="1240a6a9" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>np.random.rand(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
-<pre><code>array([0.14340007, 0.85135951, 0.64081479, 0.20200026, 0.98571932])</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>array([0.8315811 , 0.21466459, 0.44891237, 0.76854737, 0.96169828])</code></pre>
 </div>
 </div>
 </section>
 <section id="what-can-numpy-do" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="what-can-numpy-do"><span class="header-section-number">4.2</span> What can NumPy do?</h2>
-<p>NumPy provides a high-performance multidimensional array object and tools for working with these arrays. The array is very similar to a list in Python, with a few key differences:</p>
+<p>One of the key concepts in NumPy are array and matrix data structures. Moreover, Numpy provides tools for working with these structures. The array is in principle quite similar to a list in Python, with a few key differences:</p>
 <ul>
 <li>Arrays can be multidimensional</li>
 <li>Arrays can only contain elements of the same type, whereas lists can contain elements of different types</li>
 <li>Arrays are optimized for numerical operations, whereas lists are not. This makes arrays much faster for numerical operations than lists, and also more memory efficient.</li>
 </ul>
-<section id="creating-1-d-numpy-arrays" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="creating-1-d-numpy-arrays"><span class="header-section-number">4.2.1</span> Creating 1-D NumPy Arrays</h3>
+</section>
+<section id="numpy-arrays" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="numpy-arrays"><span class="header-section-number">4.3</span> NumPy Arrays</h2>
+<section id="d-numpy-arrays" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="d-numpy-arrays"><span class="header-section-number">4.3.1</span> 1-D NumPy Arrays</h3>
 <p>You can create a 1-D NumPy array from a list using the <code>np.array()</code> function. For example:</p>
-<div id="ddd83b51" class="cell" data-execution_count="3">
+<div id="33d40617" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
