@@ -136,3 +136,14 @@ np.linspace(0, 5, 10)
 How does it differ from `np.arange()` you might ask? The `np.linspace()` function will always include the start and end values, whereas the `np.arange()` function will not include the end value.
 
 ### Eye
+
+This function is used for creating an identity matrix. An identity matrix is a square matrix with ones on the diagonal and zeros elsewhere. We can create a 4 by 4 identity matrix with the following code.
+
+```{python}
+#| code-fold: false
+np.eye(4)
+```
+
+The identity matrix has many important uses in linear algebra and other areas of mathematics.
+
+## Array Operations
