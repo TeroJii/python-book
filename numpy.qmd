@@ -182,6 +182,36 @@ We can always check the shape of the array using the `shape` attribute.
 arr.shape
 ```
 
+The `shape` attribute returns a tuple with the dimensions of the array. In this case, the array has 3 rows and 4 columns. The function `reshape()` allows us to change the shape of the array. For example, we can reshape the array to have 4 rows and 3 columns, or to be one dimensional.
+
+```{python}	
+#| code-fold: false
+
+arr.reshape(4, 3)
+```
+
+```{python}
+#| code-fold: false
+
+arr.reshape(12)
+```
+
+You might have noticed, but the two dimensional array has two square brackets on the outer edges, whereas the one dimensional array has only one square bracket per side.
+
+Finally, we can also check the data type of the array using the `dtype` attribute. In case we want to change the data type of the array, we can use the `astype()` method.
+
+```{python}
+#| code-fold: false
+
+arr.dtype
+```
+
+```{python}
+#| code-fold: false
+
+arr.astype(int)
+```
+
 ## Array Operations
 
 You can perform element-wise operations on NumPy arrays. For example, you can add two arrays together, subtract one array from another, multiply two arrays, and divide one array by another. Let's see some examples.
