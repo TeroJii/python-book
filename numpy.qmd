@@ -146,4 +146,47 @@ np.eye(4)
 
 The identity matrix has many important uses in linear algebra and other areas of mathematics.
 
+
+## NumPy for Random Number Generation
+
+Random numbers are needed for a variety of purposes in data analysis and machine learning. NumPy provides a number of functions for generating random numbers. Here are some of the most commonly used functions:
+
+* `np.random.rand()`: Generates random numbers from a uniform distribution
+* `np.random.randn()`: Generates random numbers from a standard normal distribution
+* `np.random.randint()`: Generates random integers
+
+These functions allow us to create NumPy arrays with random numbers taken from different distributions. 
+
+### Uniform Distribution
+
+The uniform distribution refers generally to random numbers between 0 and 1. The `np.random.rand()` function generates random numbers from a uniform distribution. For example, the following code will generate an array of 5 random numbers between 0 and 1.
+
+```{python}
+#| code-fold: false
+
+np.random.rand(5)
+```
+
+You can also generate a 2-D array of random numbers. For example, the following code will generate a 3 by 4 array of random numbers.
+
+```{python}
+#| code-fold: false
+arr = np.random.rand(3, 4)
+arr
+```
+
+We can always check the shape of the array using the `shape` attribute.
+
+```{python}
+#| code-fold: false
+arr.shape
+```
+
 ## Array Operations
+
+You can perform element-wise operations on NumPy arrays. For example, you can add two arrays together, subtract one array from another, multiply two arrays, and divide one array by another. Let's see some examples.
+
+### Addition
+
+
+
