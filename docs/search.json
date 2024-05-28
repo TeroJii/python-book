@@ -199,7 +199,7 @@
     "href": "numpy.html",
     "title": "4  NumPy",
     "section": "",
-    "text": "4.1 Installation and Loading\nYou can install Python packages using the pip command. Another popular package manager is conda. Either of these package managers will do the trick.\nOnce you have installed the NumPy package, you can load it using the following command.\nimport numpy as np\nWe have imported the NumPy package and aliased it as np. This is a common convention when working with NumPy. We can now use the functions and classes provided by NumPy by prefixing them with np.. For example, generating a random number using NumPy would look like this:\nnp.random.rand(5)\n\narray([0.08928368, 0.81676551, 0.56228957, 0.44924689, 0.26457876])",
+    "text": "4.1 Installation and Loading\nYou can install Python packages using the pip command. Another popular package manager is conda. Either of these package managers will do the trick.\nOnce you have installed the NumPy package, you can load it using the following command.\nimport numpy as np\nWe have imported the NumPy package and aliased it as np. This is a common convention when working with NumPy. We can now use the functions and classes provided by NumPy by prefixing them with np.. For example, generating a random number using NumPy would look like this:\nnp.random.rand(5)\n\narray([0.67163362, 0.24051202, 0.26644659, 0.03218672, 0.18302549])",
     "crumbs": [
       "Basic Data Manipulation",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>NumPy</span>"
@@ -275,8 +275,19 @@
     "objectID": "numpy.html#array-operations",
     "href": "numpy.html#array-operations",
     "title": "4  NumPy",
-    "section": "4.5 Array Operations",
-    "text": "4.5 Array Operations",
+    "section": "4.6 Array Operations",
+    "text": "4.6 Array Operations\nYou can perform element-wise operations on NumPy arrays. For example, you can add two arrays together, subtract one array from another, multiply two arrays, and divide one array by another. Let’s see some examples.\n\n4.6.1 Addition",
+    "crumbs": [
+      "Basic Data Manipulation",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#numpy-for-random-number-generation",
+    "href": "numpy.html#numpy-for-random-number-generation",
+    "title": "4  NumPy",
+    "section": "4.5 NumPy for Random Number Generation",
+    "text": "4.5 NumPy for Random Number Generation\nRandom numbers are needed for a variety of purposes in data analysis and machine learning. NumPy provides a number of functions for generating random numbers. Here are some of the most commonly used functions:\n\nnp.random.rand(): Generates random numbers from a uniform distribution\nnp.random.randn(): Generates random numbers from a standard normal distribution\nnp.random.randint(): Generates random integers\n\nThese functions allow us to create NumPy arrays with random numbers taken from different distributions.\n\n4.5.1 Uniform Distribution\nThe uniform distribution refers generally to random numbers between 0 and 1. The np.random.rand() function generates random numbers from a uniform distribution. For example, the following code will generate an array of 5 random numbers between 0 and 1.\n\nnp.random.rand(5)\n\narray([0.72307395, 0.62345987, 0.70516883, 0.23266388, 0.38933732])\n\n\nYou can also generate a 2-D array of random numbers. For example, the following code will generate a 3 by 4 array of random numbers.\n\narr = np.random.rand(3, 4)\narr\n\narray([[0.9402028 , 0.22213654, 0.1059726 , 0.96852429],\n       [0.66261568, 0.50935184, 0.98846042, 0.08013616],\n       [0.08648517, 0.57801702, 0.54204326, 0.22599443]])\n\n\nWe can always check the shape of the array using the shape attribute.\n\narr.shape\n\n(3, 4)",
     "crumbs": [
       "Basic Data Manipulation",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>NumPy</span>"

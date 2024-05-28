@@ -253,7 +253,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#linspace" id="toc-linspace" class="nav-link" data-scroll-target="#linspace"><span class="header-section-number">4.4.2</span> Linspace</a></li>
   <li><a href="#eye" id="toc-eye" class="nav-link" data-scroll-target="#eye"><span class="header-section-number">4.4.3</span> Eye</a></li>
   </ul></li>
-  <li><a href="#array-operations" id="toc-array-operations" class="nav-link" data-scroll-target="#array-operations"><span class="header-section-number">4.5</span> Array Operations</a></li>
+  <li><a href="#numpy-for-random-number-generation" id="toc-numpy-for-random-number-generation" class="nav-link" data-scroll-target="#numpy-for-random-number-generation"><span class="header-section-number">4.5</span> NumPy for Random Number Generation</a>
+  <ul class="collapse">
+  <li><a href="#uniform-distribution" id="toc-uniform-distribution" class="nav-link" data-scroll-target="#uniform-distribution"><span class="header-section-number">4.5.1</span> Uniform Distribution</a></li>
+  </ul></li>
+  <li><a href="#array-operations" id="toc-array-operations" class="nav-link" data-scroll-target="#array-operations"><span class="header-section-number">4.6</span> Array Operations</a>
+  <ul class="collapse">
+  <li><a href="#addition" id="toc-addition" class="nav-link" data-scroll-target="#addition"><span class="header-section-number">4.6.1</span> Addition</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TeroJii/python-book/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -298,14 +305,14 @@ Tip
 </div>
 </div>
 <p>Once you have installed the NumPy package, you can load it using the following command.</p>
-<div id="45d4a62a" class="cell" data-execution_count="1">
+<div id="86446f2c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We have imported the NumPy package and aliased it as <code>np</code>. This is a common convention when working with NumPy. We can now use the functions and classes provided by NumPy by prefixing them with <code>np.</code>. For example, generating a random number using NumPy would look like this:</p>
-<div id="d0ec8f69" class="cell" data-execution_count="2">
+<div id="8a74df28" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>np.random.rand(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="36">
-<pre><code>array([0.08928368, 0.81676551, 0.56228957, 0.44924689, 0.26457876])</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>array([0.67163362, 0.24051202, 0.26644659, 0.03218672, 0.18302549])</code></pre>
 </div>
 </div>
 </section>
@@ -323,15 +330,15 @@ Tip
 <section id="d-vectors" class="level3" data-number="4.3.1">
 <h3 data-number="4.3.1" class="anchored" data-anchor-id="d-vectors"><span class="header-section-number">4.3.1</span> 1-D Vectors</h3>
 <p>You can create a 1-D NumPy array from a list using the <code>np.array()</code> function. For example:</p>
-<div id="0156700f" class="cell" data-execution_count="3">
+<div id="62897bcd" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="37">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>array([1, 2, 3, 4, 5])</code></pre>
 </div>
 </div>
 <p>You might have noticed that we actually used a list to create the NumPy array. We can naturally create a NumPy array from a list which has been assigned to a variable. For example, below we will cast a list to an array using the variable <code>my_list</code>:</p>
-<div id="628e766f" class="cell" data-execution_count="4">
+<div id="f1747715" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array(my_list)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -340,7 +347,7 @@ Tip
 </div>
 </div>
 <p>We can also create a NumPy array for a range of numbers conveniently using the <code>np.arange()</code> function.</p>
-<div id="c4c94aab" class="cell" data-execution_count="5">
+<div id="286454cb" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">6</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -348,7 +355,7 @@ Tip
 </div>
 </div>
 <p>You can also determine a step size for the range of numbers. For example, the following code will create an array with numbers from 0 to 10 with a step size of 2.</p>
-<div id="ad8ee768" class="cell" data-execution_count="6">
+<div id="035af9ec" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>a_steps <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">11</span>, <span class="dv">2</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a_steps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -359,10 +366,10 @@ Tip
 <section id="d-matrices" class="level3" data-number="4.3.2">
 <h3 data-number="4.3.2" class="anchored" data-anchor-id="d-matrices"><span class="header-section-number">4.3.2</span> 2-D Matrices</h3>
 <p>You can create a 2-D NumPy array from a list of lists by using the <code>np.array()</code> function.</p>
-<div id="d3d38367" class="cell" data-execution_count="7">
+<div id="46b7bd1e" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]])</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="41">
+<div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>array([[1, 2, 3],
        [4, 5, 6],
        [7, 8, 9]])</code></pre>
@@ -383,25 +390,25 @@ Tip
 <section id="zeros-and-ones" class="level3" data-number="4.4.1">
 <h3 data-number="4.4.1" class="anchored" data-anchor-id="zeros-and-ones"><span class="header-section-number">4.4.1</span> Zeros and Ones</h3>
 <p>You can create an array of zeros using the <code>np.zeros()</code> function. For example, the following code will create an array of zeros with 5 elements.</p>
-<div id="c909cdfc" class="cell" data-execution_count="8">
+<div id="87ebe824" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>np.zeros(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="42">
+<div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>array([0., 0., 0., 0., 0.])</code></pre>
 </div>
 </div>
 <p>For a 2-D array, you can specify the shape of the array as a tuple. For example, the following code will create a 2-D array of zeros with 3 rows and 4 columns.</p>
-<div id="06e2e574" class="cell" data-execution_count="9">
+<div id="3b3609fc" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>np.zeros((<span class="dv">3</span>, <span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="43">
+<div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>array([[0., 0., 0., 0.],
        [0., 0., 0., 0.],
        [0., 0., 0., 0.]])</code></pre>
 </div>
 </div>
 <p>Using ones is similar to using zeros. Let’s create a 5 by 6 matrix of ones.</p>
-<div id="570eaae5" class="cell" data-execution_count="10">
+<div id="2cf3ed49" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>np.ones((<span class="dv">5</span>, <span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="44">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>array([[1., 1., 1., 1., 1., 1.],
        [1., 1., 1., 1., 1., 1.],
        [1., 1., 1., 1., 1., 1.],
@@ -413,9 +420,9 @@ Tip
 <section id="linspace" class="level3" data-number="4.4.2">
 <h3 data-number="4.4.2" class="anchored" data-anchor-id="linspace"><span class="header-section-number">4.4.2</span> Linspace</h3>
 <p>The <code>np.linspace()</code> function is used to create an array of evenly spaced numbers over a specified range. For example, the following code will create an array of 10 numbers between 0 and 5.</p>
-<div id="cb8daacd" class="cell" data-execution_count="11">
+<div id="9be03209" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>np.linspace(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="45">
+<div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>array([0.        , 0.55555556, 1.11111111, 1.66666667, 2.22222222,
        2.77777778, 3.33333333, 3.88888889, 4.44444444, 5.        ])</code></pre>
 </div>
@@ -425,9 +432,9 @@ Tip
 <section id="eye" class="level3" data-number="4.4.3">
 <h3 data-number="4.4.3" class="anchored" data-anchor-id="eye"><span class="header-section-number">4.4.3</span> Eye</h3>
 <p>This function is used for creating an identity matrix. An identity matrix is a square matrix with ones on the diagonal and zeros elsewhere. We can create a 4 by 4 identity matrix with the following code.</p>
-<div id="bf84f422" class="cell" data-execution_count="12">
+<div id="756a7a6e" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>np.eye(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="46">
+<div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>array([[1., 0., 0., 0.],
        [0., 1., 0., 0.],
        [0., 0., 1., 0.],
@@ -437,10 +444,51 @@ Tip
 <p>The identity matrix has many important uses in linear algebra and other areas of mathematics.</p>
 </section>
 </section>
-<section id="array-operations" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="array-operations"><span class="header-section-number">4.5</span> Array Operations</h2>
+<section id="numpy-for-random-number-generation" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="numpy-for-random-number-generation"><span class="header-section-number">4.5</span> NumPy for Random Number Generation</h2>
+<p>Random numbers are needed for a variety of purposes in data analysis and machine learning. NumPy provides a number of functions for generating random numbers. Here are some of the most commonly used functions:</p>
+<ul>
+<li><code>np.random.rand()</code>: Generates random numbers from a uniform distribution</li>
+<li><code>np.random.randn()</code>: Generates random numbers from a standard normal distribution</li>
+<li><code>np.random.randint()</code>: Generates random integers</li>
+</ul>
+<p>These functions allow us to create NumPy arrays with random numbers taken from different distributions.</p>
+<section id="uniform-distribution" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="uniform-distribution"><span class="header-section-number">4.5.1</span> Uniform Distribution</h3>
+<p>The uniform distribution refers generally to random numbers between 0 and 1. The <code>np.random.rand()</code> function generates random numbers from a uniform distribution. For example, the following code will generate an array of 5 random numbers between 0 and 1.</p>
+<div id="48a17a04" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>np.random.rand(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<pre><code>array([0.72307395, 0.62345987, 0.70516883, 0.23266388, 0.38933732])</code></pre>
+</div>
+</div>
+<p>You can also generate a 2-D array of random numbers. For example, the following code will generate a 3 by 4 array of random numbers.</p>
+<div id="2902b54d" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.random.rand(<span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<pre><code>array([[0.9402028 , 0.22213654, 0.1059726 , 0.96852429],
+       [0.66261568, 0.50935184, 0.98846042, 0.08013616],
+       [0.08648517, 0.57801702, 0.54204326, 0.22599443]])</code></pre>
+</div>
+</div>
+<p>We can always check the shape of the array using the <code>shape</code> attribute.</p>
+<div id="12a6d5a4" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>arr.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>(3, 4)</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="array-operations" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="array-operations"><span class="header-section-number">4.6</span> Array Operations</h2>
+<p>You can perform element-wise operations on NumPy arrays. For example, you can add two arrays together, subtract one array from another, multiply two arrays, and divide one array by another. Let’s see some examples.</p>
+<section id="addition" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="addition"><span class="header-section-number">4.6.1</span> Addition</h3>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
