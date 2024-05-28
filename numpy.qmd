@@ -122,3 +122,17 @@ Using ones is similar to using zeros. Let's create a 5 by 6 matrix of ones.
 #| code-fold: false
 np.ones((5, 6))
 ```
+
+
+### Linspace
+
+The `np.linspace()` function is used to create an array of evenly spaced numbers over a specified range. For example, the following code will create an array of 10 numbers between 0 and 5.
+
+```{python}
+#| code-fold: false
+np.linspace(0, 5, 10)
+```
+
+How does it differ from `np.arange()` you might ask? The `np.linspace()` function will always include the start and end values, whereas the `np.arange()` function will not include the end value.
+
+### Eye
