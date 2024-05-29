@@ -104,6 +104,35 @@ square_first_three = np.square(a[:3])
 print(square_first_three)
 ```
 
+You should be aware that the array is not changed by these operations, as we can see by printing the array.
+
+```{python}	
+#| code-fold: false
+a
+```
+
+However, when you broadcast on a slice of an array, the original array is changed. For example, the following code will change the first three elements of the array to their squares.
+
+```{python}
+#| code-fold: false
+squared_slice = a[:3]
+squared_slice **= 2
+
+print(squared_slice)
+print(a)
+```
+
+You can use the `copy()` method to create a copy of the array. This way you can change the copy without changing the original array. For example, the following code will create a copy of the array and change the copy without changing the original array.
+
+```{python}
+#| code-fold: false
+
+a_copy = a.copy()
+a_copy[0] = 100
+print(a_copy)
+print(a)
+```
+
 ### Other Ways to Create 1-D Arrays
 
 
