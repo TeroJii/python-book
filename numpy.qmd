@@ -74,6 +74,13 @@ This works just like it would for a list:
 my_list[0]
 ```
 
+You can also use the slice notation to access a range of elements in the array. For example, the following code will access the elements from the second to the fourth element of the array. So in other words from index one to index three (it can be confusing I know).
+
+```{python}
+#| code-fold: false
+a[1:4]
+```
+
 
 
 ### Other Ways to Create 1-D Arrays
