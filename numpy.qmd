@@ -42,8 +42,6 @@ One of the key concepts in NumPy are array and matrix data structures. Moreover,
 
 ## NumPy Arrays
 
-### 1-D Vectors
-
 You can create a 1-D NumPy array from a list using the `np.array()` function. For example:
 
 ```{python}
@@ -57,10 +55,29 @@ You might have noticed that we actually used a list to create the NumPy array. W
 ```{python}
 #| code-fold: false
 
-my_list = [1, 2, 3, 4, 5]
+my_list = [0, 1, 2, 3, 4, 5]
 a = np.array(my_list)
 print(a)
 ```
+
+Now accessing the elements of the array is similar to accessing the elements of a list. For example, to access the first element of the array, you can use the following code:
+
+```{python}
+#| code-fold: false
+a[0]
+```
+
+This works just like it would for a list:
+
+```{python}
+#| code-fold: false
+my_list[0]
+```
+
+
+
+### Other Ways to Create 1-D Arrays
+
 
 We can also create a NumPy array for a range of numbers conveniently using the `np.arange()` function.
 
@@ -210,6 +227,23 @@ arr.dtype
 #| code-fold: false
 
 arr.astype(int)
+```
+
+### Normal Distribution
+
+The normal distribution is quite possibly the most important distribution in statistics. The `np.random.randn()` function generates random numbers from a standard normal distribution. If we want to save ourselves some typing we can import the function directly.
+
+```{python}
+#| code-fold: false
+from numpy.random import randn
+```
+
+This allows us to use the function without the `np.` prefix. Like this:
+
+```{python}
+#| code-fold: false
+# create 5 random numbers from a standard normal distribution
+randn(5)
 ```
 
 ## Array Operations
