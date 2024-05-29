@@ -135,8 +135,8 @@ print(a)
 
 ### Other Ways to Create 1-D Arrays
 
-
-We can also create a NumPy array for a range of numbers conveniently using the `np.arange()` function.
+`np.array()` is not the only way to create a NumPy array.
+We can also create a one dimensional NumPy array for a range of numbers conveniently using the `np.arange()` function.
 
 ```{python}
 #| code-fold: false
@@ -302,6 +302,16 @@ This allows us to use the function without the `np.` prefix. Like this:
 # create 5 random numbers from a standard normal distribution
 randn(5)
 ```
+
+The standard normal distribution is centered around zero and has a standard deviation of one. So, if we want to change the mean and standard deviation of our normal distribution, we can multiply the random numbers by the standard deviation and shift the mean by addition. For example, the following code will generate 5 random numbers from a normal distribution with a mean of 10 and a standard deviation of 2.
+
+```{python}
+#| code-fold: false
+# multiply by sd and add mean
+randn(5) * 2 + 10
+```
+
+### Random Integers
 
 ## Array Operations
 
