@@ -248,6 +248,14 @@ You can also slice lists, i.e. get a subset of the list using the following synt
 my_list[:3]
 ```
 
+Negative indices can be used to access elements from the end of the list:
+
+```{python}
+#| code-fold: false
+# get the last element
+my_list[-1]
+```
+
 A list can also contain nested lists:
 
 ```{python}
