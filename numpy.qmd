@@ -81,7 +81,28 @@ You can also use the slice notation to access a range of elements in the array. 
 a[1:4]
 ```
 
+With arrays you can also do something called broadcasting. This means that you can apply an operation to every element in the array. For example, the following code will multiply every element in the array by 2.
 
+```{python}
+#| code-fold: false
+a * 2
+```
+
+This is not possible with lists as you will see by looking at the example below.
+
+```{python}
+#| code-fold: false
+my_list * 2
+```
+
+You can also apply mathematical functions to the array. For example, the following code will calculate the square of first three elements in the array.
+
+```{python}
+#| code-fold: false
+
+square_first_three = np.square(a[:3])
+print(square_first_three)
+```
 
 ### Other Ways to Create 1-D Arrays
 
