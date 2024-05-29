@@ -111,6 +111,8 @@ You should be aware that the array is not changed by these operations, as we can
 a
 ```
 
+
+:::{.callout-warning}
 However, when you broadcast on a slice of an array, the original array is changed. For example, the following code will change the first three elements of the array to their squares.
 
 ```{python}
@@ -121,6 +123,8 @@ squared_slice **= 2
 print(squared_slice)
 print(a)
 ```
+
+:::
 
 You can use the `copy()` method to create a copy of the array. This way you can change the copy without changing the original array. For example, the following code will create a copy of the array and change the copy without changing the original array.
 
