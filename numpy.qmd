@@ -163,6 +163,23 @@ b = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 b
 ```
 
+You can access elements of a 2-D array using two indices. For example, the following code will access the element in the second row and third column of the array.
+
+```{python}
+#| code-fold: false
+# index for the second row and third column
+b[1, 2]
+```
+
+There is also a double bracket notation for accessing elements in a 2-D array. For example, the following code will access the element in the second row and third column of the array.
+
+```{python}
+#| code-fold: false
+b[1][2]
+```
+
+Either of the two methods will work, but the first method should be more efficient.
+
 ## Some convenient functions
 
 Here are some convenient functions that you can use to create NumPy arrays:
