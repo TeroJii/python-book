@@ -420,3 +420,33 @@ NumPy provides a number of universal functions that can be applied to arrays. Fo
 #| code-fold: false
 np.sqrt(a)
 ```
+
+You can do things like finding the maximum or minimum value in an array.
+
+```{python}
+#| code-fold: false
+# maximum value
+np.max(a)
+```
+
+This is equivalent to using the `max()` method.
+
+```{python}
+#| code-fold: false
+a.max()
+```
+
+You can also find the index of the maximum value in the array.
+
+```{python}
+#| code-fold: false
+np.argmax(a)
+```
+
+Trigonometric functions are also available, such as `np.sin()`, `np.cos()`, and `np.tan()`.
+
+```{python}
+#| code-fold: false
+np.cos(a)
+```
+
