@@ -363,7 +363,30 @@ np.random.choice(10, 5, replace=False)
 
 You can perform element-wise operations on NumPy arrays. For example, you can add two arrays together, subtract one array from another, multiply two arrays, and divide one array by another. Let's see some examples.
 
-### Addition
+### Basic Operations
+
+You can perform basic arithmetic operations on NumPy arrays. For example, the following code will add two arrays together.
+
+```{python}
+#| code-fold: false
+a = np.array([1, 2, 3, 4, 5])
+
+a + a
+```
+
+The same goes for subtraction and multiplication.
+
+```{python}
+#| code-fold: false
+# subtraction
+a - a
+```
+
+```{python}
+#| code-fold: false
+# multiplication
+a * a
+```
 
 
 
