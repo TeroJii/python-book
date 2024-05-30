@@ -136,7 +136,7 @@
     "href": "pandas.html",
     "title": "5  Pandas",
     "section": "",
-    "text": "Pandas in used for data frames in Python.\n\n\nCode\n# test code-folding\n1+1\n\n\n2",
+    "text": "5.1 Series\nSeries is a one-dimensional labeled array capable of holding any data type (integers, strings, floating point numbers, Python objects, etc.). The axis labels are collectively referred to as the index. The basic method to create a Series is to call the series constructor:\n# import numpy and pandas libraries\nimport numpy as np\nimport pandas as pd\n\n# create a series from a list\npd.Series(data = [1, 2, 3, 4])\n\n0    1\n1    2\n2    3\n3    4\ndtype: int64",
     "crumbs": [
       "Basic Data Manipulation",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Pandas</span>"
