@@ -136,7 +136,7 @@
     "href": "pandas.html",
     "title": "5  Pandas",
     "section": "",
-    "text": "5.1 Series\nSeries is a one-dimensional labeled array capable of holding any data type (integers, strings, floating point numbers, Python objects, etc.). The axis labels are collectively referred to as the index. The basic method to create a Series is to call the series constructor:\n# import numpy and pandas libraries\nimport numpy as np\nimport pandas as pd\n\n# create a series from a list\npd.Series(data = [1, 2, 3, 4])\n\n0    1\n1    2\n2    3\n3    4\ndtype: int64",
+    "text": "5.1 Series\nSeries is a one-dimensional labeled array capable of holding any data type (integers, strings, floating point numbers, Python objects, etc.). The axis labels are collectively referred to as the index. The basic method to create a Series is to call the series constructor:\n# import numpy and pandas libraries\nimport numpy as np\nimport pandas as pd\n\n# create a series from a list\npd.Series(data = [1, 2, 3, 4])\n\n0    1\n1    2\n2    3\n3    4\ndtype: int64\nWe can see that the series look very much like the list or a NumPy array. The series also has an index that can be used to access the elements of the series, but the difference is that we can specify the index values for our series:\n# create a series with custom index\nmy_series = pd.Series(data = [1, 2, 3, 4], index = ['a', 'b', 'c', 'd'])\nmy_series\n\na    1\nb    2\nc    3\nd    4\ndtype: int64\nWe can access the elements of the series using the index values:\n# access the elements of the series\nmy_series['a']\n\n1",
     "crumbs": [
       "Basic Data Manipulation",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Pandas</span>"
