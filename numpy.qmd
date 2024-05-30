@@ -450,3 +450,4 @@ Trigonometric functions are also available, such as `np.sin()`, `np.cos()`, and 
 np.cos(a)
 ```
 
+There are many more universal functions available in NumPy. You can find a list of them in the [NumPy documentation](https://numpy.org/doc/stable/reference/ufuncs.html). That's it for NumPy. In the next section, we will look at Pandas, which will introduce us to DataFrames, a powerful data structure for data analysis in Python.
