@@ -24,3 +24,19 @@ import pandas as pd
 pd.Series(data = [1, 2, 3, 4])
 ```
 
+We can see that the series look very much like the list or a NumPy array. The series also has an index that can be used to access the elements of the series, but the difference is that we can specify the index values for our series:
+
+```{python}
+#| code-fold: false
+# create a series with custom index
+my_series = pd.Series(data = [1, 2, 3, 4], index = ['a', 'b', 'c', 'd'])
+my_series
+```
+
+We can access the elements of the series using the index values:
+
+```{python}
+#| code-fold: false
+# access the elements of the series
+my_series['a']
+```
