@@ -388,5 +388,35 @@ a - a
 a * a
 ```
 
+You can also divide two arrays:
+
+```{python}
+#| code-fold: false
+
+a / a
+```
+
+Scalar operations are also possible. For example, the following code will multiply every element in the array by 2.
+
+```{python}
+#| code-fold: false
+a * 2
+```
+
+You can also add or subtract a scalar from an array.
+
+```{python}
+#| code-fold: false
+# addition
+a + 2
+```
 
 
+### Universal Functions
+
+NumPy provides a number of universal functions that can be applied to arrays. For example, the `np.sqrt()` function calculates the square root of every element in the array.
+
+```{python}
+#| code-fold: false
+np.sqrt(a)
+```
