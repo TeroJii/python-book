@@ -108,3 +108,29 @@ Assigning values to the elements of the series is also possible and works in the
 my_series['a'] = 100
 my_series
 ```
+
+## DataFrame
+
+A DataFrame is a two-dimensional, size-mutable, and heterogeneous tabular data structure with labeled axes (rows and columns). You can think of being similar to a spreadsheet. It is generally the most commonly used pandas object. Like the Series object we learned earlier, the DataFrame also accepts many different kinds of input. Let's see what a DataFrame looks like:
+
+```{python}
+#| code-fold: false
+
+# create a DataFrame from a dictionary
+data = {'name': ['John', 'Anna', 'Peter', 'Linda'],
+        'age': [23, 36, 32, 45],
+        'city': ['New York', 'Paris', 'Berlin', 'London']}
+
+df = pd.DataFrame(data)
+df
+```
+
+We can see that the DataFrame has a default index that starts from 0, and that the data is displayed in a tabular format which makes it easy to read. We can also specify the index values:
+
+```{python}
+#| code-fold: false
+
+# create a DataFrame with custom index
+df = pd.DataFrame(data, index = ['a', 'b', 'c', 'd'])
+df
+```
