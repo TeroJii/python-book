@@ -134,3 +134,19 @@ We can see that the DataFrame has a default index that starts from 0, and that t
 df = pd.DataFrame(data, index = ['a', 'b', 'c', 'd'])
 df
 ```
+
+The columns are actually Pandas Series objects. We can access the columns of the DataFrame using the column name:
+
+```{python}
+#| code-fold: false
+
+# access the first column of the DataFrame
+df['name']
+```
+
+Let's inspect the type of the column:
+
+```{python}
+#| code-fold: false
+type(df['name'])
+```
