@@ -4,7 +4,7 @@ jupyter: python3
 
 # Pandas
 
-Pandas is Python library for data manipulation and analysis. It provides data structures like Series and DataFrame that are designed to work with structured data very easily and efficiently. It is built on top of NumPy. You can install pandas using pip:
+Pandas is Python library for data manipulation and analysis. It provides data structures like Series and DataFrame that are designed to work with structured data very easily and efficiently. It is built on top of NumPy. You can install pandas from the terminal using pip:
 
 ```bash
 pip install pandas
@@ -40,3 +40,12 @@ We can access the elements of the series using the index values:
 # access the elements of the series
 my_series['a']
 ```
+
+You can also use the dot notation:
+
+```{python}
+#| code-fold: false
+# access the elements of the series using the dot notation
+my_series.b
+```
+
