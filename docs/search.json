@@ -292,5 +292,16 @@
       "Basic Data Manipulation",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>NumPy</span>"
     ]
+  },
+  {
+    "objectID": "pandas.html#series",
+    "href": "pandas.html#series",
+    "title": "5  Pandas",
+    "section": "",
+    "text": "5.1.1 Creating a Series from other data types\nA List is not the only data type that can be used to create a series. You can also use a dictionary:\n\n# creating a series from a dictionary\nmy_dict = {'a': 1, 'b': 2, 'c': 3, 'd': 4}\npd.Series(my_dict)\n\na    1\nb    2\nc    3\nd    4\ndtype: int64\n\n\nYou can also create a series from a NumPy array etc.\n\n# creating a series from a NumPy array\nmy_array = np.array([1, 2, 3, 4])\npd.Series(my_array)\n\n0    1\n1    2\n2    3\n3    4\ndtype: int32\n\n\n\n\n5.1.2 Accessing elements of a Series\nIn addition to the index, we can use the iloc attribute to access the elements of the series by their position:\n\n# access the elements of the series by their position\nmy_series.iloc[0]\n\n1",
+    "crumbs": [
+      "Basic Data Manipulation",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Pandas</span>"
+    ]
   }
 ]
