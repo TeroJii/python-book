@@ -73,11 +73,38 @@ pd.Series(my_array)
 
 ### Accessing elements of a Series
 
-In addition to the index, we can use the `iloc` attribute to access the elements of the series by their position:
+We already saw the bracket + index and the dot + index notation in action. In addition to using the index, we can use the `iloc` attribute to access the elements of the series by using numerical indexing:
 
 ```{python}
 #| code-fold: false
-# access the elements of the series by their position
+# access the first element of the series by using the positional index
 my_series.iloc[0]
 ```
 
+You can also use the `loc` attribute to access the elements of the series by their index. You can add multiple index values to access multiple elements:
+
+```{python}
+#| code-fold: false
+
+# access the elements of the series by their index
+my_series.loc[['a', 'c']]
+```
+
+We can also use the `:` operator to access a range of elements:
+
+```{python}
+#| code-fold: false
+
+# access a range of elements
+my_series.loc['a':'c']
+```
+
+Assigning values to the elements of the series is also possible and works in the same way as with NumPy arrays:
+
+```{python}
+#| code-fold: false
+
+# assign a value to an element of the series
+my_series['a'] = 100
+my_series
+```
