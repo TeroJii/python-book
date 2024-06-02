@@ -303,5 +303,16 @@
       "Basic Data Manipulation",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Pandas</span>"
     ]
+  },
+  {
+    "objectID": "pandas.html#dataframe",
+    "href": "pandas.html#dataframe",
+    "title": "5  Pandas",
+    "section": "5.2 DataFrame",
+    "text": "5.2 DataFrame\nA DataFrame is a two-dimensional, size-mutable, and heterogeneous tabular data structure with labeled axes (rows and columns). You can think of being similar to a spreadsheet. It is generally the most commonly used pandas object. Like the Series object we learned earlier, the DataFrame also accepts many different kinds of input. Let’s see what a DataFrame looks like:\n\n# create a DataFrame from a dictionary\ndata = {'name': ['John', 'Anna', 'Peter', 'Linda'],\n        'age': [23, 36, 32, 45],\n        'city': ['New York', 'Paris', 'Berlin', 'London']}\n\ndf = pd.DataFrame(data)\ndf\n\n\n\n\n\n\n\n\n\nname\nage\ncity\n\n\n\n\n0\nJohn\n23\nNew York\n\n\n1\nAnna\n36\nParis\n\n\n2\nPeter\n32\nBerlin\n\n\n3\nLinda\n45\nLondon\n\n\n\n\n\n\n\n\nWe can see that the DataFrame has a default index that starts from 0, and that the data is displayed in a tabular format which makes it easy to read. We can also specify the index values:\n\n# create a DataFrame with custom index\ndf = pd.DataFrame(data, index = ['a', 'b', 'c', 'd'])\ndf\n\n\n\n\n\n\n\n\n\nname\nage\ncity\n\n\n\n\na\nJohn\n23\nNew York\n\n\nb\nAnna\n36\nParis\n\n\nc\nPeter\n32\nBerlin\n\n\nd\nLinda\n45\nLondon",
+    "crumbs": [
+      "Basic Data Manipulation",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Pandas</span>"
+    ]
   }
 ]
