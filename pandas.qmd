@@ -49,3 +49,35 @@ You can also use the dot notation:
 my_series.b
 ```
 
+### Creating a Series from other data types
+
+A List is not the only data type that can be used to create a series. You can also use a dictionary:
+
+```{python}
+#| code-fold: false
+
+# creating a series from a dictionary
+my_dict = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+pd.Series(my_dict)
+```
+
+You can also create a series from a NumPy array etc.
+
+```{python}	
+#| code-fold: false
+
+# creating a series from a NumPy array
+my_array = np.array([1, 2, 3, 4])
+pd.Series(my_array)
+```
+
+### Accessing elements of a Series
+
+In addition to the index, we can use the `iloc` attribute to access the elements of the series by their position:
+
+```{python}
+#| code-fold: false
+# access the elements of the series by their position
+my_series.iloc[0]
+```
+
