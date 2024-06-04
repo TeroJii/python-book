@@ -135,7 +135,9 @@ df = pd.DataFrame(data, index = ['a', 'b', 'c', 'd'])
 df
 ```
 
-The columns are actually Pandas Series objects. We can access the columns of the DataFrame using the column name:
+### Accessing Columns of a DataFrame
+
+The columns are actually Pandas Series objects. We can access the columns of the DataFrame using the column name and the bracket notation. Let's access the 'name' column of the DataFrame:
 
 ```{python}
 #| code-fold: false
@@ -149,4 +151,30 @@ Let's inspect the type of the column:
 ```{python}
 #| code-fold: false
 type(df['name'])
+```
+
+We can see that the column is a Pandas Series object. We can also access the columns using the dot notation:
+
+```{python}
+#| code-fold: false
+df.name
+```
+
+The issue that we may run into using the dot notation is that it may not work if the column we are trying to access has the same name as a DataFrame method. For example, if we have a column named 'count', we cannot access it using the dot notation because 'count' is a DataFrame method. We can access the columns using the `loc` attribute:
+
+```{python}
+#| code-fold: false
+
+# add count column to the DataFrame
+df['count'] = [1, 2, 3, 4]
+df
+```
+
+We can access the columns using the `loc` attribute:
+
+```{python}
+#| code-fold: false
+
+# access the columns of the DataFrame using the loc attribute
+df.loc[:, 'count']
 ```
