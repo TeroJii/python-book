@@ -178,3 +178,22 @@ We can access the columns using the `loc` attribute:
 # access the columns of the DataFrame using the loc attribute
 df.loc[:, 'count']
 ```
+
+As we saw above, we can create a new column by assigning a list to a new column name. We can also create a new column by using the existing columns:
+
+```{python}
+#| code-fold: false
+
+# create a new column by using the existing columns
+df['age_plus_count'] = df['age'] + df['count']
+df
+```
+
+If we now want to access all the new columns we created, we can use the bracket notation:
+
+```{python}
+#| code-fold: false
+
+# access the new columns
+df[['count', 'age_plus_count']]
+```
