@@ -197,3 +197,35 @@ If we now want to access all the new columns we created, we can use the bracket 
 # access the new columns
 df[['count', 'age_plus_count']]
 ```
+
+Now you might be wondering how to delete a column. We can use the `drop` method to delete a column:
+
+```{python}
+#| code-fold: false
+
+# deleting the new columns
+df.drop(['count', 'age_plus_count'], axis=1)
+```
+
+This prints out the DataFrame without the columns. However, you should note that the `drop` method does not modify the original DataFrame by default. We can confirm this by printing the original DataFrame:
+
+```{python}
+#| code-fold: false
+
+df
+```
+
+
+If you want to remove the columns permanently, you need to use the `inplace` parameter:
+
+```{python}
+#| code-fold: false
+
+# deleting the new columns permanently
+df.drop(['count', 'age_plus_count'], axis=1, inplace=True)
+df
+```
+
+This gives us the original DataFrame without the columns we deleted. You might have noticed how we specified `axis = 1` in the `drop` method. This is used to refer to dropping columns. Rows are dropped by specifying `axis = 0`. The terminology comes from NumPy, where the first axis is the rows and the second axis is the columns.
+
+### Accessing Rows of a DataFrame
