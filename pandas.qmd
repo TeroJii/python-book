@@ -229,3 +229,22 @@ df
 This gives us the original DataFrame without the columns we deleted. You might have noticed how we specified `axis = 1` in the `drop` method. This is used to refer to dropping columns. Rows are dropped by specifying `axis = 0`. The terminology comes from NumPy, where the first axis is the rows and the second axis is the columns.
 
 ### Accessing Rows of a DataFrame
+
+Ok, so we know how to access the columns of a DataFrame. How do we access the rows? There are a number of ways to do this. For example, we can use the `loc` attribute to access the rows of a DataFrame by their index:
+
+```{python}
+#| code-fold: false
+
+# access the rows of the DataFrame by their index
+row_a = df.loc['a']
+
+row_a
+```
+
+If we inspect the type of `row_a`, we can see that it is also a Pandas Series object, just like the individual columns were Series objects as well:
+
+```{python}
+#| code-fold: false
+
+type(row_a)
+```
