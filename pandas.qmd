@@ -274,6 +274,21 @@ We can also use the slicing notation for DataFrames. For example, to get the fir
 df[:2]
 ```
 
+Do you still remember the `drop` method we used to delete columns? As we already discussed, we can also use it to delete rows. Let's delete the first row:
+
+```{python}
+#| code-fold: false
+
+# delete the first row
+df.drop('a', axis=0)
+```
+
+Since we did not add `inplace=True`, the original DataFrame is not modified. We can confirm this by printing the original DataFrame:
+
+```{python}
+#| code-fold: false
+df
+```
 
 ### Accessing Elements of a DataFrame
 
