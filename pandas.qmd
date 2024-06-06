@@ -258,4 +258,21 @@ How do we access multiple rows? We can use the `loc` attribute and pass a list o
 df.loc[['a', 'c']]
 ```
 
-This, in turn, returns back a DataFrame.
+This, in turn, returns back a DataFrame. We can also use the `iloc` attribute to access the rows by their numerical index:
+
+```{python}
+#| code-fold: false
+
+# get the last two rows of the DataFrame
+df.iloc[2:]
+```
+
+We can also use the slicing notation for DataFrames. For example, to get the first two rows of the DataFrame:
+
+```{python}
+#| code-fold: false
+df[:2]
+```
+
+
+### Accessing Elements of a DataFrame
