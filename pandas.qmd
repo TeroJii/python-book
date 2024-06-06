@@ -276,3 +276,37 @@ df[:2]
 
 
 ### Accessing Elements of a DataFrame
+
+We are now familiar with some common ways of accessing specific rows and columns of a DataFrame. We are now ready to combine what we already know to access individual elements. We can use the `loc` attribute and pass the row and column index values:
+
+```{python}
+#| code-fold: false
+
+# access an element of the DataFrame
+df.loc['a', 'name']
+```
+
+If we know the numerical index of the row and column, we can use the `iloc` attribute:
+
+```{python}
+#| code-fold: false
+
+# get element from row 2 column 3
+df.iloc[1, 2]
+```
+
+By combining the techniques we learned, we can access multiple elements:
+
+```{python}
+#| code-fold: false
+
+# get multiple elements
+df.loc[['a', 'c'], ['name', 'city']]
+```
+
+```{python}
+#| code-fold: false
+
+# first two rows
+df[0:2][['name', 'age']]
+```
