@@ -248,3 +248,14 @@ If we inspect the type of `row_a`, we can see that it is also a Pandas Series ob
 
 type(row_a)
 ```
+
+How do we access multiple rows? We can use the `loc` attribute and pass a list of index values:
+
+```{python}
+#| code-fold: false
+
+# access multiple rows
+df.loc[['a', 'c']]
+```
+
+This, in turn, returns back a DataFrame.
