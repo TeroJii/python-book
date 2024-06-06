@@ -310,3 +310,13 @@ df.loc[['a', 'c'], ['name', 'city']]
 # first two rows
 df[0:2][['name', 'age']]
 ```
+
+### Conditional selection
+
+It quite common in data science to filter data based on some condition. We can use the bracket notation to filter the data. Let's say we want to find people over the age of 25:
+
+```{python}
+#| code-fold: false
+
+df[df['age'] > 25]
+```
