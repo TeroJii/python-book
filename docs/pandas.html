@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Python Bytes: A Poor Man’s Guide to Wrestling with Data - 5&nbsp; Pandas</title>
+<title>Python Bytes: A Poor Man’s Guide to Wrestling with Data - 5&nbsp; Pandas Basics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -104,7 +104,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
+
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
 
 
 </head>
@@ -118,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./numpy.html">Basic Data Manipulation</a></li><li class="breadcrumb-item"><a href="./pandas.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pandas</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./numpy.html">Basic Data Manipulation</a></li><li class="breadcrumb-item"><a href="./pandas.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pandas Basics</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -199,7 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./pandas.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pandas Basics</span></span></a>
   </div>
 </li>
       </ul>
@@ -259,15 +262,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#column-based-filtering" id="toc-column-based-filtering" class="nav-link" data-scroll-target="#column-based-filtering"><span class="header-section-number">5.3.1</span> Column based filtering</a></li>
   <li><a href="#multiple-conditions" id="toc-multiple-conditions" class="nav-link" data-scroll-target="#multiple-conditions"><span class="header-section-number">5.3.2</span> Multiple conditions</a></li>
   </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">5.4</span> Summary</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TeroJii/python-book/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./numpy.html">Basic Data Manipulation</a></li><li class="breadcrumb-item"><a href="./pandas.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pandas</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./numpy.html">Basic Data Manipulation</a></li><li class="breadcrumb-item"><a href="./pandas.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pandas Basics</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pandas</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pandas Basics</span></h1>
 </div>
 
 
@@ -284,19 +288,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Pandas is Python library for data manipulation and analysis. It provides data structures like Series and DataFrame that are designed to work with structured data very easily and efficiently. It is built on top of NumPy. You can install pandas from the terminal using pip:</p>
+<p>Pandas is a Python library commonly used for data manipulation and analysis. It provides data structures like Series and DataFrame that are designed to work with structured data very easily and efficiently. This is why Pandas is used a lot in Data Science work. It is built on top of NumPy, so many aspects should feel familiar. You can start by installing Pandas from the terminal using pip:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pandas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now let’s learn about the two main data structures in Pandas: Series and DataFrame.</p>
 <section id="series" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="series"><span class="header-section-number">5.1</span> Series</h2>
 <p>Series is a one-dimensional labeled array capable of holding any data type (integers, strings, floating point numbers, Python objects, etc.). The axis labels are collectively referred to as the index. The basic method to create a Series is to call the series constructor:</p>
-<div id="f611ae3a" class="cell" data-execution_count="1">
+<div id="41049d40" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy and pandas libraries</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># create a series from a list</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>pd.Series(data <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="499">
+<div class="cell-output cell-output-display" data-execution_count="44">
 <pre><code>0    1
 1    2
 2    3
@@ -305,11 +310,11 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>We can see that the series look very much like the list or a NumPy array. The series also has an index that can be used to access the elements of the series, but the difference is that we can specify the index values for our series:</p>
-<div id="bff5ddc1" class="cell" data-execution_count="2">
+<div id="0d335f9b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a series with custom index</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>my_series <span class="op">=</span> pd.Series(data <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>], index <span class="op">=</span> [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>])</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>my_series</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="500">
+<div class="cell-output cell-output-display" data-execution_count="45">
 <pre><code>a    1
 b    2
 c    3
@@ -318,29 +323,29 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>We can access the elements of the series using the index values:</p>
-<div id="2c4fc52c" class="cell" data-execution_count="3">
+<div id="6e99c952" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># access the elements of the series</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>my_series[<span class="st">'a'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="501">
+<div class="cell-output cell-output-display" data-execution_count="46">
 <pre><code>1</code></pre>
 </div>
 </div>
 <p>You can also use the dot notation:</p>
-<div id="5a718464" class="cell" data-execution_count="4">
+<div id="ce12cc82" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># access the elements of the series using the dot notation</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>my_series.b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="502">
+<div class="cell-output cell-output-display" data-execution_count="47">
 <pre><code>2</code></pre>
 </div>
 </div>
 <section id="creating-a-series-from-other-data-types" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="creating-a-series-from-other-data-types"><span class="header-section-number">5.1.1</span> Creating a Series from other data types</h3>
 <p>A List is not the only data type that can be used to create a series. You can also use a dictionary:</p>
-<div id="02ada5ca" class="cell" data-execution_count="5">
+<div id="a0bc5ee9" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a series from a dictionary</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>my_dict <span class="op">=</span> {<span class="st">'a'</span>: <span class="dv">1</span>, <span class="st">'b'</span>: <span class="dv">2</span>, <span class="st">'c'</span>: <span class="dv">3</span>, <span class="st">'d'</span>: <span class="dv">4</span>}</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>pd.Series(my_dict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="503">
+<div class="cell-output cell-output-display" data-execution_count="48">
 <pre><code>a    1
 b    2
 c    3
@@ -349,11 +354,11 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>You can also create a series from a NumPy array etc.</p>
-<div id="b07ca141" class="cell" data-execution_count="6">
+<div id="f8ebb5dc" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a series from a NumPy array</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>my_array <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>pd.Series(my_array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="504">
+<div class="cell-output cell-output-display" data-execution_count="49">
 <pre><code>0    1
 1    2
 2    3
@@ -365,28 +370,28 @@ dtype: int32</code></pre>
 <section id="accessing-elements-of-a-series" class="level3" data-number="5.1.2">
 <h3 data-number="5.1.2" class="anchored" data-anchor-id="accessing-elements-of-a-series"><span class="header-section-number">5.1.2</span> Accessing elements of a Series</h3>
 <p>We already saw the bracket + index and the dot + index notation in action. In addition to using the index, we can use the <code>iloc</code> attribute to access the elements of the series by using numerical indexing:</p>
-<div id="f3c02f86" class="cell" data-execution_count="7">
+<div id="c769b244" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># access the first element of the series by using the positional index</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>my_series.iloc[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="505">
+<div class="cell-output cell-output-display" data-execution_count="50">
 <pre><code>1</code></pre>
 </div>
 </div>
 <p>You can also use the <code>loc</code> attribute to access the elements of the series by their index. You can add multiple index values to access multiple elements:</p>
-<div id="fb5ca460" class="cell" data-execution_count="8">
+<div id="6efb0fdf" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># access the elements of the series by their index</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>my_series.loc[[<span class="st">'a'</span>, <span class="st">'c'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="506">
+<div class="cell-output cell-output-display" data-execution_count="51">
 <pre><code>a    1
 c    3
 dtype: int64</code></pre>
 </div>
 </div>
 <p>We can also use the <code>:</code> operator to access a range of elements:</p>
-<div id="610e1ea3" class="cell" data-execution_count="9">
+<div id="a7237c18" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># access a range of elements</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>my_series.loc[<span class="st">'a'</span>:<span class="st">'c'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="507">
+<div class="cell-output cell-output-display" data-execution_count="52">
 <pre><code>a    1
 b    2
 c    3
@@ -394,11 +399,11 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>Assigning values to the elements of the series is also possible and works in the same way as with NumPy arrays:</p>
-<div id="d4dd2cdd" class="cell" data-execution_count="10">
+<div id="cc03066e" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assign a value to an element of the series</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>my_series[<span class="st">'a'</span>] <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>my_series</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="508">
+<div class="cell-output cell-output-display" data-execution_count="53">
 <pre><code>a    100
 b      2
 c      3
@@ -411,7 +416,7 @@ dtype: int64</code></pre>
 <section id="dataframe" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="dataframe"><span class="header-section-number">5.2</span> DataFrame</h2>
 <p>A DataFrame is a two-dimensional, size-mutable, and heterogeneous tabular data structure with labeled axes (rows and columns). You can think of being similar to a spreadsheet. It is generally the most commonly used pandas object. Like the Series object we learned earlier, the DataFrame also accepts many different kinds of input. Let’s see what a DataFrame looks like:</p>
-<div id="ac96e7ab" class="cell" data-execution_count="11">
+<div id="762974c2" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a DataFrame from a dictionary</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'name'</span>: [<span class="st">'John'</span>, <span class="st">'Anna'</span>, <span class="st">'Peter'</span>, <span class="st">'Linda'</span>],</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">'age'</span>: [<span class="dv">23</span>, <span class="dv">36</span>, <span class="dv">32</span>, <span class="dv">45</span>],</span>
@@ -419,7 +424,7 @@ dtype: int64</code></pre>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="509">
+<div class="cell-output cell-output-display" data-execution_count="54">
 <div>
 <div>
 
@@ -466,11 +471,11 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>We can see that the DataFrame has a default index that starts from 0, and that the data is displayed in a tabular format which makes it easy to read. We can also specify the index values:</p>
-<div id="068e5f91" class="cell" data-execution_count="12">
+<div id="b4e09ca8" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a DataFrame with custom index</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data, index <span class="op">=</span> [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>])</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="510">
+<div class="cell-output cell-output-display" data-execution_count="55">
 <div>
 <div>
 
@@ -519,10 +524,10 @@ dtype: int64</code></pre>
 <section id="accessing-columns-of-a-dataframe" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="accessing-columns-of-a-dataframe"><span class="header-section-number">5.2.1</span> Accessing Columns of a DataFrame</h3>
 <p>The columns are actually Pandas Series objects. We can access the columns of the DataFrame using the column name and the bracket notation. Let’s access the ‘name’ column of the DataFrame:</p>
-<div id="605f7c88" class="cell" data-execution_count="13">
+<div id="82ba4a6d" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># access the first column of the DataFrame</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'name'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="511">
+<div class="cell-output cell-output-display" data-execution_count="56">
 <pre><code>a     John
 b     Anna
 c    Peter
@@ -531,16 +536,16 @@ Name: name, dtype: object</code></pre>
 </div>
 </div>
 <p>Let’s inspect the type of the column:</p>
-<div id="105b1efc" class="cell" data-execution_count="14">
+<div id="1d0f80ef" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(df[<span class="st">'name'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="512">
+<div class="cell-output cell-output-display" data-execution_count="57">
 <pre><code>pandas.core.series.Series</code></pre>
 </div>
 </div>
 <p>We can see that the column is a Pandas Series object. We can also access the columns using the dot notation:</p>
-<div id="419ccc75" class="cell" data-execution_count="15">
+<div id="c9d99a93" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df.name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="513">
+<div class="cell-output cell-output-display" data-execution_count="58">
 <pre><code>a     John
 b     Anna
 c    Peter
@@ -549,11 +554,11 @@ Name: name, dtype: object</code></pre>
 </div>
 </div>
 <p>The issue that we may run into using the dot notation is that it may not work if the column we are trying to access has the same name as a DataFrame method. For example, if we have a column named ‘count’, we cannot access it using the dot notation because ‘count’ is a DataFrame method. We can access the columns using the <code>loc</code> attribute:</p>
-<div id="ad4fe530" class="cell" data-execution_count="16">
+<div id="57fb226f" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add count column to the DataFrame</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'count'</span>] <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="514">
+<div class="cell-output cell-output-display" data-execution_count="59">
 <div>
 <div>
 
@@ -605,10 +610,10 @@ Name: name, dtype: object</code></pre>
 </div>
 </div>
 <p>We can access the columns using the <code>loc</code> attribute:</p>
-<div id="baa4ba37" class="cell" data-execution_count="17">
+<div id="31ca03b3" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># access the columns of the DataFrame using the loc attribute</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>df.loc[:, <span class="st">'count'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="515">
+<div class="cell-output cell-output-display" data-execution_count="60">
 <pre><code>a    1
 b    2
 c    3
@@ -617,11 +622,11 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>As we saw above, we can create a new column by assigning a list to a new column name. We can also create a new column by using the existing columns:</p>
-<div id="62fb77e4" class="cell" data-execution_count="18">
+<div id="b571e16b" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a new column by using the existing columns</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'age_plus_count'</span>] <span class="op">=</span> df[<span class="st">'age'</span>] <span class="op">+</span> df[<span class="st">'count'</span>]</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="516">
+<div class="cell-output cell-output-display" data-execution_count="61">
 <div>
 <div>
 
@@ -678,10 +683,10 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>If we now want to access all the new columns we created, we can use the bracket notation:</p>
-<div id="d87b318b" class="cell" data-execution_count="19">
+<div id="cb335b44" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># access the new columns</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">'count'</span>, <span class="st">'age_plus_count'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="517">
+<div class="cell-output cell-output-display" data-execution_count="62">
 <div>
 <div>
 
@@ -723,10 +728,10 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>Now you might be wondering how to delete a column. We can use the <code>drop</code> method to delete a column:</p>
-<div id="74432c84" class="cell" data-execution_count="20">
+<div id="aee95a33" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># deleting the new columns</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>df.drop([<span class="st">'count'</span>, <span class="st">'age_plus_count'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="518">
+<div class="cell-output cell-output-display" data-execution_count="63">
 <div>
 <div>
 
@@ -773,9 +778,9 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>This prints out the DataFrame without the columns. However, you should note that the <code>drop</code> method does not modify the original DataFrame by default. We can confirm this by printing the original DataFrame:</p>
-<div id="c6f98c47" class="cell" data-execution_count="21">
+<div id="4726821a" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="519">
+<div class="cell-output cell-output-display" data-execution_count="64">
 <div>
 <div>
 
@@ -832,11 +837,11 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>If you want to remove the columns permanently, you need to use the <code>inplace</code> parameter:</p>
-<div id="c4156537" class="cell" data-execution_count="22">
+<div id="0b98eaf7" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># deleting the new columns permanently</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>df.drop([<span class="st">'count'</span>, <span class="st">'age_plus_count'</span>], axis<span class="op">=</span><span class="dv">1</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="520">
+<div class="cell-output cell-output-display" data-execution_count="65">
 <div>
 <div>
 
@@ -887,12 +892,12 @@ Name: count, dtype: int64</code></pre>
 <section id="accessing-rows-of-a-dataframe" class="level3" data-number="5.2.2">
 <h3 data-number="5.2.2" class="anchored" data-anchor-id="accessing-rows-of-a-dataframe"><span class="header-section-number">5.2.2</span> Accessing Rows of a DataFrame</h3>
 <p>Ok, so we know how to access the columns of a DataFrame. How do we access the rows? There are a number of ways to do this. For example, we can use the <code>loc</code> attribute to access the rows of a DataFrame by their index:</p>
-<div id="edf9077f" class="cell" data-execution_count="23">
+<div id="2a8c8945" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># access the rows of the DataFrame by their index</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>row_a <span class="op">=</span> df.loc[<span class="st">'a'</span>]</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>row_a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="521">
+<div class="cell-output cell-output-display" data-execution_count="66">
 <pre><code>name        John
 age           23
 city    New York
@@ -900,17 +905,17 @@ Name: a, dtype: object</code></pre>
 </div>
 </div>
 <p>If we inspect the type of <code>row_a</code>, we can see that it is also a Pandas Series object, just like the individual columns were Series objects as well:</p>
-<div id="9ae7d87f" class="cell" data-execution_count="24">
+<div id="415ffff8" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(row_a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="522">
+<div class="cell-output cell-output-display" data-execution_count="67">
 <pre><code>pandas.core.series.Series</code></pre>
 </div>
 </div>
 <p>How do we access multiple rows? We can use the <code>loc</code> attribute and pass a list of index values:</p>
-<div id="a1e88de6" class="cell" data-execution_count="25">
+<div id="fa279807" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># access multiple rows</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>df.loc[[<span class="st">'a'</span>, <span class="st">'c'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="523">
+<div class="cell-output cell-output-display" data-execution_count="68">
 <div>
 <div>
 
@@ -945,10 +950,10 @@ Name: a, dtype: object</code></pre>
 </div>
 </div>
 <p>This, in turn, returns back a DataFrame. We can also use the <code>iloc</code> attribute to access the rows by their numerical index:</p>
-<div id="ec0a1215" class="cell" data-execution_count="26">
+<div id="b1ee3943" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the last two rows of the DataFrame</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>df.iloc[<span class="dv">2</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="524">
+<div class="cell-output cell-output-display" data-execution_count="69">
 <div>
 <div>
 
@@ -983,9 +988,9 @@ Name: a, dtype: object</code></pre>
 </div>
 </div>
 <p>We can also use the slicing notation for DataFrames. For example, to get the first two rows of the DataFrame:</p>
-<div id="5ea3d49f" class="cell" data-execution_count="27">
+<div id="a60d5ec0" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>df[:<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="525">
+<div class="cell-output cell-output-display" data-execution_count="70">
 <div>
 <div>
 
@@ -1020,10 +1025,10 @@ Name: a, dtype: object</code></pre>
 </div>
 </div>
 <p>Do you still remember the <code>drop</code> method we used to delete columns? As we already discussed, we can also use it to delete rows. Let’s delete the first row:</p>
-<div id="b7f52d21" class="cell" data-execution_count="28">
+<div id="3052dd0c" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># delete the first row</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>df.drop(<span class="st">'a'</span>, axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="526">
+<div class="cell-output cell-output-display" data-execution_count="71">
 <div>
 <div>
 
@@ -1064,9 +1069,9 @@ Name: a, dtype: object</code></pre>
 </div>
 </div>
 <p>Since we did not add <code>inplace=True</code>, the original DataFrame is not modified. We can confirm this by printing the original DataFrame:</p>
-<div id="f5b4a52a" class="cell" data-execution_count="29">
+<div id="908ba20f" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="527">
+<div class="cell-output cell-output-display" data-execution_count="72">
 <div>
 <div>
 
@@ -1116,26 +1121,26 @@ Name: a, dtype: object</code></pre>
 <section id="accessing-elements-of-a-dataframe" class="level3" data-number="5.2.3">
 <h3 data-number="5.2.3" class="anchored" data-anchor-id="accessing-elements-of-a-dataframe"><span class="header-section-number">5.2.3</span> Accessing Elements of a DataFrame</h3>
 <p>We are now familiar with some common ways of accessing specific rows and columns of a DataFrame. We are now ready to combine what we already know to access individual elements. We can use the <code>loc</code> attribute and pass the row and column index values:</p>
-<div id="cb54180b" class="cell" data-execution_count="30">
+<div id="147337a4" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># access an element of the DataFrame</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>df.loc[<span class="st">'a'</span>, <span class="st">'name'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="528">
+<div class="cell-output cell-output-display" data-execution_count="73">
 <pre><code>'John'</code></pre>
 </div>
 </div>
 <p>If we know the numerical index of the row and column, we can use the <code>iloc</code> attribute:</p>
-<div id="6b1fc49b" class="cell" data-execution_count="31">
+<div id="6034e299" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get element from row 2 column 3</span></span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>df.iloc[<span class="dv">1</span>, <span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="529">
+<div class="cell-output cell-output-display" data-execution_count="74">
 <pre><code>'Paris'</code></pre>
 </div>
 </div>
 <p>By combining the techniques we learned, we can access multiple elements:</p>
-<div id="31caf254" class="cell" data-execution_count="32">
+<div id="0e5e1893" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get multiple elements</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>df.loc[[<span class="st">'a'</span>, <span class="st">'c'</span>], [<span class="st">'name'</span>, <span class="st">'city'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="530">
+<div class="cell-output cell-output-display" data-execution_count="75">
 <div>
 <div>
 
@@ -1166,10 +1171,10 @@ Name: a, dtype: object</code></pre>
 </div>
 </div>
 </div>
-<div id="07e6ccb9" class="cell" data-execution_count="33">
+<div id="83f0ca96" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first two rows</span></span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">0</span>:<span class="dv">2</span>][[<span class="st">'name'</span>, <span class="st">'age'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="531">
+<div class="cell-output cell-output-display" data-execution_count="76">
 <div>
 <div>
 
@@ -1205,7 +1210,7 @@ Name: a, dtype: object</code></pre>
 <section id="conditional-selection" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="conditional-selection"><span class="header-section-number">5.3</span> Conditional selection</h2>
 <p>It quite common in data science to filter data based on some condition. With Pandas, we can use the bracket notation to filter our data. Let’s first create a DataFrame with random numbers so that we can better illustrate this point:</p>
-<div id="9954cbdd" class="cell" data-execution_count="34">
+<div id="2705d8e2" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a numeric only DataFrame</span></span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> randn</span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">101</span>)</span>
@@ -1213,7 +1218,7 @@ Name: a, dtype: object</code></pre>
 <span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.DataFrame(randn(<span class="dv">3</span>, <span class="dv">4</span>), index <span class="op">=</span> [<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>], columns <span class="op">=</span> [<span class="st">'col1'</span>, <span class="st">'col2'</span>, <span class="st">'col3'</span>, <span class="st">'col4'</span>])</span>
 <span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="532">
+<div class="cell-output cell-output-display" data-execution_count="77">
 <div>
 <div>
 
@@ -1258,9 +1263,9 @@ Name: a, dtype: object</code></pre>
 </div>
 </div>
 <p>Now, we can see that our DataFrame contains a bunch of numbers. Let’s say we want to find all the elements that are greater than 0. We can use the bracket notation to create a condition that returns a boolean DataFrame:</p>
-<div id="ed63f3d6" class="cell" data-execution_count="35">
+<div id="bddcbf0a" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">&gt;</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="533">
+<div class="cell-output cell-output-display" data-execution_count="78">
 <div>
 <div>
 
@@ -1305,9 +1310,9 @@ Name: a, dtype: object</code></pre>
 </div>
 </div>
 <p>As a result, we get a DataFrame with equal dimensions to the original DataFrame, but the numeric values have been replaced with <code>True</code> or <code>False</code> values based on the condition. We can use this boolean DataFrame to filter the original DataFrame:</p>
-<div id="f3404256" class="cell" data-execution_count="36">
+<div id="957631ca" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>df2[df2 <span class="op">&gt;</span> <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="534">
+<div class="cell-output cell-output-display" data-execution_count="79">
 <div>
 <div>
 
@@ -1355,9 +1360,9 @@ Name: a, dtype: object</code></pre>
 <section id="column-based-filtering" class="level3" data-number="5.3.1">
 <h3 data-number="5.3.1" class="anchored" data-anchor-id="column-based-filtering"><span class="header-section-number">5.3.1</span> Column based filtering</h3>
 <p>It is actually more common to select a subset of a DataFrame based on condition applied to a specific column. The idea is basically the same as we saw above. For example, let’s say we want to find all the elements in the <code>col1</code> column that are greater than 0:</p>
-<div id="0d27827e" class="cell" data-execution_count="37">
+<div id="38210d98" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>df2[<span class="st">'col1'</span>] <span class="op">&gt;</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="535">
+<div class="cell-output cell-output-display" data-execution_count="80">
 <pre><code>A     True
 B     True
 C    False
@@ -1365,9 +1370,9 @@ Name: col1, dtype: bool</code></pre>
 </div>
 </div>
 <p>This returns a Pandas Series object with boolean values. We can use this Series object to filter the DataFrame:</p>
-<div id="73f5c6c1" class="cell" data-execution_count="38">
+<div id="64b8a8b8" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>df2[df2[<span class="st">'col1'</span>] <span class="op">&gt;</span> <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="536">
+<div class="cell-output cell-output-display" data-execution_count="81">
 <div>
 <div>
 
@@ -1405,9 +1410,9 @@ Name: col1, dtype: bool</code></pre>
 </div>
 </div>
 <p>Similarly, if we go back to our original DataFrame with the people data, we could filter the DataFrame based on the age column. Let’s say we want to find people over the age of 25:</p>
-<div id="13724f0f" class="cell" data-execution_count="39">
+<div id="48fe3eae" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">'age'</span>] <span class="op">&gt;</span> <span class="dv">25</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="537">
+<div class="cell-output cell-output-display" data-execution_count="82">
 <div>
 <div>
 
@@ -1452,9 +1457,9 @@ Name: col1, dtype: bool</code></pre>
 <section id="multiple-conditions" class="level3" data-number="5.3.2">
 <h3 data-number="5.3.2" class="anchored" data-anchor-id="multiple-conditions"><span class="header-section-number">5.3.2</span> Multiple conditions</h3>
 <p>Filtering using multiple conditions is also possible. We can use the <code>&amp;</code> (and) operator to combine the conditions. Let’s say we want to find people over the age of 25 who live in Paris:</p>
-<div id="fc6a3bd9" class="cell" data-execution_count="40">
+<div id="076bf1aa" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>df[(df[<span class="st">'age'</span>] <span class="op">&gt;</span> <span class="dv">25</span>) <span class="op">&amp;</span> (df[<span class="st">'city'</span>] <span class="op">==</span> <span class="st">'Paris'</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="538">
+<div class="cell-output cell-output-display" data-execution_count="83">
 <div>
 <div>
 
@@ -1483,9 +1488,9 @@ Name: col1, dtype: bool</code></pre>
 </div>
 </div>
 <p>Please note the syntax: we need to use parentheses around each condition. Also, we are not using the <code>and</code> keyword. We are using the <code>&amp;</code> operator. This brings us to the next point: we can use the <code>|</code> (or) operator to combine conditions. Let’s say we want to find people younger than 25 or people who live in Paris:</p>
-<div id="2441af99" class="cell" data-execution_count="41">
+<div id="8e150b63" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>df[(df[<span class="st">'age'</span>] <span class="op">&lt;</span> <span class="dv">25</span>) <span class="op">|</span> (df[<span class="st">'city'</span>] <span class="op">==</span> <span class="st">'Paris'</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="539">
+<div class="cell-output cell-output-display" data-execution_count="84">
 <div>
 <div>
 
@@ -1520,9 +1525,9 @@ Name: col1, dtype: bool</code></pre>
 </div>
 </div>
 <p>Pretty neat. We can also use the <code>~</code> (not) operator to negate a condition. Let’s say we want to find people who do not live in Paris:</p>
-<div id="f5f9cd52" class="cell" data-execution_count="42">
+<div id="6a516466" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>df[<span class="op">~</span>(df[<span class="st">'city'</span>] <span class="op">==</span> <span class="st">'Paris'</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="540">
+<div class="cell-output cell-output-display" data-execution_count="85">
 <div>
 <div>
 
@@ -1562,9 +1567,23 @@ Name: col1, dtype: bool</code></pre>
 </div>
 </div>
 </div>
-
-
+<p>Since the result is also a DataFrame, we can interrogate the results as we would with any other DataFrame. For example, getting the names of people who do not live in Paris is easy:</p>
+<div id="dced6e9d" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>df[<span class="op">~</span>(df[<span class="st">'city'</span>] <span class="op">==</span> <span class="st">'Paris'</span>)][<span class="st">'name'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="86">
+<pre><code>a     John
+c    Peter
+d    Linda
+Name: name, dtype: object</code></pre>
+</div>
+</div>
 </section>
+</section>
+<section id="summary" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="summary"><span class="header-section-number">5.4</span> Summary</h2>
+<p>In this chapter, we learned about the basics of the Pandas library. In the next chapter, we will learn a little bit more about working with Pandas DataFrames, including how to handle missing data and how to group data.</p>
+
+
 </section>
 
 </main> <!-- /main -->
