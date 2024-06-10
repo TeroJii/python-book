@@ -326,12 +326,48 @@ df.loc[['a', 'c'], ['name', 'city']]
 df[0:2][['name', 'age']]
 ```
 
-### Conditional selection
+## Conditional selection
 
-It quite common in data science to filter data based on some condition. We can use the bracket notation to filter the data. Let's say we want to find people over the age of 25:
+It quite common in data science to filter data based on some condition. With Pandas, we can use the bracket notation to filter our data. Let's first create a DataFrame with random numbers so that we can better illustrate this point:
+
+```{python}
+#| code-fold: false
+
+# creating a numeric only DataFrame
+from numpy.random import randn
+np.random.seed(101)
+
+df2 = pd.DataFrame(randn(3, 4), index = ['A', 'B', 'C'], columns = ['col1', 'col2', 'col3', 'col4'])
+
+df2
+```
+
+Now, we can see that our DataFrame contains a bunch of numbers. Let's say we want to find all the elements that are greater than 0. We can use the bracket notation to create a condition that returns a boolean DataFrame:
+
+```{python}
+#| code-fold: false
+df2 > 0
+```
+
+As a result, we get a DataFrame with equal dimensions to the original DataFrame, but the numeric values have been replaced with `True` or `False` values based on the condition.
+We can use this boolean DataFrame to filter the original DataFrame:
+
+```{python}
+#| code-fold: false
+df2[df2 > 0]
+```
+
+Now we see that only the elements that satisfy the condition are displayed. 
+
+### Column based filtering
+
+We can also filter the DataFrame based on a specific column. Let's say we want to find all the elements in the 'col1' column that are greater than 0:
+
+Let's say we want to find people over the age of 25:
 
 ```{python}
 #| code-fold: false
 
 df[df['age'] > 25]
 ```
+
