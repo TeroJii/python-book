@@ -361,9 +361,23 @@ Now we see that only the elements that satisfy the condition are displayed.
 
 ### Column based filtering
 
-We can also filter the DataFrame based on a specific column. Let's say we want to find all the elements in the 'col1' column that are greater than 0:
+It is actually more common to select a subset of a DataFrame based on condition applied to a specific column. The idea is basically the same as we saw above. For example, let's say we want to find all the elements in the `col1` column that are greater than 0:
 
-Let's say we want to find people over the age of 25:
+```{python}
+#| code-fold: false
+
+df2['col1'] > 0
+```
+
+This returns a Pandas Series object with boolean values. We can use this Series object to filter the DataFrame:
+
+```{python}
+#| code-fold: false
+
+df2[df2['col1'] > 0]
+```
+
+Similarly, if we go back to our original DataFrame with the people data, we could filter the DataFrame based on the age column. Let's say we want to find people over the age of 25:
 
 ```{python}
 #| code-fold: false
@@ -371,3 +385,6 @@ Let's say we want to find people over the age of 25:
 df[df['age'] > 25]
 ```
 
+Very convenient.
+
+### Multiple conditions
