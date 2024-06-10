@@ -2,13 +2,15 @@
 jupyter: python3
 ---
 
-# Pandas
+# Pandas Basics
 
-Pandas is Python library for data manipulation and analysis. It provides data structures like Series and DataFrame that are designed to work with structured data very easily and efficiently. It is built on top of NumPy. You can install pandas from the terminal using pip:
+Pandas is a Python library commonly used for data manipulation and analysis. It provides data structures like Series and DataFrame that are designed to work with structured data very easily and efficiently. This is why Pandas is used a lot in Data Science work. It is built on top of NumPy, so many aspects should feel familiar. You can start by installing Pandas from the terminal using pip:
 
 ```bash
 pip install pandas
 ```
+
+Now let's learn about the two main data structures in Pandas: Series and DataFrame.
 
 ## Series
 
@@ -412,3 +414,15 @@ Pretty neat. We can also use the `~` (not) operator to negate a condition. Let's
 
 df[~(df['city'] == 'Paris')]
 ```
+
+Since the result is also a DataFrame, we can interrogate the results as we would with any other DataFrame. For example, getting the names of people who do not live in Paris is easy:
+
+```{python}
+#| code-fold: false
+
+df[~(df['city'] == 'Paris')]['name']
+```
+
+## Summary
+
+In this chapter, we learned about the basics of the Pandas library. In the next chapter, we will learn a little bit more about working with Pandas DataFrames, including how to handle missing data and how to group data.
