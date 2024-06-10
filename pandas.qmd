@@ -388,3 +388,27 @@ df[df['age'] > 25]
 Very convenient.
 
 ### Multiple conditions
+
+Filtering using multiple conditions is also possible. We can use the `&` (and) operator to combine the conditions. Let's say we want to find people over the age of 25 who live in Paris:
+
+```{python}
+#| code-fold: false
+
+df[(df['age'] > 25) & (df['city'] == 'Paris')]
+```
+
+Please note the syntax: we need to use parentheses around each condition. Also, we are not using the `and` keyword. We are using the `&` operator. This brings us to the next point: we can use the `|` (or) operator to combine conditions. Let's say we want to find people younger than 25 or people who live in Paris:
+
+```{python}
+#| code-fold: false
+
+df[(df['age'] < 25) | (df['city'] == 'Paris')]
+```
+
+Pretty neat. We can also use the `~` (not) operator to negate a condition. Let's say we want to find people who do not live in Paris:
+
+```{python}
+#| code-fold: false
+
+df[~(df['city'] == 'Paris')]
+```
