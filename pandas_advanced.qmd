@@ -4,10 +4,25 @@ jupyter: python3
 
 # Working with DataFrames
 
-Now that we have learned how to create a DataFrame, let's learn a few more tricks that help us work with DataFrames.
+Now that we have learned how to create DataFrames, and some basic operations, let's deepen our understanding with a few more tricks that help us work with DataFrames more efficiently. We'll start of by importing the necessary libraries.
 
 ```{python}
 #| code-fold: false
 import numpy as np
 import pandas as pd
+```
+
+Additionally, we will use a sample dataset to demonstrate the operations. Let's load the dataset from the seaborn library.
+
+:::{.callout-note}
+Seaborn is a commonly used library for data visualization in Python. It comes with a few sample datasets that we can use for practice. We'll use the classic `iris` dataset for this tutorial. We'll learn more about Seaborn in the upcoming chapters.
+:::
+
+```{python}
+#| code-fold: false
+import seaborn as sns
+
+# Load the dataset
+df = sns.load_dataset('iris')
+df.head()
 ```
