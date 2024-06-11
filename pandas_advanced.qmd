@@ -26,3 +26,16 @@ import seaborn as sns
 df = sns.load_dataset('iris')
 df.head()
 ```
+
+As we can see, the dataset contains four features: `sepal_length`, `sepal_width`, `petal_length`, and `petal_width`. The target variable is `species`, which is the type of iris flower. We also used the `head()` method to display the first five rows of the dataset. Let's learn more about the dataset using some common methods found in Pandas.
+
+## Common methods in Pandas
+
+We already saw that the `head()` method displays the first five rows of the dataset. Five is the default value, but we can change in using the `n` parameter. Similarly, we can use the `tail()` method to display the last rows of the dataset.
+
+```{python}
+#| code-fold: false
+
+# Display the last nine rows
+df.tail(9)
+```
