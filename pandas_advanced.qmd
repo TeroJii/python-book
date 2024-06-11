@@ -39,3 +39,27 @@ We already saw that the `head()` method displays the first five rows of the data
 # Display the last nine rows
 df.tail(9)
 ```
+
+The `info()` method provides a concise summary of the dataset. It displays the number of non-null values in each column, the data type of each column, and the memory usage of the dataset.
+
+```{python}
+#| code-fold: false
+
+df.info()
+```
+
+Summary statistics can be obtained using the `describe()` method. It provides the count, mean, standard deviation, minimum, maximum, and the quartiles of the dataset. This provides a handy way of getting an overall impression of the dataset.
+
+```{python}
+#| code-fold: false
+
+df.describe()
+```
+
+If we just want to know the number of rows and columns in the dataset, we can use the `shape` attribute.
+
+```{python}
+#| code-fold: false
+
+df.shape
+```
