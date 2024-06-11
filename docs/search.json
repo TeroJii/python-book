@@ -342,7 +342,7 @@
     "href": "pandas_advanced.html",
     "title": "6  Working with DataFrames",
     "section": "",
-    "text": "Now that we have learned how to create a DataFrame, let’s learn a few more tricks that help us work with DataFrames.\n\nimport numpy as np\nimport pandas as pd",
+    "text": "Now that we have learned how to create DataFrames, and some basic operations, let’s deepen our understanding with a few more tricks that help us work with DataFrames more efficiently. We’ll start of by importing the necessary libraries.\n\nimport numpy as np\nimport pandas as pd\n\nAdditionally, we will use a sample dataset to demonstrate the operations. Let’s load the dataset from the seaborn library.\n\n\n\n\n\n\nNote\n\n\n\nSeaborn is a commonly used library for data visualization in Python. It comes with a few sample datasets that we can use for practice. We’ll use the classic iris dataset for this tutorial. We’ll learn more about Seaborn in the upcoming chapters.\n\n\n\nimport seaborn as sns\n\n# Load the dataset\ndf = sns.load_dataset('iris')\ndf.head()\n\n\n\n\n\n\n\n\n\nsepal_length\nsepal_width\npetal_length\npetal_width\nspecies\n\n\n\n\n0\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n1\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n2\n4.7\n3.2\n1.3\n0.2\nsetosa\n\n\n3\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n4\n5.0\n3.6\n1.4\n0.2\nsetosa",
     "crumbs": [
       "Basic Data Manipulation",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Working with DataFrames</span>"
