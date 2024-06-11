@@ -336,5 +336,16 @@
       "Basic Data Manipulation",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Pandas Basics</span>"
     ]
+  },
+  {
+    "objectID": "pandas_advanced.html",
+    "href": "pandas_advanced.html",
+    "title": "6  Working with DataFrames",
+    "section": "",
+    "text": "Now that we have learned how to create a DataFrame, let’s learn a few more tricks that help us work with DataFrames.\n\nimport numpy as np\nimport pandas as pd",
+    "crumbs": [
+      "Basic Data Manipulation",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Working with DataFrames</span>"
+    ]
   }
 ]
