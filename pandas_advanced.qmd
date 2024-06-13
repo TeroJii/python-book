@@ -82,4 +82,20 @@ df.nunique()
 
 ## Grouping data
 
-If you are familiar with SQL queries, you might have used the `GROUP BY` clause to group data based on a particular column. Pandas provides a similar functionality using the `groupby()` method. Let's group the data based on the `species` column and calculate the mean of the other columns.
+If you are familiar with SQL queries, you might have used the `GROUP BY` clause to group data based on a particular column. Pandas provides a similar functionality using the `groupby()` method. Grouping data allows you to calculate for example statistics like the mean for distinct groups in the dataset. Let's take a look at how this works by grouping the `iris` data based on the `species` column and calculating the mean of the other columns.
+
+```{python}
+#| code-fold: false
+
+df.groupby('species').mean()
+```
+
+We can also target specific columns. Let's see how this works by taking the sum of the `sepal_length` for each species.
+
+```{python}
+#| code-fold: false
+
+df.groupby('species')['sepal_length'].sum()
+```
+
+## Handling missing values
