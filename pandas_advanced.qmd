@@ -98,4 +98,12 @@ We can also target specific columns. Let's see how this works by taking the sum 
 df.groupby('species')['sepal_length'].sum()
 ```
 
+Some commonly used aggregation functions to chain after a groupby clause are `mean()`, `sum()`, `count()`, `min()`, and `max()`. We can also use the `agg()` method to apply multiple aggregation functions at once. Let's by taking the count, min, and max of the `sepal_length` and `sepal_width` columns for each species.
+
+```{python}
+#| code-fold: false
+
+df.groupby('species')[['sepal_length', 'sepal_width']].agg(['count', 'min', 'max'])
+```
+
 ## Handling missing values
