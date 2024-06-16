@@ -364,7 +364,7 @@
     "href": "pandas_advanced.html#handling-missing-values",
     "title": "6  Working with DataFrames",
     "section": "6.3 Handling missing values",
-    "text": "6.3 Handling missing values\nIn a perfect world, we would always work with complete data tables without any missing values. However, out in the wild we are often confronted with incomplete data, which is why dealing with missing values is an important skill to have. Pandas provides a few methods to handle missing values.",
+    "text": "6.3 Handling missing values\nIn a perfect world, we would always work with complete data tables without any missing values. However, out in the wild we are often confronted with incomplete data, which is why dealing with missing values is an important skill to have. Pandas provides a few methods to handle missing values.\nLet’s look at our iris dataset and introduce some missing values.\n\n# one missing value to the sepal_length column row 3\ndf.loc[2, 'sepal_length'] = np.nan\ndf.head()\n\n\n\n\n\n\n\n\n\nsepal_length\nsepal_width\npetal_length\npetal_width\nspecies\n\n\n\n\n0\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n1\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n2\nNaN\n3.2\n1.3\n0.2\nsetosa\n\n\n3\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n4\n5.0\n3.6\n1.4\n0.2\nsetosa",
     "crumbs": [
       "Basic Data Manipulation",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Working with DataFrames</span>"
