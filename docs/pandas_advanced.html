@@ -278,7 +278,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Now that we have learned how to create DataFrames, and some basic operations, let’s deepen our understanding with a few more tricks that help us work with DataFrames more efficiently. We’ll start of by importing the necessary libraries.</p>
-<div id="932acc10" class="cell" data-execution_count="1">
+<div id="3952592a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -296,13 +296,13 @@ Note
 <p>Seaborn is a commonly used library for data visualization in Python. It comes with a few sample datasets that we can use for practice. We’ll use the classic <code>iris</code> dataset for this tutorial. We’ll learn more about Seaborn in the upcoming chapters.</p>
 </div>
 </div>
-<div id="7943ca35" class="cell" data-execution_count="2">
+<div id="2cbdfb46" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> sns.load_dataset(<span class="st">'iris'</span>)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="57">
+<div class="cell-output cell-output-display" data-execution_count="88">
 <div>
 <div>
 
@@ -370,10 +370,10 @@ Note
 <section id="common-methods-in-pandas" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="common-methods-in-pandas"><span class="header-section-number">6.1</span> Common methods in Pandas</h2>
 <p>We already saw that the <code>head()</code> method displays the first five rows of the dataset. Five is the default value, but we can change in using the <code>n</code> parameter. Similarly, we can use the <code>tail()</code> method to display the last rows of the dataset.</p>
-<div id="3690d8d3" class="cell" data-execution_count="3">
+<div id="a89c0f71" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the last nine rows</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df.tail(<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="58">
+<div class="cell-output cell-output-display" data-execution_count="89">
 <div>
 <div>
 
@@ -470,7 +470,7 @@ Note
 </div>
 </div>
 <p>The <code>info()</code> method provides a concise summary of the dataset. It displays the number of non-null values in each column, the data type of each column, and the memory usage of the dataset.</p>
-<div id="4ba63667" class="cell" data-execution_count="4">
+<div id="275df205" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -488,9 +488,9 @@ memory usage: 6.0+ KB</code></pre>
 </div>
 </div>
 <p>Summary statistics can be obtained using the <code>describe()</code> method. It provides the count, mean, standard deviation, minimum, maximum, and the quartiles of the dataset. This provides a handy way of getting an overall impression of the dataset.</p>
-<div id="ddb5f42b" class="cell" data-execution_count="5">
+<div id="c0f6a5ad" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="60">
+<div class="cell-output cell-output-display" data-execution_count="91">
 <div>
 <div>
 
@@ -570,25 +570,25 @@ memory usage: 6.0+ KB</code></pre>
 </div>
 </div>
 <p>If we just want to know the number of rows and columns in the dataset, we can use the <code>shape</code> attribute.</p>
-<div id="d42c354a" class="cell" data-execution_count="6">
+<div id="ecff7ba8" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="61">
+<div class="cell-output cell-output-display" data-execution_count="92">
 <pre><code>(150, 5)</code></pre>
 </div>
 </div>
 <p>The <code>columns</code> attribute provides the names of the columns in the dataset.</p>
-<div id="90585d70" class="cell" data-execution_count="7">
+<div id="a1d246b0" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="62">
+<div class="cell-output cell-output-display" data-execution_count="93">
 <pre><code>Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width',
        'species'],
       dtype='object')</code></pre>
 </div>
 </div>
 <p>The <code>nunique()</code> method provides the number of unique values in each column of the dataset.</p>
-<div id="a0c002ed" class="cell" data-execution_count="8">
+<div id="86baa266" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df.nunique()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="63">
+<div class="cell-output cell-output-display" data-execution_count="94">
 <pre><code>sepal_length    35
 sepal_width     23
 petal_length    43
@@ -601,9 +601,9 @@ dtype: int64</code></pre>
 <section id="grouping-data" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="grouping-data"><span class="header-section-number">6.2</span> Grouping data</h2>
 <p>If you are familiar with SQL queries, you might have used the <code>GROUP BY</code> clause to group data based on a particular column. Pandas provides a similar functionality using the <code>groupby()</code> method. Grouping data allows you to calculate for example statistics like the mean for distinct groups in the dataset. Let’s take a look at how this works by grouping the <code>iris</code> data based on the <code>species</code> column and calculating the mean of the other columns.</p>
-<div id="e04f32f2" class="cell" data-execution_count="9">
+<div id="cdc0fba0" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'species'</span>).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="64">
+<div class="cell-output cell-output-display" data-execution_count="95">
 <div>
 <div>
 
@@ -655,9 +655,9 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>We can also target specific columns. Let’s see how this works by taking the sum of the <code>sepal_length</code> for each species.</p>
-<div id="44243f8e" class="cell" data-execution_count="10">
+<div id="d4021ccc" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'species'</span>)[<span class="st">'sepal_length'</span>].<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="65">
+<div class="cell-output cell-output-display" data-execution_count="96">
 <pre><code>species
 setosa        250.3
 versicolor    296.8
@@ -674,9 +674,9 @@ Name: sepal_length, dtype: float64</code></pre>
 <li><code>max()</code></li>
 </ul>
 <p>We can also use the <code>agg()</code> method to apply multiple aggregation functions at once. Let’s by taking the count, min, and max of the <code>sepal_length</code> and <code>sepal_width</code> columns for each species.</p>
-<div id="8ccb1393" class="cell" data-execution_count="11">
+<div id="f08cb2d4" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'species'</span>)[[<span class="st">'sepal_length'</span>, <span class="st">'sepal_width'</span>]].agg([<span class="st">'count'</span>, <span class="st">'min'</span>, <span class="st">'max'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="66">
+<div class="cell-output cell-output-display" data-execution_count="97">
 <div>
 <div>
 
@@ -743,11 +743,11 @@ Name: sepal_length, dtype: float64</code></pre>
 </div>
 </div>
 <p>If you want to get summary statistics per group, you can also use the <code>describe()</code> method.</p>
-<div id="f089e53e" class="cell" data-execution_count="12">
+<div id="b532a3f6" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let's get the summary statistics for all columns</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># and show results for the petal_length column</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'species'</span>).describe()[<span class="st">'petal_length'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="67">
+<div class="cell-output cell-output-display" data-execution_count="98">
 <div>
 <div>
 
@@ -823,11 +823,11 @@ Name: sepal_length, dtype: float64</code></pre>
 <h2 data-number="6.3" class="anchored" data-anchor-id="handling-missing-values"><span class="header-section-number">6.3</span> Handling missing values</h2>
 <p>In a perfect world, we would always work with complete data tables without any missing values. However, out in the wild we are often confronted with incomplete data, which is why dealing with missing values is an important skill to have. Pandas provides a few methods to handle missing values.</p>
 <p>Let’s look at our iris dataset and introduce some missing values.</p>
-<div id="8cdcd53b" class="cell" data-execution_count="13">
+<div id="ff30f271" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># one missing value to the sepal_length column row 3</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df.loc[<span class="dv">2</span>, <span class="st">'sepal_length'</span>] <span class="op">=</span> np.nan</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="68">
+<div class="cell-output cell-output-display" data-execution_count="99">
 <div>
 <div>
 
@@ -899,9 +899,9 @@ Name: sepal_length, dtype: float64</code></pre>
 <li><code>notna()</code>: an alias for <code>notnull()</code>.</li>
 </ul>
 <p>The <code>isnull()</code> method returns a DataFrame of the same shape as the original dataset, where each cell is either <code>True</code> or <code>False</code> depending on whether the value is missing or not.</p>
-<div id="eb60a81c" class="cell" data-execution_count="14">
+<div id="dd517c5c" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df.head().isnull()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="69">
+<div class="cell-output cell-output-display" data-execution_count="100">
 <div>
 <div>
 
@@ -966,9 +966,9 @@ Name: sepal_length, dtype: float64</code></pre>
 </div>
 </div>
 <p>The <code>isna()</code> method does exactly the same thing as <code>isnull()</code>, which we can see in the example below.</p>
-<div id="fc21f4f9" class="cell" data-execution_count="15">
+<div id="3edbae3c" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df.head().isna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="70">
+<div class="cell-output cell-output-display" data-execution_count="101">
 <div>
 <div>
 
@@ -1024,6 +1024,85 @@ Name: sepal_length, dtype: float64</code></pre>
 <td>False</td>
 <td>False</td>
 <td>False</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+<p>The <code>notnull()</code> method returns the opposite of <code>isnull()</code>. It returns <code>True</code> if the value is not missing, and <code>False</code> otherwise.</p>
+<div id="ce046d4c" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df.head()[<span class="st">'sepal_length'</span>].notnull()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="102">
+<pre><code>0     True
+1     True
+2    False
+3     True
+4     True
+Name: sepal_length, dtype: bool</code></pre>
+</div>
+</div>
+<p>Related to missing values we can easily drop rows with missing values using the <code>dropna()</code> method. By default, it drops rows where at least one element is missing.</p>
+<div id="d411647b" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df.dropna().head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="103">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">sepal_length</th>
+<th data-quarto-table-cell-role="th">sepal_width</th>
+<th data-quarto-table-cell-role="th">petal_length</th>
+<th data-quarto-table-cell-role="th">petal_width</th>
+<th data-quarto-table-cell-role="th">species</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>5.1</td>
+<td>3.5</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>setosa</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>4.9</td>
+<td>3.0</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>setosa</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4.6</td>
+<td>3.1</td>
+<td>1.5</td>
+<td>0.2</td>
+<td>setosa</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5.0</td>
+<td>3.6</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>setosa</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>5.4</td>
+<td>3.9</td>
+<td>1.7</td>
+<td>0.4</td>
+<td>setosa</td>
 </tr>
 </tbody>
 </table>
