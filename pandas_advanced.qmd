@@ -175,3 +175,15 @@ Related to missing values we can easily drop rows with missing values using the 
 
 df.dropna().head()
 ```
+
+### Filling missing values
+
+Instead of dropping rows with missing values, we can also fill them with a specific value. This is ofter referred to as imputation. The `fillna()` method allows us to fill missing values with a specific value. Let's fill the missing values in the `sepal_length` column with the mean of the column.
+
+```{python}
+#| code-fold: false
+
+# use the mean of sepal_length column to fill in for missing values
+df['sepal_length'] = df['sepal_length'].fillna(df['sepal_length'].mean())
+df.head()
+```
