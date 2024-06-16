@@ -159,3 +159,19 @@ The `isna()` method does exactly the same thing as `isnull()`, which we can see 
 
 df.head().isna()
 ```
+
+The `notnull()` method returns the opposite of `isnull()`. It returns `True` if the value is not missing, and `False` otherwise.
+
+```{python}
+#| code-fold: false
+
+df.head()['sepal_length'].notnull()
+```
+
+Related to missing values we can easily drop rows with missing values using the `dropna()` method. By default, it drops rows where at least one element is missing.
+
+```{python}
+#| code-fold: false
+
+df.dropna().head()
+```
