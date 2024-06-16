@@ -137,3 +137,25 @@ Let's look at our iris dataset and introduce some missing values.
 df.loc[2, 'sepal_length'] = np.nan
 df.head()
 ```
+
+There are a couple of methods which help us determine if missing values are present. The following methods are commonly used:
+
+- `isnull()`: returns a DataFrame of the same shape as the original dataset, where each cell is either `True` or `False` depending on whether the value is missing or not.
+- `notnull()`: returns the opposite of `isnull()`. It returns `True` if the value is not missing, and `False` otherwise.
+- `isna()`: an alias for `isnull()`.
+- `notna()`: an alias for `notnull()`.
+
+The `isnull()` method returns a DataFrame of the same shape as the original dataset, where each cell is either `True` or `False` depending on whether the value is missing or not.
+
+```{python}
+#| code-fold: false
+
+df.head().isnull()
+```
+
+The `isna()` method does exactly the same thing as `isnull()`, which we can see in the example below.
+```{python}	
+#| code-fold: false
+
+df.head().isna()
+```
