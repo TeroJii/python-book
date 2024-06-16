@@ -119,7 +119,11 @@ If you want to get summary statistics per group, you can also use the `describe(
 ```{python}
 #| code-fold: false
 
-df.groupby('species').describe()
+# let's get the summary statistics for all columns
+# and show results for the petal_length column
+df.groupby('species').describe()['petal_length']
 ```
 
 ## Handling missing values
+
+In a perfect world, we would always work with complete data tables without any missing values. However, out in the wild we are often confronted with incomplete data, which is why dealing with missing values is an important skill to have. Pandas provides a few methods to handle missing values.
