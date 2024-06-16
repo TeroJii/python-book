@@ -127,3 +127,13 @@ df.groupby('species').describe()['petal_length']
 ## Handling missing values
 
 In a perfect world, we would always work with complete data tables without any missing values. However, out in the wild we are often confronted with incomplete data, which is why dealing with missing values is an important skill to have. Pandas provides a few methods to handle missing values.
+
+Let's look at our iris dataset and introduce some missing values.
+
+```{python}
+#| code-fold: false
+
+# one missing value to the sepal_length column row 3
+df.loc[2, 'sepal_length'] = np.nan
+df.head()
+```
