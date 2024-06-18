@@ -176,6 +176,15 @@ Related to missing values we can easily drop rows with missing values using the 
 df.dropna().head()
 ```
 
+The `dropna()` method also has a parameter `how` which can be set to `all`. This will only drop rows where all elements are missing. It is also possible to drop columns with missing values by setting the `axis` parameter to `1`. Let's see how this works.
+
+```{python}
+#| code-fold: false
+
+# drop columns with missing values
+df.dropna(axis=1).head()
+```
+
 ### Filling missing values
 
 Instead of dropping rows with missing values, we can also fill them with a specific value. This is ofter referred to as imputation. The `fillna()` method allows us to fill missing values with a specific value. Let's fill the missing values in the `sepal_length` column with the mean of the column.
@@ -186,4 +195,25 @@ Instead of dropping rows with missing values, we can also fill them with a speci
 # use the mean of sepal_length column to fill in for missing values
 df['sepal_length'] = df['sepal_length'].fillna(df['sepal_length'].mean())
 df.head()
+```
+
+
+### Missing values for other data types
+
+So far, we have only looked at missing values in numerical columns. However, missing values can also occur in categorical columns. Let's introduce a missing value in the `species` column.
+
+```{python}
+#| code-fold: false
+
+# introduce a missing value in the species column
+df.loc[2, 'species'] = np.nan
+df.head()
+```
+
+Let's inspect the datatypes of the columns in the dataset.
+
+```{python}
+#| code-fold: false
+
+df.dtypes
 ```
