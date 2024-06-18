@@ -237,3 +237,6 @@ df['species'] = df['species'].fillna(df['species'].mode()[0])
 df.head()
 ```
 
+Obviously, here we have imputed the incorrect species in place of the missing value. In practice, you would need to be more careful and consider the context of the data before imputing missing values. However, this example shows how you can impute missing values in categorical columns. There is more to learn about missing values, but for now, we will leave it at this.
+
+## Joining DataFrames
