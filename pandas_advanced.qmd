@@ -217,3 +217,23 @@ Let's inspect the datatypes of the columns in the dataset.
 
 df.dtypes
 ```
+
+We can now try to impute the most common value in the `species` column for the missing value.
+Before we do that let's show to use the `mode()` method to get the most common value in a column.
+
+```{python}	
+#| code-fold: false
+
+df['species'].mode()
+```
+
+We can see that mode returns a Series object. To get the actual value we can use the `iloc` method, or just use the `mode()[0]` method. Let's use this to fill the missing value in the `species` column.
+
+```{python}
+#| code-fold: false
+
+# fill missing values in the species column with the most common value
+df['species'] = df['species'].fillna(df['species'].mode()[0])
+df.head()
+```
+
