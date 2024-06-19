@@ -375,7 +375,7 @@
     "href": "pandas_advanced.html#joining-dataframes",
     "title": "6  Working with DataFrames",
     "section": "6.4 Joining DataFrames",
-    "text": "6.4 Joining DataFrames",
+    "text": "6.4 Joining DataFrames\nQuite often we find ourselves working with multiple datasets that we need to combine. Pandas provides a few methods to join DataFrames. Let’s start by creating two DataFrames to demonstrate how this works.\n\nsales_regions = pd.DataFrame({\n    'region': ['North', 'South', 'East', 'West'],\n    'manager': ['John', 'Sara', 'Tom', 'Alice']\n})\n\n# sales for the past three years by region\nsales_results = pd.DataFrame({\n    'year': [2019, 2020, 2021, 2019, 2020, 2021, \n    2019, 2020, 2021, 2019, 2020, 2021],\n    'region': ['North', 'North', 'North', 'South', 'South', 'South', \n    'East', 'East', 'East', 'West', 'West', 'West'],\n    'sales': [1000, 1200, 1500, 800, 900, 1000, \n    700, 800, 900, 600, 700, 800]\n})\n\nsales_regions\n\n\n\n\n\n\n\n\n\nregion\nmanager\n\n\n\n\n0\nNorth\nJohn\n\n\n1\nSouth\nSara\n\n\n2\nEast\nTom\n\n\n3\nWest\nAlice\n\n\n\n\n\n\n\n\n\nsales_results\n\n\n\n\n\n\n\n\n\nyear\nregion\nsales\n\n\n\n\n0\n2019\nNorth\n1000\n\n\n1\n2020\nNorth\n1200\n\n\n2\n2021\nNorth\n1500\n\n\n3\n2019\nSouth\n800\n\n\n4\n2020\nSouth\n900\n\n\n5\n2021\nSouth\n1000\n\n\n6\n2019\nEast\n700\n\n\n7\n2020\nEast\n800\n\n\n8\n2021\nEast\n900\n\n\n9\n2019\nWest\n600\n\n\n10\n2020\nWest\n700\n\n\n11\n2021\nWest\n800",
     "crumbs": [
       "Basic Data Manipulation",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Working with DataFrames</span>"
