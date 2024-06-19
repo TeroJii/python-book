@@ -269,3 +269,13 @@ sales_regions
 
 sales_results
 ```
+
+Given these DataFrames, might want to join them based on the `region` column. We could for example calculate the total sales per region, and add the information to the `sales_regions` DataFrame. We can do this using the `merge()` method. Let's see how this works.
+
+```{python}
+#| code-fold: false
+
+# let's first calculate the total sales per region
+sales_per_region = sales_results.groupby('region')['sales'].sum().reset_index()
+sales_per_region
+```
