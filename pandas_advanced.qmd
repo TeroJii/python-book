@@ -251,6 +251,12 @@ sales_regions = pd.DataFrame({
     'manager': ['John', 'Sara', 'Tom', 'Alice']
 })
 
+sales_regions
+```
+
+```{python}
+#| code-fold: false
+
 # sales for three years by region
 sales_results = pd.DataFrame({
     'year': [2019, 2020, 2021, 2019, 2020, 2021, 
@@ -260,12 +266,6 @@ sales_results = pd.DataFrame({
     'sales': [1000, 1200, 1500, 800, 900, 1000, 
     700, 800, 900, 600, 700, 800]
 })
-
-sales_regions
-```
-
-```{python}
-#| code-fold: false
 
 sales_results
 ```
@@ -289,7 +289,7 @@ We used the `groupby()` method we learned earlier to calculate the total sales p
 sales_regions.merge(sales_per_region, on='region', how='left')
 ```
 
-If you have ever used SQL, you might have noticed that this looks very similar to a SQL join. The `on` parameter specifies the column to join on, and the `how` parameter specifies the type of join. Most common choices for the `how` parameter are probably `left`, `right`, `inner`, and `outer`. The default value is `inner`.
+If you have ever used SQL, you might have noticed that this feels very similar to a SQL join. The `on` parameter specifies the column to join on, and the `how` parameter specifies the type of join. Most common choices for the `how` parameter are probably `left`, `right`, `inner`, and `outer`. The default value is `inner`.
 
 ### Concatenating DataFrames
 
@@ -313,7 +313,7 @@ We can see that the format of this DataFrame is the same as the `sales_results` 
 #| code-fold: false
 
 # concatenate the sales results from different years
-sales_all =pd.concat([sales_results_2018, sales_results])
+sales_all = pd.concat([sales_results_2018, sales_results])
 sales_all
 ```
 
@@ -327,3 +327,30 @@ sales_all
 ```
 
 The `drop=True` parameter means that we want to get rid of the old index. The `inplace=True` parameter means that we want to modify the DataFrame in place, instead of creating a new DataFrame. This will make the index start from 0, and the changes are applied to the DataFrame.
+
+### Concatenating along columns
+
+Somethis we want to stick new columns at the end of an existing DataFrame. We can do this using the `concat()` method with the `axis` parameter set to 1. Let's look at an example.
+
+```{python}
+#| code-fold: false
+
+sales_by_year = pd.DataFrame({
+    'region': ['North', 'South', 'East', 'West'],
+    '2018': [500, 400, 300, 200],	
+    '2019': [1000, 800, 700, 600],
+    '2020': [1200, 900, 800, 700]
+})
+
+sales_by_year
+```
+
+```{python}
+#| code-fold: false
+year_2021_2022 = pd.DataFrame({
+    '2021': [1500, 1000, 900, 800],
+    '2022': [1600, 1100, 1000, 900]
+})
+
+year_2021_2022
+```
