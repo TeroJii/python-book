@@ -291,6 +291,8 @@ sales_regions.merge(sales_per_region, on='region', how='left')
 
 If you have ever used SQL, you might have noticed that this feels very similar to a SQL join. The `on` parameter specifies the column to join on, and the `how` parameter specifies the type of join. Most common choices for the `how` parameter are probably `left`, `right`, `inner`, and `outer`. The default value is `inner`.
 
+There is more functionality when it comes using `merge` for joining DataFrames, but for the time being we will leave it at this.
+
 ### Concatenating DataFrames
 
 Now sometimes we have DataFrames where the content is different but the columns are the same. In this case we might want to concatenate the DataFrames. Let's assume we have sales data from previous years that we want to add to the `sales_results` DataFrame.
@@ -362,4 +364,47 @@ We can see that the `year_2021_2022` DataFrame is a natural extension to the `sa
 
 sales_by_year = pd.concat([sales_by_year, year_2021_2022], axis=1)
 sales_by_year
+```
+
+### Joining DataFrames on the index values
+
+So far we have joined DataFrames based on columns. However, we can also join DataFrames based on the index values. Let's see how this works by creating two DataFrames with the some overlapping index values.
+
+```{python}
+#| code-fold: false
+
+df1 = pd.DataFrame({
+    'A': [1, 2, 3],
+    'B': [4, 5, 6]},
+    index=[1, 2, 3])
+df1
+```
+
+```{python}
+#| code-fold: false
+
+df2 = pd.DataFrame({
+    'C': [7, 8, 9],
+    'D': [10, 11, 12]},
+    index=[2, 3, 4])
+
+df2
+```
+
+We can now join the two DataFrames based on the index values using the `join()` method. Let's take a look at a left join.
+
+```{python}
+#| code-fold: false
+
+df1.join(df2, how='left')
+```
+
+We can see that the `df1` DataFrame is the left DataFrame, which will be preserved in the join operation. The `df2` DataFrame is the right DataFrame, which will be joined to the left DataFrame based on the index values. If a value is missing in the right DataFrame, it will be filled with `NaN`.
+
+A right join will preserve the right DataFrame.
+
+```{python}
+#| code-fold: false
+
+df1.join(df2, how='right')
 ```
