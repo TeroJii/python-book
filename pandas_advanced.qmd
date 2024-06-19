@@ -354,3 +354,12 @@ year_2021_2022 = pd.DataFrame({
 
 year_2021_2022
 ```
+
+We can see that the `year_2021_2022` DataFrame is a natural extension to the `sales_by_year` DataFrame. Let's combine the two.
+
+```{python}
+#| code-fold: false
+
+sales_by_year = pd.concat([sales_by_year, year_2021_2022], axis=1)
+sales_by_year
+```
