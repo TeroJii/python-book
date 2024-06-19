@@ -240,3 +240,32 @@ df.head()
 Obviously, here we have imputed the incorrect species in place of the missing value. In practice, you would need to be more careful and consider the context of the data before imputing missing values. However, this example shows how you can impute missing values in categorical columns. There is more to learn about missing values, but for now, we will leave it at this.
 
 ## Joining DataFrames
+
+Quite often we find ourselves working with multiple datasets that we need to combine. Pandas provides a few methods to join DataFrames. Let's start by creating two DataFrames to demonstrate how this works.
+
+```{python}
+#| code-fold: false
+
+sales_regions = pd.DataFrame({
+    'region': ['North', 'South', 'East', 'West'],
+    'manager': ['John', 'Sara', 'Tom', 'Alice']
+})
+
+# sales for the past three years by region
+sales_results = pd.DataFrame({
+    'year': [2019, 2020, 2021, 2019, 2020, 2021, 
+    2019, 2020, 2021, 2019, 2020, 2021],
+    'region': ['North', 'North', 'North', 'South', 'South', 'South', 
+    'East', 'East', 'East', 'West', 'West', 'West'],
+    'sales': [1000, 1200, 1500, 800, 900, 1000, 
+    700, 800, 900, 600, 700, 800]
+})
+
+sales_regions
+```
+
+```{python}
+#| code-fold: false
+
+sales_results
+```
