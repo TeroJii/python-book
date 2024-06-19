@@ -279,3 +279,14 @@ Given these DataFrames, might want to join them based on the `region` column. We
 sales_per_region = sales_results.groupby('region')['sales'].sum().reset_index()
 sales_per_region
 ```
+
+We used the `groupby()` method we learned earlier to calculate the total sales per region. We then used the `reset_index()` method to convert the grouped data back to a DataFrame. Now we can merge the `sales_regions` DataFrame with the `sales_per_region` DataFrame.
+
+```{python}
+#| code-fold: false
+
+# merge the sales_regions DataFrame with the sales_per_region DataFrame
+sales_regions.merge(sales_per_region, on='region', how='left')
+```
+
+If you have ever used SQL, you might have noticed that this looks very similar to a SQL join. The `on` parameter specifies the column to join on, and the `how` parameter specifies the type of join. Most common choices for the `how` parameter are probably `left`, `right`, `inner`, and `outer`. The default value is `inner`.
