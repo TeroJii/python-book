@@ -129,6 +129,23 @@ The `apply()` method allows us to apply a function to columns in the dataset. Fo
 df['species'].apply(lambda x: x.upper()).head()
 ```
 
+For simple functions like finding the length of a string, we can use the `len` function directly.
+
+```{python}
+#| code-fold: false
+
+df['species'].apply(len).head()
+```
+
+The `apply()` method coupled with lambda expressions grants us the ability to easily craft custom modifications on existing columns. This will be useful when we need to clean or transform data.
+
+```{python}
+#| code-fold: false
+
+# Make species uppercase and add a suffix to the end
+df['species'].apply(lambda x: x.upper() + '_SPECIES').head()
+```
+
 ## Grouping data
 
 If you are familiar with SQL queries, you might have used the `GROUP BY` clause to group data based on a particular column. Pandas provides a similar functionality using the `groupby()` method. Grouping data allows you to calculate for example statistics like the mean for distinct groups in the dataset. Let's take a look at how this works by grouping the `iris` data based on the `species` column and calculating the mean of the other columns.
