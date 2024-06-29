@@ -40,6 +40,8 @@ We already saw that the `head()` method displays the first five rows of the data
 df.tail(9)
 ```
 
+### General information about the dataset
+
 The `info()` method provides a concise summary of the dataset. It displays the number of non-null values in each column, the data type of each column, and the memory usage of the dataset.
 
 ```{python}
@@ -72,7 +74,26 @@ The `columns` attribute provides the names of the columns in the dataset.
 df.columns
 ```
 
-The `nunique()` method provides the number of unique values in each column of the dataset.
+### Unique values in the dataset
+
+There are a few methods that help us get unique values in the dataset. The `unique()` method provides the unique values in a column. Let's see how this works by getting the unique values in the `species` column.
+
+```{python}
+#| code-fold: false
+
+unique_species = df['species'].unique()
+unique_species
+```
+
+We can see that the dataset contains three unique species of iris flowers. This is pretty simple to see directly, but if we would have more than three species, we could also check the number of unique values like this:
+
+```{python}
+#| code-fold: false
+
+len(unique_species)
+```
+
+There is actually a dedicated method for obtaining the number of unique values. The `nunique()` method provides the number of unique values in each column of the dataset.
 
 ```{python}
 #| code-fold: false
