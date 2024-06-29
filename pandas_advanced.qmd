@@ -101,6 +101,24 @@ There is actually a dedicated method for obtaining the number of unique values. 
 df.nunique()
 ```
 
+Finally, the `value_counts()` method provides the frequency of each unique value in a column. Let's see how this works by getting the frequency of each species in the `species` column.
+
+```{python}
+#| code-fold: false
+
+df['species'].value_counts()
+```
+
+### Sorting values
+
+The `sort_values()` method allows us to sort the dataset based on one or more columns. Let's see how this works by sorting the dataset based on the `sepal_length` column.
+
+```{python}
+#| code-fold: false
+
+df.sort_values('sepal_length').head()
+```
+
 ## Grouping data
 
 If you are familiar with SQL queries, you might have used the `GROUP BY` clause to group data based on a particular column. Pandas provides a similar functionality using the `groupby()` method. Grouping data allows you to calculate for example statistics like the mean for distinct groups in the dataset. Let's take a look at how this works by grouping the `iris` data based on the `species` column and calculating the mean of the other columns.
