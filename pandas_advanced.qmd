@@ -119,6 +119,16 @@ The `sort_values()` method allows us to sort the dataset based on one or more co
 df.sort_values('sepal_length').head()
 ```
 
+### Applying functions to columns
+
+The `apply()` method allows us to apply a function to columns in the dataset. For example, if we take a look at the first few values for the `species` column, we can see that the values are strings. Let's apply the `upper()` method to the `species` column to convert the strings to uppercase.
+
+```{python}
+#| code-fold: false
+
+df['species'].apply(lambda x: x.upper()).head()
+```
+
 ## Grouping data
 
 If you are familiar with SQL queries, you might have used the `GROUP BY` clause to group data based on a particular column. Pandas provides a similar functionality using the `groupby()` method. Grouping data allows you to calculate for example statistics like the mean for distinct groups in the dataset. Let's take a look at how this works by grouping the `iris` data based on the `species` column and calculating the mean of the other columns.
