@@ -474,3 +474,24 @@ A right join will preserve the right DataFrame.
 
 df1.join(df2, how='right')
 ```
+
+## Reading in data
+
+In the real world, we aren't usually working with example datasets like the `iris` dataset. Instead, we are burdened with the task of reading in the data. Pandas provides a variety of methods to read in data from different sources. Let's take a look at probably to most common method: `read_csv()`. As the name suggests, this method reads in data from a CSV file. We are going to read in `pets` dataset from a CSV file under a folder called data.
+
+```{python}
+#| code-fold: false
+
+# read in the pets dataset
+pets = pd.read_csv('data/pets.csv')
+pets
+```
+
+We can see that the `read_csv()` method reads in the data from the CSV file and creates a DataFrame. As mentioned earlier, Pandas provides several methods for reading in Excel files, SQL databases, and more. You can browse the available methods by typing `pd.read_` and pressing `Tab` for autocomplete suggestions. For saving data to a file you can use the `to_csv()` method. Let's save the `pets` DataFrame to a CSV file.
+
+```python
+# save the pets DataFrame to a CSV file
+pets.to_csv('data/pets_saved.csv', index=False)
+```
+
+Here we used the `index=False` parameter to avoid saving the index values to the CSV file. This is usually preferred, unless you have a specific reason for creating an extra column for the index values in the saved file.
