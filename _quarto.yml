@@ -20,6 +20,10 @@ book:
         - numpy.qmd
         - pandas.qmd
         - pandas_advanced.qmd
+    - part: "Data Visualization"
+      chapters:
+        - matplotlib.qmd
+        - seaborn.qmd
     - part: "Modelling"
       chapters:
         - linear_regression.qmd
