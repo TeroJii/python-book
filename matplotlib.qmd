@@ -32,3 +32,17 @@ plt.show()
 ```
 
 The `plt.plot()` function is used to create the plot, and the `plt.show()` function is used to display the plot. The `x` and `y` arrays contain the data for the x-axis and y-axis, respectively. Essentially, we were able to create a decent looking plot with just four lines of code.
+
+### The second way of creating a plot
+
+What makes Matplotlib a bit tricky for beginners is that it has two interfaces: and explicit and implicit one. The one we saw above is the implicit interface, where the plot is created automatically. The explicit interface is more powerful and flexible, but it requires more lines of code. The implicit interface resembles MATLAB, and makes it easier to create simple plots. The object-oriented explicit interface is more powerful and flexible. Let's see how we can create the same plot using the explicit interface.
+
+```{python}
+#| code-fold: false
+
+fig, ax = plt.subplots()
+ax.plot(x, y)
+plt.show()
+```
+
+In the explicit interface, we first create a figure and an axis object using `plt.subplots()`. We then use the `plot()` method of the axis object to create the plot. In a simple case like this one, the difference between the two interfaces isn't too big.
