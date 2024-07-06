@@ -53,10 +53,12 @@ plt.show()
 
 ### The second way of creating a plot
 
-What makes Matplotlib a bit tricky for beginners is that it has two interfaces: and explicit and implicit one. The one we saw above is the implicit interface, where the plot is created automatically. The explicit interface is more powerful and flexible, but it requires more lines of code. The implicit interface resembles MATLAB, and makes it easier to create simple plots. The object-oriented explicit interface is more powerful and flexible. Let's see how we can create the same plot using the explicit interface.
+What makes Matplotlib a bit tricky for beginners is that it has two interfaces: and explicit and implicit one. The one we saw above is the implicit interface, which resembles MATLAB, and makes it easier to create simple plots. The explicit interface is more powerful and flexible, but it requires more lines of code. Let's see how we can create the same plot using the Object Oriented (OO) explicit interface.
 
 ```{python}
 #| code-fold: false
+#| label: fig-sine3
+#| fig-cap: Sine wave plot using the Object Oriented (OO) explicit interface.
 
 fig, ax = plt.subplots()
 ax.plot(x, y)
@@ -64,3 +66,5 @@ plt.show()
 ```
 
 In the explicit interface, we first create a figure and an axis object using `plt.subplots()`. We then use the `plot()` method of the axis object to create the plot. In a simple case like this one, the difference between the two interfaces isn't too big.
+
+Let's add the missing labels, title, and grid to the plot.
