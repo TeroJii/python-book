@@ -408,7 +408,7 @@
     "href": "matplotlib.html",
     "title": "7  Data visualisation with Matplotlib",
     "section": "",
-    "text": "7.1 Line plot\nx = np.linspace(0, 10, 100)\ny = np.sin(x)\nplt.plot(x, y)\nplt.show()",
+    "text": "7.1 Getting started\nimport matplotlib.pyplot as plt\nimport numpy as np\nx = np.linspace(0, 10, 100)\ny = np.sin(x)\nplt.plot(x, y)\nplt.show()",
     "crumbs": [
       "Data Visualization",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data visualisation with Matplotlib</span>"
