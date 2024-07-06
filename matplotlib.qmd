@@ -21,10 +21,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 ```
 
-Next, we generate the data for the sine wave and plot it using Matplotlib.
+Next, we generate the data for the sine wave and plot it using Matplotlib (@fig-sine1).
 
 ```{python}
 #| code-fold: false
+#| label: fig-sine1
+#| fig-cap: Sine wave plot created using Matplotlib.
+
 x = np.linspace(0, 10, 100)
 y = np.sin(x)
 plt.plot(x, y)
@@ -32,6 +35,21 @@ plt.show()
 ```
 
 The `plt.plot()` function is used to create the plot, and the `plt.show()` function is used to display the plot. The `x` and `y` arrays contain the data for the x-axis and y-axis, respectively. Essentially, we were able to create a decent looking plot with just four lines of code.
+
+Let's customize the plot a bit by adding labels to the x-axis and y-axis, a title, and a grid.
+
+```{python}
+#| code-fold: false
+#| label: fig-sine2
+#| fig-cap: Sine wave plot with labels, title, and grid.
+
+plt.plot(x, y)
+plt.xlabel('x axis')
+plt.ylabel('y axis')
+plt.title('Sine wave plot')
+plt.grid(True)
+plt.show()
+```
 
 ### The second way of creating a plot
 
