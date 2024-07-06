@@ -402,5 +402,16 @@
       "Basic Data Manipulation",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Working with DataFrames</span>"
     ]
+  },
+  {
+    "objectID": "matplotlib.html",
+    "href": "matplotlib.html",
+    "title": "7  Data visualisation with Matplotlib",
+    "section": "",
+    "text": "7.1 Line plot\nx = np.linspace(0, 10, 100)\ny = np.sin(x)\nplt.plot(x, y)\nplt.show()",
+    "crumbs": [
+      "Data Visualization",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data visualisation with Matplotlib</span>"
+    ]
   }
 ]
