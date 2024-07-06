@@ -304,7 +304,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="getting-started" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">7.1</span> Getting started</h2>
 <p>Let’s start by creating a simple line plot using Matplotlib. The following code generates a sine wave and plots it using Matplotlib. We start by importing the necessary libraries.</p>
-<div id="6417a4ed" class="cell" data-execution_count="1">
+<div id="566d2b55" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -351,20 +351,26 @@ Figure&nbsp;7.2: Sine wave plot with labels, title, and grid.
 </div>
 <section id="the-second-way-of-creating-a-plot" class="level3" data-number="7.1.1">
 <h3 data-number="7.1.1" class="anchored" data-anchor-id="the-second-way-of-creating-a-plot"><span class="header-section-number">7.1.1</span> The second way of creating a plot</h3>
-<p>What makes Matplotlib a bit tricky for beginners is that it has two interfaces: and explicit and implicit one. The one we saw above is the implicit interface, where the plot is created automatically. The explicit interface is more powerful and flexible, but it requires more lines of code. The implicit interface resembles MATLAB, and makes it easier to create simple plots. The object-oriented explicit interface is more powerful and flexible. Let’s see how we can create the same plot using the explicit interface.</p>
-<div id="9cd65d79" class="cell" data-execution_count="4">
+<p>What makes Matplotlib a bit tricky for beginners is that it has two interfaces: and explicit and implicit one. The one we saw above is the implicit interface, which resembles MATLAB, and makes it easier to create simple plots. The explicit interface is more powerful and flexible, but it requires more lines of code. Let’s see how we can create the same plot using the Object Oriented (OO) explicit interface.</p>
+<div id="cell-fig-sine3" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="matplotlib_files/figure-html/cell-5-output-1.png" width="590" height="411" class="figure-img"></p>
+<div id="fig-sine3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sine3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="matplotlib_files/figure-html/fig-sine3-output-1.png" width="590" height="411" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sine3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.3: Sine wave plot using the Object Oriented (OO) explicit interface.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>In the explicit interface, we first create a figure and an axis object using <code>plt.subplots()</code>. We then use the <code>plot()</code> method of the axis object to create the plot. In a simple case like this one, the difference between the two interfaces isn’t too big.</p>
+<p>Let’s add the missing labels, title, and grid to the plot.</p>
 
 
 </section>
