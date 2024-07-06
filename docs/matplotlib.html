@@ -304,36 +304,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="getting-started" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">7.1</span> Getting started</h2>
 <p>Let’s start by creating a simple line plot using Matplotlib. The following code generates a sine wave and plots it using Matplotlib. We start by importing the necessary libraries.</p>
-<div id="36dd6f3c" class="cell" data-execution_count="1">
+<div id="6417a4ed" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Next, we generate the data for the sine wave and plot it using Matplotlib.</p>
-<div id="1cfa934a" class="cell" data-execution_count="2">
+<p>Next, we generate the data for the sine wave and plot it using Matplotlib (<a href="#fig-sine1" class="quarto-xref">Figure&nbsp;<span>7.1</span></a>).</p>
+<div id="cell-fig-sine1" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.sin(x)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="matplotlib_files/figure-html/cell-3-output-1.png" width="590" height="411" class="figure-img"></p>
+<div id="fig-sine1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sine1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="matplotlib_files/figure-html/fig-sine1-output-1.png" width="590" height="411" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sine1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.1: Sine wave plot created using Matplotlib.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>The <code>plt.plot()</code> function is used to create the plot, and the <code>plt.show()</code> function is used to display the plot. The <code>x</code> and <code>y</code> arrays contain the data for the x-axis and y-axis, respectively. Essentially, we were able to create a decent looking plot with just four lines of code.</p>
+<p>Let’s customize the plot a bit by adding labels to the x-axis and y-axis, a title, and a grid.</p>
+<div id="cell-fig-sine2" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x axis'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y axis'</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Sine wave plot'</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="fig-sine2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sine2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="matplotlib_files/figure-html/fig-sine2-output-1.png" width="609" height="449" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sine2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.2: Sine wave plot with labels, title, and grid.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <section id="the-second-way-of-creating-a-plot" class="level3" data-number="7.1.1">
 <h3 data-number="7.1.1" class="anchored" data-anchor-id="the-second-way-of-creating-a-plot"><span class="header-section-number">7.1.1</span> The second way of creating a plot</h3>
 <p>What makes Matplotlib a bit tricky for beginners is that it has two interfaces: and explicit and implicit one. The one we saw above is the implicit interface, where the plot is created automatically. The explicit interface is more powerful and flexible, but it requires more lines of code. The implicit interface resembles MATLAB, and makes it easier to create simple plots. The object-oriented explicit interface is more powerful and flexible. Let’s see how we can create the same plot using the explicit interface.</p>
-<div id="5ded1fff" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9cd65d79" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="matplotlib_files/figure-html/cell-4-output-1.png" width="590" height="411" class="figure-img"></p>
+<p><img src="matplotlib_files/figure-html/cell-5-output-1.png" width="590" height="411" class="figure-img"></p>
 </figure>
 </div>
 </div>
