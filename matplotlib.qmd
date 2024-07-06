@@ -4,14 +4,20 @@ jupyter: python3
 
 # Data visualisation with Matplotlib
 
+Matplotlib is a comprehensive plotting library for Python. It can be used to create a wide variety of plots, including line plots, bar plots, histograms, scatter plots, and much more. Matplotlib is highly customizable and allows you to create publication-quality plots. Matplotlib can be installed using pip or conda:
+
+```bash
+# installation using conda
+conda install matplotlib
+```
+
+## Getting started
 
 ```{python}
 #| code-fold: false
 import matplotlib.pyplot as plt
 import numpy as np
 ```
-
-## Line plot
 
 ```{python}
 #| code-fold: false
