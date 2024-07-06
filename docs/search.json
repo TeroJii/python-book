@@ -408,7 +408,7 @@
     "href": "matplotlib.html",
     "title": "7  Data visualisation with Matplotlib",
     "section": "",
-    "text": "7.1 Getting started\nimport matplotlib.pyplot as plt\nimport numpy as np\nx = np.linspace(0, 10, 100)\ny = np.sin(x)\nplt.plot(x, y)\nplt.show()",
+    "text": "7.1 Getting started\nLet’s start by creating a simple line plot using Matplotlib. The following code generates a sine wave and plots it using Matplotlib. We start by importing the necessary libraries.\nimport matplotlib.pyplot as plt\nimport numpy as np\nNext, we generate the data for the sine wave and plot it using Matplotlib.\nx = np.linspace(0, 10, 100)\ny = np.sin(x)\nplt.plot(x, y)\nplt.show()\nThe plt.plot() function is used to create the plot, and the plt.show() function is used to display the plot. The x and y arrays contain the data for the x-axis and y-axis, respectively. Essentially, we were able to create a decent looking plot with just four lines of code.",
     "crumbs": [
       "Data Visualization",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data visualisation with Matplotlib</span>"
