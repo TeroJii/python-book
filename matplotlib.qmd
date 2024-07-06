@@ -3,3 +3,20 @@ jupyter: python3
 ---
 
 # Data visualisation with Matplotlib
+
+
+```{python}
+#| code-fold: false
+import matplotlib.pyplot as plt
+import numpy as np
+```
+
+## Line plot
+
+```{python}
+#| code-fold: false
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+plt.plot(x, y)
+plt.show()
+```
