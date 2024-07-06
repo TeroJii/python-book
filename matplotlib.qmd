@@ -7,17 +7,21 @@ jupyter: python3
 Matplotlib is a comprehensive plotting library for Python. It can be used to create a wide variety of plots, including line plots, bar plots, histograms, scatter plots, and much more. Matplotlib is highly customizable and allows you to create publication-quality plots. Matplotlib can be installed using pip or conda:
 
 ```bash
-# installation using conda
-conda install matplotlib
+# installation using pip
+pip install matplotlib
 ```
 
 ## Getting started
+
+Let's start by creating a simple line plot using Matplotlib. The following code generates a sine wave and plots it using Matplotlib. We start by importing the necessary libraries.
 
 ```{python}
 #| code-fold: false
 import matplotlib.pyplot as plt
 import numpy as np
 ```
+
+Next, we generate the data for the sine wave and plot it using Matplotlib.
 
 ```{python}
 #| code-fold: false
@@ -26,3 +30,5 @@ y = np.sin(x)
 plt.plot(x, y)
 plt.show()
 ```
+
+The `plt.plot()` function is used to create the plot, and the `plt.show()` function is used to display the plot. The `x` and `y` arrays contain the data for the x-axis and y-axis, respectively. Essentially, we were able to create a decent looking plot with just four lines of code.
