@@ -71,6 +71,8 @@ Let's add the missing labels, title, and grid to the plot.
 
 ```{python}
 #| code-fold: false
+#| label: fig-sine4
+#| fig-cap: Sine wave plot using the Object Oriented (OO) explicit interface with axis labels, title, and grid.
 
 fig, ax = plt.subplots()
 ax.plot(x, y)
@@ -81,3 +83,4 @@ ax.grid(True)
 plt.show()
 ```
 
+Now we have a plot that is identical to the one we created earlier. It's fine to use either of the two approaches, but the latter (object oriented) is recommended by the Matplotlib developers (especially for more elaborate plots).
