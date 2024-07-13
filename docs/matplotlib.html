@@ -311,7 +311,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="getting-started" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">7.1</span> Getting started</h2>
 <p>Let’s start by creating a simple line plot using Matplotlib. The following code generates data along a sine wave and plots it using Matplotlib. We start by importing the necessary libraries.</p>
-<div id="74beb6d4" class="cell" data-execution_count="1">
+<div id="74e7479e" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -418,7 +418,7 @@ Figure&nbsp;7.4: Sine wave plot using the Object Oriented (OO) explicit interfac
 Table&nbsp;7.1: The first few rows of the iris dataset.
 </figcaption>
 <div aria-describedby="tbl-iris-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="54">
 <div>
 <div>
 
@@ -535,6 +535,37 @@ Figure&nbsp;7.6: Scatter plot of sepal length vs sepal width using the iris data
 </div>
 </div>
 </div>
+<p>Above, we loop through the unique species in the dataset and create a scatter plot for each species. We then add a legend to the plot to indicate which species each color corresponds to.</p>
+<p>We might also want to choose different shapes for the points based on the species of the iris flower. This is not much different from coloring the points based on the species (<a href="#fig-iris3" class="quarto-xref">Figure&nbsp;<span>7.7</span></a>).</p>
+<div id="cell-fig-iris3" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>species <span class="op">=</span> df[<span class="st">'species'</span>].unique()</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>markers <span class="op">=</span> [<span class="st">'o'</span>, <span class="st">'s'</span>, <span class="st">'^'</span>]</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sp, marker <span class="kw">in</span> <span class="bu">zip</span>(species, markers):</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> df[df[<span class="st">'species'</span>] <span class="op">==</span> sp][<span class="st">'sepal_length'</span>]</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> df[df[<span class="st">'species'</span>] <span class="op">==</span> sp][<span class="st">'sepal_width'</span>]</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    ax.scatter(x, y, label<span class="op">=</span>sp, marker<span class="op">=</span>marker)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Sepal length'</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Sepal width'</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Sepal length vs Sepal width'</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="fig-iris3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-iris3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="matplotlib_files/figure-html/fig-iris3-output-1.png" width="589" height="449" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-iris3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.7: Scatter plot of sepal length vs sepal width using the iris dataset colored by species and different markers.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The difference here is that we pass a list of markers to the <code>scatter()</code> method. The <code>zip()</code> function is used to iterate over two lists simultaneously.</p>
 <section id="several-subplots" class="level3" data-number="7.2.1">
 <h3 data-number="7.2.1" class="anchored" data-anchor-id="several-subplots"><span class="header-section-number">7.2.1</span> Several subplots</h3>
 <p>Subplots can actually be used for displaying multiple plots in the same figure. Let’s create a figure with two subplots: one for the sepal length vs sepal width and another for the petal length vs petal width.</p>
