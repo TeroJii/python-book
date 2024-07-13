@@ -276,7 +276,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#the-second-way-of-creating-a-plot" id="toc-the-second-way-of-creating-a-plot" class="nav-link" data-scroll-target="#the-second-way-of-creating-a-plot"><span class="header-section-number">7.1.1</span> The second way of creating a plot</a></li>
   </ul></li>
-  <li><a href="#plotting-pandas-data" id="toc-plotting-pandas-data" class="nav-link" data-scroll-target="#plotting-pandas-data"><span class="header-section-number">7.2</span> Plotting Pandas data</a></li>
+  <li><a href="#plotting-pandas-data" id="toc-plotting-pandas-data" class="nav-link" data-scroll-target="#plotting-pandas-data"><span class="header-section-number">7.2</span> Plotting Pandas data</a>
+  <ul class="collapse">
+  <li><a href="#several-subplots" id="toc-several-subplots" class="nav-link" data-scroll-target="#several-subplots"><span class="header-section-number">7.2.1</span> Several subplots</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TeroJii/python-book/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -308,7 +311,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="getting-started" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">7.1</span> Getting started</h2>
 <p>Let’s start by creating a simple line plot using Matplotlib. The following code generates data along a sine wave and plots it using Matplotlib. We start by importing the necessary libraries.</p>
-<div id="13306672" class="cell" data-execution_count="1">
+<div id="74beb6d4" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -415,7 +418,7 @@ Figure&nbsp;7.4: Sine wave plot using the Object Oriented (OO) explicit interfac
 Table&nbsp;7.1: The first few rows of the iris dataset.
 </figcaption>
 <div aria-describedby="tbl-iris-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="18">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 <div>
 
@@ -503,8 +506,41 @@ Figure&nbsp;7.5: Scatter plot of sepal length vs sepal width using the iris data
 </div>
 </div>
 </div>
+<p>The <code>scatter()</code> method is used to create a scatter plot. We pass the sepal length and sepal width columns from the iris dataset to the <code>scatter()</code> method. We then add labels to the x-axis and y-axis, a title, and display the plot.</p>
+<p>Now, we can make the plot more informative by coloring the points based on the species of the iris flower.</p>
+<div id="cell-fig-iris2" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>species <span class="op">=</span> df[<span class="st">'species'</span>].unique()</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sp <span class="kw">in</span> species:</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> df[df[<span class="st">'species'</span>] <span class="op">==</span> sp][<span class="st">'sepal_length'</span>]</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> df[df[<span class="st">'species'</span>] <span class="op">==</span> sp][<span class="st">'sepal_width'</span>]</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    ax.scatter(x, y, label<span class="op">=</span>sp)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Sepal length'</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Sepal width'</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Sepal length vs Sepal width'</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="fig-iris2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-iris2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="matplotlib_files/figure-html/fig-iris2-output-1.png" width="589" height="449" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-iris2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.6: Scatter plot of sepal length vs sepal width using the iris dataset colored by species.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="several-subplots" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="several-subplots"><span class="header-section-number">7.2.1</span> Several subplots</h3>
+<p>Subplots can actually be used for displaying multiple plots in the same figure. Let’s create a figure with two subplots: one for the sepal length vs sepal width and another for the petal length vs petal width.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
