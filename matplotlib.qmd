@@ -101,3 +101,17 @@ df = sns.load_dataset('iris')
 df.head()
 ```
 
+Let's start by creating a simple scatter plot using the iris dataset. We will plot the sepal length against the sepal width.
+
+```{python}
+#| code-fold: false
+#| label: fig-iris1
+#| fig-cap: Scatter plot of sepal length vs sepal width using the iris dataset.
+
+fig, ax = plt.subplots()
+ax.scatter(df['sepal_length'], df['sepal_width'])
+ax.set_xlabel('Sepal length')
+ax.set_ylabel('Sepal width')
+ax.set_title('Sepal length vs Sepal width')
+plt.show()
+```
