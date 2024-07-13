@@ -115,3 +115,31 @@ ax.set_ylabel('Sepal width')
 ax.set_title('Sepal length vs Sepal width')
 plt.show()
 ```
+
+The `scatter()` method is used to create a scatter plot. We pass the sepal length and sepal width columns from the iris dataset to the `scatter()` method. We then add labels to the x-axis and y-axis, a title, and display the plot. 
+
+Now, we can make the plot more informative by coloring the points based on the species of the iris flower.
+
+```{python}
+#| code-fold: false
+#| label: fig-iris2
+#| fig-cap: Scatter plot of sepal length vs sepal width using the iris dataset colored by species.
+
+fig, ax = plt.subplots()
+species = df['species'].unique()
+
+for sp in species:
+    x = df[df['species'] == sp]['sepal_length']
+    y = df[df['species'] == sp]['sepal_width']
+    ax.scatter(x, y, label=sp)
+
+ax.set_xlabel('Sepal length')
+ax.set_ylabel('Sepal width')
+ax.set_title('Sepal length vs Sepal width')
+ax.legend()
+plt.show()
+```
+
+### Several subplots
+
+Subplots can actually be used for displaying multiple plots in the same figure. Let's create a figure with two subplots: one for the sepal length vs sepal width and another for the petal length vs petal width.
