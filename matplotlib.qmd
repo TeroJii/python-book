@@ -84,3 +84,20 @@ plt.show()
 ```
 
 Now we have a plot that is identical to the one we created earlier. It's fine to use either of the two approaches, but the latter (object oriented) is recommended by the Matplotlib developers (especially for more elaborate plots).
+
+## Plotting Pandas data
+
+Matplotlib can be used to plot data stored in Pandas data structures. Let's create a simple line plot using a Pandas DataFrame. We start by importing the necessary libraries and the iris dataset (@tbl-iris).
+
+```{python}
+#| code-fold: false
+#| label: tbl-iris
+#| tbl-cap: The first few rows of the iris dataset.
+import pandas as pd
+import seaborn as sns
+
+# Load the dataset
+df = sns.load_dataset('iris')
+df.head()
+```
+
