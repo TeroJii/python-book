@@ -424,5 +424,16 @@
       "Data Visualization",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data visualisation with Matplotlib</span>"
     ]
+  },
+  {
+    "objectID": "matplotlib.html#plotting-pandas-data",
+    "href": "matplotlib.html#plotting-pandas-data",
+    "title": "7  Data visualisation with Matplotlib",
+    "section": "7.2 Plotting Pandas data",
+    "text": "7.2 Plotting Pandas data\nMatplotlib can be used to plot data stored in Pandas data structures. Let’s create a simple line plot using a Pandas DataFrame. We start by importing the necessary libraries and the iris dataset (Table 7.1).\n\nimport pandas as pd\nimport seaborn as sns\n\n# Load the dataset\ndf = sns.load_dataset('iris')\ndf.head()\n\n\n\nTable 7.1: The first few rows of the iris dataset.\n\n\n\n\n\n\n\n\n\n\n\nsepal_length\nsepal_width\npetal_length\npetal_width\nspecies\n\n\n\n\n0\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n1\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n2\n4.7\n3.2\n1.3\n0.2\nsetosa\n\n\n3\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n4\n5.0\n3.6\n1.4\n0.2\nsetosa",
+    "crumbs": [
+      "Data Visualization",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data visualisation with Matplotlib</span>"
+    ]
   }
 ]
