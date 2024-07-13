@@ -140,6 +140,33 @@ ax.legend()
 plt.show()
 ```
 
+Above, we loop through the unique species in the dataset and create a scatter plot for each species. We then add a legend to the plot to indicate which species each color corresponds to.
+
+We might also want to choose different shapes for the points based on the species of the iris flower. This is not much different from coloring the points based on the species (@fig-iris3).
+
+```{python}
+#| code-fold: false
+#| label: fig-iris3
+#| fig-cap: Scatter plot of sepal length vs sepal width using the iris dataset colored by species and different markers.
+
+fig, ax = plt.subplots()
+species = df['species'].unique()
+markers = ['o', 's', '^']
+
+for sp, marker in zip(species, markers):
+    x = df[df['species'] == sp]['sepal_length']
+    y = df[df['species'] == sp]['sepal_width']
+    ax.scatter(x, y, label=sp, marker=marker)
+
+ax.set_xlabel('Sepal length')
+ax.set_ylabel('Sepal width')
+ax.set_title('Sepal length vs Sepal width')
+ax.legend()
+plt.show()
+```
+
+The difference here is that we pass a list of markers to the `scatter()` method. The `zip()` function is used to iterate over two lists simultaneously.
+
 ### Several subplots
 
 Subplots can actually be used for displaying multiple plots in the same figure. Let's create a figure with two subplots: one for the sepal length vs sepal width and another for the petal length vs petal width.
