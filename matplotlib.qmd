@@ -174,9 +174,10 @@ Subplots can actually be used for displaying multiple plots in the same figure. 
 ```{python}
 #| code-fold: false
 #| label: fig-subplots1
-#| fig-cap: Scatter plots of sepal length vs sepal width and petal length vs petal width using the iris dataset.
+#| fig-cap: Side-by-side scatter plots of sepal length vs sepal width and petal length vs petal width using the iris dataset.
 
-fig, ax = plt.subplots(1, 2, figsize=(6, 3))
+# Create a figure with two subplots
+fig, ax = plt.subplots(nrows = 1, ncols = 2, figsize=(6, 3))
 
 # Plot 1
 species = df['species'].unique()
@@ -192,6 +193,7 @@ ax[0].set_ylabel('Sepal width')
 ax[0].set_title('Sepal length vs Sepal width')
 ax[0].legend()
 
+# tight_layout() adjusts the padding between the subplots to make them fit nicely
 plt.tight_layout()
 
 # Plot 2
@@ -210,3 +212,37 @@ ax[1].legend()
 plt.tight_layout()
 plt.show()
 ```
+
+Now we have a figure with two subplots side by side. Here we used the `plt.subplots()` function to create a figure with two subplots. The first argument is the number of rows, and the second argument is the number of columns. We then create the two scatter plots and add labels, titles, and legends to each subplot. This works, but we did have to basically write the same lines of codes twice.
+
+One way to avoid this is to create a custom function, which takes the x- and y-coordinates as arguments and returns a scatter plot. Let's see how we can do this (@fig-subplots2).
+
+```{python}
+#| code-fold: false
+#| label: fig-subplots2
+#| fig-cap: Side-by-side scatter plots of sepal length vs sepal width and petal length vs petal width using the iris dataset and a custom plotting function.
+
+def plot_scatter(ax, x, y, species, markers):
+    for sp, marker in zip(species, markers):
+        x_sp = x[df['species'] == sp]
+        y_sp = y[df['species'] == sp]
+        ax.scatter(x_sp, y_sp, label=sp, marker=marker)
+
+    ax.set_xlabel(x.name)
+    ax.set_ylabel(y.name)
+    ax.set_title(f'{x.name} vs {y.name}')
+    ax.legend()
+
+fig, ax = plt.subplots(nrows = 1, ncols = 2, figsize=(6, 3))
+
+# Plot 1
+plot_scatter(ax[0], df['sepal_length'], df['sepal_width'], df['species'].unique(), ['o', 's', '^'])
+
+# Plot 2
+plot_scatter(ax[1], df['petal_length'], df['petal_width'], df['species'].unique(), ['o', 's', '^'])
+
+plt.tight_layout()
+plt.show()
+```
+
+Here, we were able to achieve a similar result with a more elegant and scalable solution. The custom function we created let's us create scatter plots with any combination of x- and y-coordinates. This is a good example of how we can use functions to make our code more modular and reusable.
