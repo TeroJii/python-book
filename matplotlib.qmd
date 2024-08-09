@@ -169,4 +169,44 @@ The difference here is that we pass a list of markers to the `scatter()` method.
 
 ### Several subplots
 
-Subplots can actually be used for displaying multiple plots in the same figure. Let's create a figure with two subplots: one for the sepal length vs sepal width and another for the petal length vs petal width.
+Subplots can actually be used for displaying multiple plots in the same figure. Let's create a figure with two subplots: one for the sepal length vs sepal width and another for the petal length vs petal width (@fig-subplots1).
+
+```{python}
+#| code-fold: false
+#| label: fig-subplots1
+#| fig-cap: Scatter plots of sepal length vs sepal width and petal length vs petal width using the iris dataset.
+
+fig, ax = plt.subplots(1, 2, figsize=(6, 3))
+
+# Plot 1
+species = df['species'].unique()
+markers = ['o', 's', '^']
+
+for sp, marker in zip(species, markers):
+    x = df[df['species'] == sp]['sepal_length']
+    y = df[df['species'] == sp]['sepal_width']
+    ax[0].scatter(x, y, label=sp, marker=marker)
+
+ax[0].set_xlabel('Sepal length')
+ax[0].set_ylabel('Sepal width')
+ax[0].set_title('Sepal length vs Sepal width')
+ax[0].legend()
+
+plt.tight_layout()
+
+# Plot 2
+species = df['species'].unique()
+
+for sp, marker in zip(species, markers):
+    x = df[df['species'] == sp]['petal_length']
+    y = df[df['species'] == sp]['petal_width']
+    ax[1].scatter(x, y, label=sp, marker=marker)
+
+ax[1].set_xlabel('Petal length')
+ax[1].set_ylabel('Petal width')
+ax[1].set_title('Petal length vs Petal width')
+ax[1].legend()
+
+plt.tight_layout()
+plt.show()
+```
