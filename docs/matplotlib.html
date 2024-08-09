@@ -311,7 +311,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="getting-started" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">7.1</span> Getting started</h2>
 <p>Let’s start by creating a simple line plot using Matplotlib. The following code generates data along a sine wave and plots it using Matplotlib. We start by importing the necessary libraries.</p>
-<div id="74e7479e" class="cell" data-execution_count="1">
+<div id="a5a29ff6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -418,7 +418,7 @@ Figure&nbsp;7.4: Sine wave plot using the Object Oriented (OO) explicit interfac
 Table&nbsp;7.1: The first few rows of the iris dataset.
 </figcaption>
 <div aria-describedby="tbl-iris-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="54">
+<div class="cell-output cell-output-display" data-execution_count="26">
 <div>
 <div>
 
@@ -568,7 +568,54 @@ Figure&nbsp;7.7: Scatter plot of sepal length vs sepal width using the iris data
 <p>The difference here is that we pass a list of markers to the <code>scatter()</code> method. The <code>zip()</code> function is used to iterate over two lists simultaneously.</p>
 <section id="several-subplots" class="level3" data-number="7.2.1">
 <h3 data-number="7.2.1" class="anchored" data-anchor-id="several-subplots"><span class="header-section-number">7.2.1</span> Several subplots</h3>
-<p>Subplots can actually be used for displaying multiple plots in the same figure. Let’s create a figure with two subplots: one for the sepal length vs sepal width and another for the petal length vs petal width.</p>
+<p>Subplots can actually be used for displaying multiple plots in the same figure. Let’s create a figure with two subplots: one for the sepal length vs sepal width and another for the petal length vs petal width (<a href="#fig-subplots1" class="quarto-xref">Figure&nbsp;<span>7.8</span></a>).</p>
+<div id="cell-fig-subplots1" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">3</span>))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot 1</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>species <span class="op">=</span> df[<span class="st">'species'</span>].unique()</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>markers <span class="op">=</span> [<span class="st">'o'</span>, <span class="st">'s'</span>, <span class="st">'^'</span>]</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sp, marker <span class="kw">in</span> <span class="bu">zip</span>(species, markers):</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> df[df[<span class="st">'species'</span>] <span class="op">==</span> sp][<span class="st">'sepal_length'</span>]</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> df[df[<span class="st">'species'</span>] <span class="op">==</span> sp][<span class="st">'sepal_width'</span>]</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">0</span>].scatter(x, y, label<span class="op">=</span>sp, marker<span class="op">=</span>marker)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_xlabel(<span class="st">'Sepal length'</span>)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_ylabel(<span class="st">'Sepal width'</span>)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_title(<span class="st">'Sepal length vs Sepal width'</span>)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].legend()</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot 2</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>species <span class="op">=</span> df[<span class="st">'species'</span>].unique()</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sp, marker <span class="kw">in</span> <span class="bu">zip</span>(species, markers):</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> df[df[<span class="st">'species'</span>] <span class="op">==</span> sp][<span class="st">'petal_length'</span>]</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> df[df[<span class="st">'species'</span>] <span class="op">==</span> sp][<span class="st">'petal_width'</span>]</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">1</span>].scatter(x, y, label<span class="op">=</span>sp, marker<span class="op">=</span>marker)</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_xlabel(<span class="st">'Petal length'</span>)</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_ylabel(<span class="st">'Petal width'</span>)</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_title(<span class="st">'Petal length vs Petal width'</span>)</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].legend()</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="fig-subplots1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-subplots1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="matplotlib_files/figure-html/fig-subplots1-output-1.png" width="565" height="276" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-subplots1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.8: Scatter plots of sepal length vs sepal width and petal length vs petal width using the iris dataset.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>
