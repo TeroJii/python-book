@@ -8,8 +8,10 @@ jupyter: python3
 print('Hello World!')
 ```
 
-Hi, I'm Tero and I work as a data scientist. I've been mainly programming with R for the past 7 years or so. However, I've started recently to use Python more as well. This book is meant as a reference for myself as I'm learning to use Python more efficiently. Hence, it will be a living document for the time being. The focus will be on using Python for analysing data. Let's find out where this journey leads.
+Sometimes wrestling with data can really bite. However, it doesn't need to be that way. Python is a powerful tool for data analysis and visualisation, and it can help extract insight from your data and communicate them to the world. This book is meant to give you an overview of the core concepts in Python that are useful for data analysis. The approach aims to be pragmatic and hands-on, with concrete examples to help you get started. This should give you a solid foundation to build upon as you advance on your Python journey. It will help if you have some basic programming experience. Luckily, there are plenty of resources available online to help you if you get stuck. Just remember that programming is a skill that you need to keep practicing to get better at it.
+
+So, who am I? My name is Tero and I work as a data science consultant. Previously, I have worked as a researcher in the pharmaceutical industry and academia. Over the years I have used several tools for analysing data. With the rise of data science and deep learning in particular, Python has become the most used programming language in the world. These days, you don't really need to look for reasons to learn Python. I started to write this book for myself, to have a reference to some core concepts in Python. If someone else finds it useful, that's great!
 
 ::: {.callout-note}
-Note if you are looking to **really** learn Python. Then I recommend reading a book like Wes McKinney's Python for data analysis @McKinneyBook. That being said, I do hope that this book will become a useful reference to some core concepts in Python.
+Read this book at your own peril. There are many excellent books on Python programming. For example, Wes McKinney's Python for data analysis will give a more in-depth view on many Python concepts (@McKinneyBook). That being said, I do hope that this book will serve as a useful reference to some core concepts in Python.
 ::: 
