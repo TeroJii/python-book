@@ -446,5 +446,16 @@
       "Data Visualization",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Seaborn for data visualisation</span>"
     ]
+  },
+  {
+    "objectID": "matplotlib.html#different-plot-types",
+    "href": "matplotlib.html#different-plot-types",
+    "title": "7  Data visualisation with Matplotlib",
+    "section": "7.3 Different plot types",
+    "text": "7.3 Different plot types\nWork in progress…",
+    "crumbs": [
+      "Data Visualization",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data visualisation with Matplotlib</span>"
+    ]
   }
 ]
