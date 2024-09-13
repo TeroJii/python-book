@@ -435,5 +435,16 @@
       "Data Visualization",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data visualisation with Matplotlib</span>"
     ]
+  },
+  {
+    "objectID": "seaborn.html",
+    "href": "seaborn.html",
+    "title": "8  Seaborn for data visualisation",
+    "section": "",
+    "text": "8.1 Getting started",
+    "crumbs": [
+      "Data Visualization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Seaborn for data visualisation</span>"
+    ]
   }
 ]
