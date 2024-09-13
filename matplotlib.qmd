@@ -246,3 +246,7 @@ plt.show()
 ```
 
 Here, we were able to achieve a similar result with a more elegant and scalable solution. The custom function we created let's us create scatter plots with any combination of x- and y-coordinates. This is a good example of how we can use functions to make our code more modular and reusable.
+
+## Different plot types
+
+Work in progress...
