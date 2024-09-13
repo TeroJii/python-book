@@ -1,5 +1,6 @@
 ---
 jupyter: python3
+fig-height: 4
 ---
 
 # Seaborn for data visualisation
@@ -12,3 +13,28 @@ pip install seaborn
 ```
 
 ## Getting started
+
+Let's start by creating a simple scatter plot using Seaborn. We start by importing the necessary libraries.
+
+```{python}
+#| code-fold: false
+import seaborn as sns
+import numpy as np
+import pandas as pd
+```
+
+Next, we generate some random data and plot it using Seaborn (@fig-scatter1).
+
+```{python}
+#| code-fold: false
+#| label: fig-scatter1
+#| fig-cap: Scatter plot created using Seaborn.
+
+x = np.random.normal(size=100)
+y = np.random.normal(size=100)
+df = pd.DataFrame({'x': x, 'y': y})
+
+sns.scatterplot(x='x', y='y', data=df)
+```
+
+We can see right away that Seaborn's syntax differs somewhat from the one used by Matplotlib.
