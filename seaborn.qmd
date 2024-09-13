@@ -4,7 +4,7 @@ jupyter: python3
 
 # Seaborn for data visualisation
 
-Seaborn is a Python data visualisation library based on Matplotlib. Seaborn makes it easy to create attractive and well-laid-out plots. Seaborn also plays nicely with Pandas data structures, which is important for data science task. We can install Seaborn easily using pip or conda:
+Seaborn is a Python data visualisation library based on Matplotlib. Seaborn makes it easy to create attractive and well-laid-out plots. Seaborn also plays nicely with Pandas data structures, which is important for data science related visualizations. We can install Seaborn easily using pip or conda:
 
 ```bash
 # installation using pip
