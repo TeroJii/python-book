@@ -441,7 +441,7 @@
     "href": "seaborn.html",
     "title": "8  Seaborn for data visualisation",
     "section": "",
-    "text": "8.1 Getting started",
+    "text": "8.1 Getting started\nLet’s start by creating a simple scatter plot using Seaborn. We start by importing the necessary libraries.\nimport seaborn as sns\nimport numpy as np\nimport pandas as pd\nNext, we generate some random data and plot it using Seaborn (Figure 8.1).\nx = np.random.normal(size=100)\ny = np.random.normal(size=100)\ndf = pd.DataFrame({'x': x, 'y': y})\n\nsns.scatterplot(x='x', y='y', data=df)\n\n\n\n\n\n\n\nFigure 8.1: Scatter plot created using Seaborn.\nWe can see right away that Seaborn’s syntax differs somewhat from the one used by Matplotlib.",
     "crumbs": [
       "Data Visualization",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Seaborn for data visualisation</span>"
