@@ -452,7 +452,7 @@
     "href": "matplotlib.html#different-plot-types",
     "title": "7  Data visualisation with Matplotlib",
     "section": "7.3 Different plot types",
-    "text": "7.3 Different plot types\nWork in progress…",
+    "text": "7.3 Different plot types\nNow that we have gotten a taste of how Matplotlib works, we can expand to other plot types. Matplotlib supports a wide variety of plot types, including bar plots, histograms, box plots, and violin plots.\n\n\n\n\n\n\nConsulting the documentation\n\n\n\nWhenever you are at a loss on how to create a specific plot, the Matplotlib website and the documentation therein is a good place to start looking for an answer: https://matplotlib.org/\n\n\nWork in progress…",
     "crumbs": [
       "Data Visualization",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data visualisation with Matplotlib</span>"
