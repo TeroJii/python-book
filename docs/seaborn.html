@@ -276,6 +276,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#evaluating-distributions" id="toc-evaluating-distributions" class="nav-link" data-scroll-target="#evaluating-distributions"><span class="header-section-number">8.2</span> Evaluating distributions</a>
   <ul class="collapse">
   <li><a href="#pairplot" id="toc-pairplot" class="nav-link" data-scroll-target="#pairplot"><span class="header-section-number">8.2.1</span> Pairplot</a></li>
+  <li><a href="#displot-histogram" id="toc-displot-histogram" class="nav-link" data-scroll-target="#displot-histogram"><span class="header-section-number">8.2.2</span> Displot &amp; Histogram</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TeroJii/python-book/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -308,7 +309,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="getting-started" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">8.1</span> Getting started</h2>
 <p>Let’s start by creating a simple scatter plot using Seaborn. We start by importing Seaborn for the visualizations and Numpy and Pandas for generating and handling the data.</p>
-<div id="13057526" class="cell" data-execution_count="1">
+<div id="6b828199" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -324,7 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="fig-scatter1" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-scatter1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="seaborn_files/figure-html/fig-scatter1-output-1.png" width="589" height="361" class="figure-img">
+<img src="seaborn_files/figure-html/fig-scatter1-output-1.png" width="587" height="356" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scatter1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.1: Scatter plot created using Seaborn.
@@ -361,7 +362,7 @@ Seaborn Documentation
 Table&nbsp;8.1: The first few rows of the penguins dataset.
 </figcaption>
 <div aria-describedby="tbl-penguins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="43">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 <div>
 
@@ -440,17 +441,108 @@ Table&nbsp;8.1: The first few rows of the penguins dataset.
 </figure>
 </div>
 </div>
+<p><a href="#tbl-penguins-desc" class="quarto-xref">Table&nbsp;<span>8.2</span></a> shows a summary of the dataset.</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>penguins.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-penguins-desc" class="cell quarto-float anchored" data-execution_count="4">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-penguins-desc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;8.2: Summary statistics for the penguins dataset.
+</figcaption>
+<div aria-describedby="tbl-penguins-desc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+<div>
+
+
+<table class="dataframe do-not-create-environment cell table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">bill_length_mm</th>
+<th data-quarto-table-cell-role="th">bill_depth_mm</th>
+<th data-quarto-table-cell-role="th">flipper_length_mm</th>
+<th data-quarto-table-cell-role="th">body_mass_g</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>333.000000</td>
+<td>333.000000</td>
+<td>333.000000</td>
+<td>333.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>43.992793</td>
+<td>17.164865</td>
+<td>200.966967</td>
+<td>4207.057057</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>5.468668</td>
+<td>1.969235</td>
+<td>14.015765</td>
+<td>805.215802</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>32.100000</td>
+<td>13.100000</td>
+<td>172.000000</td>
+<td>2700.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>39.500000</td>
+<td>15.600000</td>
+<td>190.000000</td>
+<td>3550.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>44.500000</td>
+<td>17.300000</td>
+<td>197.000000</td>
+<td>4050.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>48.600000</td>
+<td>18.700000</td>
+<td>213.000000</td>
+<td>4775.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>59.600000</td>
+<td>21.500000</td>
+<td>231.000000</td>
+<td>6300.000000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
 <section id="pairplot" class="level3" data-number="8.2.1">
 <h3 data-number="8.2.1" class="anchored" data-anchor-id="pairplot"><span class="header-section-number">8.2.1</span> Pairplot</h3>
-<p>The <code>pairplot()</code> function creates a grid of scatterplots for all pairs of numerical columns in a DataFrame. It is simple yet effective way to get an overview of your data, provided the data doesn’t entail a huge number of numeric columns. <a href="#fig-pairplot" class="quarto-xref">Figure&nbsp;<span>8.2</span></a> shows an example for the <code>penguins</code> dataset.</p>
-<div id="cell-fig-pairplot" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pen_plt <span class="op">=</span> sns.pairplot(penguins, hue<span class="op">=</span><span class="st">'island'</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pen_plt.fig.set_size_inches(<span class="dv">7</span>,<span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>pairplot()</code> function creates a grid of scatterplots for all pairs of numerical columns in a DataFrame. Additionally, it show’s an estimate of the distribution of each column along the diagonal. It is simple yet effective way to get an overview of your data, provided the data doesn’t entail a huge number of numeric columns. <a href="#fig-pairplot" class="quarto-xref">Figure&nbsp;<span>8.2</span></a> shows an example for the <code>penguins</code> dataset.</p>
+<div id="cell-fig-pairplot" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pen_plt <span class="op">=</span> sns.pairplot(penguins, hue<span class="op">=</span><span class="st">'island'</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>pen_plt.fig.set_size_inches(<span class="dv">7</span>,<span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="fig-pairplot" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pairplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="seaborn_files/figure-html/fig-pairplot-output-1.png" width="696" height="681" class="figure-img">
+<img src="seaborn_files/figure-html/fig-pairplot-output-1.png" width="696" height="679" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pairplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.2: Pairplot of the penguins dataset.
@@ -459,6 +551,27 @@ Figure&nbsp;8.2: Pairplot of the penguins dataset.
 </div>
 </div>
 </div>
+<p>Above we used the <code>hue</code> parameter to color the points based on the island where the penguins were observed. This makes it easier to see if there are any differences between the islands. We can set the <code>hue</code> parameter to any categorical column in the dataset.</p>
+</section>
+<section id="displot-histogram" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="displot-histogram"><span class="header-section-number">8.2.2</span> Displot &amp; Histogram</h3>
+<p>The <code>displot()</code> function creates a histogram and a kernel density estimate of the data. It is a convenient way to evaluate the distribution of a single variable. <a href="#fig-distplot" class="quarto-xref">Figure&nbsp;<span>8.3</span></a> shows an example for the <code>penguins</code> dataset.</p>
+<div id="cell-fig-distplot" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sns.displot(penguins[<span class="st">'flipper_length_mm'</span>], kde<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="fig-distplot" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-distplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="seaborn_files/figure-html/fig-distplot-output-1.png" width="469" height="468" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-distplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.3: Distribution plot of the penguin’s flipper length.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>If we are simply looking to create a histogram, we can use the <code>histplot()</code> function.</p>
 
 
 </section>
