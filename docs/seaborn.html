@@ -273,7 +273,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started"><span class="header-section-number">8.1</span> Getting started</a></li>
-  <li><a href="#evaluating-distributions" id="toc-evaluating-distributions" class="nav-link" data-scroll-target="#evaluating-distributions"><span class="header-section-number">8.2</span> Evaluating distributions</a></li>
+  <li><a href="#evaluating-distributions" id="toc-evaluating-distributions" class="nav-link" data-scroll-target="#evaluating-distributions"><span class="header-section-number">8.2</span> Evaluating distributions</a>
+  <ul class="collapse">
+  <li><a href="#pairplot" id="toc-pairplot" class="nav-link" data-scroll-target="#pairplot"><span class="header-section-number">8.2.1</span> Pairplot</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TeroJii/python-book/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -305,7 +308,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="getting-started" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">8.1</span> Getting started</h2>
 <p>Let’s start by creating a simple scatter plot using Seaborn. We start by importing Seaborn for the visualizations and Numpy and Pandas for generating and handling the data.</p>
-<div id="705ff6e2" class="cell" data-execution_count="1">
+<div id="13057526" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -321,7 +324,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="fig-scatter1" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-scatter1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="seaborn_files/figure-html/fig-scatter1-output-1.png" width="587" height="356" class="figure-img">
+<img src="seaborn_files/figure-html/fig-scatter1-output-1.png" width="589" height="361" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scatter1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.1: Scatter plot created using Seaborn.
@@ -347,9 +350,9 @@ Seaborn Documentation
 </section>
 <section id="evaluating-distributions" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="evaluating-distributions"><span class="header-section-number">8.2</span> Evaluating distributions</h2>
-<p>Seaborn offers many convenient plotting functions for evaluating distributions. Let’s explore the <code>penguins</code> dataset that comes with Seaborn. The <code>penguins</code> dataset contains data on the size and species of penguins collected from two islands in the Palmer Archipelago, Antarctica. We can load the dataset using the following code:</p>
+<p>Seaborn offers many convenient plotting functions for evaluating distributions. Let’s explore the <code>penguins</code> dataset that comes with Seaborn. The <code>penguins</code> dataset contains data on the size and species of penguins collected from different islands in the Palmer Archipelago, Antarctica. We can load the dataset using the following code:</p>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">'penguins'</span>)</span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">'penguins'</span>).dropna()</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>penguins.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="tbl-penguins" class="cell quarto-float anchored" data-execution_count="3">
@@ -358,7 +361,7 @@ Seaborn Documentation
 Table&nbsp;8.1: The first few rows of the penguins dataset.
 </figcaption>
 <div aria-describedby="tbl-penguins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="43">
 <div>
 <div>
 
@@ -408,16 +411,6 @@ Table&nbsp;8.1: The first few rows of the penguins dataset.
 <td>Female</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Adelie</td>
-<td>Torgersen</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>Adelie</td>
 <td>Torgersen</td>
@@ -426,6 +419,16 @@ Table&nbsp;8.1: The first few rows of the penguins dataset.
 <td>193.0</td>
 <td>3450.0</td>
 <td>Female</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>39.3</td>
+<td>20.6</td>
+<td>190.0</td>
+<td>3650.0</td>
+<td>Male</td>
 </tr>
 </tbody>
 </table>
@@ -437,8 +440,28 @@ Table&nbsp;8.1: The first few rows of the penguins dataset.
 </figure>
 </div>
 </div>
+<section id="pairplot" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="pairplot"><span class="header-section-number">8.2.1</span> Pairplot</h3>
+<p>The <code>pairplot()</code> function creates a grid of scatterplots for all pairs of numerical columns in a DataFrame. It is simple yet effective way to get an overview of your data, provided the data doesn’t entail a huge number of numeric columns. <a href="#fig-pairplot" class="quarto-xref">Figure&nbsp;<span>8.2</span></a> shows an example for the <code>penguins</code> dataset.</p>
+<div id="cell-fig-pairplot" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pen_plt <span class="op">=</span> sns.pairplot(penguins, hue<span class="op">=</span><span class="st">'island'</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pen_plt.fig.set_size_inches(<span class="dv">7</span>,<span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="fig-pairplot" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pairplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="seaborn_files/figure-html/fig-pairplot-output-1.png" width="696" height="681" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pairplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.2: Pairplot of the penguins dataset.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
