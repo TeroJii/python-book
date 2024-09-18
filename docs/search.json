@@ -441,7 +441,7 @@
     "href": "seaborn.html",
     "title": "8  Seaborn for data visualisation",
     "section": "",
-    "text": "8.1 Getting started\nLet’s start by creating a simple scatter plot using Seaborn. We start by importing the necessary libraries.\nimport seaborn as sns\nimport numpy as np\nimport pandas as pd\nNext, we generate some random data and plot it using Seaborn (Figure 8.1).\nx = np.random.normal(size=100)\ny = np.random.normal(size=100)\ndf = pd.DataFrame({'x': x, 'y': y})\n\nsns.scatterplot(x='x', y='y', data=df)\n\n\n\n\n\n\n\nFigure 8.1: Scatter plot created using Seaborn.\nWe can see right away that Seaborn’s syntax differs somewhat from the one used by Matplotlib.",
+    "text": "8.1 Getting started\nLet’s start by creating a simple scatter plot using Seaborn. We start by importing Seaborn for the visualizations and Numpy and Pandas for generating and handling the data.\nimport seaborn as sns\nimport numpy as np\nimport pandas as pd\nNext, we generate some random data and plot it using Seaborn (Figure 8.1).\nx = np.random.normal(size=100)\ny = np.random.normal(size=100)\ndf = pd.DataFrame({'x': x, 'y': y})\n\nsns.scatterplot(x='x', y='y', data=df)\n\n\n\n\n\n\n\nFigure 8.1: Scatter plot created using Seaborn.\nWe can see right away that Seaborn’s syntax differs somewhat from the one used by Matplotlib.",
     "crumbs": [
       "Data Visualization",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Seaborn for data visualisation</span>"
@@ -456,6 +456,28 @@
     "crumbs": [
       "Data Visualization",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data visualisation with Matplotlib</span>"
+    ]
+  },
+  {
+    "objectID": "seaborn.html#getting-started",
+    "href": "seaborn.html#getting-started",
+    "title": "8  Seaborn for data visualisation",
+    "section": "",
+    "text": "Seaborn Documentation\n\n\n\nThe Seaborn website contains something called the API reference, which is a comprehensive guide to the functions and classes in Seaborn. It is a great resource to learn more about the details regarding Seaborn and how to use it effectively. You can find it at https://seaborn.pydata.org/api.html.",
+    "crumbs": [
+      "Data Visualization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Seaborn for data visualisation</span>"
+    ]
+  },
+  {
+    "objectID": "seaborn.html#evaluating-distributions",
+    "href": "seaborn.html#evaluating-distributions",
+    "title": "8  Seaborn for data visualisation",
+    "section": "8.2 Evaluating distributions",
+    "text": "8.2 Evaluating distributions\nSeaborn offers many convenient plotting functions for evaluating distributions. Let’s explore the penguins dataset that comes with Seaborn. The penguins dataset contains data on the size and species of penguins collected from two islands in the Palmer Archipelago, Antarctica. We can load the dataset using the following code:\n\npenguins = sns.load_dataset('penguins')\n\npenguins.head()\n\n\n\nTable 8.1: The first few rows of the penguins dataset.\n\n\n\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nMale\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nFemale\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nFemale\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nFemale",
+    "crumbs": [
+      "Data Visualization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Seaborn for data visualisation</span>"
     ]
   }
 ]
