@@ -127,3 +127,15 @@ sns.boxplot(x='species', y='flipper_length_mm', data=penguins)
 ```
 
 ### Jointplot
+
+The `jointplot()` function creates a scatter plot of two numerical variables along with the histograms of each variable. It is a convenient way to visualize the relationship between two variables. @fig-jointplot shows an example with the flipper length and body mass.
+
+```{python}
+#| code-fold: false
+#| label: fig-jointplot
+#| fig-cap: Jointplot showing the correlation between penguin flipper length and body mass.
+#| warning: false
+
+sns.jointplot(x='flipper_length_mm', y='body_mass_g', 
+data=penguins, kind='reg')
+```
