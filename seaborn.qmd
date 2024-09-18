@@ -59,9 +59,19 @@ penguins = sns.load_dataset('penguins').dropna()
 penguins.head()
 ```
 
+@tbl-penguins-desc shows a summary of the dataset.
+
+```{python}
+#| code-fold: false
+#| label: tbl-penguins-desc
+#| tbl-cap: Summary statistics for the penguins dataset.
+
+penguins.describe()
+```
+
 ### Pairplot
 
-The `pairplot()` function creates a grid of scatterplots for all pairs of numerical columns in a DataFrame. It is simple yet effective way to get an overview of your data, provided the data doesn't entail a huge number of numeric columns. @fig-pairplot shows an example for the `penguins` dataset.
+The `pairplot()` function creates a grid of scatterplots for all pairs of numerical columns in a DataFrame. Additionally, it show's an estimate of the distribution of each column along the diagonal. It is simple yet effective way to get an overview of your data, provided the data doesn't entail a huge number of numeric columns. @fig-pairplot shows an example for the `penguins` dataset.
 
 ```{python}
 #| code-fold: false
@@ -72,3 +82,20 @@ The `pairplot()` function creates a grid of scatterplots for all pairs of numeri
 pen_plt = sns.pairplot(penguins, hue='island')
 pen_plt.fig.set_size_inches(7,7)
 ```
+
+Above we used the `hue` parameter to color the points based on the island where the penguins were observed. This makes it easier to see if there are any differences between the islands. We can set the `hue` parameter to any categorical column in the dataset. 
+
+### Displot & Histogram
+
+The `displot()` function creates a histogram and a kernel density estimate of the data. It is a convenient way to evaluate the distribution of a single variable. @fig-distplot shows an example for the `penguins` dataset.
+
+```{python}
+#| code-fold: false
+#| label: fig-distplot
+#| fig-cap: Distribution plot of the penguin's flipper length.
+#| warning: false
+
+sns.displot(penguins['flipper_length_mm'], kde=True)
+```
+
+If we are simply looking to create a histogram, we can use the `histplot()` function.
