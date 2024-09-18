@@ -250,4 +250,12 @@ Here, we were able to achieve a similar result with a more elegant and scalable 
 
 ## Different plot types
 
+Now that we have gotten a taste of how Matplotlib works, we can expand to other plot types. Matplotlib supports a wide variety of plot types, including bar plots, histograms, box plots, and violin plots. 
+
+::: {.callout-tip}
+## Consulting the documentation
+
+Whenever you are at a loss on how to create a specific plot, the Matplotlib website and the documentation therein is a good place to start looking for an answer: <https://matplotlib.org/>
+::: 
+
 Work in progress...
