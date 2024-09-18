@@ -113,3 +113,17 @@ Here we used the `bins` parameter to set the number of bins in the histogram. Th
 
 - `binwidth`: Width of each bin
 - `fill`: Whether to fill the bars with color.
+
+### Boxplot
+
+Boxplot is convenient for visualizing the distribution of a numerical variable across different categories. The `boxplot()` function creates a boxplot of the data. @fig-boxplot shows an example for the `penguins` dataset.
+
+```{python}
+#| code-fold: false
+#| label: fig-boxplot
+#| fig-cap: Boxplot of the penguin's flipper length. The box shows the positions of the first, second (median), and third quartiles. The whiskers extend to the most extreme data points not considered outliers (according to normal distribution), and the outliers are plotted as individual points.
+
+sns.boxplot(x='species', y='flipper_length_mm', data=penguins)
+```
+
+### Jointplot
