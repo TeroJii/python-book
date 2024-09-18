@@ -277,6 +277,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#pairplot" id="toc-pairplot" class="nav-link" data-scroll-target="#pairplot"><span class="header-section-number">8.2.1</span> Pairplot</a></li>
   <li><a href="#displot-histogram" id="toc-displot-histogram" class="nav-link" data-scroll-target="#displot-histogram"><span class="header-section-number">8.2.2</span> Displot &amp; Histogram</a></li>
+  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot"><span class="header-section-number">8.2.3</span> Boxplot</a></li>
+  <li><a href="#jointplot" id="toc-jointplot" class="nav-link" data-scroll-target="#jointplot"><span class="header-section-number">8.2.4</span> Jointplot</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TeroJii/python-book/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -309,7 +311,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="getting-started" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">8.1</span> Getting started</h2>
 <p>Let’s start by creating a simple scatter plot using Seaborn. We start by importing Seaborn for the visualizations and Numpy and Pandas for generating and handling the data.</p>
-<div id="cf082a6c" class="cell" data-execution_count="1">
+<div id="8c116837" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -362,7 +364,7 @@ Seaborn Documentation
 Table&nbsp;8.1: The first few rows of the penguins dataset.
 </figcaption>
 <div aria-describedby="tbl-penguins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="18">
 <div>
 <div>
 
@@ -450,7 +452,7 @@ Table&nbsp;8.1: The first few rows of the penguins dataset.
 Table&nbsp;8.2: Summary statistics for the penguins dataset.
 </figcaption>
 <div aria-describedby="tbl-penguins-desc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="19">
 <div>
 <div>
 
@@ -592,6 +594,28 @@ Figure&nbsp;8.4: Histogram of the penguin’s flipper length.
 <li><code>binwidth</code>: Width of each bin</li>
 <li><code>fill</code>: Whether to fill the bars with color.</li>
 </ul>
+</section>
+<section id="boxplot" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="boxplot"><span class="header-section-number">8.2.3</span> Boxplot</h3>
+<p>Boxplot is convenient for visualizing the distribution of a numerical variable across different categories. The <code>boxplot()</code> function creates a boxplot of the data. <a href="#fig-boxplot" class="quarto-xref">Figure&nbsp;<span>8.5</span></a> shows an example for the <code>penguins</code> dataset.</p>
+<div id="cell-fig-boxplot" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span><span class="st">'species'</span>, y<span class="op">=</span><span class="st">'flipper_length_mm'</span>, data<span class="op">=</span>penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="fig-boxplot" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-boxplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="seaborn_files/figure-html/fig-boxplot-output-1.png" width="593" height="356" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-boxplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.5: Boxplot of the penguin’s flipper length. The box shows the positions of the first, second (median), and third quartiles. The whiskers extend to the most extreme data points not considered outliers (according to normal distribution), and the outliers are plotted as individual points.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="jointplot" class="level3" data-number="8.2.4">
+<h3 data-number="8.2.4" class="anchored" data-anchor-id="jointplot"><span class="header-section-number">8.2.4</span> Jointplot</h3>
 
 
 </section>
