@@ -139,3 +139,15 @@ The `jointplot()` function creates a scatter plot of two numerical variables alo
 sns.jointplot(x='flipper_length_mm', y='body_mass_g', 
 data=penguins, kind='reg')
 ```
+
+The `kind` parameter is very useful, as it allows us to choose the type of plot to display in the jointplot. For example, if we have a lot of points we can use `kind='hex'` to create a hexbin plot. @fig-jointplot-hex shows an example.
+
+```{python}
+#| code-fold: false
+#| label: fig-jointplot-hex
+#| fig-cap: Jointplot showing the correlation between penguin flipper length and body mass using a hexbin plot. The number of observations within each hexagon is represented by the color intensity.
+#| warning: false
+
+sns.jointplot(x='flipper_length_mm', y='body_mass_g',
+data=penguins, kind='hex')
+```
