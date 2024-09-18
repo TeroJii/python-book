@@ -47,15 +47,28 @@ The Seaborn website contains something called the `API reference`, which is a co
 
 ## Evaluating distributions
 
-Seaborn offers many convenient plotting functions for evaluating distributions. Let's explore the `penguins` dataset that comes with Seaborn. The `penguins` dataset contains data on the size and species of penguins collected from two islands in the Palmer Archipelago, Antarctica. We can load the dataset using the following code:
+Seaborn offers many convenient plotting functions for evaluating distributions. Let's explore the `penguins` dataset that comes with Seaborn. The `penguins` dataset contains data on the size and species of penguins collected from different islands in the Palmer Archipelago, Antarctica. We can load the dataset using the following code:
 
 ```{python}
 #| code-fold: false
 #| label: tbl-penguins
 #| tbl-cap: The first few rows of the penguins dataset.
 
-penguins = sns.load_dataset('penguins')
+penguins = sns.load_dataset('penguins').dropna()
 
 penguins.head()
 ```
 
+### Pairplot
+
+The `pairplot()` function creates a grid of scatterplots for all pairs of numerical columns in a DataFrame. It is simple yet effective way to get an overview of your data, provided the data doesn't entail a huge number of numeric columns. @fig-pairplot shows an example for the `penguins` dataset.
+
+```{python}
+#| code-fold: false
+#| label: fig-pairplot
+#| fig-cap: Pairplot of the penguins dataset.
+#| warning: false
+
+pen_plt = sns.pairplot(penguins, hue='island')
+pen_plt.fig.set_size_inches(7,7)
+```
