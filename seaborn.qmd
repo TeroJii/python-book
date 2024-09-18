@@ -98,4 +98,18 @@ The `displot()` function creates a histogram and a kernel density estimate of th
 sns.displot(penguins['flipper_length_mm'], kde=True)
 ```
 
-If we are simply looking to create a histogram, we can use the `histplot()` function.
+If we are simply looking to create a histogram, we can use the `histplot()` function. @fig-histplot shows an example for the `penguins` dataset.
+
+```{python}
+#| code-fold: false
+#| label: fig-histplot
+#| fig-cap: Histogram of the penguin's flipper length.
+#| warning: false
+
+sns.histplot(penguins['flipper_length_mm'], bins=20)
+```
+
+Here we used the `bins` parameter to set the number of bins in the histogram. There are many other parameters that can be used to customize the plot, including but not limited to:
+
+- `binwidth`: Width of each bin
+- `fill`: Whether to fill the bars with color.
