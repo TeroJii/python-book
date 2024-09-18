@@ -14,7 +14,7 @@ pip install seaborn
 
 ## Getting started
 
-Let's start by creating a simple scatter plot using Seaborn. We start by importing the necessary libraries.
+Let's start by creating a simple scatter plot using Seaborn. We start by importing Seaborn for the visualizations and Numpy and Pandas for generating and handling the data.
 
 ```{python}
 #| code-fold: false
@@ -38,3 +38,24 @@ sns.scatterplot(x='x', y='y', data=df)
 ```
 
 We can see right away that Seaborn's syntax differs somewhat from the one used by Matplotlib.
+
+::: {.callout-tip}
+## Seaborn Documentation
+
+The Seaborn website contains something called the `API reference`, which is a comprehensive guide to the functions and classes in Seaborn. It is a great resource to learn more about the details regarding Seaborn and how to use it effectively. You can find it at <https://seaborn.pydata.org/api.html>.
+:::
+
+## Evaluating distributions
+
+Seaborn offers many convenient plotting functions for evaluating distributions. Let's explore the `penguins` dataset that comes with Seaborn. The `penguins` dataset contains data on the size and species of penguins collected from two islands in the Palmer Archipelago, Antarctica. We can load the dataset using the following code:
+
+```{python}
+#| code-fold: false
+#| label: tbl-penguins
+#| tbl-cap: The first few rows of the penguins dataset.
+
+penguins = sns.load_dataset('penguins')
+
+penguins.head()
+```
+
