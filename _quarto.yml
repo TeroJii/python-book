@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 book:
-  title: "Python Bytes: Essentials for Wrestling with Data"
+  title: "Python Essentials for Wrestling with Data"
   author: "Tero Jalkanen"
   date: today
   repo-url: https://github.com/TeroJii/python-book/
