@@ -151,3 +151,15 @@ The `kind` parameter is very useful, as it allows us to choose the type of plot 
 sns.jointplot(x='flipper_length_mm', y='body_mass_g',
 data=penguins, kind='hex')
 ```
+
+## Comparing groups
+
+A common task in data analysis is to compare different groups within data. For example, in the `penguins` dataset we might want to compare the body mass of the different species. One way to do this is to create a barplot, as we have done in @fig-barplot.
+
+```{python}	
+#| code-fold: false
+#| label: fig-barplot
+#| fig-cap: Barplot showing the average body mass of the different penguin species.
+
+sns.barplot(x='species', y='body_mass_g', data=penguins)
+```
