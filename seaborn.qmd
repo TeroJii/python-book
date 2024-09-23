@@ -163,3 +163,18 @@ A common task in data analysis is to compare different groups within data. For e
 
 sns.barplot(x='species', y='body_mass_g', data=penguins)
 ```
+
+By default, the barplot shows the average value of the `y` variable for each category in the `x` variable. The `barplot` function has a parameter for adjusting which estimator is used in comparing the group. We change the estimator to *e.g.* `median` quite easily with the help of numpy as shown in @fig-barplot-median.
+
+```{python}
+#| code-fold: false
+#| label: fig-barplot-median
+#| fig-cap: Barplot showing the median body mass of the different penguin species.
+import matplotlib.pyplot as plt
+
+plot = sns.barplot(x='species', y='body_mass_g', data=penguins, estimator=np.median)
+# re-label y-axis
+plot.set_ylabel('Median body mass (g)')
+
+plt.show()
+```
