@@ -178,3 +178,15 @@ plot.set_ylabel('Median body mass (g)')
 
 plt.show()
 ```
+
+### Countplot
+
+If the bars in the barplot are used for counting the number of observations, we can use the `countplot()` function in Seaborn. @fig-countplot shows an example of this on the number of different species in the `penguins` dataset. This is a great way of assessing if the dataset is balanced or not.
+
+```{python}
+#| code-fold: false
+#| label: fig-countplot
+#| fig-cap: Countplot showing the number of penguin observations per species in the data.
+
+sns.countplot(x='species', data=penguins)
+```
