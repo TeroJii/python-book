@@ -190,3 +190,39 @@ If the bars in the barplot are used for counting the number of observations, we 
 
 sns.countplot(x='species', data=penguins)
 ```
+
+### Digging deeper with the hue parameter
+
+As we saw above, the `countplot` and `barplot` functions are effective tools for comparing groups within a dataset. The `hue` parameter allows us to add an extra layer of granularity to the plot. For example, we can use the `hue` parameter to compare the bill lenght of the different species of penguins and see the effect of sex of the penguing. @fig-barplot-hue shows an example of this.
+
+```{python}
+#| code-fold: false
+#| label: fig-barplot-hue
+#| fig-cap: Barplot showing the average bill length of the different penguin species. The bars are colored according to sex.
+
+sns.barplot(x='species', y='bill_length_mm', hue='sex', data=penguins)
+```
+
+Using the `hue` parameter is very useful also with plot types like `boxplot` and `violinplot`, which display distributions. @fig-boxplot-hue shows an example of a boxplot with the `hue` parameter.
+
+```{python}
+#| code-fold: false
+#| label: fig-boxplot-hue
+#| fig-cap: Boxplot showing the flipper length of the different penguin species. The boxes are colored according to sex.
+
+sns.boxplot(x='species', y='flipper_length_mm', hue='sex', data=penguins)
+```
+
+## Faceting
+
+The hue parameter can also be used to create separate plots for each group. For example, we can use the `FacetGrid` class to create a separate histogram for each species in the `penguins` dataset. @fig-facetgrid shows an example of this.
+
+```{python}
+#| code-fold: false
+#| label: fig-facetgrid
+#| fig-cap: FacetGrid showing the distribution of flipper length for each penguin species.
+#| warning: false
+
+g = sns.FacetGrid(penguins, col='species')
+g.map(sns.histplot, 'flipper_length_mm')
+```
