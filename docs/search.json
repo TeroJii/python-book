@@ -512,5 +512,16 @@
       "Data Visualization",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Seaborn for data visualisation</span>"
     ]
+  },
+  {
+    "objectID": "seaborn.html#visualizing-correlation",
+    "href": "seaborn.html#visualizing-correlation",
+    "title": "8  Seaborn for data visualisation",
+    "section": "8.5 Visualizing Correlation",
+    "text": "8.5 Visualizing Correlation\nCorrelation is a measure of the strength and direction of a linear relationship between two numerical variables. For example, for the numeric columns in the penguins dataset, we can calculate the correlation matrix using the corr() function. Table 8.3 shows the correlation matrix for the penguins dataset.\n\npen_corr = penguins.corr(numeric_only=True)\npen_corr\n\n\n\nTable 8.3: Correlation matrix for the numerical columns in the penguins dataset.\n\n\n\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\n\n\n\n\nbill_length_mm\n1.000000\n-0.228626\n0.653096\n0.589451\n\n\nbill_depth_mm\n-0.228626\n1.000000\n-0.577792\n-0.472016\n\n\nflipper_length_mm\n0.653096\n-0.577792\n1.000000\n0.872979\n\n\nbody_mass_g\n0.589451\n-0.472016\n0.872979\n1.000000\n\n\n\n\n\n\n\n\n\n\n\nOnce we have our data in this rectangular form, we can use the heatmap() function, which offers a convenient way to visualize the correlation. The heatmap() function creates a color-coded matrix that shows the correlation between each pair of variables. Figure 8.14 shows an example of this for the correlation data we created above.\n\nsns.heatmap(pen_corr, annot=True)\n\n\n\n\n\n\n\nFigure 8.14: Heatmap showing the correlation between numerical variables in the penguins dataset. Update Seaborn to display the correlation values…\n\n\n\n\n\nThe annot parameter is used to display the correlation values in the heatmap. The cmap parameter can be used to change the color map of the heatmap.",
+    "crumbs": [
+      "Data Visualization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Seaborn for data visualisation</span>"
+    ]
   }
 ]
