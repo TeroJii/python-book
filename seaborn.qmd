@@ -226,3 +226,28 @@ The hue parameter can also be used to create separate plots for each group. For 
 g = sns.FacetGrid(penguins, col='species')
 g.map(sns.histplot, 'flipper_length_mm')
 ```
+
+## Visualizing Correlation
+
+Correlation is a measure of the strength and direction of a linear relationship between two numerical variables. For example, for the numeric columns in the `penguins` dataset, we can calculate the correlation matrix using the `corr()` function. @tbl-pen-corr shows the correlation matrix for the `penguins` dataset.
+
+```{python}
+#| code-fold: false
+#| label: tbl-pen-corr
+#| tbl-cap: Correlation matrix for the numerical columns in the penguins dataset.
+
+pen_corr = penguins.corr(numeric_only=True)
+pen_corr
+```
+
+Once we have our data in this rectangular form, we can use the `heatmap()` function, which offers a convenient way to visualize the correlation. The `heatmap()` function creates a color-coded matrix that shows the correlation between each pair of variables. @fig-heatmap shows an example of this for the correlation data we created above.
+
+```{python}
+#| code-fold: false
+#| label: fig-heatmap
+#| fig-cap: Heatmap showing the correlation between numerical variables in the penguins dataset. Update Seaborn to display the correlation values...
+
+sns.heatmap(pen_corr, annot=True)
+```
+
+The `annot` parameter is used to display the correlation values in the heatmap. The `cmap` parameter can be used to change the color map of the heatmap.
