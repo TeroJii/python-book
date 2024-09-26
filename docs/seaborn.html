@@ -289,7 +289,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#digging-deeper-with-the-hue-parameter" id="toc-digging-deeper-with-the-hue-parameter" class="nav-link" data-scroll-target="#digging-deeper-with-the-hue-parameter"><span class="header-section-number">8.3.2</span> Digging deeper with the hue parameter</a></li>
   </ul></li>
   <li><a href="#faceting" id="toc-faceting" class="nav-link" data-scroll-target="#faceting"><span class="header-section-number">8.4</span> Faceting</a></li>
-  <li><a href="#visualizing-correlation" id="toc-visualizing-correlation" class="nav-link" data-scroll-target="#visualizing-correlation"><span class="header-section-number">8.5</span> Visualizing Correlation</a></li>
+  <li><a href="#visualizing-correlation" id="toc-visualizing-correlation" class="nav-link" data-scroll-target="#visualizing-correlation"><span class="header-section-number">8.5</span> Visualizing Correlation</a>
+  <ul class="collapse">
+  <li><a href="#heatmap-for-temporal-data" id="toc-heatmap-for-temporal-data" class="nav-link" data-scroll-target="#heatmap-for-temporal-data"><span class="header-section-number">8.5.1</span> Heatmap for temporal data</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TeroJii/python-book/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -321,7 +324,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="getting-started" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">8.1</span> Getting started</h2>
 <p>Let’s start by creating a simple scatter plot using Seaborn. We start by importing Seaborn for the visualizations and Numpy and Pandas for generating and handling the data.</p>
-<div id="c8c12e79" class="cell" data-execution_count="1">
+<div id="74baadea" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -337,7 +340,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="fig-scatter1" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-scatter1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="seaborn_files/figure-html/fig-scatter1-output-1.png" width="587" height="358" class="figure-img">
+<img src="seaborn_files/figure-html/fig-scatter1-output-1.png" width="587" height="356" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scatter1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.1: Scatter plot created using Seaborn.
@@ -779,14 +782,14 @@ Figure&nbsp;8.13: FacetGrid showing the distribution of flipper length for each 
 </section>
 <section id="visualizing-correlation" class="level2" data-number="8.5">
 <h2 data-number="8.5" class="anchored" data-anchor-id="visualizing-correlation"><span class="header-section-number">8.5</span> Visualizing Correlation</h2>
-<p>Correlation is a measure of the strength and direction of a linear relationship between two numerical variables. For example, for the numeric columns in the <code>penguins</code> dataset, we can calculate the correlation matrix using the <code>corr()</code> function. <a href="#tbl-pen-corr" class="quarto-xref">Table&nbsp;<span>8.3</span></a> shows the correlation matrix for the <code>penguins</code> dataset.</p>
+<p>Correlation can be roughly described as a measure of the strength and direction of a linear relationship between two numerical variables. For example, for the numeric columns in the <code>penguins</code> dataset, we can calculate the correlation matrix using the <code>corr()</code> function. <a href="#tbl-pen-corr" class="quarto-xref">Table&nbsp;<span>8.3</span></a> shows the correlation matrix for the <code>penguins</code> dataset.</p>
 <div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>pen_corr <span class="op">=</span> penguins.corr(numeric_only<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>pen_corr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="tbl-pen-corr" class="cell quarto-float anchored" data-execution_count="17">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-pen-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;8.3: Correlation matrix for the numerical columns in the penguins dataset.
+Table&nbsp;8.3: A matrix showing the Pearson correlation between the numerical columns in the penguins dataset.
 </figcaption>
 <div aria-describedby="tbl-pen-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="17">
@@ -853,15 +856,360 @@ Table&nbsp;8.3: Correlation matrix for the numerical columns in the penguins dat
 <img src="seaborn_files/figure-html/fig-heatmap-output-1.png" width="652" height="454" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.14: Heatmap showing the correlation between numerical variables in the penguins dataset. Update Seaborn to display the correlation values…
+Figure&nbsp;8.14: Heatmap showing the correlation between numerical variables in the penguins dataset. Color intensity is used to visualize the correlation values.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>The <code>annot</code> parameter is used to display the correlation values in the heatmap. The <code>cmap</code> parameter can be used to change the color map of the heatmap.</p>
+<p>The <code>annot</code> parameter is used to display the numeric correlation values in the heatmap. Moreover, <code>cmap</code> parameter can be used to change the color map of the heatmap.</p>
+<section id="heatmap-for-temporal-data" class="level3" data-number="8.5.1">
+<h3 data-number="8.5.1" class="anchored" data-anchor-id="heatmap-for-temporal-data"><span class="header-section-number">8.5.1</span> Heatmap for temporal data</h3>
+<p>The heatmap can also be used to visualize temporal data. <a href="#tbl-finnish-weather" class="quarto-xref">Table&nbsp;<span>8.4</span></a> shows monthly weather data from the website <a href="https://ourworldindata.org/grapher/monthly-average-surface-temperatures-by-year">Our World in Data</a>.</p>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>weather <span class="op">=</span> pd.read_excel(<span class="st">'data/monthly-average-surface-temperatures-by-year.xlsx'</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>weather</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-finnish-weather" class="cell quarto-float anchored" data-execution_count="19">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-finnish-weather-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;8.4: The finnish weather dataset from Our World in Data.
+</figcaption>
+<div aria-describedby="tbl-finnish-weather-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-display" data-execution_count="19">
+<div>
+<div>
 
 
+<table class="dataframe do-not-create-environment cell table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Entity</th>
+<th data-quarto-table-cell-role="th">Code</th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">2024</th>
+<th data-quarto-table-cell-role="th">2023</th>
+<th data-quarto-table-cell-role="th">2022</th>
+<th data-quarto-table-cell-role="th">2021</th>
+<th data-quarto-table-cell-role="th">2020</th>
+<th data-quarto-table-cell-role="th">2019</th>
+<th data-quarto-table-cell-role="th">2018</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">1959</th>
+<th data-quarto-table-cell-role="th">1958</th>
+<th data-quarto-table-cell-role="th">1956</th>
+<th data-quarto-table-cell-role="th">1954</th>
+<th data-quarto-table-cell-role="th">1952</th>
+<th data-quarto-table-cell-role="th">1957</th>
+<th data-quarto-table-cell-role="th">1955</th>
+<th data-quarto-table-cell-role="th">1953</th>
+<th data-quarto-table-cell-role="th">1951</th>
+<th data-quarto-table-cell-role="th">1950</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Finland</td>
+<td>FIN</td>
+<td>1</td>
+<td>-12.356432</td>
+<td>-4.536643</td>
+<td>-7.592226</td>
+<td>-9.110156</td>
+<td>-3.112542</td>
+<td>-11.025353</td>
+<td>-6.895465</td>
+<td>...</td>
+<td>-9.696966</td>
+<td>-12.954665</td>
+<td>-11.878848</td>
+<td>-8.946227</td>
+<td>-5.870114</td>
+<td>-6.206512</td>
+<td>-9.807618</td>
+<td>-9.158957</td>
+<td>-10.899360</td>
+<td>-14.994019</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Finland</td>
+<td>FIN</td>
+<td>2</td>
+<td>-7.631946</td>
+<td>-5.592857</td>
+<td>-6.273704</td>
+<td>-11.295887</td>
+<td>-4.104153</td>
+<td>-5.959055</td>
+<td>-11.653291</td>
+<td>...</td>
+<td>-4.385164</td>
+<td>-11.575406</td>
+<td>-16.195097</td>
+<td>-13.229277</td>
+<td>-5.858663</td>
+<td>-6.452776</td>
+<td>-13.163642</td>
+<td>-13.099696</td>
+<td>-8.866541</td>
+<td>-8.616582</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Finland</td>
+<td>FIN</td>
+<td>3</td>
+<td>-2.152660</td>
+<td>-6.260747</td>
+<td>-2.362002</td>
+<td>-3.575844</td>
+<td>-2.093242</td>
+<td>-3.754119</td>
+<td>-8.216735</td>
+<td>...</td>
+<td>-1.374446</td>
+<td>-9.041509</td>
+<td>-6.101201</td>
+<td>-3.394979</td>
+<td>-9.736150</td>
+<td>-8.902771</td>
+<td>-8.678738</td>
+<td>-3.652206</td>
+<td>-7.219227</td>
+<td>-4.774562</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Finland</td>
+<td>FIN</td>
+<td>4</td>
+<td>-0.105814</td>
+<td>1.859364</td>
+<td>0.963580</td>
+<td>1.959561</td>
+<td>0.592504</td>
+<td>3.668244</td>
+<td>1.857609</td>
+<td>...</td>
+<td>0.429239</td>
+<td>-1.223686</td>
+<td>-2.926554</td>
+<td>-0.158412</td>
+<td>1.350001</td>
+<td>-0.055782</td>
+<td>-3.018537</td>
+<td>2.357863</td>
+<td>1.580248</td>
+<td>2.926893</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Finland</td>
+<td>FIN</td>
+<td>5</td>
+<td>10.342938</td>
+<td>9.054110</td>
+<td>7.681894</td>
+<td>7.209668</td>
+<td>6.447229</td>
+<td>7.416959</td>
+<td>11.818787</td>
+<td>...</td>
+<td>7.576959</td>
+<td>5.305153</td>
+<td>7.060782</td>
+<td>9.387682</td>
+<td>5.249408</td>
+<td>6.424380</td>
+<td>3.803955</td>
+<td>7.328690</td>
+<td>4.187241</td>
+<td>6.869668</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Finland</td>
+<td>FIN</td>
+<td>6</td>
+<td>15.629230</td>
+<td>14.390386</td>
+<td>14.857914</td>
+<td>16.784351</td>
+<td>16.298048</td>
+<td>14.332166</td>
+<td>12.409929</td>
+<td>...</td>
+<td>13.862224</td>
+<td>12.240686</td>
+<td>14.262403</td>
+<td>12.196805</td>
+<td>7.160417</td>
+<td>10.485080</td>
+<td>10.143443</td>
+<td>16.841997</td>
+<td>11.469393</td>
+<td>13.351920</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Finland</td>
+<td>FIN</td>
+<td>7</td>
+<td>17.379380</td>
+<td>15.121183</td>
+<td>16.573692</td>
+<td>3.234722</td>
+<td>14.814271</td>
+<td>14.564145</td>
+<td>19.720356</td>
+<td>...</td>
+<td>16.012850</td>
+<td>13.836065</td>
+<td>14.284949</td>
+<td>16.679026</td>
+<td>14.955886</td>
+<td>17.375101</td>
+<td>16.000717</td>
+<td>15.119339</td>
+<td>13.776219</td>
+<td>14.620484</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Finland</td>
+<td>FIN</td>
+<td>8</td>
+<td>15.999804</td>
+<td>15.713537</td>
+<td>15.900022</td>
+<td>13.261284</td>
+<td>14.121853</td>
+<td>13.773454</td>
+<td>15.358797</td>
+<td>...</td>
+<td>14.763309</td>
+<td>13.833643</td>
+<td>11.212431</td>
+<td>13.601360</td>
+<td>11.714494</td>
+<td>13.959742</td>
+<td>15.751595</td>
+<td>13.766891</td>
+<td>16.507440</td>
+<td>15.331268</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Finland</td>
+<td>FIN</td>
+<td>9</td>
+<td>NaN</td>
+<td>12.078142</td>
+<td>7.694565</td>
+<td>7.075720</td>
+<td>9.989091</td>
+<td>8.631719</td>
+<td>10.090892</td>
+<td>...</td>
+<td>6.644055</td>
+<td>8.106494</td>
+<td>6.433380</td>
+<td>9.015210</td>
+<td>6.523679</td>
+<td>7.595360</td>
+<td>10.376423</td>
+<td>6.875361</td>
+<td>9.839784</td>
+<td>9.541843</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Finland</td>
+<td>FIN</td>
+<td>10</td>
+<td>NaN</td>
+<td>0.258406</td>
+<td>4.493286</td>
+<td>4.510300</td>
+<td>4.983604</td>
+<td>1.240841</td>
+<td>3.102760</td>
+<td>...</td>
+<td>2.086031</td>
+<td>3.264047</td>
+<td>0.802558</td>
+<td>1.842529</td>
+<td>-0.712148</td>
+<td>2.896886</td>
+<td>1.894943</td>
+<td>4.152942</td>
+<td>5.239940</td>
+<td>4.349140</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>Finland</td>
+<td>FIN</td>
+<td>11</td>
+<td>NaN</td>
+<td>-5.321711</td>
+<td>-1.655154</td>
+<td>-2.792642</td>
+<td>1.341732</td>
+<td>-3.120430</td>
+<td>0.699558</td>
+<td>...</td>
+<td>-2.421227</td>
+<td>0.332971</td>
+<td>-8.738729</td>
+<td>-3.450766</td>
+<td>-4.315333</td>
+<td>-2.058513</td>
+<td>-6.467130</td>
+<td>-0.935875</td>
+<td>-4.115920</td>
+<td>-2.016795</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>Finland</td>
+<td>FIN</td>
+<td>12</td>
+<td>NaN</td>
+<td>-8.636971</td>
+<td>-6.510187</td>
+<td>-9.504569</td>
+<td>-2.615182</td>
+<td>-2.354235</td>
+<td>-5.373116</td>
+<td>...</td>
+<td>-9.508020</td>
+<td>-11.801905</td>
+<td>-6.794479</td>
+<td>-2.086087</td>
+<td>-7.242684</td>
+<td>-6.743253</td>
+<td>-16.398590</td>
+<td>-2.729617</td>
+<td>-4.081283</td>
+<td>-5.246907</td>
+</tr>
+</tbody>
+</table>
+
+<p>12 rows × 78 columns</p>
+</div>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+
+
+</section>
 </section>
 
 </main> <!-- /main -->
