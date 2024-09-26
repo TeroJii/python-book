@@ -264,3 +264,17 @@ The heatmap can also be used to visualize temporal data. @tbl-finnish-weather sh
 weather = pd.read_excel('data/monthly-average-surface-temperatures-by-year.xlsx')
 weather
 ```
+
+We can see that the dataset contains the average temperature for each month in Finland from 1950 to 2024. We can use the `heatmap()` function to visualize this data. First we need to Move the year column to the index and remove the Entity and Code columns. @fig-heatmap-weather shows an example of this.
+
+```{python}
+#| code-fold: false
+#| label: fig-heatmap-weather
+#| fig-cap: Heatmap showing the average temperature in Finland for each month from 1950 to 2024. Color intensity is used to visualize the temperature values.
+
+weather = weather.set_index('Year').drop(columns=['Entity', 'Code'])
+# rename index to month
+weather.index.name = 'Month'
+sns.heatmap(weather, cmap='coolwarm')
+```
+
