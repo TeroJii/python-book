@@ -104,10 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 
 
 </head>
@@ -324,7 +321,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="getting-started" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">8.1</span> Getting started</h2>
 <p>Let’s start by creating a simple scatter plot using Seaborn. We start by importing Seaborn for the visualizations and Numpy and Pandas for generating and handling the data.</p>
-<div id="74baadea" class="cell" data-execution_count="1">
+<div id="ed1b6e16" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -377,7 +374,7 @@ Seaborn Documentation
 Table&nbsp;8.1: The first few rows of the penguins dataset.
 </figcaption>
 <div aria-describedby="tbl-penguins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="43">
 <div>
 <div>
 
@@ -465,7 +462,7 @@ Table&nbsp;8.1: The first few rows of the penguins dataset.
 Table&nbsp;8.2: Summary statistics for the penguins dataset.
 </figcaption>
 <div aria-describedby="tbl-penguins-desc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="44">
 <div>
 <div>
 
@@ -792,7 +789,7 @@ Figure&nbsp;8.13: FacetGrid showing the distribution of flipper length for each 
 Table&nbsp;8.3: A matrix showing the Pearson correlation between the numerical columns in the penguins dataset.
 </figcaption>
 <div aria-describedby="tbl-pen-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="57">
 <div>
 <div>
 
@@ -875,7 +872,7 @@ Figure&nbsp;8.14: Heatmap showing the correlation between numerical variables in
 Table&nbsp;8.4: The finnish weather dataset from Our World in Data.
 </figcaption>
 <div aria-describedby="tbl-finnish-weather-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div class="cell-output cell-output-display" data-execution_count="59">
 <div>
 <div>
 
@@ -1205,6 +1202,25 @@ Table&nbsp;8.4: The finnish weather dataset from Our World in Data.
 </div>
 </div>
 </figure>
+</div>
+</div>
+<p>We can see that the dataset contains the average temperature for each month in Finland from 1950 to 2024. We can use the <code>heatmap()</code> function to visualize this data. First we need to Move the year column to the index and remove the Entity and Code columns. <a href="#fig-heatmap-weather" class="quarto-xref">Figure&nbsp;<span>8.15</span></a> shows an example of this.</p>
+<div id="cell-fig-heatmap-weather" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>weather <span class="op">=</span> weather.set_index(<span class="st">'Year'</span>).drop(columns<span class="op">=</span>[<span class="st">'Entity'</span>, <span class="st">'Code'</span>])</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># rename index to month</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>weather.index.name <span class="op">=</span> <span class="st">'Month'</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>sns.heatmap(weather, cmap<span class="op">=</span><span class="st">'coolwarm'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="fig-heatmap-weather" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-heatmap-weather-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="seaborn_files/figure-html/fig-heatmap-weather-output-1.png" width="555" height="358" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-heatmap-weather-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.15: Heatmap showing the average temperature in Finland for each month from 1950 to 2024. Color intensity is used to visualize the temperature values.
+</figcaption>
+</figure>
+</div>
 </div>
 </div>
 
