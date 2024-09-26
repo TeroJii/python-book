@@ -229,12 +229,12 @@ g.map(sns.histplot, 'flipper_length_mm')
 
 ## Visualizing Correlation
 
-Correlation is a measure of the strength and direction of a linear relationship between two numerical variables. For example, for the numeric columns in the `penguins` dataset, we can calculate the correlation matrix using the `corr()` function. @tbl-pen-corr shows the correlation matrix for the `penguins` dataset.
+Correlation can be roughly described as a measure of the strength and direction of a linear relationship between two numerical variables. For example, for the numeric columns in the `penguins` dataset, we can calculate the correlation matrix using the `corr()` function. @tbl-pen-corr shows the correlation matrix for the `penguins` dataset.
 
 ```{python}
 #| code-fold: false
 #| label: tbl-pen-corr
-#| tbl-cap: Correlation matrix for the numerical columns in the penguins dataset.
+#| tbl-cap: A matrix showing the Pearson correlation between the numerical columns in the penguins dataset.
 
 pen_corr = penguins.corr(numeric_only=True)
 pen_corr
@@ -245,9 +245,22 @@ Once we have our data in this rectangular form, we can use the `heatmap()` funct
 ```{python}
 #| code-fold: false
 #| label: fig-heatmap
-#| fig-cap: Heatmap showing the correlation between numerical variables in the penguins dataset. Update Seaborn to display the correlation values...
+#| fig-cap: Heatmap showing the correlation between numerical variables in the penguins dataset. Color intensity is used to visualize the correlation values.
 
 sns.heatmap(pen_corr, annot=True)
 ```
 
-The `annot` parameter is used to display the correlation values in the heatmap. The `cmap` parameter can be used to change the color map of the heatmap.
+The `annot` parameter is used to display the numeric correlation values in the heatmap. Moreover, `cmap` parameter can be used to change the color map of the heatmap.
+
+### Heatmap for temporal data
+
+The heatmap can also be used to visualize temporal data. @tbl-finnish-weather shows monthly weather data from the website [Our World in Data](https://ourworldindata.org/grapher/monthly-average-surface-temperatures-by-year).
+
+```{python}
+#| code-fold: false
+#| label: tbl-finnish-weather
+#| tbl-cap: The finnish weather dataset from Our World in Data.
+
+weather = pd.read_excel('data/monthly-average-surface-temperatures-by-year.xlsx')
+weather
+```
