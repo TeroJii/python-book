@@ -254,14 +254,14 @@ The `annot` parameter is used to display the numeric correlation values in the h
 
 ### Heatmap for temporal data
 
-The heatmap can also be used to visualize temporal data. @tbl-finnish-weather shows monthly weather data from the website [Our World in Data](https://ourworldindata.org/grapher/monthly-average-surface-temperatures-by-year).
+Heatmaps can also be used to visualize temporal data. @tbl-finnish-weather shows monthly weather data from the website [Our World in Data](https://ourworldindata.org/grapher/monthly-average-surface-temperatures-by-year).
 
 ```{python}
 #| code-fold: false
 #| label: tbl-finnish-weather
 #| tbl-cap: The finnish weather dataset from Our World in Data.
 
-weather = pd.read_excel('data/monthly-average-surface-temperatures-by-year.xlsx')
+weather = pd.read_csv('data/monthly-average-surface-temperatures-by-year.csv')
 weather
 ```
 
@@ -275,6 +275,8 @@ We can see that the dataset contains the average temperature for each month in F
 weather = weather.set_index('Year').drop(columns=['Entity', 'Code'])
 # rename index to month
 weather.index.name = 'Month'
+# transpose the data
+weather = weather.T
 sns.heatmap(weather, cmap='coolwarm')
 ```
 
