@@ -265,12 +265,12 @@ weather = pd.read_csv('data/monthly-average-surface-temperatures-by-year.csv')
 weather
 ```
 
-We can see that the dataset contains the average temperature for each month in Finland from 1950 to 2024. We can use the `heatmap()` function to visualize this data. First we need to Move the year column to the index and remove the Entity and Code columns. @fig-heatmap-weather shows an example of this.
+We can see that the dataset contains the average temperature for each month in Finland from 1950 to 2024. We can use the `heatmap()` function to visualize this data. When we look at the data in @tbl-finnish-weather we notice that the months are actually listed under the `Year` column, while the years themselves are listed with numeric column names. First thing to do, is to move the `Year` column as the index and remove the `Entity` and `Code` columns. Finally, we shall transpose the data, so that the months will be displayed on the x-axis of the resulting heatmap (@fig-heatmap-weather).
 
 ```{python}
 #| code-fold: false
 #| label: fig-heatmap-weather
-#| fig-cap: Heatmap showing the average temperature in Finland for each month from 1950 to 2024. Color intensity is used to visualize the temperature values.
+#| fig-cap: Heatmap showing the average temperature in Finland for each month from January of 1950 until August of 2024. Color intensity is used to visualize the temperature values.
 
 weather = weather.set_index('Year').drop(columns=['Entity', 'Code'])
 # rename index to month
