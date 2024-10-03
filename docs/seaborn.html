@@ -321,7 +321,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="getting-started" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">8.1</span> Getting started</h2>
 <p>Let’s start by creating a simple scatter plot using Seaborn. We start by importing Seaborn for the visualizations and Numpy and Pandas for generating and handling the data.</p>
-<div id="e01dd007" class="cell" data-execution_count="1">
+<div id="ed087f8a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -374,7 +374,7 @@ Seaborn Documentation
 Table&nbsp;8.1: The first few rows of the penguins dataset.
 </figcaption>
 <div aria-describedby="tbl-penguins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div class="cell-output cell-output-display" data-execution_count="210">
 <div>
 <div>
 
@@ -462,7 +462,7 @@ Table&nbsp;8.1: The first few rows of the penguins dataset.
 Table&nbsp;8.2: Summary statistics for the penguins dataset.
 </figcaption>
 <div aria-describedby="tbl-penguins-desc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="24">
+<div class="cell-output cell-output-display" data-execution_count="211">
 <div>
 <div>
 
@@ -762,15 +762,37 @@ Figure&nbsp;8.12: Boxplot showing the flipper length of the different penguin sp
 <p>In the previous section we saw how to utilize the <code>hue</code> parameter in separating data based on a grouping variable. Another useful technique for visualizing grouped data is faceting. We can use the <code>FacetGrid</code> class to create a separate histogram for each species in the <code>penguins</code> dataset. <a href="#fig-facetgrid" class="quarto-xref">Figure&nbsp;<span>8.13</span></a> shows an example of this.</p>
 <div id="cell-fig-facetgrid" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.FacetGrid(penguins, col<span class="op">=</span><span class="st">'species'</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">map</span>(sns.histplot, <span class="st">'flipper_length_mm'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>facet_plot1 <span class="op">=</span> g.<span class="bu">map</span>(sns.histplot, <span class="st">'flipper_length_mm'</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>facet_plot1.fig.set_size_inches(w<span class="op">=</span><span class="dv">7</span>, h<span class="op">=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="fig-facetgrid" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-facetgrid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="seaborn_files/figure-html/fig-facetgrid-output-1.png" width="853" height="275" class="figure-img">
+<img src="seaborn_files/figure-html/fig-facetgrid-output-1.png" width="678" height="275" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-facetgrid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.13: FacetGrid showing the distribution of flipper length for each penguin species.
+Figure&nbsp;8.13: FacetGrid showing the distribution of flipper length for each penguin species. By setting the <code>species</code> column as the <code>col</code> parameter value, separate plots for each species are created into their respective columns.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>We can also use the <code>row</code> parameter to facet the plots into rows. This is especially useful when we have two categorical columns we want to group by. <a href="#fig-facetgrid-row" class="quarto-xref">Figure&nbsp;<span>8.14</span></a> shows data grouped by the <code>species</code> and <code>sex</code> variables.</p>
+<div id="cell-fig-facetgrid-row" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># modify the sex column to show F for Female and M for Male</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>penguins[<span class="st">'sex'</span>] <span class="op">=</span> penguins[<span class="st">'sex'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="st">'F'</span> <span class="cf">if</span> x <span class="op">==</span> <span class="st">'Female'</span> <span class="cf">else</span> <span class="st">'M'</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.FacetGrid(penguins, row<span class="op">=</span><span class="st">'sex'</span>, col<span class="op">=</span><span class="st">'species'</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>facet_plot2 <span class="op">=</span> g.<span class="bu">map</span>(sns.scatterplot, <span class="st">'bill_length_mm'</span>, <span class="st">'bill_depth_mm'</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>facet_plot2.fig.set_size_inches(w<span class="op">=</span><span class="dv">7</span>, h<span class="op">=</span><span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="fig-facetgrid-row" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-facetgrid-row-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="seaborn_files/figure-html/fig-facetgrid-row-output-1.png" width="679" height="563" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-facetgrid-row-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.14: FacetGrid showing the correlation of bill length and bill depth for each penguin species. The plots are faceted into rows based on sex.
 </figcaption>
 </figure>
 </div>
@@ -780,16 +802,16 @@ Figure&nbsp;8.13: FacetGrid showing the distribution of flipper length for each 
 <section id="visualizing-correlation" class="level2" data-number="8.5">
 <h2 data-number="8.5" class="anchored" data-anchor-id="visualizing-correlation"><span class="header-section-number">8.5</span> Visualizing Correlation</h2>
 <p>Correlation can be roughly described as a measure of the strength and direction of a linear relationship between two numerical variables. For example, for the numeric columns in the <code>penguins</code> dataset, we can calculate the correlation matrix using the <code>corr()</code> function. <a href="#tbl-pen-corr" class="quarto-xref">Table&nbsp;<span>8.3</span></a> shows the correlation matrix for the <code>penguins</code> dataset.</p>
-<div class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>pen_corr <span class="op">=</span> penguins.corr(numeric_only<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>pen_corr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="tbl-pen-corr" class="cell quarto-float anchored" data-execution_count="17">
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>pen_corr <span class="op">=</span> penguins.corr(numeric_only<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>pen_corr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-pen-corr" class="cell quarto-float anchored" data-execution_count="18">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-pen-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;8.3: A matrix showing the Pearson correlation between the numerical columns in the penguins dataset.
 </figcaption>
 <div aria-describedby="tbl-pen-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="37">
+<div class="cell-output cell-output-display" data-execution_count="225">
 <div>
 <div>
 
@@ -843,9 +865,9 @@ Table&nbsp;8.3: A matrix showing the Pearson correlation between the numerical c
 </figure>
 </div>
 </div>
-<p>Once we have our data in this rectangular form, we can use the <code>heatmap()</code> function, which offers a convenient way to visualize the correlation. The <code>heatmap()</code> function creates a color-coded matrix that shows the correlation between each pair of variables. <a href="#fig-heatmap" class="quarto-xref">Figure&nbsp;<span>8.14</span></a> shows an example of this for the correlation data we created above.</p>
-<div id="cell-fig-heatmap" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sns.heatmap(pen_corr, annot<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Once we have our data in this rectangular form, we can use the <code>heatmap()</code> function, which offers a convenient way to visualize the correlation. The <code>heatmap()</code> function creates a color-coded matrix that shows the correlation between each pair of variables. <a href="#fig-heatmap" class="quarto-xref">Figure&nbsp;<span>8.15</span></a> shows an example of this for the correlation data we created above.</p>
+<div id="cell-fig-heatmap" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sns.heatmap(pen_corr, annot<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="fig-heatmap" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -853,7 +875,7 @@ Table&nbsp;8.3: A matrix showing the Pearson correlation between the numerical c
 <img src="seaborn_files/figure-html/fig-heatmap-output-1.png" width="652" height="454" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.14: Heatmap showing the correlation between numerical variables in the penguins dataset. Color intensity is used to visualize the correlation values.
+Figure&nbsp;8.15: Heatmap showing the correlation between numerical variables in the penguins dataset. Color intensity is used to visualize the correlation values.
 </figcaption>
 </figure>
 </div>
@@ -863,16 +885,16 @@ Figure&nbsp;8.14: Heatmap showing the correlation between numerical variables in
 <section id="heatmap-for-temporal-data" class="level3" data-number="8.5.1">
 <h3 data-number="8.5.1" class="anchored" data-anchor-id="heatmap-for-temporal-data"><span class="header-section-number">8.5.1</span> Heatmap for temporal data</h3>
 <p>Heatmaps can also be used to visualize temporal data. <a href="#tbl-finnish-weather" class="quarto-xref">Table&nbsp;<span>8.4</span></a> shows monthly weather data from the website <a href="https://ourworldindata.org/grapher/monthly-average-surface-temperatures-by-year">Our World in Data</a>.</p>
-<div class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>weather <span class="op">=</span> pd.read_csv(<span class="st">'data/monthly-average-surface-temperatures-by-year.csv'</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>weather</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="tbl-finnish-weather" class="cell quarto-float anchored" data-execution_count="19">
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>weather <span class="op">=</span> pd.read_csv(<span class="st">'data/monthly-average-surface-temperatures-by-year.csv'</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>weather</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-finnish-weather" class="cell quarto-float anchored" data-execution_count="20">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-finnish-weather-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;8.4: The finnish weather dataset from Our World in Data.
 </figcaption>
 <div aria-describedby="tbl-finnish-weather-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="39">
+<div class="cell-output cell-output-display" data-execution_count="227">
 <div>
 <div>
 
@@ -1204,14 +1226,14 @@ Table&nbsp;8.4: The finnish weather dataset from Our World in Data.
 </figure>
 </div>
 </div>
-<p>We can see that the dataset contains the average temperature for each month in Finland from 1950 to 2024. We can use the <code>heatmap()</code> function to visualize this data. When we look at the data in <a href="#tbl-finnish-weather" class="quarto-xref">Table&nbsp;<span>8.4</span></a> we notice that the months are actually listed under the <code>Year</code> column, while the years themselves are listed with numeric column names. First thing to do, is to move the <code>Year</code> column as the index and remove the <code>Entity</code> and <code>Code</code> columns. Finally, we shall transpose the data, so that the months will be displayed on the x-axis of the resulting heatmap (<a href="#fig-heatmap-weather" class="quarto-xref">Figure&nbsp;<span>8.15</span></a>).</p>
-<div id="cell-fig-heatmap-weather" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>weather <span class="op">=</span> weather.set_index(<span class="st">'Year'</span>).drop(columns<span class="op">=</span>[<span class="st">'Entity'</span>, <span class="st">'Code'</span>])</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># rename index to month</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>weather.index.name <span class="op">=</span> <span class="st">'Month'</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># transpose the data</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>weather <span class="op">=</span> weather.T</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>sns.heatmap(weather, cmap<span class="op">=</span><span class="st">'coolwarm'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We can see that the dataset contains the average temperature for each month in Finland from 1950 to 2024. We can use the <code>heatmap()</code> function to visualize this data. When we look at the data in <a href="#tbl-finnish-weather" class="quarto-xref">Table&nbsp;<span>8.4</span></a> we notice that the months are actually listed under the <code>Year</code> column, while the years themselves are listed with numeric column names. First thing to do, is to move the <code>Year</code> column as the index and remove the <code>Entity</code> and <code>Code</code> columns. Finally, we shall transpose the data, so that the months will be displayed on the x-axis of the resulting heatmap (<a href="#fig-heatmap-weather" class="quarto-xref">Figure&nbsp;<span>8.16</span></a>).</p>
+<div id="cell-fig-heatmap-weather" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>weather <span class="op">=</span> weather.set_index(<span class="st">'Year'</span>).drop(columns<span class="op">=</span>[<span class="st">'Entity'</span>, <span class="st">'Code'</span>])</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># rename index to month</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>weather.index.name <span class="op">=</span> <span class="st">'Month'</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># transpose the data</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>weather <span class="op">=</span> weather.T</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>sns.heatmap(weather, cmap<span class="op">=</span><span class="st">'coolwarm'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="fig-heatmap-weather" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1219,7 +1241,7 @@ Table&nbsp;8.4: The finnish weather dataset from Our World in Data.
 <img src="seaborn_files/figure-html/fig-heatmap-weather-output-1.png" width="558" height="360" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-heatmap-weather-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.15: Heatmap showing the average temperature in Finland for each month from January of 1950 until August of 2024. Color intensity is used to visualize the temperature values.
+Figure&nbsp;8.16: Heatmap showing the average temperature in Finland for each month from January of 1950 until August of 2024. Color intensity is used to visualize the temperature values.
 </figcaption>
 </figure>
 </div>
