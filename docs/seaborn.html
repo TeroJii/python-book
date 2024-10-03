@@ -293,6 +293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#heatmap-for-temporal-data" id="toc-heatmap-for-temporal-data" class="nav-link" data-scroll-target="#heatmap-for-temporal-data"><span class="header-section-number">8.5.1</span> Heatmap for temporal data</a></li>
   </ul></li>
+  <li><a href="#visualizing-regression" id="toc-visualizing-regression" class="nav-link" data-scroll-target="#visualizing-regression"><span class="header-section-number">8.6</span> Visualizing Regression</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TeroJii/python-book/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -324,7 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="getting-started" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">8.1</span> Getting started</h2>
 <p>Let’s start by creating a simple scatter plot using Seaborn. We start by importing Seaborn for the visualizations and Numpy and Pandas for generating and handling the data.</p>
-<div id="e1f68e48" class="cell" data-execution_count="1">
+<div id="1ca60b89" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -377,7 +378,7 @@ Seaborn Documentation
 Table&nbsp;8.1: The first few rows of the penguins dataset.
 </figcaption>
 <div aria-describedby="tbl-penguins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="113">
+<div class="cell-output cell-output-display" data-execution_count="51">
 <div>
 <div>
 
@@ -465,7 +466,7 @@ Table&nbsp;8.1: The first few rows of the penguins dataset.
 Table&nbsp;8.2: Summary statistics for the penguins dataset.
 </figcaption>
 <div aria-describedby="tbl-penguins-desc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="114">
+<div class="cell-output cell-output-display" data-execution_count="52">
 <div>
 <div>
 
@@ -826,7 +827,7 @@ Figure&nbsp;8.14: FacetGrid showing the correlation of bill length and bill dept
 <img src="seaborn_files/figure-html/fig-pairgrid-output-1.png" width="556" height="631" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pairgrid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.15: PairGrid showing the correlation of flipper length, body mass, bill length, and bill depth for each penguin species.
+Figure&nbsp;8.15: PairGrid showing the pairwise relations of all numeric variables in the penguins dataset.
 </figcaption>
 </figure>
 </div>
@@ -846,7 +847,7 @@ Figure&nbsp;8.15: PairGrid showing the correlation of flipper length, body mass,
 Table&nbsp;8.3: A matrix showing the Pearson correlation between the numerical columns in the penguins dataset.
 </figcaption>
 <div aria-describedby="tbl-pen-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="129">
+<div class="cell-output cell-output-display" data-execution_count="67">
 <div>
 <div>
 
@@ -929,7 +930,7 @@ Figure&nbsp;8.16: Heatmap showing the correlation between numerical variables in
 Table&nbsp;8.4: The finnish weather dataset from Our World in Data.
 </figcaption>
 <div aria-describedby="tbl-finnish-weather-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="131">
+<div class="cell-output cell-output-display" data-execution_count="69">
 <div>
 <div>
 
@@ -1282,9 +1283,44 @@ Figure&nbsp;8.17: Heatmap showing the average temperature in Finland for each mo
 </div>
 </div>
 </div>
-
-
 </section>
+</section>
+<section id="visualizing-regression" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="visualizing-regression"><span class="header-section-number">8.6</span> Visualizing Regression</h2>
+<p>Seaborn is designed for statistical data visualization. With this in mind, it is not that surprizing to hear that Seaborn offers many convenient ways to visualize regression models. The <code>lmplot()</code> and the <code>regplot()</code> functions are the two function offered by Seaborn to visualize a linear fit. You can refer to the Seaborn documentation about the differences between the two functions, but briefly the <code>lmplot()</code> function requires the data argument to be passed, whereas <code>regplot()</code> can be used for plotting e.g.&nbsp;two numpy arrays. <a href="#fig-lmplot" class="quarto-xref">Figure&nbsp;<span>8.18</span></a> shows an example of the <code>lmplot()</code> function with the <code>penguins</code> dataset, and <a href="#fig-regplot" class="quarto-xref">Figure&nbsp;<span>8.19</span></a> shows an example of the <code>regplot()</code> function with two numpy arrays.</p>
+<div id="cell-fig-lmplot" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, y<span class="op">=</span><span class="st">'body_mass_g'</span>, data<span class="op">=</span>penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="fig-lmplot" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lmplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="seaborn_files/figure-html/fig-lmplot-output-1.png" width="469" height="468" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lmplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.18: The linear relationship between flipper length and body mass of penguins
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-fig-regplot" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># regplot example for numpy arrays</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>sns.regplot(x<span class="op">=</span>np.random.normal(size<span class="op">=</span><span class="dv">10</span>), y<span class="op">=</span>np.random.normal(size<span class="op">=</span><span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="fig-regplot" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="seaborn_files/figure-html/fig-regplot-output-1.png" width="569" height="337" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.19: The relationship between two random numpy arrays.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
