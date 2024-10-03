@@ -193,7 +193,7 @@ sns.countplot(x='species', data=penguins)
 
 ### Digging deeper with the hue parameter
 
-As we saw above, the `countplot` and `barplot` functions are effective tools for comparing groups within a dataset. The `hue` parameter allows us to add an extra layer of granularity to the plot. For example, we can use the `hue` parameter to compare the bill lenght of the different species of penguins and see the effect of sex of the penguing. @fig-barplot-hue shows an example of this.
+As we saw above, the `countplot` and `barplot` functions are effective tools for comparing groups within a dataset. The `hue` parameter allows us to add an extra layer of granularity to the plot. For example, we can use the `hue` parameter to compare the bill lenght of the different species of penguins and see the effect of sex of the penguin. @fig-barplot-hue shows an example of this.
 
 ```{python}
 #| code-fold: false
@@ -215,7 +215,7 @@ sns.boxplot(x='species', y='flipper_length_mm', hue='sex', data=penguins)
 
 ## Faceting
 
-The hue parameter can also be used to create separate plots for each group. For example, we can use the `FacetGrid` class to create a separate histogram for each species in the `penguins` dataset. @fig-facetgrid shows an example of this.
+In the previous section we saw how to utilize the `hue` parameter in separating data based on a grouping variable. Another useful technique for visualizing grouped data is faceting. We can use the `FacetGrid` class to create a separate histogram for each species in the `penguins` dataset. @fig-facetgrid shows an example of this.
 
 ```{python}
 #| code-fold: false
