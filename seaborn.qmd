@@ -220,11 +220,27 @@ In the previous section we saw how to utilize the `hue` parameter in separating 
 ```{python}
 #| code-fold: false
 #| label: fig-facetgrid
-#| fig-cap: FacetGrid showing the distribution of flipper length for each penguin species.
+#| fig-cap: FacetGrid showing the distribution of flipper length for each penguin species. By setting the `species` column as the `col` parameter value, separate plots for each species are created into their respective columns.
 #| warning: false
 
 g = sns.FacetGrid(penguins, col='species')
-g.map(sns.histplot, 'flipper_length_mm')
+facet_plot1 = g.map(sns.histplot, 'flipper_length_mm')
+facet_plot1.fig.set_size_inches(w=7, h=3)
+```
+
+We can also use the `row` parameter to facet the plots into rows. This is especially useful when we have two categorical columns we want to group by. @fig-facetgrid-row shows data grouped by the `species` and `sex` variables.
+
+```{python}
+#| code-fold: false
+#| label: fig-facetgrid-row
+#| fig-cap: FacetGrid showing the correlation of bill length and bill depth for each penguin species. The plots are faceted into rows based on sex.
+
+# modify the sex column to show F for Female and M for Male
+penguins['sex'] = penguins['sex'].apply(lambda x: 'F' if x == 'Female' else 'M')
+
+g = sns.FacetGrid(penguins, row='sex', col='species')
+facet_plot2 = g.map(sns.scatterplot, 'bill_length_mm', 'bill_depth_mm')
+facet_plot2.fig.set_size_inches(w=7, h=6)
 ```
 
 ## Visualizing Correlation
