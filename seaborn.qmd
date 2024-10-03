@@ -239,8 +239,33 @@ We can also use the `row` parameter to facet the plots into rows. This is especi
 penguins['sex'] = penguins['sex'].apply(lambda x: 'F' if x == 'Female' else 'M')
 
 g = sns.FacetGrid(penguins, row='sex', col='species')
-facet_plot2 = g.map(sns.scatterplot, 'bill_length_mm', 'bill_depth_mm')
-facet_plot2.fig.set_size_inches(w=7, h=6)
+g.map(sns.scatterplot, 'bill_length_mm', 'bill_depth_mm')
+g.figure.set_size_inches(w=7, h=6)
+```
+
+### More complex Grids
+
+`FacetGrid` is not the only way to create a grid of plots in Seaborn. The `pairplot` function we saw earlier is another example of a grid of plots. In fact `pairplot` is just a specialized version of a more general function called `PairGrid`. We can use `PairGrid` to create a grid of plots for any pair of variables in the dataset, and we can also specify which type of plots we want on different parts of the grid. @fig-pairgrid shows an example of this.
+
+```{python}
+#| code-fold: false
+#| label: fig-pairgrid
+#| fig-cap: PairGrid showing the correlation of flipper length, body mass, bill length, and bill depth for each penguin species.
+
+g = sns.PairGrid(penguins, hue='species')
+# set the upper triangle to scatterplot
+g.map_upper(sns.scatterplot)
+# set the lower triangle to kdeplot
+g.map_lower(sns.kdeplot)
+# set the diagonal to histplot
+g.map_diag(sns.histplot)
+g.add_legend()
+sns.move_legend(g, "lower center",
+    bbox_to_anchor=(.5, 1), ncol=3, title=None, frameon=False
+    )
+
+# set figure size
+g.figure.set_size_inches(w=6, h=6)
 ```
 
 ## Visualizing Correlation
