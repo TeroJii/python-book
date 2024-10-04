@@ -371,3 +371,17 @@ The `lmplot()` function is not limited to fitting straight lines. In fact, we ca
 
 sns.lmplot(x='flipper_length_mm', y='body_mass_g', data=penguins, order=2)
 ```
+
+Let's fit a logistic regression model to the `penguins` data. We can use the `logistic` parameter to fit a logistic regression model. @fig-lmplot-logistic shows an example body mass vs. sex of Gentoo penguins.
+
+```{python}
+#| code-fold: false
+#| label: fig-lmplot-logistic
+#| fig-cap: The logistic relationship between body mass and
+
+penguins['sex'] = penguins['sex'].apply(lambda x: 1 if x == 'M' else 0)
+log_data = penguins[penguins['species'] == 'Gentoo']
+
+sns.lmplot(data = log_data, x='body_mass_g', y='sex', logistic=True,
+  height=4, aspect=1.5)
+```
