@@ -293,7 +293,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#heatmap-for-temporal-data" id="toc-heatmap-for-temporal-data" class="nav-link" data-scroll-target="#heatmap-for-temporal-data"><span class="header-section-number">8.5.1</span> Heatmap for temporal data</a></li>
   </ul></li>
-  <li><a href="#visualizing-regression" id="toc-visualizing-regression" class="nav-link" data-scroll-target="#visualizing-regression"><span class="header-section-number">8.6</span> Visualizing Regression</a></li>
+  <li><a href="#visualizing-regression" id="toc-visualizing-regression" class="nav-link" data-scroll-target="#visualizing-regression"><span class="header-section-number">8.6</span> Visualizing Regression</a>
+  <ul class="collapse">
+  <li><a href="#beyond-the-linear-fit" id="toc-beyond-the-linear-fit" class="nav-link" data-scroll-target="#beyond-the-linear-fit"><span class="header-section-number">8.6.1</span> Beyond the linear fit</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TeroJii/python-book/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -325,7 +328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="getting-started" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">8.1</span> Getting started</h2>
 <p>Let’s start by creating a simple scatter plot using Seaborn. We start by importing Seaborn for the visualizations and Numpy and Pandas for generating and handling the data.</p>
-<div id="3a46d63c" class="cell" data-execution_count="1">
+<div id="7671e1ac" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -341,7 +344,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="fig-scatter1" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-scatter1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="seaborn_files/figure-html/fig-scatter1-output-1.png" width="600" height="356" class="figure-img">
+<img src="seaborn_files/figure-html/fig-scatter1-output-1.png" width="587" height="356" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scatter1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.1: Scatter plot created using Seaborn.
@@ -378,7 +381,7 @@ Seaborn Documentation
 Table&nbsp;8.1: The first few rows of the penguins dataset.
 </figcaption>
 <div aria-describedby="tbl-penguins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="80">
 <div>
 <div>
 
@@ -466,7 +469,7 @@ Table&nbsp;8.1: The first few rows of the penguins dataset.
 Table&nbsp;8.2: Summary statistics for the penguins dataset.
 </figcaption>
 <div aria-describedby="tbl-penguins-desc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="81">
 <div>
 <div>
 
@@ -847,7 +850,7 @@ Figure&nbsp;8.15: PairGrid showing the pairwise relations of all numeric variabl
 Table&nbsp;8.3: A matrix showing the Pearson correlation between the numerical columns in the penguins dataset.
 </figcaption>
 <div aria-describedby="tbl-pen-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div class="cell-output cell-output-display" data-execution_count="96">
 <div>
 <div>
 
@@ -930,7 +933,7 @@ Figure&nbsp;8.16: Heatmap showing the correlation between numerical variables in
 Table&nbsp;8.4: The finnish weather dataset from Our World in Data.
 </figcaption>
 <div aria-describedby="tbl-finnish-weather-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="98">
 <div>
 <div>
 
@@ -1323,7 +1326,7 @@ Figure&nbsp;8.19: The relationship between two random numpy arrays.
 <p>We can utilize similar techniques we saw earlier with the <code>lmplot()</code> and <code>regplot()</code> functions. For example, we can use the <code>hue</code> parameter to color the points based on the species of the penguin, and facet according to <code>sex</code> (<a href="#fig-lmplot-fhue" class="quarto-xref">Figure&nbsp;<span>8.20</span></a>).</p>
 <div id="cell-fig-lmplot-fhue" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.lmplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, y<span class="op">=</span><span class="st">'body_mass_g'</span>, </span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  hue<span class="op">=</span><span class="st">'species'</span>, col<span class="op">=</span><span class="st">'sex'</span>,</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  hue<span class="op">=</span><span class="st">'species'</span>, col<span class="op">=</span><span class="st">'sex'</span>, </span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  aspect<span class="op">=</span><span class="dv">1</span>, height<span class="op">=</span><span class="fl">3.5</span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>sns.move_legend(g, <span class="st">"lower center"</span>,</span>
@@ -1342,8 +1345,27 @@ Figure&nbsp;8.20: The linear relationship between flipper length and body mass o
 </div>
 </div>
 </div>
+<section id="beyond-the-linear-fit" class="level3" data-number="8.6.1">
+<h3 data-number="8.6.1" class="anchored" data-anchor-id="beyond-the-linear-fit"><span class="header-section-number">8.6.1</span> Beyond the linear fit</h3>
+<p>The <code>lmplot()</code> function is not limited to fitting straight lines. In fact, we can use the <code>order</code> parameter to fit a polynomial regression model. <a href="#fig-lmplot-poly" class="quarto-xref">Figure&nbsp;<span>8.21</span></a> demonstrates fitting a second order polynomial to the <code>penguins</code> data.</p>
+<div id="cell-fig-lmplot-poly" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, y<span class="op">=</span><span class="st">'body_mass_g'</span>, data<span class="op">=</span>penguins, order<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="fig-lmplot-poly" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lmplot-poly-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="seaborn_files/figure-html/fig-lmplot-poly-output-1.png" width="469" height="468" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lmplot-poly-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.21: The polynomial relationship between flipper length and body mass of penguins
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
