@@ -352,7 +352,7 @@ We can utilize similar techniques we saw earlier with the `lmplot()` and `regplo
 #| fig-cap: The linear relationship between flipper length and body mass of penguins
 
 g = sns.lmplot(data=penguins, x='flipper_length_mm', y='body_mass_g', 
-  hue='species', col='sex',
+  hue='species', col='sex', 
   aspect=1, height=3.5
   )
 sns.move_legend(g, "lower center",
@@ -362,3 +362,12 @@ sns.move_legend(g, "lower center",
 
 ### Beyond the linear fit
 
+The `lmplot()` function is not limited to fitting straight lines. In fact, we can use the `order` parameter to fit a polynomial regression model. @fig-lmplot-poly demonstrates fitting a second order polynomial to the `penguins` data.
+
+```{python}
+#| code-fold: false
+#| label: fig-lmplot-poly
+#| fig-cap: The polynomial relationship between flipper length and body mass of penguins
+
+sns.lmplot(x='flipper_length_mm', y='body_mass_g', data=penguins, order=2)
+```
