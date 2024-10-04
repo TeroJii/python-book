@@ -325,7 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="getting-started" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">8.1</span> Getting started</h2>
 <p>Let’s start by creating a simple scatter plot using Seaborn. We start by importing Seaborn for the visualizations and Numpy and Pandas for generating and handling the data.</p>
-<div id="1ca60b89" class="cell" data-execution_count="1">
+<div id="b53451a6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -378,7 +378,7 @@ Seaborn Documentation
 Table&nbsp;8.1: The first few rows of the penguins dataset.
 </figcaption>
 <div aria-describedby="tbl-penguins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="51">
+<div class="cell-output cell-output-display" data-execution_count="176">
 <div>
 <div>
 
@@ -466,7 +466,7 @@ Table&nbsp;8.1: The first few rows of the penguins dataset.
 Table&nbsp;8.2: Summary statistics for the penguins dataset.
 </figcaption>
 <div aria-describedby="tbl-penguins-desc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="52">
+<div class="cell-output cell-output-display" data-execution_count="177">
 <div>
 <div>
 
@@ -847,7 +847,7 @@ Figure&nbsp;8.15: PairGrid showing the pairwise relations of all numeric variabl
 Table&nbsp;8.3: A matrix showing the Pearson correlation between the numerical columns in the penguins dataset.
 </figcaption>
 <div aria-describedby="tbl-pen-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="67">
+<div class="cell-output cell-output-display" data-execution_count="192">
 <div>
 <div>
 
@@ -930,7 +930,7 @@ Figure&nbsp;8.16: Heatmap showing the correlation between numerical variables in
 Table&nbsp;8.4: The finnish weather dataset from Our World in Data.
 </figcaption>
 <div aria-describedby="tbl-finnish-weather-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="69">
+<div class="cell-output cell-output-display" data-execution_count="194">
 <div>
 <div>
 
@@ -1287,7 +1287,7 @@ Figure&nbsp;8.17: Heatmap showing the average temperature in Finland for each mo
 </section>
 <section id="visualizing-regression" class="level2" data-number="8.6">
 <h2 data-number="8.6" class="anchored" data-anchor-id="visualizing-regression"><span class="header-section-number">8.6</span> Visualizing Regression</h2>
-<p>Seaborn is designed for statistical data visualization. With this in mind, it is not that surprizing to hear that Seaborn offers many convenient ways to visualize regression models. The <code>lmplot()</code> and the <code>regplot()</code> functions are the two function offered by Seaborn to visualize a linear fit. You can refer to the Seaborn documentation about the differences between the two functions, but briefly the <code>lmplot()</code> function requires the data argument to be passed, whereas <code>regplot()</code> can be used for plotting e.g.&nbsp;two numpy arrays. <a href="#fig-lmplot" class="quarto-xref">Figure&nbsp;<span>8.18</span></a> shows an example of the <code>lmplot()</code> function with the <code>penguins</code> dataset, and <a href="#fig-regplot" class="quarto-xref">Figure&nbsp;<span>8.19</span></a> shows an example of the <code>regplot()</code> function with two numpy arrays.</p>
+<p>Seaborn is designed for statistical data visualization. With this in mind, it is not that surprizing to learn that Seaborn offers many convenient ways to visualize regression models. The <code>lmplot()</code> and the <code>regplot()</code> functions are the two function offered by Seaborn to visualize a linear fit. You can refer to the Seaborn documentation about the differences between the two functions, but briefly the <code>lmplot()</code> function requires the data argument to be passed, whereas <code>regplot()</code> can be used for plotting e.g.&nbsp;two numpy arrays. <a href="#fig-lmplot" class="quarto-xref">Figure&nbsp;<span>8.18</span></a> shows an example of the <code>lmplot()</code> function with the <code>penguins</code> dataset, and <a href="#fig-regplot" class="quarto-xref">Figure&nbsp;<span>8.19</span></a> shows an example of the <code>regplot()</code> function with two numpy arrays.</p>
 <div id="cell-fig-lmplot" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, y<span class="op">=</span><span class="st">'body_mass_g'</span>, data<span class="op">=</span>penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1310,10 +1310,33 @@ Figure&nbsp;8.18: The linear relationship between flipper length and body mass o
 <div id="fig-regplot" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-regplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="seaborn_files/figure-html/fig-regplot-output-1.png" width="569" height="337" class="figure-img">
+<img src="seaborn_files/figure-html/fig-regplot-output-1.png" width="582" height="337" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.19: The relationship between two random numpy arrays.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>So, as we can see, both functions offer a way to visualize the linear relationship between two variables.</p>
+<p>We can utilize similar techniques we saw earlier with the <code>lmplot()</code> and <code>regplot()</code> functions. For example, we can use the <code>hue</code> parameter to color the points based on the species of the penguin, and facet according to <code>sex</code> (<a href="#fig-lmplot-fhue" class="quarto-xref">Figure&nbsp;<span>8.20</span></a>).</p>
+<div id="cell-fig-lmplot-fhue" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.lmplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, y<span class="op">=</span><span class="st">'body_mass_g'</span>, </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  hue<span class="op">=</span><span class="st">'species'</span>, col<span class="op">=</span><span class="st">'sex'</span>,</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  aspect<span class="op">=</span><span class="dv">1</span>, height<span class="op">=</span><span class="fl">3.5</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>sns.move_legend(g, <span class="st">"lower center"</span>,</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    bbox_to_anchor<span class="op">=</span>(<span class="fl">.5</span>, <span class="dv">1</span>), ncol<span class="op">=</span><span class="dv">3</span>, title<span class="op">=</span><span class="va">None</span>, frameon<span class="op">=</span><span class="va">False</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="fig-lmplot-fhue" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lmplot-fhue-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="seaborn_files/figure-html/fig-lmplot-fhue-output-1.png" width="655" height="369" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lmplot-fhue-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.20: The linear relationship between flipper length and body mass of penguins
 </figcaption>
 </figure>
 </div>
