@@ -323,7 +323,7 @@ sns.heatmap(weather, cmap='coolwarm')
 
 ## Visualizing Regression
 
-Seaborn is designed for statistical data visualization. With this in mind, it is not that surprizing to hear that Seaborn offers many convenient ways to visualize regression models. The `lmplot()` and the `regplot()` functions are the two function offered by Seaborn to visualize a linear fit. You can refer to the Seaborn documentation about the differences between the two functions, but briefly the `lmplot()` function requires the data argument to be passed, whereas `regplot()` can be used for plotting e.g. two numpy arrays. @fig-lmplot shows an example of the `lmplot()` function with the `penguins` dataset, and @fig-regplot shows an example of the `regplot()` function with two numpy arrays.
+Seaborn is designed for statistical data visualization. With this in mind, it is not that surprizing to learn that Seaborn offers many convenient ways to visualize regression models. The `lmplot()` and the `regplot()` functions are the two function offered by Seaborn to visualize a linear fit. You can refer to the Seaborn documentation about the differences between the two functions, but briefly the `lmplot()` function requires the data argument to be passed, whereas `regplot()` can be used for plotting e.g. two numpy arrays. @fig-lmplot shows an example of the `lmplot()` function with the `penguins` dataset, and @fig-regplot shows an example of the `regplot()` function with two numpy arrays.
 
 ```{python}
 #| code-fold: false
@@ -340,4 +340,22 @@ sns.lmplot(x='flipper_length_mm', y='body_mass_g', data=penguins)
 
 # regplot example for numpy arrays
 sns.regplot(x=np.random.normal(size=10), y=np.random.normal(size=10))
+```
+
+So, as we can see, both functions offer a way to visualize the linear relationship between two variables.
+
+We can utilize similar techniques we saw earlier with the `lmplot()` and `regplot()` functions. For example, we can use the `hue` parameter to color the points based on the species of the penguin, and facet according to `sex` (@fig-lmplot-fhue).
+
+```{python}
+#| code-fold: false
+#| label: fig-lmplot-fhue
+#| fig-cap: The linear relationship between flipper length and body mass of penguins
+
+g = sns.lmplot(data=penguins, x='flipper_length_mm', y='body_mass_g', 
+  hue='species', col='sex',
+  aspect=1, height=3.5
+  )
+sns.move_legend(g, "lower center",
+    bbox_to_anchor=(.5, 1), ncol=3, title=None, frameon=False
+    )
 ```
