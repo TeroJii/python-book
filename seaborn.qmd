@@ -224,8 +224,8 @@ In the previous section we saw how to utilize the `hue` parameter in separating 
 #| warning: false
 
 g = sns.FacetGrid(penguins, col='species')
-facet_plot1 = g.map(sns.histplot, 'flipper_length_mm')
-facet_plot1.fig.set_size_inches(w=7, h=3)
+g.map(sns.histplot, 'flipper_length_mm')
+g.fig.set_size_inches(w=7, h=3)
 ```
 
 We can also use the `row` parameter to facet the plots into rows. This is especially useful when we have two categorical columns we want to group by. @fig-facetgrid-row shows data grouped by the `species` and `sex` variables.
@@ -359,3 +359,6 @@ sns.move_legend(g, "lower center",
     bbox_to_anchor=(.5, 1), ncol=3, title=None, frameon=False
     )
 ```
+
+### Beyond the linear fit
+
