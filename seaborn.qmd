@@ -328,7 +328,7 @@ Seaborn is designed for statistical data visualization. With this in mind, it is
 ```{python}
 #| code-fold: false
 #| label: fig-lmplot
-#| fig-cap: The linear relationship between flipper length and body mass of penguins
+#| fig-cap: The linear relationship between flipper length and body mass of penguins.
 
 sns.lmplot(x='flipper_length_mm', y='body_mass_g', data=penguins)
 ```
@@ -336,7 +336,7 @@ sns.lmplot(x='flipper_length_mm', y='body_mass_g', data=penguins)
 ```{python}
 #| code-fold: false
 #| label: fig-regplot
-#| fig-cap: The relationship between two random numpy arrays.
+#| fig-cap: The relationship between two random numpy arrays, with a line fitted through the data.
 
 # regplot example for numpy arrays
 sns.regplot(x=np.random.normal(size=10), y=np.random.normal(size=10))
@@ -349,7 +349,7 @@ We can utilize similar techniques we saw earlier with the `lmplot()` and `regplo
 ```{python}
 #| code-fold: false
 #| label: fig-lmplot-fhue
-#| fig-cap: The linear relationship between flipper length and body mass of penguins
+#| fig-cap: The linear relationship between flipper length and body mass of penguins separated by sex, where a individual linear fits have been made for each species.
 
 g = sns.lmplot(data=penguins, x='flipper_length_mm', y='body_mass_g', 
   hue='species', col='sex', 
@@ -367,18 +367,22 @@ The `lmplot()` function is not limited to fitting straight lines. In fact, we ca
 ```{python}
 #| code-fold: false
 #| label: fig-lmplot-poly
-#| fig-cap: The polynomial relationship between flipper length and body mass of penguins
+#| fig-cap: A second degree polynomial has been fitted to the flipper length and body mass data.
 
 sns.lmplot(x='flipper_length_mm', y='body_mass_g', data=penguins, order=2)
 ```
 
-Let's fit a logistic regression model to the `penguins` data. We can use the `logistic` parameter to fit a logistic regression model. @fig-lmplot-logistic shows an example body mass vs. sex of Gentoo penguins.
+Logistic regression models are used in binary classification tasks. The logistic curve is characterized by a shape resembling the letter `S`. We will learn more about logistic regression in the upcoming section.
+For now, let's fit a logistic regression model to the `penguins` data, and see how we can create a visualization to help distinguish between Male and Female Gentoo penguins. We can use the `logistic` parameter to fit a logistic model after we recode the Male and Female classes to 1 and 0, respectively (@fig-lmplot-logistic).
 
 ```{python}
 #| code-fold: false
 #| label: fig-lmplot-logistic
-#| fig-cap: The logistic relationship between body mass and
+#| fig-cap: A logistic regression fit depicting sex and a function of body mass for Gentoo penguins.
+#| message: false
+#| warning: false
 
+# recoding the sex column to be 1 for males and 0 for females
 penguins['sex'] = penguins['sex'].apply(lambda x: 1 if x == 'M' else 0)
 log_data = penguins[penguins['species'] == 'Gentoo']
 
