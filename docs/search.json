@@ -534,5 +534,16 @@
       "Data Visualization",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Seaborn for data visualisation</span>"
     ]
+  },
+  {
+    "objectID": "seaborn.html#conclusion",
+    "href": "seaborn.html#conclusion",
+    "title": "8  Seaborn for data visualisation",
+    "section": "8.7 Conclusion",
+    "text": "8.7 Conclusion\nThere are many more functions and features in Seaborn that we are yet to cover. Luckily, we will be using Seaborn in the upcoming section to create visualizations useful for different modelling tasks. This will give us a chance to explore more of Seaborn’s capabilities. Furthermore, you can always refer to the Seaborn documentation for more information.",
+    "crumbs": [
+      "Data Visualization",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Seaborn for data visualisation</span>"
+    ]
   }
 ]
