@@ -6,6 +6,11 @@ jupyter: python3
 
 Linear regression is fancy way of describing the act of fitting a line through your data. What makes it powerful is it's simplicity. When we are facing a regression problem this is usually the first thing we should try before moving on to more complex models. If you are looking for a detailed explanation on the intricacies of linear regression, I recommend checking out the wonderful book by James, Witten, Hastie and Tibshirani titled `An Introduction to Statistical Learning` (@ISLP).
 
+::: {.callout-tip}
+## Regression in a nutshell
+
+In regression we are trying to predict a numerical (continuous) variable based on one or more other variables. The variable we are trying to predict is called the dependent variable, and the variables we are using to make the prediction are called the independent variables. In the field of Data Science, the dependent variable can sometimes be called the outcome, and the independent variables might be referred to as features.
+:::
 
 ```{python}
 import seaborn as sns
