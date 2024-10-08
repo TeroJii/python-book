@@ -389,3 +389,9 @@ log_data = penguins[penguins['species'] == 'Gentoo']
 sns.lmplot(data = log_data, x='body_mass_g', y='sex', logistic=True,
   height=4, aspect=1.5)
 ```
+
+## Conclusion
+
+There are many more functions and features in Seaborn that we are yet to cover.
+Luckily, we will be using Seaborn in the upcoming section to create visualizations useful for different modelling tasks.
+This will give us a chance to explore more of Seaborn's capabilities. Furthermore, you can always refer to the Seaborn documentation for more information.
