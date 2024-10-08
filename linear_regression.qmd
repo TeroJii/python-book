@@ -4,6 +4,9 @@ jupyter: python3
 
 # Linear regression
 
+Linear regression is fancy way of describing the act of fitting a line through your data. What makes it powerful is it's simplicity. When we are facing a regression problem this is usually the first thing we should try before moving on to more complex models. If you are looking for a detailed explanation on the intricacies of linear regression, I recommend checking out the wonderful book by James, Witten, Hastie and Tibshirani titled `An Introduction to Statistical Learning` (@ISLP).
+
+
 ```{python}
 import seaborn as sns
 
