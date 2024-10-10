@@ -383,7 +383,7 @@ y = \beta_0 + \beta_1x \text{,}
 Table&nbsp;9.1: The first five rows of the diamonds dataset.
 </figcaption>
 <div aria-describedby="tbl-diamonds-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 <div>
 
@@ -478,6 +478,22 @@ Table&nbsp;9.1: The first five rows of the diamonds dataset.
 </div>
 </div>
 </figure>
+</div>
+</div>
+<p><a href="#fig-lmdiamonds" class="quarto-xref">Figure&nbsp;<span>9.1</span></a> demonstrates the use of the <code>lmplot()</code> function from the <code>seaborn</code> library to visualize the relationship between the <code>carat</code> and <code>price</code> columns in the <code>diamonds</code> dataset.</p>
+<div id="cell-fig-lmdiamonds" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">'carat'</span>, y<span class="op">=</span><span class="st">'price'</span>, data<span class="op">=</span>diamonds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="fig-lmdiamonds" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lmdiamonds-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="linear_regression_files/figure-html/fig-lmdiamonds-output-1.png" width="469" height="468" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lmdiamonds-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.1: A scatter plot showing the relationship between the carat and price columns in the diamonds dataset.
+</figcaption>
+</figure>
+</div>
 </div>
 </div>
 
