@@ -368,76 +368,116 @@ Regression in a nutshell
 y = \beta_0 + \beta_1x \text{,}
 \]</span></p>
 <p>where <span class="math inline">\(y\)</span> is the dependent variable, <span class="math inline">\(x\)</span> is the independent variable, <span class="math inline">\(\beta_0\)</span> is the intercept, <span class="math inline">\(\beta_1\)</span> is the slope.</p>
-<div id="3b37fab0" class="cell" data-execution_count="1">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>iris <span class="op">=</span> sns.load_dataset(<span class="st">'iris'</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>iris.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<p>Let’s see how we can implement simple linear regression in Python using the <code>scikit-learn</code> library. Scikit-learn is one of the most fundamental machine learning libraries for Python. It provides a wide range of tools for building machine learning models, including regression models. Before we start, we need to install the library. You can do this by running the following command in your terminal:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install scikit-learn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After installation, we are ready to implement a simple linear regression model. We will use the <code>diamonds</code> dataset from the <code>seaborn</code> library. The dataset contains information about the physical attributes of different diamonds (<a href="#tbl-diamonds" class="quarto-xref">Table&nbsp;<span>9.1</span></a>).</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># get the diamonds dataset</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>diamonds <span class="op">=</span> sns.load_dataset(<span class="st">'diamonds'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>diamonds.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-diamonds" class="cell quarto-float anchored" data-execution_count="1">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-diamonds-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;9.1: The first five rows of the diamonds dataset.
+</figcaption>
+<div aria-describedby="tbl-diamonds-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe do-not-create-environment cell table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">sepal_length</th>
-<th data-quarto-table-cell-role="th">sepal_width</th>
-<th data-quarto-table-cell-role="th">petal_length</th>
-<th data-quarto-table-cell-role="th">petal_width</th>
-<th data-quarto-table-cell-role="th">species</th>
+<th data-quarto-table-cell-role="th">carat</th>
+<th data-quarto-table-cell-role="th">cut</th>
+<th data-quarto-table-cell-role="th">color</th>
+<th data-quarto-table-cell-role="th">clarity</th>
+<th data-quarto-table-cell-role="th">depth</th>
+<th data-quarto-table-cell-role="th">table</th>
+<th data-quarto-table-cell-role="th">price</th>
+<th data-quarto-table-cell-role="th">x</th>
+<th data-quarto-table-cell-role="th">y</th>
+<th data-quarto-table-cell-role="th">z</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>5.1</td>
-<td>3.5</td>
-<td>1.4</td>
-<td>0.2</td>
-<td>setosa</td>
+<td>0.23</td>
+<td>Ideal</td>
+<td>E</td>
+<td>SI2</td>
+<td>61.5</td>
+<td>55.0</td>
+<td>326</td>
+<td>3.95</td>
+<td>3.98</td>
+<td>2.43</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>4.9</td>
-<td>3.0</td>
-<td>1.4</td>
-<td>0.2</td>
-<td>setosa</td>
+<td>0.21</td>
+<td>Premium</td>
+<td>E</td>
+<td>SI1</td>
+<td>59.8</td>
+<td>61.0</td>
+<td>326</td>
+<td>3.89</td>
+<td>3.84</td>
+<td>2.31</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>4.7</td>
-<td>3.2</td>
-<td>1.3</td>
-<td>0.2</td>
-<td>setosa</td>
+<td>0.23</td>
+<td>Good</td>
+<td>E</td>
+<td>VS1</td>
+<td>56.9</td>
+<td>65.0</td>
+<td>327</td>
+<td>4.05</td>
+<td>4.07</td>
+<td>2.31</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>4.6</td>
-<td>3.1</td>
-<td>1.5</td>
-<td>0.2</td>
-<td>setosa</td>
+<td>0.29</td>
+<td>Premium</td>
+<td>I</td>
+<td>VS2</td>
+<td>62.4</td>
+<td>58.0</td>
+<td>334</td>
+<td>4.20</td>
+<td>4.23</td>
+<td>2.63</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>5.0</td>
-<td>3.6</td>
-<td>1.4</td>
-<td>0.2</td>
-<td>setosa</td>
+<td>0.31</td>
+<td>Good</td>
+<td>J</td>
+<td>SI2</td>
+<td>63.3</td>
+<td>58.0</td>
+<td>335</td>
+<td>4.34</td>
+<td>4.35</td>
+<td>2.75</td>
 </tr>
 </tbody>
 </table>
 
 </div>
 </div>
+</div>
+</div>
+</figure>
 </div>
 </div>
 
