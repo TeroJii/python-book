@@ -4,13 +4,24 @@ jupyter: python3
 
 # Linear regression
 
-Linear regression is fancy way of describing the act of fitting a line through your data. What makes it powerful is it's simplicity. When we are facing a regression problem this is usually the first thing we should try before moving on to more complex models. If you are looking for a detailed explanation on the intricacies of linear regression, I recommend checking out the wonderful book by James, Witten, Hastie and Tibshirani titled `An Introduction to Statistical Learning` (@ISLP).
+Linear regression is fancy way of describing the act of fitting a line through your data. What makes it powerful is it's simplicity. When we are facing a regression problem this is usually the first thing we should try before moving on to more complex models. If you are looking for a detailed explanation on the intricacies of linear regression, I recommend taking a closer look at the wonderful book by James, Witten, Hastie and Tibshirani titled `An Introduction to Statistical Learning` (@ISLP).
 
 ::: {.callout-tip}
 ## Regression in a nutshell
 
 In regression we are trying to predict a numerical (continuous) variable based on one or more other variables. The variable we are trying to predict is called the dependent variable, and the variables we are using to make the prediction are called the independent variables. In the field of Data Science, the dependent variable can sometimes be called the outcome, and the independent variables might be referred to as features.
 :::
+
+## Simple linear regression
+
+Simple linear regression is the most basic form of regression. It is used when we want to use the values of a single independent variable to predict the values for the dependent variable. To put it simply, the goal is to find the best-fitting straight line through the data. The equation for a simple linear regression model is:
+
+$$
+y = \beta_0 + \beta_1x \text{,}
+$$
+
+where $y$ is the dependent variable, $x$ is the independent variable, $\beta_0$ is the intercept, $\beta_1$ is the slope.
+
 
 ```{python}
 import seaborn as sns
