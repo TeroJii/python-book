@@ -42,3 +42,13 @@ diamonds = sns.load_dataset('diamonds')
 diamonds.head()
 ```
 
+@fig-lmdiamonds demonstrates the use of the `lmplot()` function from the `seaborn` library to visualize the relationship between the `carat` and `price` columns in the `diamonds` dataset.
+
+```{python}
+#| label: fig-lmdiamonds
+#| code-fold: false
+#| fig-cap: A scatter plot showing the relationship between the carat and price columns in the diamonds dataset.
+
+sns.lmplot(x='carat', y='price', data=diamonds)
+
+```
