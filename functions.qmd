@@ -230,3 +230,7 @@ help(list)
 ```
 
 That's it for functions and methods. We will use them extensively in the upcoming chapters, so make sure you understand how they work.
+
+## Conclusion
+
+The first three chapters introduced us to the basics of Python programming. Next we will start discussing how to use the language for processing and analyzing data. In case you are looking to strengthen your understanding of the fundamentals, the Python tutorial on the official Python website is a great place to learn more (@PythonTutorial).
