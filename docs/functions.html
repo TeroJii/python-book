@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -277,6 +297,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#lambda-expressions" id="toc-lambda-expressions" class="nav-link" data-scroll-target="#lambda-expressions"><span class="header-section-number">3.3</span> Lambda expressions</a></li>
   <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">3.4</span> Methods</a></li>
   <li><a href="#using-help-for-functions-and-classes" id="toc-using-help-for-functions-and-classes" class="nav-link" data-scroll-target="#using-help-for-functions-and-classes"><span class="header-section-number">3.5</span> Using <code>help()</code> for functions and classes</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">3.6</span> Conclusion</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TeroJii/python-book/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -312,7 +333,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>len()</code>: returns the length of the given argument</li>
 </ul>
 <p>Using basic functions is dead simple. Usually the function has some arguments which the user passes on to the function as input. Let’s try the functions above to get a feel for how they work:</p>
-<div id="2e6c7675" class="cell" data-execution_count="1">
+<div id="9b3c6b04" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="st">"Hello"</span>, <span class="st">"I'm"</span>, <span class="dv">1</span>, <span class="st">"list"</span>, <span class="va">True</span>]</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -322,23 +343,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>So, we see that the <code>print()</code> function can be used to print out the contents of the input parameter into the console. Makes sense, right?</p>
 <p>If we inspect the type of the <code>my_list</code> variable, we can (rather unsurprisingly) see that it is a list:</p>
-<div id="d2c55731" class="cell" data-execution_count="2">
+<div id="7d0148cd" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(my_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>list</code></pre>
 </div>
 </div>
 <p>We can also confirm that the third element of the list is an integer:</p>
-<div id="07216810" class="cell" data-execution_count="3">
+<div id="1764a5d2" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(my_list[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>int</code></pre>
 </div>
 </div>
 <p>And finally, our list contains 5 elements in total, as we can see when we pass <code>my_list</code> to the <code>len()</code> function:</p>
-<div id="dea7a786" class="cell" data-execution_count="4">
+<div id="622e1d14" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(my_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>5</code></pre>
 </div>
 </div>
@@ -347,7 +368,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="user-defined-functions" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="user-defined-functions"><span class="header-section-number">3.2</span> User-defined functions</h2>
 <p>Custom-made functions are a way to encapsulate code that you want to reuse. They are defined using the <code>def</code> keyword, followed by the function name, and a colon.</p>
-<div id="4c50c8bd" class="cell" data-execution_count="5">
+<div id="f6d8f733" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a custom function</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_function():</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># enter the code you wish to run below</span></span>
@@ -361,7 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Although the function above isn’t particulrly useful, it is still a valid function. We can make our functions more useful by adding some parameters when defining them.</p>
-<div id="54a39199" class="cell" data-execution_count="6">
+<div id="09d66368" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a custom function with parameters</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_function_with_args(name):</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Hello </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">, I'm a custom-made function with arguments!"</span>)</span>
@@ -373,13 +394,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>We can also return values from functions. This is done using the <code>return</code> keyword.</p>
-<div id="1d0c0083" class="cell" data-execution_count="7">
+<div id="f6cd5328" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> num_squared(num <span class="op">=</span> <span class="dv">2</span>):</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    returned_value <span class="op">=</span> num <span class="op">**</span> <span class="dv">2</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> returned_value</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>num_squared()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>4</code></pre>
 </div>
 </div>
@@ -400,7 +421,7 @@ Note
 <section id="documenting-your-function" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="documenting-your-function"><span class="header-section-number">3.2.1</span> Documenting your function</h3>
 <p>It is a good practice to document your functions. This is done by adding something called a docstring to the function. A docstring is a string that is placed at the beginning of the function and is enclosed in triple quotes. You can include text that describes what the function does and how it is used, i.e., what arguments it takes, and what it returns. This is especially useful with more complex functions.</p>
-<div id="a1f1fc8e" class="cell" data-execution_count="8">
+<div id="f48b4612" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_function_with_args(name):</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">    This function takes a name as an argument and prints a greeting.</span></span>
@@ -408,7 +429,7 @@ Note
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Hello </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">, I'm a custom-made function with arguments!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The docstring can be accessed by using the <code>__doc__</code> attribute of the function.</p>
-<div id="1b7336e2" class="cell" data-execution_count="9">
+<div id="c6558298" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_function_with_args.__doc__)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -422,40 +443,40 @@ Note
 <h2 data-number="3.3" class="anchored" data-anchor-id="lambda-expressions"><span class="header-section-number">3.3</span> Lambda expressions</h2>
 <p>Lamdas are a way to create small, anonymous functions. They are defined using the <code>lambda</code> keyword, followed by the arguments, a colon, and the expression to evaluate.</p>
 <p>Let’s say we have a simple function, which can be described in one line of code. We can naturally define a proper function like this:</p>
-<div id="c0e7132c" class="cell" data-execution_count="10">
+<div id="b1e0bfd8" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add(a, b):</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>However, we can also accomplish the same by using a lambda expression:</p>
-<div id="5a76813a" class="cell" data-execution_count="11">
+<div id="5460c950" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">lambda</span> a, b: a <span class="op">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="31">
 <pre><code>&lt;function __main__.&lt;lambda&gt;(a, b)&gt;</code></pre>
 </div>
 </div>
 <p>We can use the following syntax to pass arguments to the lambda expression for evaluation:</p>
-<div id="0d4a6c15" class="cell" data-execution_count="12">
+<div id="2be9b290" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">lambda</span> a, b: a <span class="op">+</span> b)(<span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="32">
 <pre><code>5</code></pre>
 </div>
 </div>
 <p>Now, why would we want to do this you might ask?</p>
 <p>Let’s say we want to raise a bunch of numbers to the second power. We could do this by first defining a function and the passing it on to the <code>map()</code> function, which applies the function to each element of a list.</p>
-<div id="00648bbb" class="cell" data-execution_count="13">
+<div id="b4389986" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> squared(x):</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">**</span> <span class="dv">2</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">map</span>(squared, [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>[1, 4, 9, 16, 25]</code></pre>
 </div>
 </div>
 <p>This works, and is perfectly fine. However, the <code>squared()</code> function is quite simple, so it seems a bit silly to write a separate function for this. Here is where the lambda expression comes in handy. It allows us to accomplish the same thing in a more concise way:</p>
-<div id="4f44245b" class="cell" data-execution_count="14">
+<div id="ebfbc6a9" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># same with a lambda expression</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: x <span class="op">**</span> <span class="dv">2</span>, [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>[1, 4, 9, 16, 25]</code></pre>
 </div>
 </div>
@@ -464,27 +485,27 @@ Note
 <section id="methods" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="methods"><span class="header-section-number">3.4</span> Methods</h2>
 <p>What are methods and how do they differ from functions? In Python, methods are functions that are associated with an object. They are called using the dot notation, i.e., <code>object.method()</code>. A common methods associated with strings is the <code>upper()</code> method, which converts all characters in a string to uppercase. Let’s take a look shall we?</p>
-<div id="bf33283c" class="cell" data-execution_count="15">
+<div id="ccb409d7" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>my_string <span class="op">=</span> <span class="st">"hello, I'm a string"</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>my_string.upper()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>"HELLO, I'M A STRING"</code></pre>
 </div>
 </div>
 <p>You can browse methods associated with an object by using the <code>dir()</code> function. This will return a list of all the methods associated with the object.</p>
-<div id="70f00809" class="cell" data-execution_count="16">
+<div id="4698a3cc" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># storing the methods associated with the my_string object in a variable</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>methods_for_my_string <span class="op">=</span> <span class="bu">dir</span>(my_string)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># printing the last 5 methods</span></span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>methods_for_my_string[<span class="op">-</span><span class="dv">5</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="16">
+<div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>['swapcase', 'title', 'translate', 'upper', 'zfill']</code></pre>
 </div>
 </div>
 <p>You can also use the <code>help()</code> function to get more information about a method. This will return a description of the method, as well as the arguments it takes.</p>
-<div id="050a3af0" class="cell" data-execution_count="17">
+<div id="a9c3db82" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(my_string.upper)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Help on built-in function upper:
@@ -495,9 +516,9 @@ upper() method of builtins.str instance
 </div>
 </div>
 <p>What makes methods so powerful is that they can be chained together. This means that you can call multiple methods on the same object in a single line of code. Let’s see an example of this:</p>
-<div id="e1edacba" class="cell" data-execution_count="18">
+<div id="c9517b78" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>my_string.upper().split()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
+<div class="cell-output cell-output-display" data-execution_count="38">
 <pre><code>['HELLO,', "I'M", 'A', 'STRING']</code></pre>
 </div>
 </div>
@@ -505,7 +526,7 @@ upper() method of builtins.str instance
 <section id="using-help-for-functions-and-classes" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="using-help-for-functions-and-classes"><span class="header-section-number">3.5</span> Using <code>help()</code> for functions and classes</h2>
 <p>Help is a great way to get more information about a method, especially when you are not sure how to use it. It also works for functions and classes.</p>
-<div id="d31915e1" class="cell" data-execution_count="19">
+<div id="a6b40938" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(<span class="bu">help</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Help on _Helper in module _sitebuiltins object:
@@ -538,7 +559,7 @@ class _Helper(builtins.object)
 </code></pre>
 </div>
 </div>
-<div id="dc111b33" class="cell" data-execution_count="20">
+<div id="e41d61aa" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(<span class="bu">list</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Help on class list in module builtins:
@@ -686,8 +707,17 @@ class list(object)
 </div>
 </div>
 <p>That’s it for functions and methods. We will use them extensively in the upcoming chapters, so make sure you understand how they work.</p>
+</section>
+<section id="conclusion" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">3.6</span> Conclusion</h2>
+<p>The first three chapters introduced us to the basics of Python programming. Next we will start discussing how to use the language for processing and analyzing data. In case you are looking to strengthen your understanding of the fundamentals, the Python tutorial on the official Python website is a great place to learn more (<span class="citation" data-cites="PythonTutorial">Python Software Foundation (<a href="references.html#ref-PythonTutorial" role="doc-biblioref">2024</a>)</span>).</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-PythonTutorial" class="csl-entry" role="listitem">
+Python Software Foundation. 2024. <span>“The Python Tutorial.”</span> <a href="https://docs.python.org/3/tutorial/">https://docs.python.org/3/tutorial/</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

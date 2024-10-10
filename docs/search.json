@@ -189,7 +189,7 @@
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Here you can find a list of useful references that were used in the creation of this book.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani.\n2023. An Introduction to Statistical Learning with Applications in\nPython. Springer. https://www.statlearning.com/.\n\n\nMcKinney, Wes. 2022. Python for Data Analysis. O’Reilly Media.\nhttps://wesmckinney.com/book/.",
+    "text": "Here you can find a list of useful references that were used in the creation of this book.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani.\n2023. An Introduction to Statistical Learning with Applications in\nPython. Springer. https://www.statlearning.com/.\n\n\nMcKinney, Wes. 2022. Python for Data Analysis. O’Reilly Media.\nhttps://wesmckinney.com/book/.\n\n\nPython Software Foundation. 2024. “The Python Tutorial.” https://docs.python.org/3/tutorial/.",
     "crumbs": [
       "References"
     ]
@@ -544,6 +544,17 @@
     "crumbs": [
       "Data Visualization",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Seaborn for data visualisation</span>"
+    ]
+  },
+  {
+    "objectID": "functions.html#conclusion",
+    "href": "functions.html#conclusion",
+    "title": "3  Functions",
+    "section": "3.6 Conclusion",
+    "text": "3.6 Conclusion\nThe first three chapters introduced us to the basics of Python programming. Next we will start discussing how to use the language for processing and analyzing data. In case you are looking to strengthen your understanding of the fundamentals, the Python tutorial on the official Python website is a great place to learn more (Python Software Foundation (2024)).\n\n\n\n\nPython Software Foundation. 2024. “The Python Tutorial.” https://docs.python.org/3/tutorial/.",
+    "crumbs": [
+      "The Very Basics",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions</span>"
     ]
   }
 ]
