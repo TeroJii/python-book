@@ -28,18 +28,22 @@ Let's see how we can implement simple linear regression in Python using the `sci
 pip install scikit-learn
 ```
 
-After installation, we are ready to implement a simple linear regression model. We will use the `diamonds` dataset from the `seaborn` library. The dataset contains information about the physical attributes of different diamonds (@tbl-diamonds).
+After installation, we are ready to implement a simple linear regression model. 
+We will use data from the World Happiness Report 2019, which is available through Kaggle (@HappinessData2019). 
+The World Happiness Report is a survey of the state of global happiness that ranks 156 countries by how happy their citizens perceive themselves to be. 
+The dataset contains information about various factors that contribute to happiness, such as GDP per capita, social support, healthy life expectancy, freedom to make life choices, generosity, and perceptions of corruption (@tbl-happiness).
 
 ```{python}
-#| label: tbl-diamonds
-#| tbl-cap: The first five rows of the diamonds dataset.
+#| label: tbl-happiness
+#| tbl-cap: The first rows of the World Happiness Report 2019 dataset.
 #| code-fold: false
 
+import pandas as pd
 import seaborn as sns
 
 # get the diamonds dataset
-diamonds = sns.load_dataset('diamonds')
-diamonds.head()
+happiness = pd.read_csv('data/WorldHappinessReport2019.csv')
+happiness.head()
 ```
 
 @fig-lmdiamonds demonstrates the use of the `lmplot()` function from the `seaborn` library to visualize the relationship between the `carat` and `price` columns in the `diamonds` dataset.
@@ -47,8 +51,8 @@ diamonds.head()
 ```{python}
 #| label: fig-lmdiamonds
 #| code-fold: false
-#| fig-cap: A scatter plot showing the relationship between the carat and price columns in the diamonds dataset.
+#| fig-cap: A scatter plot showing the relationship between the happiness score and the GDP per capita.
 
-sns.lmplot(x='carat', y='price', data=diamonds)
+sns.lmplot(x='GDP per capita', y='Score', data=happiness)
 
 ```
