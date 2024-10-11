@@ -370,19 +370,20 @@ y = \beta_0 + \beta_1x \text{,}
 <p>where <span class="math inline">\(y\)</span> is the dependent variable, <span class="math inline">\(x\)</span> is the independent variable, <span class="math inline">\(\beta_0\)</span> is the intercept, <span class="math inline">\(\beta_1\)</span> is the slope.</p>
 <p>Let’s see how we can implement simple linear regression in Python using the <code>scikit-learn</code> library. Scikit-learn is one of the most fundamental machine learning libraries for Python. It provides a wide range of tools for building machine learning models, including regression models. Before we start, we need to install the library. You can do this by running the following command in your terminal:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install scikit-learn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>After installation, we are ready to implement a simple linear regression model. We will use the <code>diamonds</code> dataset from the <code>seaborn</code> library. The dataset contains information about the physical attributes of different diamonds (<a href="#tbl-diamonds" class="quarto-xref">Table&nbsp;<span>9.1</span></a>).</p>
+<p>After installation, we are ready to implement a simple linear regression model. We will use data from the World Happiness Report 2019, which is available through Kaggle (<span class="citation" data-cites="HappinessData2019">Kaggle Datasets (<a href="references.html#ref-HappinessData2019" role="doc-biblioref">2024</a>)</span>). The World Happiness Report is a survey of the state of global happiness that ranks 156 countries by how happy their citizens perceive themselves to be. The dataset contains information about various factors that contribute to happiness, such as GDP per capita, social support, healthy life expectancy, freedom to make life choices, generosity, and perceptions of corruption (<a href="#tbl-happiness" class="quarto-xref">Table&nbsp;<span>9.1</span></a>).</p>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># get the diamonds dataset</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>diamonds <span class="op">=</span> sns.load_dataset(<span class="st">'diamonds'</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>diamonds.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="tbl-diamonds" class="cell quarto-float anchored" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># get the diamonds dataset</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>happiness <span class="op">=</span> pd.read_csv(<span class="st">'data/WorldHappinessReport2019.csv'</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>happiness.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-happiness" class="cell quarto-float anchored" data-execution_count="1">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-diamonds-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;9.1: The first five rows of the diamonds dataset.
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-happiness-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;9.1: The first rows of the World Happiness Report 2019 dataset.
 </figcaption>
-<div aria-describedby="tbl-diamonds-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="tbl-happiness-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 <div>
@@ -392,83 +393,77 @@ Table&nbsp;9.1: The first five rows of the diamonds dataset.
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">carat</th>
-<th data-quarto-table-cell-role="th">cut</th>
-<th data-quarto-table-cell-role="th">color</th>
-<th data-quarto-table-cell-role="th">clarity</th>
-<th data-quarto-table-cell-role="th">depth</th>
-<th data-quarto-table-cell-role="th">table</th>
-<th data-quarto-table-cell-role="th">price</th>
-<th data-quarto-table-cell-role="th">x</th>
-<th data-quarto-table-cell-role="th">y</th>
-<th data-quarto-table-cell-role="th">z</th>
+<th data-quarto-table-cell-role="th">Overall rank</th>
+<th data-quarto-table-cell-role="th">Country or region</th>
+<th data-quarto-table-cell-role="th">Score</th>
+<th data-quarto-table-cell-role="th">GDP per capita</th>
+<th data-quarto-table-cell-role="th">Social support</th>
+<th data-quarto-table-cell-role="th">Healthy life expectancy</th>
+<th data-quarto-table-cell-role="th">Freedom to make life choices</th>
+<th data-quarto-table-cell-role="th">Generosity</th>
+<th data-quarto-table-cell-role="th">Perceptions of corruption</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>0.23</td>
-<td>Ideal</td>
-<td>E</td>
-<td>SI2</td>
-<td>61.5</td>
-<td>55.0</td>
-<td>326</td>
-<td>3.95</td>
-<td>3.98</td>
-<td>2.43</td>
+<td>1</td>
+<td>Finland</td>
+<td>7.769</td>
+<td>1.340</td>
+<td>1.587</td>
+<td>0.986</td>
+<td>0.596</td>
+<td>0.153</td>
+<td>0.393</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>0.21</td>
-<td>Premium</td>
-<td>E</td>
-<td>SI1</td>
-<td>59.8</td>
-<td>61.0</td>
-<td>326</td>
-<td>3.89</td>
-<td>3.84</td>
-<td>2.31</td>
+<td>2</td>
+<td>Denmark</td>
+<td>7.600</td>
+<td>1.383</td>
+<td>1.573</td>
+<td>0.996</td>
+<td>0.592</td>
+<td>0.252</td>
+<td>0.410</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>0.23</td>
-<td>Good</td>
-<td>E</td>
-<td>VS1</td>
-<td>56.9</td>
-<td>65.0</td>
-<td>327</td>
-<td>4.05</td>
-<td>4.07</td>
-<td>2.31</td>
+<td>3</td>
+<td>Norway</td>
+<td>7.554</td>
+<td>1.488</td>
+<td>1.582</td>
+<td>1.028</td>
+<td>0.603</td>
+<td>0.271</td>
+<td>0.341</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>0.29</td>
-<td>Premium</td>
-<td>I</td>
-<td>VS2</td>
-<td>62.4</td>
-<td>58.0</td>
-<td>334</td>
-<td>4.20</td>
-<td>4.23</td>
-<td>2.63</td>
+<td>4</td>
+<td>Iceland</td>
+<td>7.494</td>
+<td>1.380</td>
+<td>1.624</td>
+<td>1.026</td>
+<td>0.591</td>
+<td>0.354</td>
+<td>0.118</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>0.31</td>
-<td>Good</td>
-<td>J</td>
-<td>SI2</td>
-<td>63.3</td>
-<td>58.0</td>
-<td>335</td>
-<td>4.34</td>
-<td>4.35</td>
-<td>2.75</td>
+<td>5</td>
+<td>Netherlands</td>
+<td>7.488</td>
+<td>1.396</td>
+<td>1.522</td>
+<td>0.999</td>
+<td>0.557</td>
+<td>0.322</td>
+<td>0.298</td>
 </tr>
 </tbody>
 </table>
@@ -482,7 +477,7 @@ Table&nbsp;9.1: The first five rows of the diamonds dataset.
 </div>
 <p><a href="#fig-lmdiamonds" class="quarto-xref">Figure&nbsp;<span>9.1</span></a> demonstrates the use of the <code>lmplot()</code> function from the <code>seaborn</code> library to visualize the relationship between the <code>carat</code> and <code>price</code> columns in the <code>diamonds</code> dataset.</p>
 <div id="cell-fig-lmdiamonds" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">'carat'</span>, y<span class="op">=</span><span class="st">'price'</span>, data<span class="op">=</span>diamonds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">'GDP per capita'</span>, y<span class="op">=</span><span class="st">'Score'</span>, data<span class="op">=</span>happiness)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="fig-lmdiamonds" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -490,7 +485,7 @@ Table&nbsp;9.1: The first five rows of the diamonds dataset.
 <img src="linear_regression_files/figure-html/fig-lmdiamonds-output-1.png" width="469" height="468" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lmdiamonds-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9.1: A scatter plot showing the relationship between the carat and price columns in the diamonds dataset.
+Figure&nbsp;9.1: A scatter plot showing the relationship between the happiness score and the GDP per capita.
 </figcaption>
 </figure>
 </div>
@@ -501,6 +496,9 @@ Figure&nbsp;9.1: A scatter plot showing the relationship between the carat and p
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-ISLP" class="csl-entry" role="listitem">
 James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2023. <em>An Introduction to Statistical Learning with Applications in Python</em>. Springer. <a href="https://www.statlearning.com/">https://www.statlearning.com/</a>.
+</div>
+<div id="ref-HappinessData2019" class="csl-entry" role="listitem">
+Kaggle Datasets. 2024. <span>“World Happiness Report - Dataset.”</span> <a href="https://www.kaggle.com/datasets/unsdsn/world-happiness?select=2019.csv">https://www.kaggle.com/datasets/unsdsn/world-happiness?select=2019.csv</a>.
 </div>
 </div>
 </section>
