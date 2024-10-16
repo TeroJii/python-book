@@ -18,7 +18,7 @@ Simple linear regression is the most basic form of regression. It is used when w
 
 $$
 y = \beta_0 + \beta_1x \text{,}
-$$
+$$ {#eq-linear}
 
 where $y$ is the dependent variable, $x$ is the independent variable, $\beta_0$ is the intercept, $\beta_1$ is the slope.
 
@@ -46,13 +46,15 @@ happiness = pd.read_csv('data/WorldHappinessReport2019.csv')
 happiness.head()
 ```
 
-@fig-lmdiamonds demonstrates the use of the `lmplot()` function from the `seaborn` library to visualize the relationship between the `carat` and `price` columns in the `diamonds` dataset.
+@fig-lm_happy visualizes the relationship between a country's happiness `Score` and `GDP per capita`. We can see that, on average countries with higher GDP per capita exhibit higher levels of happiness.
 
 ```{python}
-#| label: fig-lmdiamonds
+#| label: fig-lm_happy
 #| code-fold: false
-#| fig-cap: A scatter plot showing the relationship between the happiness score and the GDP per capita.
+#| fig-cap: A scatter plot showing the relationship between the happiness score and the GDP per capita. Note that correlation does not imply causation.
 
 sns.lmplot(x='GDP per capita', y='Score', data=happiness)
 
 ```
+
+Above we used our `seaborn` knowledge to visualize the linear relationship. However, in order to actually fit the model shown in @eq-linear, we need to use the `LinearRegression` class from `scikit-learn`.
