@@ -384,7 +384,7 @@ y = \beta_0 + \beta_1x \text{,}
 Table&nbsp;9.1: The first rows of the World Happiness Report 2019 dataset.
 </figcaption>
 <div aria-describedby="tbl-happiness-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 <div>
 
@@ -492,6 +492,21 @@ Figure&nbsp;9.1: A scatter plot showing the relationship between the happiness s
 </div>
 </div>
 <p>Above we used our <code>seaborn</code> knowledge to visualize the linear relationship. However, in order to actually fit the model shown in <a href="#eq-linear" class="quarto-xref">Equation&nbsp;<span>9.1</span></a>, we need to use the <code>LinearRegression</code> class from <code>scikit-learn</code>.</p>
+<div id="07b080a8" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create a linear regression model object</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> LinearRegression()</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># fit the model to the data</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>model.fit(X<span class="op">=</span>happiness[[<span class="st">'GDP per capita'</span>]], y<span class="op">=</span>happiness[<span class="st">'Score'</span>])</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># print the model coefficients</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>model.coef_, model.intercept_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>(array([2.218148]), 3.399345178292417)</code></pre>
+</div>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
