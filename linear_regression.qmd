@@ -58,3 +58,18 @@ sns.lmplot(x='GDP per capita', y='Score', data=happiness)
 ```
 
 Above we used our `seaborn` knowledge to visualize the linear relationship. However, in order to actually fit the model shown in @eq-linear, we need to use the `LinearRegression` class from `scikit-learn`.
+
+```{python}
+#| code-fold: false
+
+from sklearn.linear_model import LinearRegression
+
+# create a linear regression model object
+model = LinearRegression()
+
+# fit the model to the data
+model.fit(X=happiness[['GDP per capita']], y=happiness['Score'])
+
+# print the model coefficients
+model.coef_, model.intercept_
+```
