@@ -13,5 +13,7 @@ Sometimes wrestling with data can really bite. However, it doesn't need to be th
 So, who am I? My name is Tero and I work as a data science consultant. Previously, I have worked as a researcher in the pharmaceutical industry and academia. Over the years I have used several tools for analysing data. With the rise of data science and deep learning in particular, Python has become the most used programming language in the world. These days, you don't really need to look for reasons to learn Python. I started to write this book for myself, to have a reference to some core concepts in Python. If someone else finds it useful, that's great!
 
 ::: {.callout-note}
-Read this book at your own peril. There are many excellent books on Python programming. For example, Wes McKinney's Python for data analysis will give a more in-depth view on many Python concepts (@McKinneyBook). That being said, I do hope that this book will serve as a useful reference to some core concepts in Python.
+Please note that this book is currently work in progress. That being said, some chapters should already serve as decent references and/or introductions to certain topics. My hope and aim is that this book will serve as a useful reference to many core concepts in using Python for analyzing data.
+
+Should you find the current state of this book too unpolished, take comfort in the fact that many excellent books on Python programming have been written. For example, Wes McKinney's Python for data analysis will give an in-depth view on many Python concepts (@McKinneyBook).
 ::: 
