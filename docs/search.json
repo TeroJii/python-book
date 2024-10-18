@@ -158,8 +158,9 @@
     "href": "summary.html",
     "title": "10  Summary",
     "section": "",
-    "text": "In summary, this book is a work in progress.\n\n\nCode\nprint(\"Thanks for reading!\")\n\n\nThanks for reading!",
+    "text": "10.1 What’s next?",
     "crumbs": [
+      "Wrapping up",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Summary</span>"
     ]
   },
@@ -191,6 +192,7 @@
     "section": "",
     "text": "Here you can find a list of useful references that were used in the creation of this book.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani.\n2023. An Introduction to Statistical Learning with Applications in\nPython. Springer. https://www.statlearning.com/.\n\n\nKaggle Datasets. 2024. “World Happiness Report - Dataset.”\nhttps://www.kaggle.com/datasets/unsdsn/world-happiness?select=2019.csv.\n\n\nMcKinney, Wes. 2022. Python for Data Analysis. O’Reilly Media.\nhttps://wesmckinney.com/book/.\n\n\nPython Software Foundation. 2024. “The Python Tutorial.” https://docs.python.org/3/tutorial/.",
     "crumbs": [
+      "Wrapping up",
       "References"
     ]
   },
@@ -566,6 +568,28 @@
     "crumbs": [
       "Modelling",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Linear regression</span>"
+    ]
+  },
+  {
+    "objectID": "environment.html",
+    "href": "environment.html",
+    "title": "Appendix B — Setting up a Conda environment",
+    "section": "",
+    "text": "How to setup a Conda environment.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Setting up a Conda environment</span>"
+    ]
+  },
+  {
+    "objectID": "installation.html",
+    "href": "installation.html",
+    "title": "Appendix A — Installing Python",
+    "section": "",
+    "text": "How to install Python.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Installing Python</span>"
     ]
   }
 ]
