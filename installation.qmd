@@ -1,0 +1,7 @@
+---
+jupyter: python3
+---
+
+# Installing Python
+
+How to install Python.
