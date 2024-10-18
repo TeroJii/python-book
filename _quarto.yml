@@ -27,8 +27,13 @@ book:
     - part: "Modelling"
       chapters:
         - linear_regression.qmd
-    - summary.qmd
-    - references.qmd
+    - part: "Wrapping up"
+      chapters:
+        - summary.qmd
+        - references.qmd
+  appendices:
+    - installation.qmd
+    - environment.qmd
 
 bibliography: references.bib
 
