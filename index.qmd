@@ -17,3 +17,14 @@ Please note that this book is currently work in progress. That being said, some 
 
 Should you find the current state of this book too unpolished, take comfort in the fact that many excellent books on Python programming have been written. For example, Wes McKinney's Python for data analysis will give an in-depth view on many Python concepts (@McKinneyBook).
 ::: 
+
+::: {.content-visible when-format="html"}
+
+::: {.callout-tip}
+## About the Online Version
+
+You are currently reading the free online version of this book. You can find the source code for this book on GitHub. If you find this book useful, please consider supporting the author by purchasing a copy on **TO BE ANNOUNCED**. Thank you!
+
+:::
+
+:::
