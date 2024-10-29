@@ -139,10 +139,26 @@ Now we are ready to fit the model using the training data.
 
 model2 = LinearRegression()
 
+# fit the model to the training data
 model2.fit(X_train, y_train)
+
+# save the model coefficients to a dataframe
+coefficients = pd.DataFrame({
+    'feature': X.columns,
+    'coefficient': model2.coef_
+})
 ```
 
 Here we only used the training data to fit the model. This means that the model has never seen the test data before, and we can use it for getting an unbiased estimate of the model's performance.
+@tbl-coefficients shows the coefficients for each feature in the fitted linear regression model.
+
+```{python}
+#| label: tbl-coefficients
+#| tbl-cap: The coefficients for each feature in the fitted linear regression model.
+#| echo: false
+
+coefficients
+```
 
 ### Evaluating the model
 
