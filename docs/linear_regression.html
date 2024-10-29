@@ -360,6 +360,10 @@ window.Quarto = {
   <li><a href="#fitting-the-model-with-scikit-learn" id="toc-fitting-the-model-with-scikit-learn" class="nav-link" data-scroll-target="#fitting-the-model-with-scikit-learn"><span class="header-section-number">9.1.1</span> Fitting the model with scikit-learn</a></li>
   <li><a href="#making-predictions" id="toc-making-predictions" class="nav-link" data-scroll-target="#making-predictions"><span class="header-section-number">9.1.2</span> Making predictions</a></li>
   </ul></li>
+  <li><a href="#re-fitting-the-model-the-proper-way" id="toc-re-fitting-the-model-the-proper-way" class="nav-link" data-scroll-target="#re-fitting-the-model-the-proper-way"><span class="header-section-number">9.2</span> Re-fitting the model the proper way</a>
+  <ul class="collapse">
+  <li><a href="#train-test-split" id="toc-train-test-split" class="nav-link" data-scroll-target="#train-test-split"><span class="header-section-number">9.2.1</span> Train-test split</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TeroJii/python-book/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -422,7 +426,7 @@ y = \beta_0 + \beta_1x \text{,}
 Table&nbsp;9.1: The first rows of the World Happiness Report 2019 dataset.
 </figcaption>
 <div aria-describedby="tbl-happiness-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="28">
 <div>
 <div>
 
@@ -532,7 +536,7 @@ Figure&nbsp;9.1: A scatter plot showing the relationship between the happiness s
 <section id="fitting-the-model-with-scikit-learn" class="level3" data-number="9.1.1">
 <h3 data-number="9.1.1" class="anchored" data-anchor-id="fitting-the-model-with-scikit-learn"><span class="header-section-number">9.1.1</span> Fitting the model with scikit-learn</h3>
 <p>Above we used our <code>seaborn</code> knowledge to visualize the linear relationship. However, this doesn’t actually give as a model with stored parameter values. In order to actually fit the model shown in <a href="#eq-linear" class="quarto-xref">Equation&nbsp;<span>9.1</span></a>, we can use <code>LinearRegression</code> from <code>scikit-learn</code>.</p>
-<div id="1145c75b" class="cell" data-execution_count="3">
+<div id="a496a1c0" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create a linear regression model object</span></span>
@@ -543,7 +547,7 @@ Figure&nbsp;9.1: A scatter plot showing the relationship between the happiness s
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># print the model coefficients</span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>model.coef_, model.intercept_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="30">
 <pre><code>(array([2.218148]), 3.399345178292417)</code></pre>
 </div>
 </div>
@@ -552,6 +556,23 @@ Figure&nbsp;9.1: A scatter plot showing the relationship between the happiness s
 </section>
 <section id="making-predictions" class="level3" data-number="9.1.2">
 <h3 data-number="9.1.2" class="anchored" data-anchor-id="making-predictions"><span class="header-section-number">9.1.2</span> Making predictions</h3>
+</section>
+</section>
+<section id="re-fitting-the-model-the-proper-way" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="re-fitting-the-model-the-proper-way"><span class="header-section-number">9.2</span> Re-fitting the model the proper way</h2>
+<p>In the previous example, we used only one feature to predict the happiness score. However, oftentimes we want to use multiple features to make the prediction. This is called multiple linear regression. The equation for multiple linear regression is:</p>
+<p><span id="eq-multiple"><span class="math display">\[
+y = \beta_0 + \sum_{i=1}^{n} \beta_i x_i \text{,}
+\tag{9.2}\]</span></span></p>
+<p>where <span class="math inline">\(y\)</span> is the dependent variable, <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> are the independent variables, <span class="math inline">\(\beta_0\)</span> is the intercept, and <span class="math inline">\(\beta_1, \beta_2, \ldots, \beta_n\)</span> are the coefficients for each independent variable.</p>
+<p><code>scikit-learn</code> comes with a built in function for splitting the data into training and test sets. This is important because we want to evaluate the model on data that it hasn’t seen before. This helps prevent overfitting, and see how well the model performs on new data. Let’s start by splitting the data into training and test sets.</p>
+<div id="ab862fc8" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="train-test-split" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="train-test-split"><span class="header-section-number">9.2.1</span> Train-test split</h3>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
