@@ -85,3 +85,31 @@ The slope is around 2.2, which means that for every unit increase in `GDP per ca
 
 ### Making predictions
 
+
+## Re-fitting the model the proper way
+
+In the previous example, we used only one feature to predict the happiness score. 
+However, oftentimes we want to use multiple features to make the prediction. 
+This is called multiple linear regression. The equation for multiple linear regression is:
+
+$$
+y = \beta_0 + \sum_{i=1}^{n} \beta_i x_i \text{,}
+$$ {#eq-multiple}
+
+where $y$ is the dependent variable, $x_1, x_2, \ldots, x_n$ are the independent variables, $\beta_0$ is the intercept, and $\beta_1, \beta_2, \ldots, \beta_n$ are the coefficients for each independent variable.
+
+
+`scikit-learn` comes with a built in function for splitting the data into training and test sets. 
+This is important because we want to evaluate the model on data that it hasn't seen before. This helps prevent overfitting, and see how well the model performs on new data.
+Let's start by splitting the data into training and test sets.
+
+```{python}	
+#| code-fold: false
+
+from sklearn.model_selection import train_test_split
+
+#X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
+```
+
+### Train-test split
+
