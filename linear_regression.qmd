@@ -87,7 +87,7 @@ The slope is around 2.2, which means that for every unit increase in `GDP per ca
 
 Now that we have a fit for our model to the data, we can use it to make predictions.
 In this case the model is very simple, so we could easily calculate the predictions by hand as well.
-Let's predict the happiness score for the first five countries in the dataset. The results are displayed in @tbl-predictions.
+Let's predict the happiness score for the countries in the dataset. The results for the first five entries are displayed in @tbl-predictions.
 
 ```{python}
 #| label: tbl-predictions
@@ -95,19 +95,30 @@ Let's predict the happiness score for the first five countries in the dataset. T
 #| code-fold: false
 
 # make a prediction for a GDP per capita of 1.5
-X_new = happiness[['GDP per capita']].head()
+X_new = happiness[['GDP per capita']]
 preds = model.predict(X_new)
 
 ## create a dataframe with the predictions, GDP per capita and the actual score
 preds_df = pd.DataFrame({
     'GDP per capita': X_new['GDP per capita'],
     'Predicted score': preds,
-    'Actual score': happiness['Score'].head()
+    'Actual score': happiness['Score']
 })
 
-preds_df
+preds_df.head()
 ```
 
+The GDP per capita value for the first entry is 1.34. Let's calculate the predicted score "by hand" using the model coefficients:
+
+```{python}
+#| code-fold: false
+
+# calculate the predicted score for the first entry
+predicted_score = model.intercept_ + model.coef_[0] * 1.34
+predicted_score
+```
+
+Lo and behold, we get the same result as by using the `predict` method (as we should).
 
 ## Re-fitting the model the proper way
 
