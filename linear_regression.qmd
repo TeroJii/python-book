@@ -160,6 +160,32 @@ preds_df['Abs. diff'] = abs(preds_df['Actual score'] - preds_df['Predicted score
 preds_df.head()
 ```
 
+We can now calculate the MSE, RMSE, and MAE for the model.
+
+```{python}
+#| code-fold: false
+
+MSE = preds_df['Sqr. diff'].mean()
+RMSE = MSE**0.5
+MAE = preds_df['Abs. diff'].mean()
+
+MSE, RMSE, MAE
+```
+
+Scikit-learn also provides a convenient way to calculate these metrics using the `mean_squared_error`, `mean_absolute_error` functions from the `sklearn.metrics` module. Let's see if we get the same results.
+
+```{python}
+#| code-fold: false
+
+from sklearn.metrics import mean_squared_error, mean_absolute_error
+
+MSE = mean_squared_error(happiness['Score'], preds)
+RMSE = mean_squared_error(happiness['Score'], preds, squared=False)
+MAE = mean_absolute_error(happiness['Score'], preds)
+
+MSE, RMSE, MAE
+```
+
 ## Re-fitting the model the proper way
 
 In the previous example, we used only one feature to predict the happiness score. 
