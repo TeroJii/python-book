@@ -120,6 +120,28 @@ predicted_score
 
 Lo and behold, we get the same result as by using the `predict` method (as we should).
 
+### Evaluating model performance
+
+Now that we have our predictions, we are ready to evaluate how successful we were with the fitting process. There are different ways to evaluate the performance of a regression model, but we are going to look at three commonly used metrics. Namely:
+
+- Mean Squared Error (MSE)
+- Root Mean Squared Error (RMSE)
+- Mean Absolute Error (MAE).
+
+MSE in defined as follows:
+
+$$
+\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 \text{,}
+$$
+
+where $y_i$ is the actual value for the $i$th observation, $\hat{y}_i$ is the corresponding predicted value, and $n$ is the number of observations. So basically we are just looking at the average of the squared differences between the actual and predicted values. RMSE is simply the square root of the MSE: 
+
+$$
+\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2} \text{.}
+$$
+
+
+
 ## Re-fitting the model the proper way
 
 In the previous example, we used only one feature to predict the happiness score. 
