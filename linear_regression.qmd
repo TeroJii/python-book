@@ -172,7 +172,7 @@ MAE = preds_df['Abs. diff'].mean()
 MSE, RMSE, MAE
 ```
 
-Scikit-learn also provides a convenient way to calculate these metrics using the `mean_squared_error`, `mean_absolute_error` functions from the `sklearn.metrics` module. Let's see if we get the same results.
+Scikit-learn also provides a convenient way to calculate these metrics using the `mean_squared_error` and `mean_absolute_error` functions from the `sklearn.metrics` module. Let's see if we get the same results using these functions.
 
 ```{python}
 #| code-fold: false
@@ -185,6 +185,16 @@ MAE = mean_absolute_error(happiness['Score'], preds)
 
 MSE, RMSE, MAE
 ```
+
+Phew, what a relief! The results are the same as with our manual calculation. These convenient functions are actually the one's we'll be using from now on.
+
+We have now successfully fitted a simple linear regression model to the data, made predictions, and evaluated the model's performance. Unfortunately, as it turns out, we have taken some shortcuts in the process which we need to address.
+
+::: {.callout-warning}
+
+You should never use all you data to fit a model. The reason is that the model will be biased towards the data it has seen, and has a higher probability of not generalizing well to new data. There is a large risk of something called overfitting, which we will learn more about in the next section.
+
+:::
 
 ## Re-fitting the model the proper way
 
