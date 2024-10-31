@@ -140,7 +140,11 @@ $$
 \text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2} \text{.}
 $$
 
+MAE is possibly the most intuitive of the three, as it is simply the average of the absolute differences between the actual and predicted values:
 
+$$
+\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i| \text{.}
+$$
 
 ## Re-fitting the model the proper way
 
