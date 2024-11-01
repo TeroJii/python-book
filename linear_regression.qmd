@@ -147,6 +147,7 @@ $$
 $$
 
 We can now calculate these metrics for our model. Let's add squared and absolute differences to the predictions dataframe and calculate the metrics.
+@tbl-errors shows the head of the updated dataframe.
 
 ```{python}
 #| code-fold: false
