@@ -94,7 +94,7 @@ Let's predict the happiness score for the countries in the dataset. The results 
 #| tbl-cap: The actual happiness score and the predicted score based on the GDP per capita.
 #| code-fold: false
 
-# make a prediction for a GDP per capita of 1.5
+# make a prediction for all the countries in the dataset
 X_new = happiness[['GDP per capita']]
 preds = model.predict(X_new)
 
@@ -210,14 +210,15 @@ $$ {#eq-multiple}
 where $y$ is the dependent variable, $x_1, x_2, \ldots, x_n$ are the independent variables, $\beta_0$ is the intercept, and $\beta_1, \beta_2, \ldots, \beta_n$ are the coefficients for each independent variable.
 
 Now, there is actually nothing wrong with using only a single feature to predict the happiness score.
-However, we did take some shortcuts regarding other aspects of the model fitting process. 
-One of the most important aspects is splitting the data into training and test sets, which we'll learn about next.
+However, as we discussed above, you shouldn't use all your data to fit the model. 
+Instead, you should split the data into training and test sets, and fit the model using only the training data.
+We'll learn more about this next.
 
-### Train-test split
+### The train-test split
 
 Splitting the data into training and test sets is a crucial step in the machine learning workflow.
 It is such a standard procedure that `scikit-learn` comes with a built in function to help us get the job done. 
-This is important because we want to evaluate the model on data that it hasn't seen before. This helps prevent overfitting, and see how well the model performs on new data.
+This is important because we want to evaluate the model on data that it hasn't seen before. This helps prevent overfitting, and let's us see how well the model performs on new data.
 However, before we are ready to split the data into training and test sets, we first need to decide which features to use in our model.
 This usually means dividing the data into features (`X`) and the target variable (`y`).
 We'll use all the numeric columns except the `Score` column as features, and the `Score` column as the target variable.
