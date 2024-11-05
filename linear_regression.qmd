@@ -232,7 +232,7 @@ X = happiness[['GDP per capita', 'Social support', 'Healthy life expectancy',
 y = happiness['Score']
 ```
 
-Splitting the data...
+Now that our data is setup correctly, we can split it into training and test sets. To do this, we use the `train_test_split` function from `scikit-learn`.
 
 ```{python}	
 #| code-fold: false
@@ -243,6 +243,10 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.20, random_state=123
     )
 ```
+
+Above we passed the `X` and `y` dataframes to the `train_test_split` function. The `test_size` parameter specifies the proportion of the data that should be used for the test set. 
+In this case, we used 20% of the data for the test set. The `random_state` parameter is used to ensure that the split is reproducible. 
+By setting the random state to a fixed value, we get the same "random" split every time we run the code.
 
 Now we are ready to fit the model using the training data.
 
