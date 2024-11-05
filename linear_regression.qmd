@@ -248,7 +248,17 @@ Above we passed the `X` and `y` dataframes to the `train_test_split` function. T
 In this case, we used 20% of the data for the test set. The `random_state` parameter is used to ensure that the split is reproducible. 
 By setting the random state to a fixed value, we get the same "random" split every time we run the code.
 
-Now we are ready to fit the model using the training data.
+Before fitting the model, let's take a look at the shape of the training and test sets.
+
+```{python}
+#| code-fold: false
+
+X_train.shape, X_test.shape, y_train.shape, y_test.shape
+```
+
+We can see that the training set contains 124 observations and the test set contains 32 observations. So roughly 80% of the data is used for training and 20% for testing, just as we requested.
+
+We are now ready to fit the model using the training data.
 
 ```{python}
 #| code-fold: false
@@ -258,10 +268,11 @@ model2 = LinearRegression()
 # fit the model to the training data
 model2.fit(X_train, y_train)
 
-# save the model coefficients to a dataframe
+# save the model coefficients and intercept to a dataframe
 coefficients = pd.DataFrame({
-    'feature': X.columns,
-    'coefficient': model2.coef_
+    'feature': ['Intercept'] + X.columns.tolist(),
+    # intercept and coefficients
+    'value': [model2.intercept_] + model2.coef_.tolist()
 })
 ```
 
@@ -270,7 +281,7 @@ Here we only used the training data to fit the model. This means that the model 
 
 ```{python}
 #| label: tbl-coefficients
-#| tbl-cap: The coefficients for each feature in the fitted linear regression model.
+#| tbl-cap: The intercept and coefficient values for each feature in the fitted linear regression model.
 #| echo: false
 
 coefficients
