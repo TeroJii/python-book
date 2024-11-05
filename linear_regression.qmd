@@ -308,3 +308,9 @@ MSE, RMSE, MAE
 These metrics give us an idea of how well the model is performing. The lower the values, the better the model.
 Generally, there is a distinction between the training and test error. The numbers above show the test error, which is the most important one as it gives us an indication of how well the model performs on unseen data.
 The linear regression is a rigid method, which means that the risk of overfitting is not as high as with more complex and flexible models. However, it is important to learn to use the train-test split every time you fit a model, regardless of the model complexity.
+
+::: {.callout-note title="Bias variance trade-off"}
+
+Something here...
+
+:::
