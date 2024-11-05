@@ -289,20 +289,22 @@ coefficients
 
 ### Evaluating the model
 
-Now that we have fitted the model, we can evaluate its performance on the test data. 
-One common metric for regression models is the mean squared error (MSE). 
-The MSE is calculated by taking the average of the squared differences between the predicted and actual values. 
-A lower MSE indicates a better model.
+Let's now evaluate our second model using the test data and the metrics we discussed earlier. In order to do this, we need to first make predictions with our test data.
 
 ```{python}
 #| code-fold: false
 
-from sklearn.metrics import mean_squared_error
-
 # make predictions on the test data
 y_pred = model2.predict(X_test)
 
-# calculate the mean squared error
-mse = mean_squared_error(y_test, y_pred)
-mse
+# calculate the MSE, RMSE, and MAE
+MSE = mean_squared_error(y_test, y_pred)
+RMSE = mean_squared_error(y_test, y_pred, squared=False)
+MAE = mean_absolute_error(y_test, y_pred)
+
+MSE, RMSE, MAE
 ```
+
+These metrics give us an idea of how well the model is performing. The lower the values, the better the model.
+Generally, there is a distinction between the training and test error. The numbers above show the test error, which is the most important one as it gives us an indication of how well the model performs on unseen data.
+The linear regression is a rigid method, which means that the risk of overfitting is not as high as with more complex and flexible models. However, it is important to learn to use the train-test split every time you fit a model, regardless of the model complexity.
