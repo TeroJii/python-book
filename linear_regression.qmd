@@ -323,3 +323,26 @@ For this we need to have an idea of the statistical significance of the coeffici
 ## Re-fitting our model with statsmodels
 
 `scikit-learn` is a great library for building machine learning models, but in case of linear regression it doesn't provide a way to readily evaluate the statistical significance of the coefficients.
+For this we can use a Python module called `statsmodels`. You should already be familiar how to install new libraries by now, so let's see how we can use `statsmodels` to fit a linear regression model.
+
+```{python}
+#| code-fold: false
+
+import statsmodels.api as sm
+
+# add a constant to the features
+X_train = sm.add_constant(X_train)
+
+# create a linear regression model
+model3 = sm.OLS(y_train, X_train)
+results = model3.fit()
+
+# print the summary of the model
+print(results.summary())
+```
+
+We used the same `X_train` data as before, but this time we added a constant to the features (this is something that `statsmodels` needs for fitting the intercept). 
+We then created an `OLS` (Ordinary Least Squares) model object and fit it to the training data. Finally, we printed the summary of the model.
+
+As a printout we get a lot of stuff. Most importantly, however, we can see that the coefficient values are the same as with `scikit-learn`.
+Moreover, we now have 95% confidence intervals for the coefficients, as well as p-values for testing the null hypothesis that the coefficient is equal to zero.
