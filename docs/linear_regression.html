@@ -429,7 +429,7 @@ y = \beta_0 + \beta_1x \text{,}
 Table&nbsp;9.1: The first rows of the World Happiness Report 2019 dataset.
 </figcaption>
 <div aria-describedby="tbl-happiness-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="31">
 <div>
 <div>
 
@@ -539,7 +539,7 @@ Figure&nbsp;9.1: A scatter plot showing the relationship between the happiness s
 <section id="fitting-the-model-with-scikit-learn" class="level3" data-number="9.1.1">
 <h3 data-number="9.1.1" class="anchored" data-anchor-id="fitting-the-model-with-scikit-learn"><span class="header-section-number">9.1.1</span> Fitting the model with scikit-learn</h3>
 <p>Above we used our <code>seaborn</code> knowledge to visualize the linear relationship. However, this doesn’t actually give as a model with stored parameter values. In order to actually fit the model shown in <a href="#eq-linear" class="quarto-xref">Equation&nbsp;<span>9.1</span></a>, we can use <code>LinearRegression</code> from <code>scikit-learn</code>.</p>
-<div id="e1546de3" class="cell" data-execution_count="3">
+<div id="535a8553" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create a linear regression model object</span></span>
@@ -550,7 +550,7 @@ Figure&nbsp;9.1: A scatter plot showing the relationship between the happiness s
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># print the model coefficients</span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>model.coef_, model.intercept_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>(array([2.218148]), 3.399345178292417)</code></pre>
 </div>
 </div>
@@ -579,7 +579,7 @@ Figure&nbsp;9.1: A scatter plot showing the relationship between the happiness s
 Table&nbsp;9.2: The actual happiness score and the predicted score based on the GDP per capita.
 </figcaption>
 <div aria-describedby="tbl-predictions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="18">
+<div class="cell-output cell-output-display" data-execution_count="34">
 <div>
 <div>
 
@@ -635,11 +635,11 @@ Table&nbsp;9.2: The actual happiness score and the predicted score based on the 
 </div>
 </div>
 <p>The GDP per capita value for the first entry is 1.34. Let’s calculate the predicted score “by hand” using the model coefficients:</p>
-<div id="ba52d9c7" class="cell" data-execution_count="5">
+<div id="c9c2572d" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the predicted score for the first entry</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>predicted_score <span class="op">=</span> model.intercept_ <span class="op">+</span> model.coef_[<span class="dv">0</span>] <span class="op">*</span> <span class="fl">1.34</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>predicted_score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>6.371663499643615</code></pre>
 </div>
 </div>
@@ -678,7 +678,7 @@ Table&nbsp;9.2: The actual happiness score and the predicted score based on the 
 Table&nbsp;9.3: The squared and absolute differences between the actual and predicted scores for the first five entries.
 </figcaption>
 <div aria-describedby="tbl-errors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="20">
+<div class="cell-output cell-output-display" data-execution_count="36">
 <div>
 <div>
 
@@ -746,18 +746,18 @@ Table&nbsp;9.3: The squared and absolute differences between the actual and pred
 </div>
 </div>
 <p>We can now calculate the MSE, RMSE, and MAE for the model.</p>
-<div id="f3946482" class="cell" data-execution_count="7">
+<div id="9fa02a28" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>MSE <span class="op">=</span> preds_df[<span class="st">'Sqr. diff'</span>].mean()</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>RMSE <span class="op">=</span> MSE<span class="op">**</span><span class="fl">0.5</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>MAE <span class="op">=</span> preds_df[<span class="st">'Abs. diff'</span>].mean()</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>MSE, RMSE, MAE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>(0.4551967397324354, 0.6746826955928508, 0.5490499282630026)</code></pre>
 </div>
 </div>
 <p>Scikit-learn also provides a convenient way to calculate these metrics using the <code>mean_squared_error</code> and <code>mean_absolute_error</code> functions from the <code>sklearn.metrics</code> module. Let’s see if we get the same results using these functions.</p>
-<div id="3e377471" class="cell" data-execution_count="8">
+<div id="c4a906bb" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error, mean_absolute_error</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>MSE <span class="op">=</span> mean_squared_error(happiness[<span class="st">'Score'</span>], preds)</span>
@@ -765,7 +765,7 @@ Table&nbsp;9.3: The squared and absolute differences between the actual and pred
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>MAE <span class="op">=</span> mean_absolute_error(happiness[<span class="st">'Score'</span>], preds)</span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>MSE, RMSE, MAE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
+<div class="cell-output cell-output-display" data-execution_count="38">
 <pre><code>(0.4551967397324354, 0.6746826955928508, 0.5490499282630026)</code></pre>
 </div>
 </div>
@@ -797,14 +797,14 @@ y = \beta_0 + \sum_{i=1}^{n} \beta_i x_i \text{,}
 <section id="the-train-test-split" class="level3" data-number="9.2.1">
 <h3 data-number="9.2.1" class="anchored" data-anchor-id="the-train-test-split"><span class="header-section-number">9.2.1</span> The train-test split</h3>
 <p>Splitting the data into training and test sets is a crucial step in the machine learning workflow. It is such a standard procedure that <code>scikit-learn</code> comes with a built in function to help us get the job done. This is important because we want to evaluate the model on data that it hasn’t seen before. This helps prevent overfitting, and let’s us see how well the model performs on new data. However, before we are ready to split the data into training and test sets, we first need to decide which features to use in our model. This usually means dividing the data into features (<code>X</code>) and the target variable (<code>y</code>). We’ll use all the numeric columns except the <code>Score</code> column as features, and the <code>Score</code> column as the target variable.</p>
-<div id="5b5ff756" class="cell" data-execution_count="9">
+<div id="d57c18e2" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> happiness[[<span class="st">'GDP per capita'</span>, <span class="st">'Social support'</span>, <span class="st">'Healthy life expectancy'</span>, </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="st">'Freedom to make life choices'</span>, <span class="st">'Generosity'</span>, </span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="st">'Perceptions of corruption'</span>]]</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> happiness[<span class="st">'Score'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now that our data is setup correctly, we can split it into training and test sets. To do this, we use the <code>train_test_split</code> function from <code>scikit-learn</code>.</p>
-<div id="4dfbdaa9" class="cell" data-execution_count="10">
+<div id="db54ff12" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
@@ -813,15 +813,15 @@ y = \beta_0 + \sum_{i=1}^{n} \beta_i x_i \text{,}
 </div>
 <p>Above we passed the <code>X</code> and <code>y</code> dataframes to the <code>train_test_split</code> function. The <code>test_size</code> parameter specifies the proportion of the data that should be used for the test set. In this case, we used 20% of the data for the test set. The <code>random_state</code> parameter is used to ensure that the split is reproducible. By setting the random state to a fixed value, we get the same “random” split every time we run the code.</p>
 <p>Before fitting the model, let’s take a look at the shape of the training and test sets.</p>
-<div id="c660b9dc" class="cell" data-execution_count="11">
+<div id="7364af85" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>X_train.shape, X_test.shape, y_train.shape, y_test.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div class="cell-output cell-output-display" data-execution_count="41">
 <pre><code>((124, 6), (32, 6), (124,), (32,))</code></pre>
 </div>
 </div>
 <p>We can see that the training set contains 124 observations and the test set contains 32 observations. So roughly 80% of the data is used for training and 20% for testing, just as we requested.</p>
 <p>We are now ready to fit the model using the training data.</p>
-<div id="044306b0" class="cell" data-execution_count="12">
+<div id="7c66003f" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>model2 <span class="op">=</span> LinearRegression()</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># fit the model to the training data</span></span>
@@ -842,7 +842,7 @@ y = \beta_0 + \sum_{i=1}^{n} \beta_i x_i \text{,}
 Table&nbsp;9.4: The intercept and coefficient values for each feature in the fitted linear regression model.
 </figcaption>
 <div aria-describedby="tbl-coefficients-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="27">
+<div class="cell-output cell-output-display" data-execution_count="43">
 <div>
 <div>
 
@@ -905,7 +905,7 @@ Table&nbsp;9.4: The intercept and coefficient values for each feature in the fit
 <section id="evaluating-the-model" class="level3" data-number="9.2.2">
 <h3 data-number="9.2.2" class="anchored" data-anchor-id="evaluating-the-model"><span class="header-section-number">9.2.2</span> Evaluating the model</h3>
 <p>Let’s now evaluate our second model using the test data and the metrics we discussed earlier. In order to do this, we need to first make predictions with our test data.</p>
-<div id="7d94075b" class="cell" data-execution_count="14">
+<div id="bbeda011" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make predictions on the test data</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model2.predict(X_test)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -915,7 +915,7 @@ Table&nbsp;9.4: The intercept and coefficient values for each feature in the fit
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>MAE <span class="op">=</span> mean_absolute_error(y_test, y_pred)</span>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>MSE, RMSE, MAE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="28">
+<div class="cell-output cell-output-display" data-execution_count="44">
 <pre><code>(0.3104436244813814, 0.5571746804022787, 0.43781582428696403)</code></pre>
 </div>
 </div>
@@ -938,7 +938,54 @@ Bias variance trade-off
 </section>
 <section id="re-fitting-our-model-with-statsmodels" class="level2" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="re-fitting-our-model-with-statsmodels"><span class="header-section-number">9.3</span> Re-fitting our model with statsmodels</h2>
-<p><code>scikit-learn</code> is a great library for building machine learning models, but in case of linear regression it doesn’t provide a way to readily evaluate the statistical significance of the coefficients.</p>
+<p><code>scikit-learn</code> is a great library for building machine learning models, but in case of linear regression it doesn’t provide a way to readily evaluate the statistical significance of the coefficients. For this we can use a Python module called <code>statsmodels</code>. You should already be familiar how to install new libraries by now, so let’s see how we can use <code>statsmodels</code> to fit a linear regression model.</p>
+<div id="6e35a3ee" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># add a constant to the features</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> sm.add_constant(X_train)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># create a linear regression model</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>model3 <span class="op">=</span> sm.OLS(y_train, X_train)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> model3.fit()</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co"># print the summary of the model</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  Score   R-squared:                       0.784
+Model:                            OLS   Adj. R-squared:                  0.773
+Method:                 Least Squares   F-statistic:                     70.73
+Date:                Sat, 09 Nov 2024   Prob (F-statistic):           1.33e-36
+Time:                        21:23:51   Log-Likelihood:                -94.331
+No. Observations:                 124   AIC:                             202.7
+Df Residuals:                     117   BIC:                             222.4
+Df Model:                           6                                         
+Covariance Type:            nonrobust                                         
+================================================================================================
+                                   coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------------------------
+const                            1.6687      0.238      7.000      0.000       1.197       2.141
+GDP per capita                   0.8645      0.253      3.412      0.001       0.363       1.366
+Social support                   1.0381      0.267      3.882      0.000       0.509       1.568
+Healthy life expectancy          1.1139      0.368      3.028      0.003       0.385       1.842
+Freedom to make life choices     1.6516      0.419      3.938      0.000       0.821       2.482
+Generosity                       0.9826      0.569      1.725      0.087      -0.145       2.110
+Perceptions of corruption        0.8535      0.594      1.438      0.153      -0.322       2.029
+==============================================================================
+Omnibus:                        8.281   Durbin-Watson:                   1.968
+Prob(Omnibus):                  0.016   Jarque-Bera (JB):                8.287
+Skew:                          -0.513   Prob(JB):                       0.0159
+Kurtosis:                       3.742   Cond. No.                         28.0
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</code></pre>
+</div>
+</div>
+<p>We used the same <code>X_train</code> data as before, but this time we added a constant to the features (this is something that <code>statsmodels</code> needs for fitting the intercept). We then created an <code>OLS</code> (Ordinary Least Squares) model object and fit it to the training data. Finally, we printed the summary of the model.</p>
+<p>As a printout we get a lot of stuff. Most importantly, however, we can see that the coefficient values are the same as with <code>scikit-learn</code>. Moreover, we now have 95% confidence intervals for the coefficients, as well as p-values for testing the null hypothesis that the coefficient is equal to zero.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
