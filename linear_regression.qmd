@@ -307,16 +307,22 @@ MSE, RMSE, MAE
 
 These metrics give us an idea of how well the model is performing. The lower the values, the better the model.
 Generally, there is a distinction between the training and test error. The numbers above show the test error, which is the most important one as it gives us an indication of how well the model performs on unseen data.
-The linear regression is a rigid method, which means that the risk of overfitting is not as high as with more complex and flexible models. However, it is important to learn to use the train-test split every time you fit a model, regardless of the model complexity.
+The linear regression is a fairly rigid method in terms of how well it can accommodate to the training data, which means that the risk of overfitting is not as high as with more complex and flexible models. 
+However, it is important to learn to use the train-test split every time you fit a model, regardless of the model complexity.
 
-::: {.callout-note title="Bias variance trade-off"}
+::: {.callout-note title="Bias-variance trade-off"}
 
-Something here...
+When discussing model performance, it is important to understand the concept of the bias-variance trade-off.
+Bias refers to the error that is introduced by approximating a possibly complex real-world problem, with a simple model such as linear regression.
+Variance, on the other hand, refers to the error that is introduced by using a model that can accommodate the random noise in the data.
+If we are using a very flexible model, such as a deep neural network, our model coefficients might change a lot depending on the training data. 
+Ideally we would not want this to happen, as it might mean that our model is not generalizing well to new data.
+The idea of the test-train split is to help us avoid overfitting our model to the training data. For a more in-depth discussion on the bias-variance trade-off, I recommend the book by James et al. (@ISLP).
 
 :::
 
 Now we have the metrics, and we have the estimates for our model coefficients. 
-What if we want to know how confident we are in these estimates? 
+What if we want to know how confident we can be with these estimates? 
 What if we want to know which features are the most important for predicting the happiness score? 
 For this we need to have an idea of the statistical significance of the coefficients.
 
