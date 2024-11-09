@@ -314,3 +314,12 @@ The linear regression is a rigid method, which means that the risk of overfittin
 Something here...
 
 :::
+
+Now we have the metrics, and we have the estimates for our model coefficients. 
+What if we want to know how confident we are in these estimates? 
+What if we want to know which features are the most important for predicting the happiness score? 
+For this we need to have an idea of the statistical significance of the coefficients.
+
+## Re-fitting our model with statsmodels
+
+`scikit-learn` is a great library for building machine learning models, but in case of linear regression it doesn't provide a way to readily evaluate the statistical significance of the coefficients.
