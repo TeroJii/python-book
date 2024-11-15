@@ -156,12 +156,12 @@
   {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "10  Summary",
+    "title": "11  Summary",
     "section": "",
-    "text": "10.1 What’s next?",
+    "text": "11.1 What’s next?",
     "crumbs": [
       "Wrapping up",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Summary</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Summary</span>"
     ]
   },
   {
@@ -612,6 +612,17 @@
     "crumbs": [
       "Modelling",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Linear regression</span>"
+    ]
+  },
+  {
+    "objectID": "logistic_regression.html",
+    "href": "logistic_regression.html",
+    "title": "10  Logistic regression",
+    "section": "",
+    "text": "In the previous chapter we learned about linear regression. The word regression is used in the context of statistical modelling to refer to the act of estimating the relationship between a dependent variable and one or more independent variables. However, sometimes the dependent variable might not be continuous, but categorical. In such cases, instead of a regression problem, we are dealing with classification. In the simplest case, there are only two distinct classes. This is called binary classification. One of the simplests algorithms for solving these types of problems is called logistic regression, which despite its name, is used for classification.",
+    "crumbs": [
+      "Modelling",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Logistic regression</span>"
     ]
   }
 ]
