@@ -1,0 +1,7 @@
+---
+jupyter: python3
+---
+
+# Logistic regression
+
+In the previous chapter we learned about linear regression. The word regression is used in the context of statistical modelling to refer to the act of estimating the relationship between a dependent variable and one or more independent variables. However, sometimes the dependent variable might not be continuous, but categorical. In such cases, instead of a regression problem, we are dealing with classification. In the simplest case, there are only two distinct classes. This is called binary classification. One of the simplests algorithms for solving these types of problems is called logistic regression, which despite its name, is used for classification.
