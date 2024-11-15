@@ -27,6 +27,7 @@ book:
     - part: "Modelling"
       chapters:
         - linear_regression.qmd
+        - logistic_regression.qmd
     - part: "Wrapping up"
       chapters:
         - summary.qmd
