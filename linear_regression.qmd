@@ -352,3 +352,13 @@ We then created an `OLS` (Ordinary Least Squares) model object and fit it to the
 
 As a printout we get a lot of stuff. Most importantly, however, we can see that the coefficient values are the same as with `scikit-learn`.
 Moreover, we now have 95% confidence intervals for the coefficients, as well as p-values for testing the null hypothesis that the coefficient is equal to zero.
+
+## Conclusion
+
+In this chapter we learned about linear regression, which is a simple yet powerful method for regression analysis. In the next chapter we will get our feet wet with classification, which is also a type of supervised learning problem where the goal is to predict the class of an observation based on the values of the independent variables. We will be using logistic regression, which is a classification algorithm that is closely related to linear regression.
+
+::: {.callout-note title="Supervised learning"}
+
+Supervised learning is a concept in machine learning where our data contains the correct answers. This means that we have a dataset where we know the values of the dependent variable for each observation. The goal of supervised learning is to connect these correct answers to the predictors, so that we can make predictions on new data. Regression and classification are two types of supervised learning problems. There is also unsupervised learning, which we will learn more about later.
+
+:::
