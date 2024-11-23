@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -304,7 +338,10 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#univariate-logistic-regression" id="toc-univariate-logistic-regression" class="nav-link active" data-scroll-target="#univariate-logistic-regression"><span class="header-section-number">10.1</span> Univariate logistic regression</a></li>
+  <li><a href="#univariate-logistic-regression" id="toc-univariate-logistic-regression" class="nav-link active" data-scroll-target="#univariate-logistic-regression"><span class="header-section-number">10.1</span> Univariate logistic regression</a>
+  <ul class="collapse">
+  <li><a href="#evaluating-the-model" id="toc-evaluating-the-model" class="nav-link" data-scroll-target="#evaluating-the-model"><span class="header-section-number">10.1.1</span> Evaluating the model</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TeroJii/python-book/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -330,7 +367,7 @@ window.Quarto = {
 </header>
 
 
-<p>In the previous chapter we learned about linear regression. The word regression is used in the context of statistical modelling to refer to the act of estimating the relationship between a dependent variable and one or more independent variables. However, sometimes the dependent variable might not be continuous, but categorical. In such cases, instead of a regression problem, we are dealing with classification. In the simplest case, there are only two distinct classes. This is called binary classification. One of the simplests algorithms for solving these types of problems is called logistic regression, which despite its name, is used for classification.</p>
+<p>In the previous chapter we learned about linear regression. The word regression is used in the context of statistical modelling to refer to the act of estimating the relationship between a dependent variable and one or more independent variables. However, sometimes what we are trying to predict might not be a continuous numerical variable, but categorical. In such cases, instead of a regression problem, we are dealing with classification. In the simplest case, there are only two distinct classes. This is called binary classification. One of the simplests algorithms for solving these types of problems is called logistic regression, which despite its name, is used for classification.</p>
 <section id="univariate-logistic-regression" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="univariate-logistic-regression"><span class="header-section-number">10.1</span> Univariate logistic regression</h2>
 <p>In univariate logistic regression, we have a single independent variable and a binary dependent variable. The goal is to estimate the probability that the dependent variable is 1, based on the value of the independent variable. This implies that the values of the categorical dependent variable are assigned so-called dummy values, and are therefore coded as 0 and 1. For example, if we are trying to predict whether a student will pass or fail an exam based on the number of hours they studied, we can code the dependent variable as 1 if the student passed and 0 if they failed.</p>
@@ -338,9 +375,48 @@ window.Quarto = {
 <p><span id="eq-logistic"><span class="math display">\[
 y = \frac{1}{1 + e^{-(\beta_0 + \beta_1 x)}},
 \tag{10.1}\]</span></span></p>
-<p>where <span class="math inline">\(y\)</span> is again the dependent variable, and <span class="math inline">\(x\)</span> is the independent variable, and <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are the parameters of the model.</p>
+<p>where <span class="math inline">\(y\)</span> is again the dependent variable, and <span class="math inline">\(x\)</span> is the independent variable, and <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are the parameters of the model. As you might have noticed, the exponential term contains the linear regression equation. This is not a coincidence. The logistic regression uses something called the sigmoid function, which basically transforms the output of the linear regression into a probability. The sigmoid function is defined as:</p>
+<p><span id="eq-sigmoid"><span class="math display">\[
+\sigma(z) = \frac{1}{1 + e^{-z}}.
+\tag{10.2}\]</span></span></p>
+<p>If we plot out the sigmoid function, we can see that it has a distinct shape, which somewhat resembles the letter S. <a href="#fig-sigmoid" class="quarto-xref">Figure&nbsp;<span>10.1</span></a> shows the sigmoid function with <span class="math inline">\(z\)</span> on the x-axis and <span class="math inline">\(\sigma(z)\)</span> on the y-axis.</p>
+<div id="cell-fig-sigmoid" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sigmoid(z):</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span> <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> np.exp(<span class="op">-</span>z))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>plt.plot(z, sigmoid(z))</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'z'</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'σ(z)'</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Sigmoid function'</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-sigmoid" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sigmoid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="logistic_regression_files/figure-html/fig-sigmoid-output-1.png" width="589" height="449" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sigmoid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.1: The shape of the sigmoid function has a distinct S-like shape.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="evaluating-the-model" class="level3" data-number="10.1.1">
+<h3 data-number="10.1.1" class="anchored" data-anchor-id="evaluating-the-model"><span class="header-section-number">10.1.1</span> Evaluating the model</h3>
+<p>Something about the confusion matrix.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
