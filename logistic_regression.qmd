@@ -44,6 +44,12 @@ plt.title('Sigmoid function')
 plt.show()
 ```
 
+The beauty of the Sigmoid function is that it coerces any input to the variable $z$ to lie between 0 and 1. This is exactly what we need for a probability. In other words, if the values we are trying to predict are binary, with values 0 and 1, the sigmoid function will essentially give us the probability that the value is 1.
+
+## Fitting a univariate logistic regression model
+
+Let's continue with this...
+
 ### Evaluating the model
 
 Something about the confusion matrix.
