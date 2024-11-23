@@ -306,7 +306,24 @@ MSE, RMSE, MAE
 ```
 
 These metrics give us an idea of how well the model is performing. The lower the values, the better the model.
-Generally, there is a distinction between the training and test error. The numbers above show the test error, which is the most important one as it gives us an indication of how well the model performs on unseen data.
+Generally, there is a distinction between the training and test error. The numbers above show the test error, which is the most important one as it gives us an indication of how well the model performs on unseen data. Unfortunately, the numerical metrics shown above aren't always that easy to interpret, which is why visualizations can be helpful. @fig-lm_test shows the actual and predicted happiness scores for the test data. In this case we see that our predictions are fairly well in line with the actual scores.
+
+```{python}	
+#| code-fold: false
+#| label: fig-lm_test
+#| fig-cap: A scatter plot showing the actual and predicted happiness scores for the test data. For a perfect prediction all the points would be lined up in a straight line (with a slope of 1).
+import matplotlib.pyplot as plt
+
+plot = sns.scatterplot(x=y_test, y=y_pred)
+# add axis labels
+plot.set_xlabel('Actual score')
+plot.set_ylabel('Predicted score')
+# add a diagonal line
+plt.plot([3, 8], [3, 8], color='red', linewidth=1)
+
+plt.show()
+```
+
 The linear regression is a fairly rigid method in terms of how well it can accommodate to the training data, which means that the risk of overfitting is not as high as with more complex and flexible models. 
 However, it is important to learn to use the train-test split every time you fit a model, regardless of the model complexity.
 
