@@ -4,7 +4,7 @@ jupyter: python3
 
 # Logistic regression
 
-In the previous chapter we learned about linear regression. The word regression is used in the context of statistical modelling to refer to the act of estimating the relationship between a dependent variable and one or more independent variables. However, sometimes the dependent variable might not be continuous, but categorical. In such cases, instead of a regression problem, we are dealing with classification. In the simplest case, there are only two distinct classes. This is called binary classification. One of the simplests algorithms for solving these types of problems is called logistic regression, which despite its name, is used for classification.
+In the previous chapter we learned about linear regression. The word regression is used in the context of statistical modelling to refer to the act of estimating the relationship between a dependent variable and one or more independent variables. However, sometimes what we are trying to predict might not be a continuous numerical variable, but categorical. In such cases, instead of a regression problem, we are dealing with classification. In the simplest case, there are only two distinct classes. This is called binary classification. One of the simplests algorithms for solving these types of problems is called logistic regression, which despite its name, is used for classification.
 
 ## Univariate logistic regression
 
@@ -16,4 +16,34 @@ $$
 y = \frac{1}{1 + e^{-(\beta_0 + \beta_1 x)}},
 $$ {#eq-logistic}
 
-where $y$ is again the dependent variable, and $x$ is the independent variable, and $\beta_0$ and $\beta_1$ are the parameters of the model. 
+where $y$ is again the dependent variable, and $x$ is the independent variable, and $\beta_0$ and $\beta_1$ are the parameters of the model. As you might have noticed, the exponential term contains the linear regression equation. This is not a coincidence. The logistic regression uses something called the sigmoid function, which basically transforms the output of the linear regression into a probability. The sigmoid function is defined as:
+
+$$
+\sigma(z) = \frac{1}{1 + e^{-z}}.
+$$ {#eq-sigmoid}
+
+If we plot out the sigmoid function, we can see that it has a distinct shape, which somewhat resembles the letter S. @fig-sigmoid shows the sigmoid function with $z$ on the x-axis and $\sigma(z)$ on the y-axis.
+
+```{python}
+#| label: fig-sigmoid
+#| fig-cap: The shape of the sigmoid function has a distinct S-like shape.
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+def sigmoid(z):
+    return 1 / (1 + np.exp(-z))
+
+z = np.linspace(-10, 10, 100)
+
+plt.plot(z, sigmoid(z))
+plt.xlabel('z')
+plt.ylabel('σ(z)')
+plt.title('Sigmoid function')
+
+plt.show()
+```
+
+### Evaluating the model
+
+Something about the confusion matrix.
