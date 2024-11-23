@@ -338,9 +338,10 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#univariate-logistic-regression" id="toc-univariate-logistic-regression" class="nav-link active" data-scroll-target="#univariate-logistic-regression"><span class="header-section-number">10.1</span> Univariate logistic regression</a>
+  <li><a href="#univariate-logistic-regression" id="toc-univariate-logistic-regression" class="nav-link active" data-scroll-target="#univariate-logistic-regression"><span class="header-section-number">10.1</span> Univariate logistic regression</a></li>
+  <li><a href="#fitting-a-univariate-logistic-regression-model" id="toc-fitting-a-univariate-logistic-regression-model" class="nav-link" data-scroll-target="#fitting-a-univariate-logistic-regression-model"><span class="header-section-number">10.2</span> Fitting a univariate logistic regression model</a>
   <ul class="collapse">
-  <li><a href="#evaluating-the-model" id="toc-evaluating-the-model" class="nav-link" data-scroll-target="#evaluating-the-model"><span class="header-section-number">10.1.1</span> Evaluating the model</a></li>
+  <li><a href="#evaluating-the-model" id="toc-evaluating-the-model" class="nav-link" data-scroll-target="#evaluating-the-model"><span class="header-section-number">10.2.1</span> Evaluating the model</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TeroJii/python-book/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -411,8 +412,13 @@ Figure&nbsp;10.1: The shape of the sigmoid function has a distinct S-like shape.
 </div>
 </div>
 </div>
-<section id="evaluating-the-model" class="level3" data-number="10.1.1">
-<h3 data-number="10.1.1" class="anchored" data-anchor-id="evaluating-the-model"><span class="header-section-number">10.1.1</span> Evaluating the model</h3>
+<p>The beauty of the Sigmoid function is that it coerces any input to the variable <span class="math inline">\(z\)</span> to lie between 0 and 1. This is exactly what we need for a probability. In other words, if the values we are trying to predict are binary, with values 0 and 1, the sigmoid function will essentially give us the probability that the value is 1.</p>
+</section>
+<section id="fitting-a-univariate-logistic-regression-model" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="fitting-a-univariate-logistic-regression-model"><span class="header-section-number">10.2</span> Fitting a univariate logistic regression model</h2>
+<p>Let’s continue with this…</p>
+<section id="evaluating-the-model" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="evaluating-the-model"><span class="header-section-number">10.2.1</span> Evaluating the model</h3>
 <p>Something about the confusion matrix.</p>
 
 

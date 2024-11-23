@@ -619,7 +619,7 @@
     "href": "logistic_regression.html",
     "title": "10  Logistic regression",
     "section": "",
-    "text": "10.1 Univariate logistic regression\nIn univariate logistic regression, we have a single independent variable and a binary dependent variable. The goal is to estimate the probability that the dependent variable is 1, based on the value of the independent variable. This implies that the values of the categorical dependent variable are assigned so-called dummy values, and are therefore coded as 0 and 1. For example, if we are trying to predict whether a student will pass or fail an exam based on the number of hours they studied, we can code the dependent variable as 1 if the student passed and 0 if they failed.\nThe logistic function is used to model the relationship between the inpedendent and dependent variables. The logistic function is defined as:\n\\[\ny = \\frac{1}{1 + e^{-(\\beta_0 + \\beta_1 x)}},\n\\tag{10.1}\\]\nwhere \\(y\\) is again the dependent variable, and \\(x\\) is the independent variable, and \\(\\beta_0\\) and \\(\\beta_1\\) are the parameters of the model. As you might have noticed, the exponential term contains the linear regression equation. This is not a coincidence. The logistic regression uses something called the sigmoid function, which basically transforms the output of the linear regression into a probability. The sigmoid function is defined as:\n\\[\n\\sigma(z) = \\frac{1}{1 + e^{-z}}.\n\\tag{10.2}\\]\nIf we plot out the sigmoid function, we can see that it has a distinct shape, which somewhat resembles the letter S. Figure 10.1 shows the sigmoid function with \\(z\\) on the x-axis and \\(\\sigma(z)\\) on the y-axis.\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\ndef sigmoid(z):\n    return 1 / (1 + np.exp(-z))\n\nz = np.linspace(-10, 10, 100)\n\nplt.plot(z, sigmoid(z))\nplt.xlabel('z')\nplt.ylabel('σ(z)')\nplt.title('Sigmoid function')\n\nplt.show()\n\n\n\n\n\n\n\n\nFigure 10.1: The shape of the sigmoid function has a distinct S-like shape.",
+    "text": "10.1 Univariate logistic regression\nIn univariate logistic regression, we have a single independent variable and a binary dependent variable. The goal is to estimate the probability that the dependent variable is 1, based on the value of the independent variable. This implies that the values of the categorical dependent variable are assigned so-called dummy values, and are therefore coded as 0 and 1. For example, if we are trying to predict whether a student will pass or fail an exam based on the number of hours they studied, we can code the dependent variable as 1 if the student passed and 0 if they failed.\nThe logistic function is used to model the relationship between the inpedendent and dependent variables. The logistic function is defined as:\n\\[\ny = \\frac{1}{1 + e^{-(\\beta_0 + \\beta_1 x)}},\n\\tag{10.1}\\]\nwhere \\(y\\) is again the dependent variable, and \\(x\\) is the independent variable, and \\(\\beta_0\\) and \\(\\beta_1\\) are the parameters of the model. As you might have noticed, the exponential term contains the linear regression equation. This is not a coincidence. The logistic regression uses something called the sigmoid function, which basically transforms the output of the linear regression into a probability. The sigmoid function is defined as:\n\\[\n\\sigma(z) = \\frac{1}{1 + e^{-z}}.\n\\tag{10.2}\\]\nIf we plot out the sigmoid function, we can see that it has a distinct shape, which somewhat resembles the letter S. Figure 10.1 shows the sigmoid function with \\(z\\) on the x-axis and \\(\\sigma(z)\\) on the y-axis.\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\ndef sigmoid(z):\n    return 1 / (1 + np.exp(-z))\n\nz = np.linspace(-10, 10, 100)\n\nplt.plot(z, sigmoid(z))\nplt.xlabel('z')\nplt.ylabel('σ(z)')\nplt.title('Sigmoid function')\n\nplt.show()\n\n\n\n\n\n\n\n\nFigure 10.1: The shape of the sigmoid function has a distinct S-like shape.\nThe beauty of the Sigmoid function is that it coerces any input to the variable \\(z\\) to lie between 0 and 1. This is exactly what we need for a probability. In other words, if the values we are trying to predict are binary, with values 0 and 1, the sigmoid function will essentially give us the probability that the value is 1.",
     "crumbs": [
       "Modelling",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Logistic regression</span>"
@@ -642,6 +642,17 @@
     "title": "10  Logistic regression",
     "section": "",
     "text": "10.1.1 Evaluating the model\nSomething about the confusion matrix.",
+    "crumbs": [
+      "Modelling",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Logistic regression</span>"
+    ]
+  },
+  {
+    "objectID": "logistic_regression.html#fitting-a-univariate-logistic-regression-model",
+    "href": "logistic_regression.html#fitting-a-univariate-logistic-regression-model",
+    "title": "10  Logistic regression",
+    "section": "10.2 Fitting a univariate logistic regression model",
+    "text": "10.2 Fitting a univariate logistic regression model\nLet’s continue with this…\n\n10.2.1 Evaluating the model\nSomething about the confusion matrix.",
     "crumbs": [
       "Modelling",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Logistic regression</span>"
