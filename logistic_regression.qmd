@@ -48,7 +48,17 @@ The beauty of the Sigmoid function is that it coerces any input to the variable 
 
 ## Fitting a univariate logistic regression model
 
-Let's continue with this...
+Let's continue with this... [UCI ML Repository Breast cancer dataset](https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original)
+
+```{python}
+#| label: tbl-bc_data
+#| tbl-cap: The first few rows of the slightly modified UCI ML Repository original Breast cancer dataset.
+import pandas as pd
+
+bc_data = pd.read_csv('data/uci_bc_mod.csv')
+
+bc_data.head()
+```
 
 ### Evaluating the model
 
