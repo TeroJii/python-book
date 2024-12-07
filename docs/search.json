@@ -652,7 +652,7 @@
     "href": "logistic_regression.html#fitting-a-univariate-logistic-regression-model",
     "title": "10  Logistic regression",
     "section": "10.2 Fitting a univariate logistic regression model",
-    "text": "10.2 Fitting a univariate logistic regression model\nLet’s continue with this…\n\n10.2.1 Evaluating the model\nSomething about the confusion matrix.",
+    "text": "10.2 Fitting a univariate logistic regression model\nLet’s continue with this… UCI ML Repository Breast cancer dataset\n\n\nCode\nimport pandas as pd\n\nbc_data = pd.read_csv('data/uci_bc_mod.csv')\n\nbc_data.head()\n\n\n\n\nTable 10.1: The first few rows of the slightly modified UCI ML Repository original Breast cancer dataset.\n\n\n\n\n\n\n\n\n\n\n\nClump_thickness\nUniformity_of_cell_size\nUniformity_of_cell_shape\nMarginal_adhesion\nSingle_epithelial_cell_size\nBare_nuclei\nBland_chromatin\nNormal_nucleoli\nMitoses\nClass\n\n\n\n\n0\n5\n1\n1\n1\n2\n1.0\n3\n1\n1\n2\n\n\n1\n5\n4\n4\n5\n7\n10.0\n3\n2\n1\n2\n\n\n2\n3\n1\n1\n1\n2\n2.0\n3\n1\n1\n2\n\n\n3\n6\n8\n8\n1\n3\n4.0\n3\n7\n1\n2\n\n\n4\n4\n1\n1\n3\n2\n1.0\n3\n1\n1\n2\n\n\n\n\n\n\n\n\n\n\n\n\n10.2.1 Evaluating the model\nSomething about the confusion matrix.",
     "crumbs": [
       "Modelling",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Logistic regression</span>"

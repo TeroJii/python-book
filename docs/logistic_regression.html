@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -102,6 +102,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -416,7 +422,119 @@ Figure&nbsp;10.1: The shape of the sigmoid function has a distinct S-like shape.
 </section>
 <section id="fitting-a-univariate-logistic-regression-model" class="level2" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="fitting-a-univariate-logistic-regression-model"><span class="header-section-number">10.2</span> Fitting a univariate logistic regression model</h2>
-<p>Let’s continue with this…</p>
+<p>Let’s continue with this… <a href="https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original">UCI ML Repository Breast cancer dataset</a></p>
+<div class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>bc_data <span class="op">=</span> pd.read_csv(<span class="st">'data/uci_bc_mod.csv'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>bc_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div id="tbl-bc_data" class="cell quarto-float anchored" data-execution_count="2">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-bc_data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;10.1: The first few rows of the slightly modified UCI ML Repository original Breast cancer dataset.
+</figcaption>
+<div aria-describedby="tbl-bc_data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+<div>
+
+
+<table class="dataframe do-not-create-environment cell table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Clump_thickness</th>
+<th data-quarto-table-cell-role="th">Uniformity_of_cell_size</th>
+<th data-quarto-table-cell-role="th">Uniformity_of_cell_shape</th>
+<th data-quarto-table-cell-role="th">Marginal_adhesion</th>
+<th data-quarto-table-cell-role="th">Single_epithelial_cell_size</th>
+<th data-quarto-table-cell-role="th">Bare_nuclei</th>
+<th data-quarto-table-cell-role="th">Bland_chromatin</th>
+<th data-quarto-table-cell-role="th">Normal_nucleoli</th>
+<th data-quarto-table-cell-role="th">Mitoses</th>
+<th data-quarto-table-cell-role="th">Class</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>5</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>1.0</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>5</td>
+<td>4</td>
+<td>4</td>
+<td>5</td>
+<td>7</td>
+<td>10.0</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>2.0</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>6</td>
+<td>8</td>
+<td>8</td>
+<td>1</td>
+<td>3</td>
+<td>4.0</td>
+<td>3</td>
+<td>7</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>3</td>
+<td>2</td>
+<td>1.0</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
 <section id="evaluating-the-model" class="level3" data-number="10.2.1">
 <h3 data-number="10.2.1" class="anchored" data-anchor-id="evaluating-the-model"><span class="header-section-number">10.2.1</span> Evaluating the model</h3>
 <p>Something about the confusion matrix.</p>
