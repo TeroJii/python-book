@@ -48,7 +48,7 @@ The beauty of the Sigmoid function is that it coerces any input to the variable 
 
 ## Fitting a univariate logistic regression model
 
-Let's see how we can fit a logistic regression model in practice. For this, we will explore the  [UCI ML Repository Breast cancer dataset](https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original), which contains information about breast cancer patients. 
+Let's see how we can fit a logistic regression model in practice. For this, we will explore the  [UCI ML Repository Breast cancer dataset](https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original), which contains information about breast cancer patients (@UCIBreastCancer1992). 
 @tbl-bc_data shows the first few rows of the dataset. The class column contains the dependents variable. Benign cases are labelled with 2, whereas malignant cases are labelled with 4.
 
 ```{python}
