@@ -104,10 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -422,7 +419,7 @@ Figure&nbsp;10.1: The shape of the sigmoid function has a distinct S-like shape.
 </section>
 <section id="fitting-a-univariate-logistic-regression-model" class="level2" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="fitting-a-univariate-logistic-regression-model"><span class="header-section-number">10.2</span> Fitting a univariate logistic regression model</h2>
-<p>Let’s continue with this… <a href="https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original">UCI ML Repository Breast cancer dataset</a></p>
+<p>Let’s see how we can fit a logistic regression model in practice. For this, we will explore the <a href="https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original">UCI ML Repository Breast cancer dataset</a>, which contains information about breast cancer patients. <a href="#tbl-bc_data" class="quarto-xref">Table&nbsp;<span>10.1</span></a> shows the first few rows of the dataset. The class column contains the dependents variable. Benign cases are labelled with 2, whereas malignant cases are labelled with 4.</p>
 <div class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
