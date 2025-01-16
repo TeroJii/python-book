@@ -61,6 +61,8 @@ bc_data = pd.read_csv('data/uci_bc_mod.csv')
 bc_data.head()
 ```
 
+### Visualizing the data
+
 Let's start by plotting the `Uniformity_of_cell_size` variable against the `Class` variable.
 We'll recode the class variable so that benign cases are labelled as 0 and malignant cases as 1.
 @fig-bc_data shows the relationship between the two variables with a logistic model fit using Seaborn.  
@@ -76,6 +78,26 @@ bc_data['Class'] = bc_data['Class'].map({2: 0, 4: 1})
 
 sns.lmplot(data=bc_data, x='Uniformity_of_cell_size', y='Class', logistic=True, ci=95, height=4, aspect=1.5)
 ```	
+
+Just by looking at the scatter plot, it is not obvious to tell what the relationship between the two variables is. 
+However, the logistic regression line helps us to see the relationship more clearly. Let's plot the class distributions as histograms to clarify the relationship between the two variables (@fig-bc_hist).
+
+```{python}
+#| label: fig-bc_hist
+#| fig-cap: The histograms show the distribution of the uniformity of cell size for benign and malignant cases. The distribution of the uniformity of cell size is skewed towards higher values for malignant cases.
+
+sns.histplot(data=bc_data, x='Uniformity_of_cell_size', hue='Class', bins=20, kde=True)
+```
+
+This really makes it clear why the logistic regression line is shaped the way it is.
+
+### Fitting the model
+
+We are now ready to use scikit-learn to fit a logistic regression model to the data. 
+We will use the `LogisticRegression` class from the `linear_model` module. 
+The `fit` method is used to train the model.
+
+To be continued...
 
 ### Evaluating the model
 
