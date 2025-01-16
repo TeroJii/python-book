@@ -48,8 +48,8 @@ The beauty of the Sigmoid function is that it coerces any input to the variable 
 
 ## Fitting a univariate logistic regression model
 
-Let's see how we can fit a logistic regression model in practice. For this, we will explore the  [UCI ML Repository Breast cancer dataset](https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original), which contains information about breast cancer patients (@UCIBreastCancer1992). 
-@tbl-bc_data shows the first few rows of the dataset. The class column contains the dependents variable. Benign cases are labelled with 2, whereas malignant cases are labelled with 4.
+Let's see how we can fit a logistic regression model in practice. For this, we will explore the  [UCI ML Repository Breast cancer dataset](https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original), which contains information about breast cancer patients (@UCIBreastCancer1992). **Add one more citation...**
+@tbl-bc_data shows the first few rows of the dataset. The `Class` column contains the dependents variable. Benign cases are labelled with 2, whereas malignant cases are labelled with 4.
 
 ```{python}
 #| label: tbl-bc_data
@@ -61,6 +61,21 @@ bc_data = pd.read_csv('data/uci_bc_mod.csv')
 bc_data.head()
 ```
 
+Let's start by plotting the `Uniformity_of_cell_size` variable against the `Class` variable.
+We'll recode the class variable so that benign cases are labelled as 0 and malignant cases as 1.
+@fig-bc_data shows the relationship between the two variables with a logistic model fit using Seaborn.  
+
+```{python}
+#| label: fig-bc_data
+#| fig-cap: The relationship between the uniformity of cell size and the class variable in the Breast cancer dataset. The line represents a univariate logistic regression fit, which predicts that the larger the recorded value for the uniformity of cell size, the higher the probability for the class being malignant.
+
+import seaborn as sns
+
+# let's recode Class labels as 0 (=2) and 1 (=4)
+bc_data['Class'] = bc_data['Class'].map({2: 0, 4: 1})
+
+sns.lmplot(data=bc_data, x='Uniformity_of_cell_size', y='Class', logistic=True, ci=95, height=4, aspect=1.5)
+```	
 
 ### Evaluating the model
 

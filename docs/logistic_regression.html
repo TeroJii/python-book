@@ -124,10 +124,7 @@ div.csl-indent {
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -442,7 +439,7 @@ Figure&nbsp;10.1: The shape of the sigmoid function has a distinct S-like shape.
 </section>
 <section id="fitting-a-univariate-logistic-regression-model" class="level2" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="fitting-a-univariate-logistic-regression-model"><span class="header-section-number">10.2</span> Fitting a univariate logistic regression model</h2>
-<p>Let’s see how we can fit a logistic regression model in practice. For this, we will explore the <a href="https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original">UCI ML Repository Breast cancer dataset</a>, which contains information about breast cancer patients (<span class="citation" data-cites="UCIBreastCancer1992">Wolberg, William (<a href="references.html#ref-UCIBreastCancer1992" role="doc-biblioref">1992</a>)</span>). <a href="#tbl-bc_data" class="quarto-xref">Table&nbsp;<span>10.1</span></a> shows the first few rows of the dataset. The class column contains the dependents variable. Benign cases are labelled with 2, whereas malignant cases are labelled with 4.</p>
+<p>Let’s see how we can fit a logistic regression model in practice. For this, we will explore the <a href="https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original">UCI ML Repository Breast cancer dataset</a>, which contains information about breast cancer patients (<span class="citation" data-cites="UCIBreastCancer1992">Wolberg, William (<a href="references.html#ref-UCIBreastCancer1992" role="doc-biblioref">1992</a>)</span>). <strong>Add one more citation…</strong> <a href="#tbl-bc_data" class="quarto-xref">Table&nbsp;<span>10.1</span></a> shows the first few rows of the dataset. The <code>Class</code> column contains the dependents variable. Benign cases are labelled with 2, whereas malignant cases are labelled with 4.</p>
 <div class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
@@ -458,7 +455,7 @@ Figure&nbsp;10.1: The shape of the sigmoid function has a distinct S-like shape.
 Table&nbsp;10.1: The first few rows of the slightly modified UCI ML Repository original Breast cancer dataset.
 </figcaption>
 <div aria-describedby="tbl-bc_data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="29">
 <div>
 <div>
 
@@ -553,6 +550,30 @@ Table&nbsp;10.1: The first few rows of the slightly modified UCI ML Repository o
 </div>
 </div>
 </figure>
+</div>
+</div>
+<p>Let’s start by plotting the <code>Uniformity_of_cell_size</code> variable against the <code>Class</code> variable. We’ll recode the class variable so that benign cases are labelled as 0 and malignant cases as 1. <a href="#fig-bc_data" class="quarto-xref">Figure&nbsp;<span>10.2</span></a> shows the relationship between the two variables with a logistic model fit using Seaborn.</p>
+<div id="cell-fig-bc_data" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># let's recode Class labels as 0 (=2) and 1 (=4)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>bc_data[<span class="st">'Class'</span>] <span class="op">=</span> bc_data[<span class="st">'Class'</span>].<span class="bu">map</span>({<span class="dv">2</span>: <span class="dv">0</span>, <span class="dv">4</span>: <span class="dv">1</span>})</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>sns.lmplot(data<span class="op">=</span>bc_data, x<span class="op">=</span><span class="st">'Uniformity_of_cell_size'</span>, y<span class="op">=</span><span class="st">'Class'</span>, logistic<span class="op">=</span><span class="va">True</span>, ci<span class="op">=</span><span class="dv">95</span>, height<span class="op">=</span><span class="dv">4</span>, aspect<span class="op">=</span><span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-bc_data" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bc_data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="logistic_regression_files/figure-html/fig-bc_data-output-1.png" width="565" height="372" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bc_data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.2: The relationship between the uniformity of cell size and the class variable in the Breast cancer dataset. The line represents a univariate logistic regression fit, which predicts that the larger the recorded value for the uniformity of cell size, the higher the probability for the class being malignant.
+</figcaption>
+</figure>
+</div>
 </div>
 </div>
 <section id="evaluating-the-model" class="level3" data-number="10.2.1">
