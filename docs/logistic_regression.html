@@ -364,7 +364,9 @@ window.Quarto = {
   <li><a href="#univariate-logistic-regression" id="toc-univariate-logistic-regression" class="nav-link active" data-scroll-target="#univariate-logistic-regression"><span class="header-section-number">10.1</span> Univariate logistic regression</a></li>
   <li><a href="#fitting-a-univariate-logistic-regression-model" id="toc-fitting-a-univariate-logistic-regression-model" class="nav-link" data-scroll-target="#fitting-a-univariate-logistic-regression-model"><span class="header-section-number">10.2</span> Fitting a univariate logistic regression model</a>
   <ul class="collapse">
-  <li><a href="#evaluating-the-model" id="toc-evaluating-the-model" class="nav-link" data-scroll-target="#evaluating-the-model"><span class="header-section-number">10.2.1</span> Evaluating the model</a></li>
+  <li><a href="#visualizing-the-data" id="toc-visualizing-the-data" class="nav-link" data-scroll-target="#visualizing-the-data"><span class="header-section-number">10.2.1</span> Visualizing the data</a></li>
+  <li><a href="#fitting-the-model" id="toc-fitting-the-model" class="nav-link" data-scroll-target="#fitting-the-model"><span class="header-section-number">10.2.2</span> Fitting the model</a></li>
+  <li><a href="#evaluating-the-model" id="toc-evaluating-the-model" class="nav-link" data-scroll-target="#evaluating-the-model"><span class="header-section-number">10.2.3</span> Evaluating the model</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TeroJii/python-book/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -455,7 +457,7 @@ Figure&nbsp;10.1: The shape of the sigmoid function has a distinct S-like shape.
 Table&nbsp;10.1: The first few rows of the slightly modified UCI ML Repository original Breast cancer dataset.
 </figcaption>
 <div aria-describedby="tbl-bc_data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="29">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 <div>
 
@@ -552,6 +554,8 @@ Table&nbsp;10.1: The first few rows of the slightly modified UCI ML Repository o
 </figure>
 </div>
 </div>
+<section id="visualizing-the-data" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="visualizing-the-data"><span class="header-section-number">10.2.1</span> Visualizing the data</h3>
 <p>Let’s start by plotting the <code>Uniformity_of_cell_size</code> variable against the <code>Class</code> variable. We’ll recode the class variable so that benign cases are labelled as 0 and malignant cases as 1. <a href="#fig-bc_data" class="quarto-xref">Figure&nbsp;<span>10.2</span></a> shows the relationship between the two variables with a logistic model fit using Seaborn.</p>
 <div id="cell-fig-bc_data" class="cell" data-execution_count="3">
 <details class="code-fold">
@@ -576,8 +580,34 @@ Figure&nbsp;10.2: The relationship between the uniformity of cell size and the c
 </div>
 </div>
 </div>
-<section id="evaluating-the-model" class="level3" data-number="10.2.1">
-<h3 data-number="10.2.1" class="anchored" data-anchor-id="evaluating-the-model"><span class="header-section-number">10.2.1</span> Evaluating the model</h3>
+<p>Just by looking at the scatter plot, it is not obvious to tell what the relationship between the two variables is. However, the logistic regression line helps us to see the relationship more clearly. Let’s plot the class distributions as histograms to clarify the relationship between the two variables (<a href="#fig-bc_hist" class="quarto-xref">Figure&nbsp;<span>10.3</span></a>).</p>
+<div id="cell-fig-bc_hist" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(data<span class="op">=</span>bc_data, x<span class="op">=</span><span class="st">'Uniformity_of_cell_size'</span>, hue<span class="op">=</span><span class="st">'Class'</span>, bins<span class="op">=</span><span class="dv">20</span>, kde<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-bc_hist" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bc_hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="logistic_regression_files/figure-html/fig-bc_hist-output-1.png" width="593" height="429" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bc_hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.3: The histograms show the distribution of the uniformity of cell size for benign and malignant cases. The distribution of the uniformity of cell size is skewed towards higher values for malignant cases.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>This really makes it clear why the logistic regression line is shaped the way it is.</p>
+</section>
+<section id="fitting-the-model" class="level3" data-number="10.2.2">
+<h3 data-number="10.2.2" class="anchored" data-anchor-id="fitting-the-model"><span class="header-section-number">10.2.2</span> Fitting the model</h3>
+<p>We are now ready to use scikit-learn to fit a logistic regression model to the data. We will use the <code>LogisticRegression</code> class from the <code>linear_model</code> module. The <code>fit</code> method is used to train the model.</p>
+<p>To be continued…</p>
+</section>
+<section id="evaluating-the-model" class="level3" data-number="10.2.3">
+<h3 data-number="10.2.3" class="anchored" data-anchor-id="evaluating-the-model"><span class="header-section-number">10.2.3</span> Evaluating the model</h3>
 <p>Something about the confusion matrix.</p>
 
 
