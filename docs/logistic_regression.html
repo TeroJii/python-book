@@ -457,7 +457,7 @@ Figure&nbsp;10.1: The shape of the sigmoid function has a distinct S-like shape.
 Table&nbsp;10.1: The first few rows of the slightly modified UCI ML Repository original Breast cancer dataset.
 </figcaption>
 <div aria-describedby="tbl-bc_data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 <div>
 
@@ -565,7 +565,8 @@ Table&nbsp;10.1: The first few rows of the slightly modified UCI ML Repository o
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># let's recode Class labels as 0 (=2) and 1 (=4)</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>bc_data[<span class="st">'Class'</span>] <span class="op">=</span> bc_data[<span class="st">'Class'</span>].<span class="bu">map</span>({<span class="dv">2</span>: <span class="dv">0</span>, <span class="dv">4</span>: <span class="dv">1</span>})</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>sns.lmplot(data<span class="op">=</span>bc_data, x<span class="op">=</span><span class="st">'Uniformity_of_cell_size'</span>, y<span class="op">=</span><span class="st">'Class'</span>, logistic<span class="op">=</span><span class="va">True</span>, ci<span class="op">=</span><span class="dv">95</span>, height<span class="op">=</span><span class="dv">4</span>, aspect<span class="op">=</span><span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>sns.lmplot(data<span class="op">=</span>bc_data, x<span class="op">=</span><span class="st">'Uniformity_of_cell_size'</span>, </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>y<span class="op">=</span><span class="st">'Class'</span>, logistic<span class="op">=</span><span class="va">True</span>, ci<span class="op">=</span><span class="dv">95</span>, height<span class="op">=</span><span class="dv">4</span>, aspect<span class="op">=</span><span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-bc_data" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -584,7 +585,8 @@ Figure&nbsp;10.2: The relationship between the uniformity of cell size and the c
 <div id="cell-fig-bc_hist" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(data<span class="op">=</span>bc_data, x<span class="op">=</span><span class="st">'Uniformity_of_cell_size'</span>, hue<span class="op">=</span><span class="st">'Class'</span>, bins<span class="op">=</span><span class="dv">20</span>, kde<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(data<span class="op">=</span>bc_data, x<span class="op">=</span><span class="st">'Uniformity_of_cell_size'</span>, hue<span class="op">=</span><span class="st">'Class'</span>, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>bins<span class="op">=</span><span class="dv">20</span>, kde<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-bc_hist" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -599,7 +601,7 @@ Figure&nbsp;10.3: The histograms show the distribution of the uniformity of cell
 </div>
 </div>
 </div>
-<p>This really makes it clear why the logistic regression line is shaped the way it is.</p>
+<p>The histogram clarifies why the logistic regression line is shaped the way it is. Most benign cases appear to have smaller values for the uniformity of cell size.</p>
 </section>
 <section id="fitting-the-model" class="level3" data-number="10.2.2">
 <h3 data-number="10.2.2" class="anchored" data-anchor-id="fitting-the-model"><span class="header-section-number">10.2.2</span> Fitting the model</h3>
