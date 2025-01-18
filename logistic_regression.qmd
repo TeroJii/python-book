@@ -115,7 +115,17 @@ y, test_size=0.3, random_state=42, stratify=y)
 
 We used the `train_test_split` function again to split the data into training and testing sets. 
 The `stratify` parameter ensures that the distribution of the target variable is the same in both train and test sets. 
-This is important if the target variable is imbalanced. We can now use the `LogisticRegression` class from the `linear_model` module. 
+This is important if the target variable displays a class imbalance. 
+In our case the target variable is not terribly unbalanced, but it is still good practice to learn to use the `stratify` parameter.
+
+```{python}
+#| code-fold: false
+
+# class distribution for benign and malignant cases
+bc_data['Class'].value_counts()
+```
+
+We can now use the `LogisticRegression` class from the `linear_model` module. 
 The `fit` method is used to train the model. Summary of the model parameters is shown in @tbl-model_summary.
 
 ```{python}
