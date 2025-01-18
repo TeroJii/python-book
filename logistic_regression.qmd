@@ -76,7 +76,8 @@ import seaborn as sns
 # let's recode Class labels as 0 (=2) and 1 (=4)
 bc_data['Class'] = bc_data['Class'].map({2: 0, 4: 1})
 
-sns.lmplot(data=bc_data, x='Uniformity_of_cell_size', y='Class', logistic=True, ci=95, height=4, aspect=1.5)
+sns.lmplot(data=bc_data, x='Uniformity_of_cell_size', 
+y='Class', logistic=True, ci=95, height=4, aspect=1.5)
 ```	
 
 Just by looking at the scatter plot, it is not obvious to tell what the relationship between the two variables is. 
@@ -86,10 +87,11 @@ However, the logistic regression line helps us to see the relationship more clea
 #| label: fig-bc_hist
 #| fig-cap: The histograms show the distribution of the uniformity of cell size for benign and malignant cases. The distribution of the uniformity of cell size is skewed towards higher values for malignant cases.
 
-sns.histplot(data=bc_data, x='Uniformity_of_cell_size', hue='Class', bins=20, kde=True)
+sns.histplot(data=bc_data, x='Uniformity_of_cell_size', hue='Class', 
+bins=20, kde=True)
 ```
 
-This really makes it clear why the logistic regression line is shaped the way it is.
+The histogram clarifies why the logistic regression line is shaped the way it is. Most benign cases appear to have smaller values for the uniformity of cell size.
 
 ### Fitting the model
 
