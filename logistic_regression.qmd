@@ -150,6 +150,21 @@ model_summary = pd.DataFrame(
 model_summary
 ```
 
+### Making predictions
+
+We have managed to fit a model to the training data, but thus far our only result is the model parameters, which are quite abstract.
+To get a better sense of how well we are doing, in terms of prediction accuracy, let's make predictions on our test data.
+As you might recall from the previous chapter, we can use the `predict` method to make predictions.
+
+```{python}
+#| code-fold: false
+
+# making predictions
+y_pred = log_reg.predict(X_test)
+
+y_pred[:5]
+```
+
 
 ### Evaluating the model
 
