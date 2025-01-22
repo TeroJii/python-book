@@ -188,4 +188,23 @@ plot.figure.set_size_inches(5, 4)
 plt.show()
 ```
 
-Luckily, there are other ways to visualize our results. Something called a confusion matrix will be more helpful here.
+Luckily, there are other ways to visualize our results. Something called a confusion matrix will be more helpful here. Let's visualize the confusion matrix for our case before digging in deeper (@fig-confusion-matrix).
+
+```{python}
+#| label: fig-confusion-matrix
+#| fig-cap: The confusion matrix shows the true class labels against the predicted classes for our test data. The numeric values indicate the number of cases in each category. This means that the diagonal elements correspond to correctly classified cases.
+#| code-fold: false
+
+from sklearn.metrics import confusion_matrix
+
+cm = confusion_matrix(y_test, y_pred)
+
+cm_plot = sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', cbar=False)
+
+cm_plot.set_xlabel('Predicted Malignancy Class')
+cm_plot.set_ylabel('Actual Class')
+
+plt.show()
+```
+
+Work in progress...
