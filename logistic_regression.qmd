@@ -171,4 +171,21 @@ The predict method actually uses a threshold of 0.5 to decide whether the predic
 
 ### Evaluating the model
 
-Something about the confusion matrix.
+Now that we have our predictions, we can compare them to the actual values in the test set.
+For linear regression we used a scatter plot as visual means for comparing the predictions to the actual values. @fig-scatter-results shows the scatter plot of the actual values against the predicted values for the logistic regression model. However, upon inspection we notice that this approach doesn't really work with classification problems.
+
+```{python}
+#| label: fig-scatter-results
+#| fig-cap: The scatter plot shows the actual values against the predicted values for the logistic regression model. We can see that this is not at all a good way to evaluate a classification model. In fact, this plot does not tell us anything useful.
+#| code-fold: false
+
+plot = sns.scatterplot(x = y_test, y = y_pred)
+plot.set_xlabel('Actual values')
+plot.set_ylabel('Predicted values')
+
+plot.figure.set_size_inches(5, 4)
+
+plt.show()
+```
+
+Luckily, there are other ways to visualize our results. Something called a confusion matrix will be more helpful here.
