@@ -177,7 +177,7 @@ For linear regression we used a scatter plot as visual means for comparing the p
 ```{python}
 #| label: fig-scatter-results
 #| fig-cap: The scatter plot shows the actual values against the predicted values for the logistic regression model. We can see that this is not at all a good way to evaluate a classification model. In fact, this plot does not tell us anything useful.
-#| code-fold: false
+#| code-fold: true
 
 plot = sns.scatterplot(x = y_test, y = y_pred)
 plot.set_xlabel('Actual values')
@@ -218,3 +218,14 @@ We have four possible outcomes:
 - False positive (FP): We have predicted that a person has cancer, but they actually do not have cancer (upper right quadrant)
 - False negative (FN): We have predicted that a person does not have cancer, but they actually do have cancer (lower left quadrant).
 
+Intuitively, we can see that we would like to see as many cases in the diagonal elements of the confusion matrix to maximize the "goodness" of our predictions.
+The four categorries above allow us to calculate a set of more formally defined metrics, which are generally used to evaluate the performance of classification models.
+
+### Metrics for evaluating classification models
+
+Probably the most easiest metric to understand is accuracy. It is defined as the number of correct predictions divided by the total number of predictions.
+We can define it using the four categories above as:
+
+$$
+\text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{TN} + \text{FP} + \text{FN}}.
+$$
