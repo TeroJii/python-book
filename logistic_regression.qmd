@@ -192,7 +192,7 @@ Luckily, there are other ways to visualize our results. Something called a confu
 
 ```{python}
 #| label: fig-confusion-matrix
-#| fig-cap: The confusion matrix shows the true class labels against the predicted classes for our test data. The numeric values indicate the number of cases in each category. This means that the diagonal elements correspond to correctly classified cases.
+#| fig-cap: The confusion matrix shows the true class labels against the predicted classes for our test data. The numeric values indicate the number of cases in each category. The diagonal elements correspond to correctly classified cases.
 #| code-fold: false
 
 from sklearn.metrics import confusion_matrix
@@ -207,4 +207,14 @@ cm_plot.set_ylabel('Actual Class')
 plt.show()
 ```
 
-Work in progress...
+Let's break down what is happening above. 
+As we recall, we labelled benign cases as 0 and malignant cases as 1.
+In other words, our diagnosis would be positive for a person with cancer. Vice versa, a negative diagnosis would be a person without cancer. 
+The confusion matrix shows us how well our predictions match the actual class labels.
+We have four possible outcomes:
+
+- True positive (TP): We have predicted that a person has cancer, and they actually have cancer (lower right quadrant)
+- True negative (TN): We have predicted that a person does not have cancer, and they actually do not have cancer (upper left quadrant)
+- False positive (FP): We have predicted that a person has cancer, but they actually do not have cancer (upper right quadrant)
+- False negative (FN): We have predicted that a person does not have cancer, but they actually do have cancer (lower left quadrant).
+
