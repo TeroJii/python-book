@@ -234,7 +234,7 @@ In our case, the accuracy of the model is calculated as:
 
 ```{python}
 #| code-fold: false
-(130 + 59) / (130 + 59 + 3 + 13)
+(59 + 130) / (59 + 130 + 3 + 13)
 ```
 
 You might have already guessed it, but scikit-learn ships with a convenient function for calculating accuracy.
@@ -246,3 +246,12 @@ from sklearn.metrics import accuracy_score
 
 accuracy_score(y_test, y_pred)
 ```
+
+Our simple logistic regression model is able to predict 92% of the cases in the test set correctly.
+This is pretty well, considering that we only used a single variable to make the predictions.
+
+:::{.callout-warning}
+## Accuracy alone may be misleading
+
+Let's consider a rare disease, which only appears in 1 out of 100 000 people.
+:::
