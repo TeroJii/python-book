@@ -229,3 +229,20 @@ We can define it using the four categories above as:
 $$
 \text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{TN} + \text{FP} + \text{FN}}.
 $$
+
+In our case, the accuracy of the model is calculated as:
+
+```{python}
+#| code-fold: false
+(130 + 59) / (130 + 59 + 3 + 13)
+```
+
+You might have already guessed it, but scikit-learn ships with a convenient function for calculating accuracy.
+
+```{python}
+#| code-fold: false
+
+from sklearn.metrics import accuracy_score
+
+accuracy_score(y_test, y_pred)
+```
