@@ -290,6 +290,15 @@ recall_score(y_test, y_pred)
 
 ### True negative rate (Specificity)
 
+True Negative Rate (TNR), also known as specificity, is has a similar definition to the True Positive Rate, but it looks at the negative class.
+The formula for True Negative Rate is:
+
+$$
+\text{TNR} = \frac{\text{TN}}{\text{TN} + \text{FP}}.
+$$
+
+
+
 ### Positive predictive value (Precision)
 
 ### Negative predictive value
