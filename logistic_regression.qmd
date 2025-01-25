@@ -297,7 +297,26 @@ $$
 \text{TNR} = \frac{\text{TN}}{\text{TN} + \text{FP}}.
 $$
 
+This translates to:
 
+```{python}
+#| code-fold: false
+130 / (130 + 3)
+```
+
+With scikit-learn, we are forced to rely on a kind of a workaround for calculating specificity.
+There isn't a function named after it, but as we mentioned above the definition is basically identical to recall (sensitivity). The only difference is that we are focusing on the negative class label.
+Therefore, we can use the `recall_score` function, but we need to specify the positive class label as 0.
+
+```{python}
+#| code-fold: false
+
+from sklearn.metrics import recall_score
+
+recall_score(y_test, y_pred, pos_label=0)
+```
+
+It seems that our model is better at identifying the negative cases than the positive ones.
 
 ### Positive predictive value (Precision)
 
