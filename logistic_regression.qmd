@@ -226,13 +226,13 @@ The four categorries above allow us to calculate a set of more formally defined 
 ### Accuracy
 
 Probably the easiest metric to understand is accuracy. It is defined as the number of correct predictions divided by the total number of predictions.
-We can define it using the four categories above as:
+We can define it using the four categories above as follows:
 
 $$
 \text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{TN} + \text{FP} + \text{FN}}.
 $$
 
-In our case, the accuracy of the model is calculated as:
+In the case our univariate logistic regression fit, the accuracy of the model is calculated as:
 
 ```{python}
 #| code-fold: false
@@ -261,3 +261,17 @@ Despite the impressive accuracy, this model would be 0% accurate in predicting t
 Therefore, especially in presence of class imbalance, care should be taken when interpreting accuracy.
 :::
 
+### True positive rate (Sensitivity/Recall)
+
+True positive rate, also known as sensitivity or recall, is defined by looking at the row of the confusion matrix that corresponds to the positive class.
+Using the four classes define above, we get for True Positive Rate (TPR):
+
+$$
+\text{TPR} = \frac{\text{TP}}{\text{TP} + \text{FN}}.
+$$
+
+### True negative rate (Specificity)
+
+### Positive predictive value (Precision)
+
+### Negative predictive value
