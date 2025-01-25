@@ -221,9 +221,11 @@ We have four possible outcomes:
 Intuitively, we can see that we would like to see as many cases in the diagonal elements of the confusion matrix to maximize the "goodness" of our predictions.
 The four categorries above allow us to calculate a set of more formally defined metrics, which are generally used to evaluate the performance of classification models.
 
-### Metrics for evaluating classification models
+## Metrics for evaluating classification models
 
-Probably the most easiest metric to understand is accuracy. It is defined as the number of correct predictions divided by the total number of predictions.
+### Accuracy
+
+Probably the easiest metric to understand is accuracy. It is defined as the number of correct predictions divided by the total number of predictions.
 We can define it using the four categories above as:
 
 $$
@@ -253,5 +255,9 @@ This is pretty well, considering that we only used a single variable to make the
 :::{.callout-warning}
 ## Accuracy alone may be misleading
 
-Let's consider a rare disease, which only appears in 1 out of 100 000 people.
+Let's consider a rare disease, which only appears in 1 out of 100 000 people. By building a model that predicts all the negative cases correctry we would be able to achive a 99.999% accuracy, which sounds very impressive.
+However, this could be achived with a simple model, which always predicts a negative class label.
+Despite the impressive accuracy, this model would be 0% accurate in predicting the positive cases.
+Therefore, especially in presence of class imbalance, care should be taken when interpreting accuracy.
 :::
+
