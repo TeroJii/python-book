@@ -264,11 +264,29 @@ Therefore, especially in presence of class imbalance, care should be taken when 
 ### True positive rate (Sensitivity/Recall)
 
 True positive rate, also known as sensitivity or recall, is defined by looking at the row of the confusion matrix that corresponds to the positive class.
+As the name implies, this tells us how sensitive our model is in regognizing the positive cases.
 Using the four classes define above, we get for True Positive Rate (TPR):
 
 $$
 \text{TPR} = \frac{\text{TP}}{\text{TP} + \text{FN}}.
 $$
+
+For our example, we get:
+
+```{python}
+#| code-fold: false
+59 / (59 + 13)
+```
+
+With scikit-learn we can calculate the true positive rate as follows:
+
+```{python}
+#| code-fold: false
+
+from sklearn.metrics import recall_score
+
+recall_score(y_test, y_pred)
+```
 
 ### True negative rate (Specificity)
 
