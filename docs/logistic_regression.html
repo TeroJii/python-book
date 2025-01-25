@@ -124,10 +124,7 @@ div.csl-indent {
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -375,6 +372,10 @@ window.Quarto = {
   <li><a href="#metrics-for-evaluating-classification-models" id="toc-metrics-for-evaluating-classification-models" class="nav-link" data-scroll-target="#metrics-for-evaluating-classification-models"><span class="header-section-number">10.3</span> Metrics for evaluating classification models</a>
   <ul class="collapse">
   <li><a href="#accuracy" id="toc-accuracy" class="nav-link" data-scroll-target="#accuracy"><span class="header-section-number">10.3.1</span> Accuracy</a></li>
+  <li><a href="#true-positive-rate-sensitivityrecall" id="toc-true-positive-rate-sensitivityrecall" class="nav-link" data-scroll-target="#true-positive-rate-sensitivityrecall"><span class="header-section-number">10.3.2</span> True positive rate (Sensitivity/Recall)</a></li>
+  <li><a href="#true-negative-rate-specificity" id="toc-true-negative-rate-specificity" class="nav-link" data-scroll-target="#true-negative-rate-specificity"><span class="header-section-number">10.3.3</span> True negative rate (Specificity)</a></li>
+  <li><a href="#positive-predictive-value-precision" id="toc-positive-predictive-value-precision" class="nav-link" data-scroll-target="#positive-predictive-value-precision"><span class="header-section-number">10.3.4</span> Positive predictive value (Precision)</a></li>
+  <li><a href="#negative-predictive-value" id="toc-negative-predictive-value" class="nav-link" data-scroll-target="#negative-predictive-value"><span class="header-section-number">10.3.5</span> Negative predictive value</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TeroJii/python-book/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -614,7 +615,7 @@ Figure&nbsp;10.3: The histograms show the distribution of the uniformity of cell
 <section id="fitting-the-model" class="level3" data-number="10.2.2">
 <h3 data-number="10.2.2" class="anchored" data-anchor-id="fitting-the-model"><span class="header-section-number">10.2.2</span> Fitting the model</h3>
 <p>Above we visualized the logistic relationship between the <code>Uniformity_of_cell_size</code> variable and the <code>Class</code> variable using <code>seaborn</code>. We are now ready to use <code>scikit-learn</code> to fit a logistic regression model to the data. Let’s start by splitting the data into training and testing sets.</p>
-<div id="48671ff6" class="cell" data-execution_count="5">
+<div id="57b62119" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> bc_data[[<span class="st">'Uniformity_of_cell_size'</span>]]</span>
@@ -625,7 +626,7 @@ Figure&nbsp;10.3: The histograms show the distribution of the uniformity of cell
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>y, test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">42</span>, stratify<span class="op">=</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We used the <code>train_test_split</code> function again to split the data into training and testing sets. The <code>stratify</code> parameter ensures that the distribution of the target variable is the same in both train and test sets. This is important if the target variable displays a class imbalance. In our case the target variable is not terribly unbalanced, but it is still good practice to learn to use the <code>stratify</code> parameter.</p>
-<div id="869678aa" class="cell" data-execution_count="6">
+<div id="a5208ef9" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># class distribution for benign and malignant cases</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>bc_data[<span class="st">'Class'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -636,7 +637,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>We can now use the <code>LogisticRegression</code> class from the <code>linear_model</code> module. The <code>fit</code> method is used to train the model. Summary of the model parameters is shown in <a href="#tbl-model_summary" class="quarto-xref">Table&nbsp;<span>10.2</span></a>.</p>
-<div id="ce9f3463" class="cell" data-execution_count="7">
+<div id="8e516e32" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fitting the model</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -697,7 +698,7 @@ Table&nbsp;10.2: Summary of the logistic regression model parameters.
 <section id="making-predictions" class="level3" data-number="10.2.3">
 <h3 data-number="10.2.3" class="anchored" data-anchor-id="making-predictions"><span class="header-section-number">10.2.3</span> Making predictions</h3>
 <p>We have managed to fit a model to the training data, but thus far our only result is the model parameters, which are quite abstract. To get a better sense of how well we are doing, in terms of prediction accuracy, let’s make predictions on our test data. As you might recall from the previous chapter, we can use the <code>predict</code> method to make predictions.</p>
-<div id="d90097e8" class="cell" data-execution_count="9">
+<div id="702a6596" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># making predictions</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> log_reg.predict(X_test)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -775,19 +776,19 @@ Figure&nbsp;10.5: The confusion matrix shows the true class labels against the p
 <h2 data-number="10.3" class="anchored" data-anchor-id="metrics-for-evaluating-classification-models"><span class="header-section-number">10.3</span> Metrics for evaluating classification models</h2>
 <section id="accuracy" class="level3" data-number="10.3.1">
 <h3 data-number="10.3.1" class="anchored" data-anchor-id="accuracy"><span class="header-section-number">10.3.1</span> Accuracy</h3>
-<p>Probably the easiest metric to understand is accuracy. It is defined as the number of correct predictions divided by the total number of predictions. We can define it using the four categories above as:</p>
+<p>Probably the easiest metric to understand is accuracy. It is defined as the number of correct predictions divided by the total number of predictions. We can define it using the four categories above as follows:</p>
 <p><span class="math display">\[
 \text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{TN} + \text{FP} + \text{FN}}.
 \]</span></p>
-<p>In our case, the accuracy of the model is calculated as:</p>
-<div id="50cfaf22" class="cell" data-execution_count="12">
+<p>In the case our univariate logistic regression fit, the accuracy of the model is calculated as:</p>
+<div id="34dc680a" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">59</span> <span class="op">+</span> <span class="dv">130</span>) <span class="op">/</span> (<span class="dv">59</span> <span class="op">+</span> <span class="dv">130</span> <span class="op">+</span> <span class="dv">3</span> <span class="op">+</span> <span class="dv">13</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>0.9219512195121952</code></pre>
 </div>
 </div>
 <p>You might have already guessed it, but scikit-learn ships with a convenient function for calculating accuracy.</p>
-<div id="a7a48338" class="cell" data-execution_count="13">
+<div id="d65ac85d" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>accuracy_score(y_test, y_pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -809,6 +810,22 @@ Accuracy alone may be misleading
 <p>Let’s consider a rare disease, which only appears in 1 out of 100 000 people. By building a model that predicts all the negative cases correctry we would be able to achive a 99.999% accuracy, which sounds very impressive. However, this could be achived with a simple model, which always predicts a negative class label. Despite the impressive accuracy, this model would be 0% accurate in predicting the positive cases. Therefore, especially in presence of class imbalance, care should be taken when interpreting accuracy.</p>
 </div>
 </div>
+</section>
+<section id="true-positive-rate-sensitivityrecall" class="level3" data-number="10.3.2">
+<h3 data-number="10.3.2" class="anchored" data-anchor-id="true-positive-rate-sensitivityrecall"><span class="header-section-number">10.3.2</span> True positive rate (Sensitivity/Recall)</h3>
+<p>True positive rate, also known as sensitivity or recall, is defined by looking at the row of the confusion matrix that corresponds to the positive class. Using the four classes define above, we get for True Positive Rate (TPR):</p>
+<p><span class="math display">\[
+\text{TPR} = \frac{\text{TP}}{\text{TP} + \text{FN}}.
+\]</span></p>
+</section>
+<section id="true-negative-rate-specificity" class="level3" data-number="10.3.3">
+<h3 data-number="10.3.3" class="anchored" data-anchor-id="true-negative-rate-specificity"><span class="header-section-number">10.3.3</span> True negative rate (Specificity)</h3>
+</section>
+<section id="positive-predictive-value-precision" class="level3" data-number="10.3.4">
+<h3 data-number="10.3.4" class="anchored" data-anchor-id="positive-predictive-value-precision"><span class="header-section-number">10.3.4</span> Positive predictive value (Precision)</h3>
+</section>
+<section id="negative-predictive-value" class="level3" data-number="10.3.5">
+<h3 data-number="10.3.5" class="anchored" data-anchor-id="negative-predictive-value"><span class="header-section-number">10.3.5</span> Negative predictive value</h3>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
