@@ -223,6 +223,9 @@ The four categorries above allow us to calculate a set of more formally defined 
 
 ## Metrics for evaluating classification models
 
+There's a long list of different metrics which have been developed to evaluate the performance of binary classification models.
+Below we will introduce some of the most common ones, but take note that the list is not by any means exhaustive.
+
 ### Accuracy
 
 Probably the easiest metric to understand is accuracy. It is defined as the number of correct predictions divided by the total number of predictions.
@@ -321,3 +324,16 @@ It seems that our model is better at identifying the negative cases than the pos
 ### Positive predictive value (Precision)
 
 ### Negative predictive value
+
+## Getting the classification report
+
+There is a convenient function in scikit-learn that calculates several metrics in one go. It's called `classification_report`.
+Let's see how it works.
+
+```{python}
+#| code-fold: false
+
+from sklearn.metrics import classification_report
+
+print(classification_report(y_test, y_pred))
+```
