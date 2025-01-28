@@ -331,6 +331,24 @@ $$
 $$
 
 So in essence we are looking to see which proportion of our positive predictions are correct.
+Let's see the precision of our logistic regression fit the manual way, and then with scikit-learn.
+
+```{python}
+#| code-fold: false
+
+59 / (59 + 3)
+```
+
+```{python}
+#| code-fold: false
+
+# with scikit-learn
+from sklearn.metrics import precision_score
+
+precision_score(y_test, y_pred)
+```
+
+When our model does label something as positive, it is correct 95% of the time.
 
 ### Negative predictive value
 
