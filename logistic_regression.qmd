@@ -323,6 +323,15 @@ It seems that our model is better at identifying the negative cases than the pos
 
 ### Positive predictive value (Precision)
 
+The previous two metrics were defined based on the rows of the confusion matrix. Positive predictive value, also known as precision, is defined by looking at the column with the positive predictions.
+We defined it as:
+
+$$
+\text{PPV} = \frac{\text{TP}}{\text{TP} + \text{FP}}.
+$$
+
+So in essence we are looking to see which proportion of our positive predictions are correct.
+
 ### Negative predictive value
 
 ## Getting the classification report
