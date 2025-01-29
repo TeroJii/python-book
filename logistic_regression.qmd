@@ -367,6 +367,18 @@ NPV tells us which proportion of our negative predictions was correct, which for
 130 / (130 + 13)
 ```
 
+When we use scikit-learn, we need to apply the same trick we used for specificity, and that is to define the positive class label as 0.
+
+```{python}	
+#| code-fold: false
+
+from sklearn.metrics import precision_score
+
+precision_score(y_test, y_pred, pos_label=0)
+```
+
+So, when our model does label something as negative, it is correct 91% of the time (with the test data).
+
 ## Getting the classification report
 
 There is a convenient function in scikit-learn that calculates several metrics in one go. It's called `classification_report`.
