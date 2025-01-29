@@ -381,7 +381,7 @@ So, when our model does label something as negative, it is correct 91% of the ti
 
 ## Getting the classification report
 
-There is a convenient function in scikit-learn that calculates several metrics in one go. It's called `classification_report`.
+There is actually a convenient function in scikit-learn that calculates all the metrics we went through in one go. It's called `classification_report`.
 Let's see how it works.
 
 ```{python}
@@ -391,3 +391,9 @@ from sklearn.metrics import classification_report
 
 print(classification_report(y_test, y_pred))
 ```
+
+The output is divided to columns, out of which the first two are labelled as `precision` and `recall`.
+On the left-hand side we see the class labels depicted by their numeric values (0 and 1).
+If we look at the results for the positive class (1), we see that the value for precision is 0.95 and for recall 0.82, which match the results we calculated manually. The row above shows the results for the negative class (0), and we can again confirm that the values correspond to the results we got for specificity and the negative predictive value (NPV). Additionally, the classification report provides a value for accuracy, as well as averages for the metrics across the classes.
+
+Something about F1-score...
