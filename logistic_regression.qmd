@@ -352,6 +352,21 @@ When our model does label something as positive, it is correct 95% of the time.
 
 ### Negative predictive value
 
+Negative predictive value is the counterpart of positive predictive value. It uses the column for the negative predictions in the confusion matrix.
+The formula for Negative Predictive Value (NPV) is:
+
+$$
+\text{NPV} = \frac{\text{TN}}{\text{TN} + \text{FN}}.
+$$
+
+NPV tells us which proportion of our negative predictions was correct, which for our example is:
+
+```{python}
+#| code-fold: false
+
+130 / (130 + 13)
+```
+
 ## Getting the classification report
 
 There is a convenient function in scikit-learn that calculates several metrics in one go. It's called `classification_report`.
