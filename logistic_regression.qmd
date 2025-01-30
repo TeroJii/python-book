@@ -6,7 +6,7 @@ jupyter: python3
 
 In the previous chapter we learned about linear regression. The word regression is used in the context of statistical modelling to refer to the act of estimating the relationship between a dependent variable and one or more independent variables. However, sometimes what we are trying to predict might not be a continuous numerical variable, but categorical. In such cases, instead of a regression problem, we are dealing with classification. In the simplest case, there are only two distinct classes. This is called binary classification. One of the simplests algorithms for solving these types of problems is called logistic regression, which despite its name, is used for classification.
 
-## Univariate logistic regression
+## Univariate logistic regression {#sec-univariate}
 
 In univariate logistic regression, we have a single independent variable and a binary dependent variable. The goal is to estimate the probability that the dependent variable is 1, based on the value of the independent variable. This implies that the values of the categorical dependent variable are assigned so-called dummy values, and are therefore coded as 0 and 1. For example, if we are trying to predict whether a student will pass or fail an exam based on the number of hours they studied, we can code the dependent variable as 1 if the student passed and 0 if they failed.
 
@@ -416,3 +416,8 @@ from sklearn.metrics import f1_score
 
 f1_score(y_test, y_pred)
 ```
+
+## Multivariate logistic regression
+
+In @sec-univariate we looked at univariate logistic regression, where a single independent variable was used to predict the dependent variable.
+This yielded pretty decent results, and was also easy to interpret.
