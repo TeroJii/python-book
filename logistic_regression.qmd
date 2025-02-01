@@ -46,7 +46,7 @@ plt.show()
 
 The beauty of the Sigmoid function is that it coerces any input to the variable $z$ to lie between 0 and 1. This is exactly what we need for a probability. In other words, if the values we are trying to predict are binary, with values 0 and 1, the sigmoid function will essentially give us the probability that the value is 1.
 
-## Fitting a univariate logistic regression model
+## Fitting a univariate logistic regression model {#sec-fitunivariate}
 
 Let's see how we can fit a logistic regression model in practice. For this, we will explore the  [UCI ML Repository Breast cancer dataset](https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original), which contains information about breast cancer patients (@UCIBreastCancer1992). **Add one more citation...**
 @tbl-bc_data shows the first few rows of the dataset. The `Class` column contains the dependents variable. Benign cases are labelled with 2, whereas malignant cases are labelled with 4.
@@ -419,6 +419,8 @@ $$
 F_{1} = \frac{2 \text{TP}}{2 \text{TP} + \text{FP} + \text{FN}}.
 $$ {#eq-f1_2}
 
+As you might have guessed, scikit-learn has a function for calculating the F1-score as well. It works exactly the same way as the other functions we have used for calculating metrics.
+
 ```{python}	
 #| code-fold: false
 from sklearn.metrics import f1_score
@@ -428,5 +430,5 @@ f1_score(y_test, y_pred)
 
 ## Multivariate logistic regression
 
-In @sec-univariate we looked at univariate logistic regression, where a single independent variable was used to predict the dependent variable.
-This yielded pretty decent results, and was also easy to interpret.
+In @sec-univariate and @sec-fitunivariate we looked at univariate logistic regression, where a single independent variable was used to predict the dependent variable.
+This yielded pretty decent results, and was also easy to interpret. However, we still have a many variables in the dataset that we haven't used yet. Let's see how much our model improves when we feed it more variables.
