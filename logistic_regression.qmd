@@ -233,7 +233,7 @@ We can define it using the four categories above as follows:
 
 $$
 \text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{TN} + \text{FP} + \text{FN}}.
-$$
+$$ {#eq-accuracy}
 
 In the case our univariate logistic regression fit, the accuracy of the model is calculated as:
 
@@ -272,7 +272,7 @@ Using the four classes define above, we get for True Positive Rate (TPR):
 
 $$
 \text{TPR} = \frac{\text{TP}}{\text{TP} + \text{FN}}.
-$$
+$$ {#eq-recall}
 
 For our example, we get:
 
@@ -298,7 +298,7 @@ The formula for True Negative Rate is:
 
 $$
 \text{TNR} = \frac{\text{TN}}{\text{TN} + \text{FP}}.
-$$
+$$ {#eq-tnr}
 
 This translates to:
 
@@ -328,7 +328,7 @@ We defined it as:
 
 $$
 \text{PPV} = \frac{\text{TP}}{\text{TP} + \text{FP}}.
-$$
+$$ {#eq-precision}
 
 So in essence we are looking to see which proportion of our positive predictions are correct.
 Let's see the precision of our logistic regression fit the manual way, and then with scikit-learn.
@@ -357,7 +357,7 @@ The formula for Negative Predictive Value (NPV) is:
 
 $$
 \text{NPV} = \frac{\text{TN}}{\text{TN} + \text{FN}}.
-$$
+$$ {#eq-npv}
 
 NPV tells us which proportion of our negative predictions was correct, which for our example is:
 
@@ -400,7 +400,7 @@ The final metric that the classification report gives us is something called the
 
 $$
 F_{1} = \frac{2}{\text{precision}^{-1} + \text{recall}^{-1}}.
-$$
+$$ {#eq-f1}
 
 We can calculate the F1-score manually by substituting the values for precision and recall:
 
@@ -412,7 +412,12 @@ f1_res = 2 / (1/0.95 + 1/0.82)
 f1_res.__round__(2)
 ```
 
+Earlier we defined precision and recall by using the four categories of the confusion matrix.
+By substituting the formulas for precision (@eq-precision) and recall (@eq-recall) into @eq-f1 we can define the F1-score as:
 
+$$
+F_{1} = \frac{2 \text{TP}}{2 \text{TP} + \text{FP} + \text{FN}}.
+$$ {#eq-f1_2}
 
 ```{python}	
 #| code-fold: false
