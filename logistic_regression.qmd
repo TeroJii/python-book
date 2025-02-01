@@ -396,11 +396,13 @@ The output is divided to columns, out of which the first two are labelled as `pr
 On the left-hand side we see the class labels depicted by their numeric values (0 and 1).
 If we look at the results for the positive class (1), we see that the value for precision is 0.95 and for recall 0.82, which match the results we calculated manually. The row above shows the results for the negative class (0), and we can again confirm that the values correspond to the results we got for specificity and the negative predictive value (NPV). Additionally, the classification report provides a value for accuracy, as well as averages for the metrics across the classes.
 
-Something about F1-score... which is the harmonic mean of precision and recall.
+The final metric that the classification report gives us is something called the F1-score. The F1-score is calculated from precision and recall by taking the harmonic mean of the two:
 
 $$
-F_{1} = \frac{2}{\text{precision}^{-1} + \text{recall}^{-1}}
+F_{1} = \frac{2}{\text{precision}^{-1} + \text{recall}^{-1}}.
 $$
+
+We can calculate the F1-score manually by substituting the values for precision and recall:
 
 ```{python}	
 #| code-fold: false
@@ -409,6 +411,8 @@ f1_res = 2 / (1/0.95 + 1/0.82)
 
 f1_res.__round__(2)
 ```
+
+
 
 ```{python}	
 #| code-fold: false
