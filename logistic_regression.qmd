@@ -432,3 +432,55 @@ f1_score(y_test, y_pred)
 
 In @sec-univariate and @sec-fitunivariate we looked at univariate logistic regression, where a single independent variable was used to predict the dependent variable.
 This yielded pretty decent results, and was also easy to interpret. However, we still have a many variables in the dataset that we haven't used yet. Let's see how much our model improves when we feed it more variables.
+
+Our data contains 9 different variables, and we will use all of them to predict the class variable. We will use the same train-test split as before, and then fit the model to the training data. The column in our data are:
+
+```{python}
+#| code-fold: false
+
+bc_data.columns
+```
+
+We will need to reassing the `X` variable to include all the columns (excluding Class), and then split the data into training and testing sets.
+
+```{python}
+#| code-fold: false
+
+X = bc_data.drop('Class', axis=1)
+
+X_train, X_test, y_train, y_test = train_test_split(X,
+y, test_size=0.3, random_state=42, stratify=y)
+```
+
+We can now fit the model to the training data.
+
+```{python}
+#| code-fold: false
+
+log_reg_multi = LogisticRegression()
+log_reg_multi.fit(X_train, y_train)
+```
+
+Let's see the summary of the model parameters.
+
+```{python}
+#| code-fold: false
+
+log_reg_multi.intercept_
+```
+
+```{python}
+#| code-fold: false
+
+log_reg_multi.coef_
+```
+
+The classification report gives us a good overview of how well our model performs.
+
+```{python}
+#| code-fold: false
+
+y_pred_multi = log_reg_multi.predict(X_test)
+
+print(classification_report(y_test, y_pred_multi))
+```
