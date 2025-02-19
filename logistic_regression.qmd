@@ -486,3 +486,9 @@ cm_plot_multi.set_ylabel('Actual Class')
 
 plt.show()
 ```
+
+We can see that our logistic regression model does really well in predicting the malignancy class. And it does so with the test data, which it hasn't seen before. This means that we have been able to avoid overfitting, which is crucial if we want our model to generalize well to new data.
+
+## Summary
+
+In this chapter we learned about using logistic regression for binary classification problems. We saw how straightforward it is to fit a model using one or more variables as features. We also learned about different metrics that can be used to evaluate the performance of classification models, and how to interpret the results of these metrics. These metrics are useful for evaluation other classification models as well, not just logistic regression.
