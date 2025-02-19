@@ -461,20 +461,6 @@ log_reg_multi = LogisticRegression()
 log_reg_multi.fit(X_train, y_train)
 ```
 
-Let's see the summary of the model parameters.
-
-```{python}
-#| code-fold: false
-
-log_reg_multi.intercept_
-```
-
-```{python}
-#| code-fold: false
-
-log_reg_multi.coef_
-```
-
 The classification report gives us a good overview of how well our model performs.
 
 ```{python}
@@ -483,4 +469,20 @@ The classification report gives us a good overview of how well our model perform
 y_pred_multi = log_reg_multi.predict(X_test)
 
 print(classification_report(y_test, y_pred_multi))
+```
+
+Adding more predictors has clearly improved the model performance. We can also see this when we take a look at the confusion matrix which is shown in @fig-confusion-matrix-multi.
+
+```{python}
+#| label: fig-confusion-matrix-multi
+#| fig-cap: The confusion matrix for the multivariate logistic regression model. The model is able to predict the class of the test data with high accuracy. The diagonal elements correspond to correctly classified cases.
+
+cm2 = confusion_matrix(y_test, y_pred_multi)
+
+cm_plot_multi = sns.heatmap(cm2, annot=True, fmt='d', cmap='Blues', cbar=False)
+
+cm_plot_multi.set_xlabel('Predicted Malignancy Class')
+cm_plot_multi.set_ylabel('Actual Class')
+
+plt.show()
 ```
