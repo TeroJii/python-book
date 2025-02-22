@@ -28,6 +28,9 @@ book:
       chapters:
         - linear_regression.qmd
         - logistic_regression.qmd
+        - decision_trees.qmd
+        - gradient_boosting.qmd
+        - unsupervised_learning.qmd
     - part: "Wrapping up"
       chapters:
         - summary.qmd
