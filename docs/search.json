@@ -756,5 +756,16 @@
       "Modelling",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Gradient Boosting</span>"
     ]
+  },
+  {
+    "objectID": "control_flow.html#conclusion",
+    "href": "control_flow.html#conclusion",
+    "title": "2  Control Flow Statements",
+    "section": "2.4 Conclusion",
+    "text": "2.4 Conclusion\nIn this chapter we learned about the basic control flow statements in Python. We can use the if statement to make decisions based on conditions, the for loop to repeat a block of code a known number of times, and the while loop to repeat a block of code as long as a condition is True. In the next chapter we will learn about functions, which are a way to organize our code and make it more reusable.",
+    "crumbs": [
+      "The Very Basics",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Control Flow Statements</span>"
+    ]
   }
 ]
