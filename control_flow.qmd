@@ -109,7 +109,7 @@ print(squared_numbers)
 
 ## The `while` loop
 
-The `while` loop is the `for` loop's liberal cousin. It is less restrictive and repeats a block of code as long as a condition is `True`. Depending on the condition we might not know how many times the loop will be executed beforehand. The price for this freedom is that we might accidentally create an infinite loop if we're not careful. Let's look at a simple example.
+The `while` loop is the `for` loop's liberal cousin. It is less restrictive and repeats a block of code as long as a condition is `True`. Depending on the condition we might not know how many times the loop will be executed beforehand. The price for this freedom is that we might accidentally create an infinite loop if we're not careful. Let's look at a simple example, which demonstrates the basic idea.
 
 ```{python}
 #| code-fold: false
@@ -121,4 +121,16 @@ while count < 5:
     count += 1
 ```
 
-The example above could have been implemented with a `for` loop as well. As a rule of thumb a `for`loop can always be written as a `while` loop, but not the other way around. We'll come back to more complicated `while` loops later, when we learn about random number generation and the `break` and `continue` statements.
+The example above could have been implemented with a `for` loop as well. As a rule of thumb a `for`loop can always be written as a `while` loop, but not the other way around. We can also use the `break` statement to exit the loop.
+
+```{python}
+#| code-fold: false
+start = 0
+end = 5
+
+while True:
+    print(f'Count is {start}')
+    start += 1
+    if start >= end:
+        break
+```
