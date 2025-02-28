@@ -201,7 +201,17 @@ formatted_string = "My name is {} and I am {} years old".format(name, age)
 print(formatted_string)
 ```	
 
-There are other intricacies related to working with strings, such as the `split()` and `join()` methods, which we will cover in a later section... maybe.
+Python 3.6 introduced a new way of formatting strings which are referred to as f-strings. Let's show how they work with a simple example:
+
+```{python}
+#| code-fold: false
+
+print(f"My name is {name} and I am {age} years old")
+print(f"Next year I will be {age + 1} years old")
+```
+
+As we can see f-strings are a more concise way of formatting strings, and they come in handy in many situations. For example, as we saw above, calculations with numeric variables can be performed directly inside the f-string, and the result will be automatically formatted as a string.
+
 
 ### Booleans
 
