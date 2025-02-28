@@ -740,7 +740,7 @@
     "href": "decision_trees.html",
     "title": "11  Decision Trees",
     "section": "",
-    "text": "Work in progress…",
+    "text": "Decision trees are a popular machine learning algorithm that can be used for both classification and regression tasks. They are easy to understand and interpret, and they can handle both numerical and categorical data.",
     "crumbs": [
       "Modelling",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Decision Trees</span>"
