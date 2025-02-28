@@ -134,3 +134,7 @@ while True:
     if start >= end:
         break
 ```
+
+## Conclusion
+
+In this chapter we learned about the basic control flow statements in Python. We can use the `if` statement to make decisions based on conditions, the `for` loop to repeat a block of code a known number of times, and the `while` loop to repeat a block of code as long as a condition is `True`. In the next chapter we will learn about functions, which are a way to organize our code and make it more reusable.
