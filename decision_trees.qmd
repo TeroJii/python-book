@@ -4,4 +4,4 @@ jupyter: python3
 
 # Decision Trees
 
-Work in progress...
+Decision trees are a popular machine learning algorithm that can be used for both classification and regression tasks. They are easy to understand and interpret, and they can handle both numerical and categorical data.
