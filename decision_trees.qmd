@@ -5,3 +5,30 @@ jupyter: python3
 # Decision Trees
 
 Decision trees are a popular machine learning algorithm that can be used for both classification and regression tasks. They are easy to understand and interpret, and they can handle both numerical and categorical data.
+Moreover, some more advanced algorithms are based on decision trees, such as Random Forests and Gradient Boosting.
+
+Let's illustrate the concept with a classification example.
+
+## Decision Trees for Classification
+
+We will use the (in)famous Iris dataset, which contains information about three different species of iris flowers. The goal is to classify the species based on the sepal length, sepal width, petal length, and petal width of the flowers.
+@tbl-iris-data shows a preview with a few first rows from the dataset.
+
+```{python}
+#| label: tbl-iris-data
+#| tbl-cap: First few rows of the Iris dataset
+ 
+# Load the Iris dataset
+from sklearn.datasets import load_iris
+iris = load_iris()
+
+# Create a DataFrame with the feature variables
+import pandas as pd
+data = pd.DataFrame(iris.data, columns=iris.feature_names)
+
+# Add the target variable to the DataFrame
+data['species'] = iris.target
+
+# Display the first few rows of the DataFrame
+data.head()
+```
