@@ -56,18 +56,44 @@ tree_classifier = DecisionTreeClassifier(max_depth=3)
 tree_classifier.fit(X_train, y_train)
 ```
 
-This model is now trained and ready to make predictions. 
-Let's look at the confusion matrix to evaluate the model's performance.
+This model is now trained and ready to make predictions. Let's predict the species of the flowers in the test set and evaluate the model's performance.
+
 
 ```{python}
-# Load the necessary libraries
-from sklearn.metrics import confusion_matrix
+#| label: make-predictions
 
 # Make predictions on the test data
 y_pred = tree_classifier.predict(X_test)
 
+print(y_pred)
+
+# the type of y_pred is numpy.ndarray
+type(y_pred)
+```
+
+The test predictions above are stored in a variable `y_pred`. We can now evaluate the model's performance by computing the confusion matrix. @fig-confusion-matrix shows the confusion matrix for the decision tree classifier.
+
+```{python}	
+#| label: fig-confusion-matrix
+#| fig-cap: Confusion matrix showing the performance of the decision tree classifier on the test data.
+
+
+# Load the necessary libraries
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+import matplotlib.pyplot as plt
+
 # Compute the confusion matrix
-confusion_matrix(y_test, y_pred)
+cm = confusion_matrix(y_test, y_pred)
+
+plt.figure(figsize=(6, 4))
+sns.heatmap(cm, annot=True, 
+fmt='d', cmap='Blues', cbar=False, 
+xticklabels=iris.target_names, yticklabels=iris.target_names)
+plt.xlabel('Predicted species')
+plt.ylabel('Actual species')
+plt.title('Confusion Matrix')
+plt.show()
 ```
 
 Let's visualize the decision boundaries.
