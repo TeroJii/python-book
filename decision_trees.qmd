@@ -32,3 +32,42 @@ data['species'] = iris.target
 # Display the first few rows of the DataFrame
 data.head()
 ```
+
+Now let's say we would want to predict the species of an iris flower based on its sepal length and sepal width. We can train a decision tree classifier on the data and visualize the decision boundaries.
+
+### Building a Decision Tree Classifier
+
+```{python}
+# Load the necessary libraries
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+
+# Select the feature variables
+X = data[['sepal length (cm)', 'sepal width (cm)']]
+y = data['species']
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+
+# Create a decision tree classifier
+tree_classifier = DecisionTreeClassifier(max_depth=3)
+
+# Train the classifier on the training data
+tree_classifier.fit(X_train, y_train)
+```
+
+This model is now trained and ready to make predictions. 
+Let's look at the confusion matrix to evaluate the model's performance.
+
+```{python}
+# Load the necessary libraries
+from sklearn.metrics import confusion_matrix
+
+# Make predictions on the test data
+y_pred = tree_classifier.predict(X_test)
+
+# Compute the confusion matrix
+confusion_matrix(y_test, y_pred)
+```
+
+Let's visualize the decision boundaries.
