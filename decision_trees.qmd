@@ -39,7 +39,7 @@ Now let's say we would want to predict the species of an iris flower based on it
 
 ```{python}
 # Load the necessary libraries
-from sklearn.tree import DecisionTreeClassifier
+from sklearn import tree
 from sklearn.model_selection import train_test_split
 
 # Select the feature variables
@@ -50,7 +50,7 @@ y = data['species']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
 
 # Create a decision tree classifier
-tree_classifier = DecisionTreeClassifier(max_depth=3)
+tree_classifier = tree.DecisionTreeClassifier(max_depth=3)
 
 # Train the classifier on the training data
 tree_classifier.fit(X_train, y_train)
@@ -97,3 +97,20 @@ plt.show()
 ```
 
 Let's visualize the decision boundaries.
+
+### Visualizing the Decision Boundaries
+
+The decision boundaries of a decision tree classifier can be visualized using the `plot_tree` function from the `sklearn.tree` module. The function takes the trained classifier, feature names, class names, and other optional parameters as input. @fig-decision-boundaries shows the decision boundaries of the trained decision tree classifier.
+
+```{python}
+#| label: fig-decision-boundaries
+#| fig-cap: The visualization of the decision tree shows how the classification predictions are made based on the input features. Each node represents a decision based on a feature, and the color represents the predicted class.
+
+tree.plot_tree(tree_classifier, feature_names=['sepal length (cm)', 'sepal width (cm)'], class_names=iris.target_names, filled=True,
+rounded=True, fontsize=7,
+label='root',
+impurity=False)
+plt.show()
+```
+
+Visualizing the decision boundaries can help us understand how the decision tree classifier makes predictions based on the input features.
