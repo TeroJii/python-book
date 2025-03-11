@@ -121,4 +121,8 @@ tree.plot_tree(
 plt.show()
 ```
 
-Visualizing the decision boundaries can help us understand how the decision tree classifier makes predictions based on the input features.
+Visualizing the decision boundaries can help us understand how the decision tree classifier makes predictions based on the input features. For example, from the @fig-decision-boundaries we can see that the classifier first checks if the sepal length is less than 5.45 cm. If it is, the flower is classified as `setosa`. Observations where sepal length is equal to or above 5.45 cm are classified as `virginica`. Similar decisions are made twice more, which corresponds to the `max_depth=3` parameter we set when creating the classifier. This decision making process categorizes our data into three distinct classes. But how is the algorithm able to make these decisions?
+
+## How Decision Trees Work
+
+WIP...
