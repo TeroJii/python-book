@@ -527,20 +527,21 @@ Figure&nbsp;11.1: Confusion matrix showing the performance of the decision tree 
 </div>
 </div>
 </div>
-<p>Let’s visualize the decision boundaries.</p>
+<p>We can tell by looking at the confusion matrix that the model seems quite capable of distinguishing between the three species of iris flowers. But how does it actually achieve this? Let’s visualize the decision making process.</p>
 </section>
 <section id="visualizing-the-decision-boundaries" class="level3" data-number="11.1.2">
 <h3 data-number="11.1.2" class="anchored" data-anchor-id="visualizing-the-decision-boundaries"><span class="header-section-number">11.1.2</span> Visualizing the Decision Boundaries</h3>
-<p>The decision boundaries of a decision tree classifier can be visualized using the <code>plot_tree</code> function from the <code>sklearn.tree</code> module. The function takes the trained classifier, feature names, class names, and other optional parameters as input. <a href="#fig-decision-boundaries" class="quarto-xref">Figure&nbsp;<span>11.2</span></a> shows the decision boundaries of the trained decision tree classifier.</p>
+<p>Decision trees are called so due to the visual appearance of the model. The tree consist of nodes that represent decisions based on the input features. We can visualize the nodes an splits in the data with the <code>plot_tree</code> function from the <code>sklearn.tree</code> module. <a href="#fig-decision-boundaries" class="quarto-xref">Figure&nbsp;<span>11.2</span></a> shows the decision boundaries of the trained decision tree classifier.</p>
 <div id="cell-fig-decision-boundaries" class="cell" data-execution_count="5">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tree.plot_tree(tree_classifier, feature_names<span class="op">=</span>[<span class="st">'sepal length (cm)'</span>, <span class="st">'sepal width (cm)'</span>], class_names<span class="op">=</span>iris.target_names, filled<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>rounded<span class="op">=</span><span class="va">True</span>, fontsize<span class="op">=</span><span class="dv">7</span>,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>label<span class="op">=</span><span class="st">'root'</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>impurity<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tree.plot_tree(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    tree_classifier, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    feature_names<span class="op">=</span>[<span class="st">'sepal length (cm)'</span>, <span class="st">'sepal width (cm)'</span>], </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    class_names<span class="op">=</span>iris.target_names, </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    filled<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    rounded<span class="op">=</span><span class="va">True</span>, fontsize<span class="op">=</span><span class="dv">7</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    label<span class="op">=</span><span class="st">'root'</span>, impurity<span class="op">=</span><span class="va">False</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="fig-decision-boundaries" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
