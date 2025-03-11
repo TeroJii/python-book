@@ -98,20 +98,26 @@ plt.title('Confusion Matrix')
 plt.show()
 ```
 
-Let's visualize the decision boundaries.
+We can tell by looking at the confusion matrix that the model seems quite capable of distinguishing between the three species of iris flowers. But how does it actually achieve this? Let's visualize the decision making process.
 
 ### Visualizing the Decision Boundaries
 
-The decision boundaries of a decision tree classifier can be visualized using the `plot_tree` function from the `sklearn.tree` module. The function takes the trained classifier, feature names, class names, and other optional parameters as input. @fig-decision-boundaries shows the decision boundaries of the trained decision tree classifier.
+Decision trees are called so due to the visual appearance of the model. The tree consist of nodes that represent decisions based on the input features.
+We can visualize the nodes an splits in the data with the `plot_tree` function from the `sklearn.tree` module. @fig-decision-boundaries shows the decision boundaries of the trained decision tree classifier.
 
 ```{python}
 #| label: fig-decision-boundaries
 #| fig-cap: The visualization of the decision tree shows how the classification predictions are made based on the input features. Each node represents a decision based on a feature, and the color represents the predicted class.
+#| code-fold: false
 
-tree.plot_tree(tree_classifier, feature_names=['sepal length (cm)', 'sepal width (cm)'], class_names=iris.target_names, filled=True,
-rounded=True, fontsize=7,
-label='root',
-impurity=False)
+tree.plot_tree(
+    tree_classifier, 
+    feature_names=['sepal length (cm)', 'sepal width (cm)'], 
+    class_names=iris.target_names, 
+    filled=True,
+    rounded=True, fontsize=7,
+    label='root', impurity=False
+    )
 plt.show()
 ```
 
