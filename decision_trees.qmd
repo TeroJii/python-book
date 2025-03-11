@@ -37,7 +37,12 @@ Now let's say we would want to predict the species of an iris flower based on it
 
 ### Building a Decision Tree Classifier
 
+We can fit a decision tree to our data with the help of `scikit-learn`. The first step, as always, is to select the feature variables and split the data into training and testing sets.
+
 ```{python}
+#| code-fold: false
+#| label: train-decision-tree
+
 # Load the necessary libraries
 from sklearn import tree
 from sklearn.model_selection import train_test_split
@@ -47,7 +52,8 @@ X = data[['sepal length (cm)', 'sepal width (cm)']]
 y = data['species']
 
 # Split the data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, 
+test_size=0.25, random_state=42)
 
 # Create a decision tree classifier
 tree_classifier = tree.DecisionTreeClassifier(max_depth=3)
@@ -56,19 +62,16 @@ tree_classifier = tree.DecisionTreeClassifier(max_depth=3)
 tree_classifier.fit(X_train, y_train)
 ```
 
-This model is now trained and ready to make predictions. Let's predict the species of the flowers in the test set and evaluate the model's performance.
-
+Above we used the `tree` module from `scikit-learn` to create a decision tree classifier with a maximum depth of 3. We will see in a moment what this means. The classifier is then trained on the training data. We left 25% of the data as our test set. The `predict` method allows us to, well, predict the species of the flowers in the test set:
 
 ```{python}
 #| label: make-predictions
+#| code-fold: false
 
 # Make predictions on the test data
 y_pred = tree_classifier.predict(X_test)
 
 print(y_pred)
-
-# the type of y_pred is numpy.ndarray
-type(y_pred)
 ```
 
 The test predictions above are stored in a variable `y_pred`. We can now evaluate the model's performance by computing the confusion matrix. @fig-confusion-matrix shows the confusion matrix for the decision tree classifier.
@@ -76,7 +79,6 @@ The test predictions above are stored in a variable `y_pred`. We can now evaluat
 ```{python}	
 #| label: fig-confusion-matrix
 #| fig-cap: Confusion matrix showing the performance of the decision tree classifier on the test data.
-
 
 # Load the necessary libraries
 from sklearn.metrics import confusion_matrix
