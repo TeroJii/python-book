@@ -126,3 +126,13 @@ Visualizing the decision boundaries can help us understand how the decision tree
 ## How Decision Trees Work
 
 WIP...
+
+The Gini index is a measure of impurity used by the decision tree algorithm to determine the best split at each node. The Gini index is calculated as follows:
+
+$$
+G = 1 - \sum_{i=1}^{n} p_i^2
+$$
+
+where $p_i$ is the probability of observing class $i$ in a given node. The Gini index ranges from 0 to 1, where 0 indicates that the node is pure (i.e., all observations belong to the same class) and 1 indicates that the node is impure (i.e., observations are evenly distributed among classes).
+
+WIP...
