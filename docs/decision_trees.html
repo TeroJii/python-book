@@ -596,6 +596,11 @@ Figure&nbsp;11.2: The visualization of the decision tree shows how the classific
 G = 1 - \sum_{i=1}^{n} p_i^2
 \]</span></p>
 <p>where <span class="math inline">\(p_i\)</span> is the probability of observing class <span class="math inline">\(i\)</span> in a given node. The Gini index ranges from 0 to 1, where 0 indicates that the node is pure (i.e., all observations belong to the same class) and 1 indicates that the node is impure (i.e., observations are evenly distributed among classes).</p>
+<p>Entropy is another measure of impurity that can be used by the decision tree algorithm. The entropy of a node is calculated as follows:</p>
+<p><span class="math display">\[
+H = -\sum_{i=1}^{n} p_i \log_2(p_i)
+\]</span></p>
+<p>where <span class="math inline">\(p_i\)</span> is the probability of observing class <span class="math inline">\(i\)</span> in a given node. The entropy ranges from 0 to <span class="math inline">\(\log_2(n)\)</span>, where 0 indicates that the node is pure (i.e., all observations belong to the same class) and <span class="math inline">\(\log_2(n)\)</span> indicates that the node is impure (i.e., observations are evenly distributed among classes).</p>
 <p>WIP…</p>
 
 
