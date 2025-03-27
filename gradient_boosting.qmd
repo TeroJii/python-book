@@ -4,4 +4,6 @@ jupyter: python3
 
 # Gradient Boosting
 
+In the previous chapter we discussed decision trees. As we saw, decision trees offer a very intuitive way of visualizing the prediction process. However, this simplicity comes with a price. Decision trees are prone to overfitting, which means they can capture noise in the training data and generalize poorly to new, unseen data. Gradient boosting is one well-known technique that can help to mitigate this issue.
+
 Work in progress...
