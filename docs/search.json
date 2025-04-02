@@ -783,8 +783,19 @@
     "objectID": "decision_trees.html#how-decision-trees-work",
     "href": "decision_trees.html#how-decision-trees-work",
     "title": "11  Decision Trees",
-    "section": "11.2 How Decision Trees Work",
-    "text": "11.2 How Decision Trees Work\nWIP…\nThe Gini index is a measure of impurity used by the decision tree algorithm to determine the best split at each node. The Gini index is calculated as follows:\n\\[\nG = 1 - \\sum_{i=1}^{n} p_i^2\n\\]\nwhere \\(p_i\\) is the probability of observing class \\(i\\) in a given node. The Gini index ranges from 0 to 1, where 0 indicates that the node is pure (i.e., all observations belong to the same class) and 1 indicates that the node is impure (i.e., observations are evenly distributed among classes).\nEntropy is another measure of impurity that can be used by the decision tree algorithm. The entropy of a node is calculated as follows:\n\\[\nH = -\\sum_{i=1}^{n} p_i \\log_2(p_i)\n\\]\nwhere \\(p_i\\) is the probability of observing class \\(i\\) in a given node. The entropy ranges from 0 to \\(\\log_2(n)\\), where 0 indicates that the node is pure (i.e., all observations belong to the same class) and \\(\\log_2(n)\\) indicates that the node is impure (i.e., observations are evenly distributed among classes).\nWIP…",
+    "section": "11.3 How Decision Trees Work",
+    "text": "11.3 How Decision Trees Work\nWIP…\nThe Gini index is a measure of impurity used by the decision tree algorithm to determine the best split at each node. The Gini index is calculated as follows:\n\\[\nG = 1 - \\sum_{i=1}^{n} p_i^2\n\\]\nwhere \\(p_i\\) is the probability of observing class \\(i\\) in a given node. The Gini index ranges from 0 to 1, where 0 indicates that the node is pure (i.e., all observations belong to the same class) and 1 indicates that the node is impure (i.e., observations are evenly distributed among classes).\nEntropy is another measure of impurity that can be used by the decision tree algorithm. The entropy of a node is calculated as follows:\n\\[\nH = -\\sum_{i=1}^{n} p_i \\log_2(p_i)\n\\]\nwhere \\(p_i\\) is the probability of observing class \\(i\\) in a given node. The entropy ranges from 0 to \\(\\log_2(n)\\), where 0 indicates that the node is pure (i.e., all observations belong to the same class) and \\(\\log_2(n)\\) indicates that the node is impure (i.e., observations are evenly distributed among classes).\nWIP…",
+    "crumbs": [
+      "Modelling",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Decision Trees</span>"
+    ]
+  },
+  {
+    "objectID": "decision_trees.html#decision-trees-for-regression",
+    "href": "decision_trees.html#decision-trees-for-regression",
+    "title": "11  Decision Trees",
+    "section": "11.2 Decision Trees for Regression",
+    "text": "11.2 Decision Trees for Regression\nDecision trees can be applied to regression problems as well. Our workflow will be almost analogous to the one we used for classification. We will use the California housing dataset, which contains information about various features of houses in California and their corresponding prices. The goal is to predict the price of a house based on its features.\n\n\nCode\n# Load the California housing dataset\nfrom sklearn.datasets import fetch_california_housing\n\ncalifornia_housing = fetch_california_housing()\nX = california_housing.data\ny = california_housing.target\nX_train, X_test, y_train, y_test = train_test_split(X, y,\ntest_size=0.25, random_state=42)\n# Create a decision tree regressor\nfrom sklearn.tree import DecisionTreeRegressor\ntree_regressor = DecisionTreeRegressor(max_depth=3)\n# Train the regressor on the training data\ntree_regressor.fit(X_train, y_train)\n# Make predictions on the test data\ny_pred = tree_regressor.predict(X_test)\n# Compute the mean squared error\nfrom sklearn.metrics import mean_squared_error\nmse = mean_squared_error(y_test, y_pred)\nprint(f'Mean Squared Error: {mse:.2f}')\n\n\nMean Squared Error: 0.64",
     "crumbs": [
       "Modelling",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Decision Trees</span>"

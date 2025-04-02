@@ -367,7 +367,8 @@ window.Quarto = {
   <li><a href="#building-a-decision-tree-classifier" id="toc-building-a-decision-tree-classifier" class="nav-link" data-scroll-target="#building-a-decision-tree-classifier"><span class="header-section-number">11.1.1</span> Building a Decision Tree Classifier</a></li>
   <li><a href="#visualizing-the-decision-boundaries" id="toc-visualizing-the-decision-boundaries" class="nav-link" data-scroll-target="#visualizing-the-decision-boundaries"><span class="header-section-number">11.1.2</span> Visualizing the Decision Boundaries</a></li>
   </ul></li>
-  <li><a href="#how-decision-trees-work" id="toc-how-decision-trees-work" class="nav-link" data-scroll-target="#how-decision-trees-work"><span class="header-section-number">11.2</span> How Decision Trees Work</a></li>
+  <li><a href="#decision-trees-for-regression" id="toc-decision-trees-for-regression" class="nav-link" data-scroll-target="#decision-trees-for-regression"><span class="header-section-number">11.2</span> Decision Trees for Regression</a></li>
+  <li><a href="#how-decision-trees-work" id="toc-how-decision-trees-work" class="nav-link" data-scroll-target="#how-decision-trees-work"><span class="header-section-number">11.3</span> How Decision Trees Work</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TeroJii/python-book/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -588,8 +589,39 @@ Figure&nbsp;11.2: The visualization of the decision tree shows how the classific
 <p>Visualizing the decision boundaries can help us understand how the decision tree classifier makes predictions based on the input features. For example, from the <a href="#fig-decision-boundaries" class="quarto-xref">Figure&nbsp;<span>11.2</span></a> we can see that the classifier first checks if the sepal length is less than 5.45 cm. If it is, the flower is classified as <code>setosa</code>. Observations where sepal length is equal to or above 5.45 cm are classified as <code>virginica</code>. Similar decisions are made twice more, which corresponds to the <code>max_depth=3</code> parameter we set when creating the classifier. This decision making process categorizes our data into three distinct classes. But how is the algorithm able to make these decisions?</p>
 </section>
 </section>
-<section id="how-decision-trees-work" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="how-decision-trees-work"><span class="header-section-number">11.2</span> How Decision Trees Work</h2>
+<section id="decision-trees-for-regression" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="decision-trees-for-regression"><span class="header-section-number">11.2</span> Decision Trees for Regression</h2>
+<p>Decision trees can be applied to regression problems as well. Our workflow will be almost analogous to the one we used for classification. We will use the California housing dataset, which contains information about various features of houses in California and their corresponding prices. The goal is to predict the price of a house based on its features.</p>
+<div id="train-decision-tree-regression" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the California housing dataset</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> fetch_california_housing</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>california_housing <span class="op">=</span> fetch_california_housing()</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> california_housing.data</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> california_housing.target</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>test_size<span class="op">=</span><span class="fl">0.25</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a decision tree regressor</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeRegressor</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>tree_regressor <span class="op">=</span> DecisionTreeRegressor(max_depth<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Train the regressor on the training data</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>tree_regressor.fit(X_train, y_train)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions on the test data</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> tree_regressor.predict(X_test)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the mean squared error</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>mse <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error: </span><span class="sc">{</span>mse<span class="sc">:.2f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mean Squared Error: 0.64</code></pre>
+</div>
+</div>
+</section>
+<section id="how-decision-trees-work" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="how-decision-trees-work"><span class="header-section-number">11.3</span> How Decision Trees Work</h2>
 <p>WIP…</p>
 <p>The Gini index is a measure of impurity used by the decision tree algorithm to determine the best split at each node. The Gini index is calculated as follows:</p>
 <p><span class="math display">\[
