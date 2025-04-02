@@ -123,6 +123,34 @@ plt.show()
 
 Visualizing the decision boundaries can help us understand how the decision tree classifier makes predictions based on the input features. For example, from the @fig-decision-boundaries we can see that the classifier first checks if the sepal length is less than 5.45 cm. If it is, the flower is classified as `setosa`. Observations where sepal length is equal to or above 5.45 cm are classified as `virginica`. Similar decisions are made twice more, which corresponds to the `max_depth=3` parameter we set when creating the classifier. This decision making process categorizes our data into three distinct classes. But how is the algorithm able to make these decisions?
 
+## Decision Trees for Regression
+
+Decision trees can be applied to regression problems as well. Our workflow will be almost analogous to the one we used for classification. We will use the California housing dataset, which contains information about various features of houses in California and their corresponding prices. The goal is to predict the price of a house based on its features.
+
+```{python}
+#| label: train-decision-tree-regression
+
+# Load the California housing dataset
+from sklearn.datasets import fetch_california_housing
+
+california_housing = fetch_california_housing()
+X = california_housing.data
+y = california_housing.target
+X_train, X_test, y_train, y_test = train_test_split(X, y,
+test_size=0.25, random_state=42)
+# Create a decision tree regressor
+from sklearn.tree import DecisionTreeRegressor
+tree_regressor = DecisionTreeRegressor(max_depth=3)
+# Train the regressor on the training data
+tree_regressor.fit(X_train, y_train)
+# Make predictions on the test data
+y_pred = tree_regressor.predict(X_test)
+# Compute the mean squared error
+from sklearn.metrics import mean_squared_error
+mse = mean_squared_error(y_test, y_pred)
+print(f'Mean Squared Error: {mse:.2f}')
+```
+
 ## How Decision Trees Work
 
 WIP...
