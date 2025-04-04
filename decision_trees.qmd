@@ -141,6 +141,15 @@ data['MedVal'] = california_housing.target
 data.head()
 ```
 
+The data contains information about various features of houses in California. Let's take a looks at the description of the dataset to understand what each feature represents.
+
+```{python}
+#| label: show-description
+ 
+print(california_housing.DESCR)
+```
+
+
 ```{python}
 #| label: train-decision-tree-regression
 
