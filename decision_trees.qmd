@@ -125,15 +125,26 @@ Visualizing the decision boundaries can help us understand how the decision tree
 
 ## Decision Trees for Regression
 
-Decision trees can be applied to regression problems as well. Our workflow will be almost analogous to the one we used for classification. We will use the California housing dataset, which contains information about various features of houses in California and their corresponding prices. The goal is to predict the price of a house based on its features.
+Decision trees can be applied to regression problems as well. Our workflow will be almost analogous to the one we used for classification. We will use the California housing dataset, which contains information about various features of houses in California and their corresponding prices. The goal is to predict the price of a house based on its features. @tbl-california-housing shows a preview with a few first rows from the dataset.
+
+```{python}
+#| label: tbl-california-housing
+#| tbl-cap: First few rows of the California housing dataset
+
+# Load the California housing dataset
+from sklearn.datasets import fetch_california_housing
+california_housing = fetch_california_housing()
+
+data = pd.DataFrame(california_housing.data, columns=california_housing.feature_names)
+data['MedVal'] = california_housing.target
+
+data.head()
+```
 
 ```{python}
 #| label: train-decision-tree-regression
 
-# Load the California housing dataset
-from sklearn.datasets import fetch_california_housing
 
-california_housing = fetch_california_housing()
 X = california_housing.data
 y = california_housing.target
 X_train, X_test, y_train, y_test = train_test_split(X, y,
