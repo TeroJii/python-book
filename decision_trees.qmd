@@ -149,6 +149,21 @@ The data contains information about various features of houses in California. Le
 print(california_housing.DESCR)
 ```
 
+The description gives us a pretty thorough overview of what we are dealing with. The `MedVal` column is what we are trying to predict, and it represents the median value of a house in California in units of $100,000. @fig-medval-hist shows the distribution of the median house values in the dataset.
+
+```{python}	
+#| label: fig-medval-hist
+#| fig-cap: Histogram showing the distribution of the median house values in the California housing dataset.
+#| code-fold: true
+
+x = sns.histplot(data['MedVal'], bins=30, kde=True)
+x.set_xlabel('Median House Value (in $100,000)')
+
+# show the plot
+plt.show()
+```
+
+The distribution seems to have a Poisson-like shape, with a long tail on the right. The only thing that sticks out is the bar around $500,000, which might indicate that the prices are capped at that value. For now we will ignore this and proceed with the regression task.
 
 ```{python}
 #| label: train-decision-tree-regression
